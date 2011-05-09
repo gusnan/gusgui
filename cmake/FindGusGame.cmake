@@ -8,26 +8,37 @@
 # 
 
 IF (WIN32)
-
-	FIND_PATH( GLEW_INCLUDE_DIR gusgame/gusgame.h
-		$ENV{PROGRAMFILES}/GLEW/include
+	FIND_PATH( GUSGAME_INCLUDE_DIR GusGame/GusGame.h
+		$ENV{PROGRAMFILES}/GusGame/include
 		$ENV{MINGDIR}/include/
-		${PROJECT_SOURCE_DIR}/src/nvgl/glew/include
-		DOC "The directory where GL/glew.h resides")
+		$ENV{MINGDIR}/include/GusGame
+		$ENV{MINGDIR}
+		/usr/local
+		/usr/local/include
+		/usr/local/GusGame
+		/usr/local/include/GusGame
+		/local
+		/local/include
+		/local/GusGame
+		/local/include/GusGame
+		/GusGame
+		DOC "The directory where GusGame/GusGame.h resides")
 	FIND_LIBRARY( GUSGAME_LIBRARY
-		NAMES glew GLEW glew32 glew32s
+		NAMES GUSGAME gusgame GusGame gusgame.a GusGame.a libgusgame.a libgusgame
 		PATHS
-		$ENV{PROGRAMFILES}/GLEW/lib
-		$ENV{MINGDIR}/GLEW/lib/
-		$ENV{MINGDIR}/lib/GL
-		${PROJECT_SOURCE_DIR}/src/nvgl/glew/bin
-		${PROJECT_SOURCE_DIR}/src/nvgl/glew/lib
+		$ENV{PROGRAMFILES}/GusGame/lib
+		$ENV{MINGDIR}/GusGame/lib/
+		#$ENV{MINGDIR}/lib/GL
+		$ENV{MINGDIR}/
+		/local/lib
+		/lib/
+		/
 		DOC "The GusGame library")
 ELSE (WIN32)
 	FIND_PATH( GUSGAME_INCLUDE_DIR GusGame/GusGame.h
 		#GusGame/GusGame.h
-		$ENV{PROGRAMFILES}/GLEW/include
-		$ENV{PROGRAMFILES}
+		#$ENV{PROGRAMFILES}/GLEW/include
+		#$ENV{PROGRAMFILES}
 		/usr/include
 		/usr/local/include
 		/usr/local/include/gusgame

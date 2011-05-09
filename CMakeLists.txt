@@ -81,6 +81,17 @@ message(STATUS "CMAKE_INSTALL_PREFIX: ${CMAKE_INSTALL_PREFIX}")
 
 message(STATUS "CMAKE_SOURCE_DIR: ${CMAKE_SOURCE_DIR}")
 
+
+find_package(SDL REQUIRED)
+find_package(SDL_ttf REQUIRED)
+find_package(SDL_image REQUIRED)
+find_package(OpenGL REQUIRED)
+
+find_package(GusGame REQUIRED)
+
+message(STATUS "GusGame Library: ${GUSGAME_LIBRARY}")
+
+
 # -------------------------------------------------------
 #	Gui Object Source 
 # -------------------------------------------------------
@@ -158,7 +169,7 @@ find_package(OpenGL REQUIRED)
 
 find_package(GusGame REQUIRED)
 
-
+message(STATUS "GusGame Library: ${GUSGAME_LIBRARY}")
 
 #include_directories(include ${SDL_INCLUDE_DIR})
 #include_directories(include ${SDL_IMAGE_INCLUDE_DIR})
@@ -169,12 +180,15 @@ find_package(GusGame REQUIRED)
 include_directories(include ${CMAKE_SOURCE_DIR}/src)
 include_directories(include ${CMAKE_SOURCE_DIR}/src/Objects)
 
+if (MSYS)
+	message(STATUS "MingDir: $ENV{%MINGDIR%}")
+endif (MSYS)
+
 # Print some include dirs
 message(STATUS "SDL_INCLUDE_DIR: ${SDL_INCLUDE_DIR}")
 message(STATUS "SDL_IMAGE_INCLUDE_DIR: ${SDLIMAGE_INCLUDE_DIR}")
 
 message(STATUS "GUSGAME_INCLUDE_DIR: ${GUSGAME_INCLUDE_DIR}")
-
 
 if (USE_GLEW) 
 	set (MY_GLEW_LIB ${GLEW_LIBRARY})
@@ -203,7 +217,7 @@ set(ALL_LIBS
 
 link_libraries(${ALL_LIBS})
 
-add_library(${LIBRARY_NAME} SHARED ${SOURCES})
+add_library(${LIBRARY_NAME} STATIC ${SOURCES})
 
 set(EX_DIR examples)
 
@@ -235,7 +249,7 @@ target_link_libraries(example1 ${ALL_LIBS} ${LIBRARY_NAME} ${MY_LIBS})
 #add_executable(example3 WIN32 ${EX_DIR}/example3.cpp)
 #target_link_libraries(example3 ${ALL_LIBS} ${LIBRARY_NAME})
 
-#add_executable(example4 WIN32 ${EX_DIR}/example4.cpp)
-#target_link_libraries(example4 ${ALL_LIBS} ${LIBRARY_NAME})
+add_executable(example4 WIN32 ${EX_DIR}/example4.cpp)
+target_link_libraries(example4 ${ALL_LIBS} ${LIBRARY_NAME} ${MY_LIBS})
 
 install_targets(/lib ${LIBRARY_NAME})
