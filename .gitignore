@@ -1,0 +1,6 @@
+build/
+lib/libgusgui.so
+lib/libgusgui.dll
+lib/libgusgui.dll.a
+lib/Debug/
+lib/Release/
