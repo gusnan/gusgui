@@ -1,4 +1,5 @@
 build/
+lib/libgusgui.a
 lib/libgusgui.so
 lib/libgusgui.dll
 lib/libgusgui.dll.a
