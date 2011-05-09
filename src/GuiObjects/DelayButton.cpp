@@ -23,8 +23,6 @@
 #include <iostream>
 #include <sstream>
 
-#include <boost/shared_ptr.hpp>
-
 #include "GusGame/GusGame.h"
 
 using namespace Gus;
