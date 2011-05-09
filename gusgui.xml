@@ -1,0 +1,41 @@
+<root identifier="sciteproj project file">
+	<group name='src' expanded='TRUE'>
+		<group name='GuiObjects' expanded='TRUE'>
+			<file>./src/GuiObjects/Button.cpp</file>
+			<file>./src/GuiObjects/Button.h</file>
+			<file>./src/GuiObjects/CheckBox.cpp</file>
+			<file>./src/GuiObjects/CheckBox.h</file>
+			<file>./src/GuiObjects/DelayButton.cpp</file>
+			<file>./src/GuiObjects/DelayButton.h</file>
+			<file>./src/GuiObjects/FadeButton.cpp</file>
+			<file>./src/GuiObjects/FadeButton.h</file>
+			<file>./src/GuiObjects/FileListGui.cpp</file>
+			<file>./src/GuiObjects/FileListGui.h</file>
+			<file>./src/GuiObjects/GuiObject.cpp</file>
+			<file>./src/GuiObjects/GuiObject.h</file>
+			<file>./src/GuiObjects/InvisibleGuiObject.cpp</file>
+			<file>./src/GuiObjects/InvisibleGuiObject.h</file>
+			<file>./src/GuiObjects/LoaderMeter.cpp</file>
+			<file>./src/GuiObjects/LoaderMeter.h</file>
+			<file>./src/GuiObjects/Panel.cpp</file>
+			<file>./src/GuiObjects/Panel.h</file>
+			<file>./src/GuiObjects/TextInput.cpp</file>
+			<file>./src/GuiObjects/TextInput.h</file>
+			<file>./src/GuiObjects/TextMarker.cpp</file>
+			<file>./src/GuiObjects/TextMarker.h</file>
+		</group>
+		<file>./src/GuiData.cpp</file>
+		<file>./src/GuiData.h</file>
+		<file>./src/GuiDraw.cpp</file>
+		<file>./src/GuiDraw.h</file>
+		<file>./src/GuiHandler.cpp</file>
+		<file>./src/GuiHandler.h</file>
+		<file>./src/GuiLib.h</file>
+		<file>./src/GusGui.h</file>
+	</group>
+	<file>./CMakeLists.txt</file>
+	<file>./cmake/FindGusGame.cmake</file>
+	<group name='examples' expanded='TRUE'>
+		<file>./examples/example1.cpp</file>
+	</group>
+</root>
