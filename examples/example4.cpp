@@ -30,6 +30,10 @@ using namespace ExceptionLib;
 using namespace GraphicsLib;
 using namespace EventLib;
 
+#include "GusGui.h"
+
+using namespace GuiLib;
+
 bool quit=false;
 
 /**
@@ -71,6 +75,7 @@ int main(int argc,char **argv)
 {
 	EventHandler *eventHandler=NULL;
 	GLBitmap *mouseBitmap=NULL;
+	Font *font=NULL;
 	
 	try {
 		// init the log - this function takes a string (the log file filename) as indata,
@@ -99,6 +104,12 @@ int main(int argc,char **argv)
 		mouseBitmap=new GLBitmap("../data/mouse.png");
 		
 		System::instance()->getMouse()->setMouseBitmap(mouseBitmap);
+		
+		FontHandler::instance();
+		
+		font=new Font("../data/FreeSans.ttf",12);
+		
+		GuiData::setGuiFont(font);
 		
 	}
 	catch (Exception &e)
@@ -129,10 +140,13 @@ int main(int argc,char **argv)
 		GraphicsHandler::instance()->updateScreen();
 	} while(!quit);
 	
+	delete font;
 	delete mouseBitmap;
 	
 	// Remove our custom eventHandler
 	delete eventHandler;
+	
+	FontHandler::destroy();
 	
 	// done with system stuff
 	System::destroy();
