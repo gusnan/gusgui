@@ -34,7 +34,7 @@ using namespace Gus::LogLib;
 /**
  *
  */
-namespace GuiLib
+namespace GusGui
 {
 
 GLBitmap *GuiData::menuBorder_Top=0;

@@ -40,7 +40,7 @@ using namespace Gus::EventLib;
 /**
  *
  */
-namespace GuiLib
+namespace GusGui
 {
 
 /**

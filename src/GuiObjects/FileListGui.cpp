@@ -35,7 +35,10 @@ using namespace Gus::EventLib;
 
 #include "FileListGui.h"
 
-namespace GuiLib
+/**
+ *
+ */
+namespace GusGui
 {
 
 /**

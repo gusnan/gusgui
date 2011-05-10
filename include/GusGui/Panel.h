@@ -23,7 +23,7 @@
 /**
  *
  */
-namespace GuiLib
+namespace GusGui
 {
 	
 /**

@@ -32,7 +32,7 @@ using namespace EventLib;
 
 #include "GusGui/GusGui.h"
 
-using namespace GuiLib;
+using namespace GusGui;
 
 bool quit=false;
 

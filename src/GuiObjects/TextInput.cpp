@@ -44,7 +44,7 @@ using namespace Gus::EventLib;
 /**
  *
  */
-namespace GuiLib
+namespace GusGui
 {
 	
 const float TextInput::c_FlashDelay=0.3f;

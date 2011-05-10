@@ -38,7 +38,7 @@ using namespace Gus::LogLib;
 /**
  *
  */
-namespace GuiLib
+namespace GusGui
 {
 	
 /**

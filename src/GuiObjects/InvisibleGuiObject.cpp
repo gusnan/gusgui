@@ -33,7 +33,10 @@ using namespace Gus::EventLib;
 
 #include "InvisibleGuiObject.h"
 
-namespace GuiLib
+/**
+ *
+ */
+namespace GusGui
 {
 
 /**
