@@ -93,6 +93,7 @@ find_package(GusGame REQUIRED)
 
 message(STATUS "GusGame Library: ${GUSGAME_LIBRARY}")
 
+include_directories(include ${GUSGAME_INCLUDE_DIR})
 
 # -------------------------------------------------------
 #	Gui Object Source 
