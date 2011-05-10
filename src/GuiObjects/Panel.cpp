@@ -32,8 +32,8 @@ using namespace Gus::EventLib;
 #include "GuiObject.h"
 #include "Panel.h"
 
-#include "../GuiDraw.h"
-#include "../GuiData.h"
+#include "GuiDraw.h"
+#include "GuiData.h"
 
 /**
  *

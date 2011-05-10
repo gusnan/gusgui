@@ -31,8 +31,8 @@ using namespace Gus::EventLib;
 
 #include "CheckBox.h"
 
-#include "../GuiData.h"
-#include "../GuiHandler.h"
+#include "GuiData.h"
+#include "GuiHandler.h"
 
 /**
  *

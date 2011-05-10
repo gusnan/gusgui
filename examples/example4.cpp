@@ -30,7 +30,7 @@ using namespace ExceptionLib;
 using namespace GraphicsLib;
 using namespace EventLib;
 
-#include "GusGui.h"
+#include "GusGui/GusGui.h"
 
 using namespace GuiLib;
 

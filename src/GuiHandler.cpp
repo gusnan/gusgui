@@ -28,9 +28,9 @@ using namespace Gus;
 using namespace Gus::GraphicsLib;
 using namespace Gus::EventLib;
 
-#include "GuiObjects/GuiObject.h"
-#include "GuiObjects/Button.h"
-#include "GuiObjects/Panel.h"
+#include "GuiObject.h"
+#include "Button.h"
+#include "Panel.h"
 
 #include "GuiHandler.h"
 

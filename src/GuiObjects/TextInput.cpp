@@ -31,9 +31,9 @@ using namespace Gus::EventLib;
 
 #include "GuiObject.h"
 
-#include "../GuiHandler.h"
-#include "../GuiData.h"
-#include "../GuiDraw.h"
+#include "GuiHandler.h"
+#include "GuiData.h"
+#include "GuiDraw.h"
 
 #include "TextMarker.h"
 #include "TextInput.h"

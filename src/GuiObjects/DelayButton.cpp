@@ -35,9 +35,9 @@ using namespace Gus::EventLib;
 #include "Button.h"
 #include "DelayButton.h"
 
-#include "../GuiDraw.h"
-#include "../GuiData.h"
-#include "../GuiHandler.h"
+#include "GuiDraw.h"
+#include "GuiData.h"
+#include "GuiHandler.h"
 
 
 /**

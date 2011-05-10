@@ -28,7 +28,7 @@ using namespace Gus::GraphicsLib;
 using namespace Gus::LogLib;
 using namespace Gus::EventLib;
 
-#include "GuiObjects/GuiObject.h"
+#include "GuiObject.h"
 
 #include "GuiData.h"
 #include "GuiHandler.h"

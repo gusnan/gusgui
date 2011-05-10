@@ -22,17 +22,17 @@
 /**
  *
  */
-#include "GuiObjects/GuiObject.h"
-#include "GuiObjects/Button.h"
-#include "GuiObjects/Panel.h"
-#include "GuiObjects/CheckBox.h"
-#include "GuiObjects/DelayButton.h"
-#include "GuiObjects/FadeButton.h"
-#include "GuiObjects/TextMarker.h"
-#include "GuiObjects/TextInput.h"
-#include "GuiObjects/InvisibleGuiObject.h"
-#include "GuiObjects/LoaderMeter.h"
-#include "GuiObjects/FileListGui.h"
+#include "GuiObject.h"
+#include "Button.h"
+#include "Panel.h"
+#include "CheckBox.h"
+#include "DelayButton.h"
+#include "FadeButton.h"
+#include "TextMarker.h"
+#include "TextInput.h"
+#include "InvisibleGuiObject.h"
+#include "LoaderMeter.h"
+#include "FileListGui.h"
 
 #include "GuiHandler.h"
 #include "GuiData.h"
