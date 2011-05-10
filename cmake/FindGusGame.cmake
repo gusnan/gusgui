@@ -24,7 +24,7 @@ IF (WIN32)
 		/GusGame
 		DOC "The directory where GusGame/GusGame.h resides")
 	FIND_LIBRARY( GUSGAME_LIBRARY
-		NAMES GUSGAME gusgame GusGame gusgame.a GusGame.a libgusgame.a libgusgame libgusgame.dll.a
+		NAMES GUSGAME gusgame GusGame gusgame.a GusGame.a libgusgame.a libgusgame
 		PATHS
 		$ENV{PROGRAMFILES}/GusGame/lib
 		$ENV{MINGDIR}/GusGame/lib/
