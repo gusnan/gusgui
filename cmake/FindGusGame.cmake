@@ -37,7 +37,7 @@ IF (WIN32)
 ELSE (WIN32)
 	FIND_PATH( GUSGAME_INCLUDE_DIR GusGame/GusGame.h
 		#GusGame/GusGame.h
-		#$ENV{PROGRAMFILES}/GLEW/include
+		#$ENV{PROGRAMFILES}/GusGame/include
 		#$ENV{PROGRAMFILES}
 		/usr/include
 		/usr/local/include
