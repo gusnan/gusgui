@@ -12,33 +12,32 @@
 			<file>./src/GuiObjects/Panel.cpp</file>
 			<file>./src/GuiObjects/TextInput.cpp</file>
 			<file>./src/GuiObjects/TextMarker.cpp</file>
-
-			</group>
+		</group>
 		<file>./src/GuiData.cpp</file>
 		<file>./src/GuiDraw.cpp</file>
 		<file>./src/GuiHandler.cpp</file>
 	</group>
-	<file>./CMakeLists.txt</file>
-	<file>./cmake/FindGusGame.cmake</file>
-	<group name='include' expanded='FALSE'>
-			<file>./include/GusGui/Button.h</file>
-			<file>./include/GusGui/CheckBox.h</file>
-			<file>./include/GusGui/DelayButton.h</file>
-			<file>./include/GusGui/FadeButton.h</file>
-			<file>./include/GusGui/FileListGui.h</file>
-			<file>./include/GusGui/InvisibleGuiObject.h</file>
-			<file>./include/GusGui/InvisibleGuiObject.h</file>
-			<file>./include/GusGui/LoaderMeter.h</file>
-			<file>./include/GusGui/Panel.h</file>
-			<file>./include/GusGui/TextInput.h</file>
-			<file>./include/GusGui/TextMarker.h</file>
-			<file>./include/GusGui/GuiData.h</file>
-			<file>./include/GusGui/GuiDraw.h</file>
-			<file>./include/GusGui/GuiLib.h</file>
-			<file>./include/GusGui/GuiHandler.h</file>
-			<file>./include/GusGui/GusGui.h</file>
+	<group name='include' expanded='TRUE'>
+		<file>./include/GusGui/Button.h</file>
+		<file>./include/GusGui/CheckBox.h</file>
+		<file>./include/GusGui/DelayButton.h</file>
+		<file>./include/GusGui/FadeButton.h</file>
+		<file>./include/GusGui/FileListGui.h</file>
+		<file>./include/GusGui/InvisibleGuiObject.h</file>
+		<file>./include/GusGui/InvisibleGuiObject.h</file>
+		<file>./include/GusGui/LoaderMeter.h</file>
+		<file>./include/GusGui/Panel.h</file>
+		<file>./include/GusGui/TextInput.h</file>
+		<file>./include/GusGui/TextMarker.h</file>
+		<file>./include/GusGui/GuiData.h</file>
+		<file>./include/GusGui/GuiDraw.h</file>
+		<file>./include/GusGui/GuiLib.h</file>
+		<file>./include/GusGui/GuiHandler.h</file>
+		<file>./include/GusGui/GusGui.h</file>
 	</group>
-	<group name='examples' expanded='TRUE'>
+	<group name='examples' expanded='FALSE'>
 		<file>./examples/example1.cpp</file>
 	</group>
+	<file>./CMakeLists.txt</file>
+	<file>./cmake/FindGusGame.cmake</file>
 </root>
