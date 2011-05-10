@@ -17,12 +17,26 @@
  *	along with GusGui.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-#include <cstdlib>
+#ifndef __HEADER_GUILIB_
+#define __HEADER_GUILIB_
 
 /**
  *
  */
-int main(int argc,char **argv)
-{
-	return EXIT_SUCCESS;
-}
+#include "GuiObject.h"
+#include "Button.h"
+#include "Panel.h"
+#include "CheckBox.h"
+#include "DelayButton.h"
+#include "FadeButton.h"
+#include "TextMarker.h"
+#include "TextInput.h"
+#include "InvisibleGuiObject.h"
+#include "LoaderMeter.h"
+#include "FileListGui.h"
+
+#include "GuiHandler.h"
+#include "GuiData.h"
+#include "GuiDraw.h"
+
+#endif /*__HEADER_GUILIB_*/

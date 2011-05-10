@@ -17,12 +17,34 @@
  *	along with GusGui.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-#include <cstdlib>
+#ifndef __HEADER_INVISIBLE_GUI_OBJECT_
+#define __HEADER_INVISIBLE_GUI_OBJECT_
+
 
 /**
  *
  */
-int main(int argc,char **argv)
+namespace GuiLib
 {
-	return EXIT_SUCCESS;
-}
+
+/**
+ *
+ */
+class InvisibleGuiObject : public GuiObject
+{
+public:
+	InvisibleGuiObject();
+	virtual ~InvisibleGuiObject();
+
+	virtual void draw(const Vector2d &pos,float opacity=1.0f);
+
+	virtual void update();
+	
+	
+};
+
+// end of namespace
+// ----------------
+};
+
+#endif /*__HEADER_INVISIBLE_GUI_OBJECT_*/

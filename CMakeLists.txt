@@ -95,6 +95,10 @@ message(STATUS "GusGame Library: ${GUSGAME_LIBRARY}")
 
 include_directories(include ${GUSGAME_INCLUDE_DIR})
 
+include_directories(include ${CMAKE_SOURCE_DIR}/include)
+include_directories(include ${CMAKE_SOURCE_DIR}/include/GusGui)
+
+
 # -------------------------------------------------------
 #	Gui Object Source 
 # -------------------------------------------------------
@@ -102,27 +106,16 @@ set(SRC src/GuiObjects)
 
 set(OBJECT_SOURCES
 	${SRC}/Button.cpp
-	${SRC}/Button.h
 	${SRC}/CheckBox.cpp
-	${SRC}/CheckBox.h
 	${SRC}/DelayButton.cpp
-	${SRC}/DelayButton.h
 	${SRC}/FadeButton.cpp
-	${SRC}/FadeButton.h
 	${SRC}/FileListGui.cpp
-	${SRC}/FileListGui.h
 	${SRC}/GuiObject.cpp
-	${SRC}/GuiObject.h
 	${SRC}/InvisibleGuiObject.cpp
-	${SRC}/InvisibleGuiObject.h
 	${SRC}/LoaderMeter.cpp
-	${SRC}/LoaderMeter.h
 	${SRC}/Panel.cpp
-	${SRC}/Panel.h
 	${SRC}/TextInput.cpp
-	${SRC}/TextInput.h
 	${SRC}/TextMarker.cpp
-	${SRC}/TextMarker.h
 )
 
 #add_library(logLib STATIC ${LOG_SOURCES})
@@ -135,13 +128,8 @@ set(SRC src/)
 
 set(LIB_SOURCES
 	${SRC}/GuiData.cpp
-	${SRC}/GuiData.h
 	${SRC}/GuiDraw.cpp
-	${SRC}/GuiDraw.h
 	${SRC}/GuiHandler.cpp
-	${SRC}/GuiHandler.h
-	${SRC}/GuiLib.h
-	${SRC}/GusGui.h
 )
 
 #add_library(exceptionLib STATIC ${EXCEPTION_SOURCES})
@@ -150,10 +138,30 @@ set(LIB_SOURCES
 
 #add_library(eventLib STATIC ${EVENTLIB_SOURCES})
 
-
 set(SOURCES
 	${OBJECT_SOURCES}
 	${LIB_SOURCES}
+)
+
+set(INC include/GusGui)
+
+set(INCLUDE_FILES
+	${INC}/Button.h
+	${INC}/DelayButton.h  
+	${INC}/FileListGui.h  
+	${INC}/GuiDraw.h     
+	${INC}/GuiLib.h     
+	${INC}/GusGui.h              
+	${INC}/LoaderMeter.h  
+	${INC}/TextInput.h
+	${INC}/CheckBox.h  
+	${INC}/FadeButton.h   
+	${INC}/GuiData.h      
+	${INC}/GuiHandler.h  
+	${INC}/GuiObject.h  
+	${INC}/InvisibleGuiObject.h  
+	${INC}/Panel.h        
+	${INC}/TextMarker.h
 )
 
 if (WIN32)

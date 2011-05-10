@@ -17,12 +17,55 @@
  *	along with GusGui.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-#include <cstdlib>
+#ifndef __HEADER_TEXT_MARKER_
+#define __HEADER_TEXT_MARKER_
 
 /**
  *
  */
-int main(int argc,char **argv)
+namespace GuiLib
 {
-	return EXIT_SUCCESS;
-}
+
+/**
+ *
+ */
+class TextMarker
+{	
+public:
+	TextMarker();
+	TextMarker(const std::string &text);
+	virtual ~TextMarker();
+
+	TextMarker &operator=(const TextMarker &mark);
+
+
+	void setPosition(int pos);
+	int getPosition() const;
+
+	int getPixels() const;
+	//void SetPixelPos(int a);
+
+	std::string getText() const;
+
+	TextMarker operator++(int a);
+	TextMarker operator--(int a);
+
+	bool operator==(const TextMarker &mark);
+	bool operator!=(const TextMarker &mark);
+
+	void setText(const std::string &text);
+
+protected:
+
+	int m_PosPixels;
+	int m_Pos;
+
+	std::string m_Text;
+	
+};
+
+// end of namespace
+// ----------------
+};
+
+#endif

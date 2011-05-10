@@ -17,12 +17,45 @@
  *	along with GusGui.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-#include <cstdlib>
+#ifndef __HEADER_FADE_BUTTON_
+#define __HEADER_FADE_BUTTON_
 
 /**
  *
  */
-int main(int argc,char **argv)
+namespace GuiLib
 {
-	return EXIT_SUCCESS;
-}
+
+/**
+ *
+ */
+class FadeButton : public Button
+{
+public:
+	FadeButton(Rect rect);
+	virtual ~FadeButton();
+
+	void setPressed();
+
+	virtual void draw(const Vector2d& pos,float opacity=1.0f);
+
+	virtual void update();
+
+	void setShowHover(bool hover);
+
+	bool onLeftMouseButtonPressed(const Vector2d& pos);
+	void onLeftMouseButtonReleased(const Vector2d& pos);
+
+	virtual void onMouseMove(const Vector2d& pos);
+
+protected:
+	float m_Fade;
+
+	bool m_ShowHover;
+};
+	
+// end of namespace
+// ----------------
+};
+
+#endif

@@ -17,12 +17,38 @@
  *	along with GusGui.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-#include <cstdlib>
+#ifndef __HEADER_GUI_FILELIST_
+#define __HEADER_GUI_FILELIST_
 
 /**
  *
  */
-int main(int argc,char **argv)
+namespace GuiLib
 {
-	return EXIT_SUCCESS;
-}
+
+
+/**
+ * A filelist which is to be used for the load and save dialogs.
+ */
+class FileListGui : public GuiObject
+{
+public:
+	FileListGui(Rect rect);
+	virtual ~FileListGui();
+
+	virtual void draw(const Vector2d &pos,float opacity=1.0f);
+
+	virtual void update();
+	
+protected:
+	
+	// How many lines of text are visible?
+	int m_VisibleLines;
+	
+};
+
+// end of namespace
+// ----------------
+};
+
+#endif /*__HEADER_GUI_FILELIST_*/

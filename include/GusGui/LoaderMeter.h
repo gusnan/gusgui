@@ -17,12 +17,40 @@
  *	along with GusGui.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-#include <cstdlib>
+#ifndef __HEADER_LOADER_METER_
+#define __HEADER_LOADER_METER_
 
 /**
  *
  */
-int main(int argc,char **argv)
+namespace GuiLib
 {
-	return EXIT_SUCCESS;
-}
+
+/**
+ *
+ */
+class LoaderMeter : public GuiObject
+{
+public:
+	LoaderMeter(Rect rect,int maxValue);
+	virtual ~LoaderMeter();
+
+	virtual void draw(const Vector2d &pos,float opacity=1.0f);
+
+	virtual void update();
+
+	void increaseValue();
+
+protected:
+	
+	int m_MaxValue;
+	int m_Value;
+
+	int m_FullWidth;
+};
+	
+// end of namespace
+// ----------------
+};
+
+#endif /*__HEADER_LOADER_METER_*/
