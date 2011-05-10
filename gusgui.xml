@@ -17,7 +17,7 @@
 		<file>./src/GuiDraw.cpp</file>
 		<file>./src/GuiHandler.cpp</file>
 	</group>
-	<group name='include' expanded='TRUE'>
+	<group name='include' expanded='FALSE'>
 		<file>./include/GusGui/Button.h</file>
 		<file>./include/GusGui/CheckBox.h</file>
 		<file>./include/GusGui/DelayButton.h</file>
@@ -35,8 +35,12 @@
 		<file>./include/GusGui/GuiHandler.h</file>
 		<file>./include/GusGui/GusGui.h</file>
 	</group>
-	<group name='examples' expanded='FALSE'>
-		<file>./examples/example1.cpp</file>
+	<group name='examples' expanded='TRUE'>
+		<group name='example1' expanded='TRUE'>
+			<file>./examples/example1.cpp</file>
+		</group>
+		<group name='example2' expanded='FALSE'>
+		</group>
 	</group>
 	<file>./CMakeLists.txt</file>
 	<file>./cmake/FindGusGame.cmake</file>
