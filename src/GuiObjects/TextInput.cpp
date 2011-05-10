@@ -1073,7 +1073,7 @@ void TextInput::setCursorActive()
 void TextInput::update()
 {
 	//m_Timer+=Timer::diffTime;
-	m_Timer+=Timer::instance()->getDeltaTime();
+	m_Timer+=(float)Timer::instance()->getDeltaTime();
 	
 	// We want the timer to stay lower that c_FlashDelay
 	if (m_Timer>c_FlashDelay) {

@@ -94,7 +94,7 @@ void FadeButton::update()
 	float m_Speed=4.0f;
 	
 	if (m_Fade>0.0f) {
-		m_Fade-=(Timer::instance()->getDeltaTime()*m_Speed);
+		m_Fade-=(float)(Timer::instance()->getDeltaTime()*m_Speed);
 	} else {
 		m_Fade=0.0f;
 	}

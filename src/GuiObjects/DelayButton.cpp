@@ -121,7 +121,7 @@ void DelayButton::update()
 {
 	//std::cout << "DelayButton::Update" << std::endl;
 	if (m_Delay>0.0f) {
-		m_Delay-=(Timer::instance()->getDeltaTime()*m_Speed);
+		m_Delay-=(float)(Timer::instance()->getDeltaTime()*m_Speed);
 	} else {
 		m_Delay=0.0f;
 	}
