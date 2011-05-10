@@ -58,7 +58,9 @@ else (DEBUG)
 	
 endif (DEBUG)
 	
-#set(DLL_FLAGS -DBUILDING_GUSGAME_DLL)
+set(DLL_FLAGS -DBUILDING_GUSGAME_DLL)
+
+set(BUILD_SHARED_LIBS on)
 
 SET(CMAKE_SHARED_LIBRARY_CXX_FLAGS "${CMAKE_SHARED_LIBRARY_CXX_FLAGS} -DBUILDING_GUSGAME_DLL")
 
@@ -215,9 +217,14 @@ set(ALL_LIBS
    ${SDLIMAGE_LIBRARY}
 )
 
-link_libraries(${ALL_LIBS})
+set(MY_LIBS
+	${GUSGAME_LIBRARY}
+)
 
-add_library(${LIBRARY_NAME} STATIC ${SOURCES})
+link_libraries(${ALL_LIBS} ${MY_LIBS})
+
+add_library(${LIBRARY_NAME} SHARED ${SOURCES})
+target_link_libraries(${LIBRARY_NAME})  #${ALL_LIBS})
 
 set(EX_DIR examples)
 
@@ -236,12 +243,8 @@ include_directories(include ${GUSGAME_INCLUDE})
 
 LINK_DIRECTORIES( ${LINK_DIRECTORIES} ${LIBRARY_OUTPUT_PATH} )
 
-set(MY_LIBS
-	${GUSGAME_LIBRARY}
-)
-
 add_executable(example1 WIN32 ${EX_DIR}/example1.cpp)
-target_link_libraries(example1 ${ALL_LIBS} ${LIBRARY_NAME} ${MY_LIBS})
+target_link_libraries(example1 ${ALL_LIBS}  ${MY_LIBS} ${LIBRARY_NAME})
 
 #add_executable(example2 WIN32 ${EX_DIR}/example2.cpp)
 #target_link_libraries(example2 ${ALL_LIBS} ${LIBRARY_NAME})
@@ -250,6 +253,6 @@ target_link_libraries(example1 ${ALL_LIBS} ${LIBRARY_NAME} ${MY_LIBS})
 #target_link_libraries(example3 ${ALL_LIBS} ${LIBRARY_NAME})
 
 add_executable(example4 WIN32 ${EX_DIR}/example4.cpp)
-target_link_libraries(example4 ${ALL_LIBS} ${LIBRARY_NAME} ${MY_LIBS})
+target_link_libraries(example4 ${ALL_LIBS} ${MY_LIBS} ${LIBRARY_NAME})
 
 install_targets(/lib ${LIBRARY_NAME})
