@@ -131,7 +131,7 @@ int main(int argc,char **argv)
 		
 		FontHandler::instance();
 		
-		font=new Font("../data/FreeSans.ttf",12);
+		font=new Font("FreeSans.ttf",12);
 		
 		GuiData::setGuiFont(font);
 		
