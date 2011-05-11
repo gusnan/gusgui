@@ -125,7 +125,7 @@ int main(int argc,char **argv)
 		// set the used EventHandler to the one we just created.
 		EventHelper::instance()->setEventHandler(eventHandler);
 		
-		mouseBitmap=new GLBitmap("../data/mouse.png");
+		mouseBitmap=new GLBitmap("mouse.png");
 		
 		System::instance()->getMouse()->setMouseBitmap(mouseBitmap);
 		
