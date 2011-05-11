@@ -190,6 +190,8 @@ message(STATUS "GusGame Library: ${GUSGAME_LIBRARY}")
 include_directories(include ${CMAKE_SOURCE_DIR}/src)
 include_directories(include ${CMAKE_SOURCE_DIR}/src/Objects)
 
+include_directories(include ${GUSGAME_INCLUDE_DIR})
+
 if (MSYS)
 	message(STATUS "MingDir: $ENV{%MINGDIR%}")
 endif (MSYS)
