@@ -256,13 +256,13 @@ LINK_DIRECTORIES( ${LINK_DIRECTORIES} ${LIBRARY_OUTPUT_PATH} )
 add_executable(example1 WIN32 ${EX_DIR}/example1.cpp)
 target_link_libraries(example1 ${ALL_LIBS}  ${MY_LIBS} ${LIBRARY_NAME})
 
-#add_executable(example2 WIN32 ${EX_DIR}/example2.cpp)
-#target_link_libraries(example2 ${ALL_LIBS} ${LIBRARY_NAME})
+add_executable(example2 WIN32 ${EX_DIR}/example2.cpp)
+target_link_libraries(example2 ${ALL_LIBS} ${MY_LIBS} ${LIBRARY_NAME})
 
 #add_executable(example3 WIN32 ${EX_DIR}/example3.cpp)
 #target_link_libraries(example3 ${ALL_LIBS} ${LIBRARY_NAME})
 
-add_executable(example4 WIN32 ${EX_DIR}/example4.cpp)
-target_link_libraries(example4 ${ALL_LIBS} ${MY_LIBS} ${LIBRARY_NAME})
+#add_executable(example4 WIN32 ${EX_DIR}/example4.cpp)
+#target_link_libraries(example4 ${ALL_LIBS} ${MY_LIBS} ${LIBRARY_NAME})
 
 install_targets(/lib ${LIBRARY_NAME})
