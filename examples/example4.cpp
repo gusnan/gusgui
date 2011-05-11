@@ -67,6 +67,29 @@ public:
 	}
 };
 
+/**
+ * this is a panel for the example
+ * A panel is a container that contains several different GuiObjects. A dialog
+ * is a great example of a panel.
+ */
+class ExamplePanel : Panel
+{
+public:
+	ExamplePanel() : Panel(Rect(100,100,400,300))
+	{
+		
+		m_ExampleButton=new Button(Rect(10,10,100,20),NULL,true);
+	}
+	
+	virtual ~ExamplePanel()
+	{
+		delete m_ExampleButton;
+	}
+	
+protected:
+	Button *m_ExampleButton;
+};
+
 
 /**
  * main - the standard c++ program main entry point
@@ -76,6 +99,7 @@ int main(int argc,char **argv)
 	EventHandler *eventHandler=NULL;
 	GLBitmap *mouseBitmap=NULL;
 	Font *font=NULL;
+	UserEvent *testEvent=NULL;
 	
 	try {
 		// init the log - this function takes a string (the log file filename) as indata,
@@ -101,15 +125,17 @@ int main(int argc,char **argv)
 		// set the used EventHandler to the one we just created.
 		EventHelper::instance()->setEventHandler(eventHandler);
 		
-		mouseBitmap=new GLBitmap("../data/mouse.png");
+		mouseBitmap=new GLBitmap("mouse.png");
 		
 		System::instance()->getMouse()->setMouseBitmap(mouseBitmap);
 		
 		FontHandler::instance();
 		
-		font=new Font("../data/FreeSans.ttf",12);
+		font=new Font("FreeSans.ttf",12);
 		
 		GuiData::setGuiFont(font);
+		
+		testEvent=new UserEvent();
 		
 	}
 	catch (Exception &e)
