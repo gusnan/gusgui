@@ -191,6 +191,8 @@ message(STATUS "GusGame Library: ${GUSGAME_LIBRARY}")
 include_directories(include ${CMAKE_SOURCE_DIR}/src)
 include_directories(include ${CMAKE_SOURCE_DIR}/src/Objects)
 
+include_directories(include ${GUSGAME_INCLUDE_DIR})
+
 if (MSYS)
 	message(STATUS "MingDir: $ENV{%MINGDIR%}")
 endif (MSYS)
@@ -200,6 +202,17 @@ message(STATUS "SDL_INCLUDE_DIR: ${SDL_INCLUDE_DIR}")
 message(STATUS "SDL_IMAGE_INCLUDE_DIR: ${SDLIMAGE_INCLUDE_DIR}")
 
 message(STATUS "GUSGAME_INCLUDE_DIR: ${GUSGAME_INCLUDE_DIR}")
+
+# And some libs:
+
+message(STATUS "SDL_LIBRARY: ${SDL_LIBRARY}")
+message(STATUS "SDLMAIN_LIBRARY: ${SDLMAIN_LIBRARY}")
+
+message(STATUS "OPENGL_LIBRARY: ${OPENGL_LIBRARY}")
+message(STATUS "OPENGL_LIBRARIES: ${OPENGL_LIBRARIES}")
+message(STATUS "GLUT_LIBRARY: ${GLUT_LIBRARY}")
+
+message(STATUS "MY_GLEW_LIB: ${MY_GLEW_LIB}")
 
 if (USE_GLEW) 
 	set (MY_GLEW_LIB ${GLEW_LIBRARY})
@@ -253,15 +266,15 @@ include_directories(include ${GUSGAME_INCLUDE})
 LINK_DIRECTORIES( ${LINK_DIRECTORIES} ${LIBRARY_OUTPUT_PATH} )
 
 add_executable(example1 WIN32 ${EX_DIR}/example1.cpp)
-target_link_libraries(example1 ${ALL_LIBS}  ${MY_LIBS} ${LIBRARY_NAME})
+target_link_libraries(example1 ${ALL_LIBS} ${LIBRARY_NAME})
 
-#add_executable(example2 WIN32 ${EX_DIR}/example2.cpp)
-#target_link_libraries(example2 ${ALL_LIBS} ${LIBRARY_NAME})
+add_executable(example2 WIN32 ${EX_DIR}/example2.cpp)
+target_link_libraries(example2 ${ALL_LIBS} ${LIBRARY_NAME})
 
 #add_executable(example3 WIN32 ${EX_DIR}/example3.cpp)
 #target_link_libraries(example3 ${ALL_LIBS} ${LIBRARY_NAME})
 
-add_executable(example4 WIN32 ${EX_DIR}/example4.cpp)
-target_link_libraries(example4 ${ALL_LIBS} ${MY_LIBS} ${LIBRARY_NAME})
+#add_executable(example4 WIN32 ${EX_DIR}/example4.cpp)
+#target_link_libraries(example4 ${ALL_LIBS} ${MY_LIBS} ${LIBRARY_NAME})
 
 install_targets(/lib ${LIBRARY_NAME})
