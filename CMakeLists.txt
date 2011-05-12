@@ -23,7 +23,7 @@ project (GusGui)
 # Require CMake 2.6
 cmake_minimum_required(VERSION 2.6)
 
-set(LIBRARY_NAME gusgui)
+set(GUSGUI_LIBRARY_NAME gusgui)
 
 set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/lib)
 
@@ -239,14 +239,10 @@ set(ALL_LIBS
    ${SDLIMAGE_LIBRARY}
 )
 
-set(MY_LIBS
-	${GUSGAME_LIBRARY}
-)
+link_libraries(${ALL_LIBS} ${GUSGAME_LIBRARY})
 
-link_libraries(${ALL_LIBS} ${MY_LIBS})
-
-add_library(${LIBRARY_NAME} SHARED ${SOURCES})
-target_link_libraries(${LIBRARY_NAME})  #${ALL_LIBS})
+add_library(${GUSGUI_LIBRARY_NAME} SHARED ${SOURCES})
+target_link_libraries(${GUSGUI_LIBRARY_NAME})  #${ALL_LIBS})
 
 set(EX_DIR examples)
 
@@ -266,10 +262,10 @@ include_directories(include ${GUSGAME_INCLUDE})
 LINK_DIRECTORIES( ${LINK_DIRECTORIES} ${LIBRARY_OUTPUT_PATH} )
 
 add_executable(example1 WIN32 ${EX_DIR}/example1.cpp)
-target_link_libraries(example1 ${ALL_LIBS} ${LIBRARY_NAME} ${MY_LIBS})
+target_link_libraries(example1 ${ALL_LIBS} ${GUSGUI_LIBRARY_NAME} ${GUSGAME_LIBRARY})
 
 add_executable(example2 WIN32 ${EX_DIR}/example2.cpp)
-target_link_libraries(example2 ${ALL_LIBS} ${LIBRARY_NAME} ${MY_LIBS} )
+target_link_libraries(example2 ${ALL_LIBS} ${GUSGUI_LIBRARY_NAME} ${GUSGAME_LIBRARY} )
 
 #add_executable(example3 WIN32 ${EX_DIR}/example3.cpp)
 #target_link_libraries(example3 ${ALL_LIBS} ${LIBRARY_NAME})
@@ -277,4 +273,4 @@ target_link_libraries(example2 ${ALL_LIBS} ${LIBRARY_NAME} ${MY_LIBS} )
 #add_executable(example4 WIN32 ${EX_DIR}/example4.cpp)
 #target_link_libraries(example4 ${ALL_LIBS} ${MY_LIBS} ${LIBRARY_NAME})
 
-install_targets(/lib ${LIBRARY_NAME})
+install_targets(/lib ${GUSGUI_LIBRARY_NAME})
