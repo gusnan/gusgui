@@ -39,7 +39,8 @@
 		<group name='example1' expanded='TRUE'>
 			<file>./examples/example1.cpp</file>
 		</group>
-		<group name='example2' expanded='FALSE'>
+		<group name='example2' expanded='TRUE'>
+			<file>./examples/example2.cpp</file>
 		</group>
 	</group>
 	<file>./CMakeLists.txt</file>
