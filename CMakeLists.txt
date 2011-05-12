@@ -130,6 +130,8 @@ set(LIB_SOURCES
 	${SRC}/GuiData.cpp
 	${SRC}/GuiDraw.cpp
 	${SRC}/GuiHandler.cpp
+	${SRC}/GuiEventHandler.cpp
+
 )
 
 #add_library(exceptionLib STATIC ${EXCEPTION_SOURCES})
@@ -162,6 +164,8 @@ set(INCLUDE_FILES
 	${INC}/InvisibleGuiObject.h  
 	${INC}/Panel.h        
 	${INC}/TextMarker.h
+	${SRC}/GuiEventHandler.h
+	
 )
 
 if (WIN32)

@@ -16,14 +16,15 @@
 		<file>./src/GuiData.cpp</file>
 		<file>./src/GuiDraw.cpp</file>
 		<file>./src/GuiHandler.cpp</file>
+		<file>./src/GuiEventHandler.cpp</file>
 	</group>
-	<group name='include' expanded='FALSE'>
+	<group name='include' expanded='TRUE'>
 		<file>./include/GusGui/Button.h</file>
 		<file>./include/GusGui/CheckBox.h</file>
 		<file>./include/GusGui/DelayButton.h</file>
 		<file>./include/GusGui/FadeButton.h</file>
 		<file>./include/GusGui/FileListGui.h</file>
-		<file>./include/GusGui/InvisibleGuiObject.h</file>
+		<file>./include/GusGui/GuiObject.h</file>
 		<file>./include/GusGui/InvisibleGuiObject.h</file>
 		<file>./include/GusGui/LoaderMeter.h</file>
 		<file>./include/GusGui/Panel.h</file>
@@ -34,6 +35,7 @@
 		<file>./include/GusGui/GuiLib.h</file>
 		<file>./include/GusGui/GuiHandler.h</file>
 		<file>./include/GusGui/GusGui.h</file>
+		<file>./include/GusGui/GuiEventHandler.h</file>
 	</group>
 	<group name='examples' expanded='TRUE'>
 		<group name='example1' expanded='TRUE'>

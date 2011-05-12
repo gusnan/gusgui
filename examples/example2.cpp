@@ -79,6 +79,7 @@ public:
 	{
 		
 		m_ExampleButton=new Button(Rect(10,10,100,20),NULL,true);
+		addGuiObject(m_ExampleButton);
 	}
 	
 	virtual ~ExamplePanel()
@@ -100,6 +101,9 @@ int main(int argc,char **argv)
 	GLBitmap *mouseBitmap=NULL;
 	Font *font=NULL;
 	UserEvent *testEvent=NULL;
+	ExamplePanel *panel=NULL;
+	std::vector<GuiObject*> *guiList=NULL;
+	GuiEventHandler *guiEventHandler=NULL;
 	
 	try {
 		// init the log - this function takes a string (the log file filename) as indata,
@@ -137,6 +141,13 @@ int main(int argc,char **argv)
 		
 		testEvent=new UserEvent();
 		
+		guiList=new std::vector<GuiObject*>;
+		panel=new ExamplePanel();
+		
+		guiList->push_back((GuiObject*)panel);
+		
+		guiEventHandler=new GuiEventHandler(guiList);
+				
 	}
 	catch (Exception &e)
 	{
@@ -154,12 +165,17 @@ int main(int argc,char **argv)
 		// Update the timer
 		Timer::instance()->updateFrame();
 		
+		GuiHandler::instance()->update(guiList);
+		
 		// Handle events (see the class just above this main
 		EventHelper::instance()->handleEvents();
 		
 		// Clear the screen every sync
 		GraphicsHandler::instance()->clearScreen();
 		
+		GuiHandler::instance()->draw(guiList);
+		
+		// Draw the mouse cursor
 		System::instance()->getMouse()->draw();
 	
 		// Update the screen

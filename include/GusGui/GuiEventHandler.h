@@ -17,27 +17,29 @@
  *	along with GusGui.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-#ifndef __HEADER_GUILIB_
-#define __HEADER_GUILIB_
+#ifndef __HEADER_GUI_EVENT_HANDLER_
+#define __HEADER_GUI_EVENT_HANDLER_
 
 /**
  *
  */
-#include "GuiObject.h"
-#include "Button.h"
-#include "Panel.h"
-#include "CheckBox.h"
-#include "DelayButton.h"
-#include "FadeButton.h"
-#include "TextMarker.h"
-#include "TextInput.h"
-#include "InvisibleGuiObject.h"
-#include "LoaderMeter.h"
-#include "FileListGui.h"
+namespace GusGui
+{
 
-#include "GuiEventHandler.h"
-#include "GuiHandler.h"
-#include "GuiData.h"
-#include "GuiDraw.h"
+/**
+ *
+ */
+class GuiEventHandler
+{
+public:
+	GuiEventHandler(std::vector<GuiObject*> *guiList);
+	virtual ~GuiEventHandler();
 
-#endif /*__HEADER_GUILIB_*/
+protected:
+};
+
+// end of namespace
+// ----------------
+};
+
+#endif /*__HEADER_GUI_EVENT_HANDLER_*/
