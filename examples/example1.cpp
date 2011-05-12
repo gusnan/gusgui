@@ -18,6 +18,11 @@
  *
  */
 #include <cstdlib>
+#include <sstream>
+
+#include "GusGame/GusGame.h"
+
+using namespace Gus;
 
 /**
  *
