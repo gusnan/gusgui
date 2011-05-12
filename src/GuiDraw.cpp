@@ -155,9 +155,9 @@ FrameBuffer *GuiDraw::makeTextButtonStandard(std::string text)
 	GuiData::buttonNormal->Blit(Vector2d(0,0));
 
 	glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
-	textBitmap->BlitCenterColor(fullRect+Vector2d(2,2),colorBlack,1.0f);
+	if (textBitmap) textBitmap->BlitCenterColor(fullRect+Vector2d(2,2),colorBlack,1.0f);
 	glBlendFunc(GL_SRC_ALPHA,GL_ONE);
-	textBitmap->BlitCenter(fullRect,1.0);
+	if (textBitmap) textBitmap->BlitCenter(fullRect,1.0);
 	
 	
 	result->DoneRendering();
@@ -194,9 +194,9 @@ FrameBuffer *GuiDraw::makeTextButtonHover(std::string text)
 	GuiData::buttonHover->Blit(Vector2d(0,0));
 
 	glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
-	textBitmap->BlitCenterColor(fullRect+Vector2d(2,2),colorBlack,1.0f);
+	if (textBitmap) textBitmap->BlitCenterColor(fullRect+Vector2d(2,2),colorBlack,1.0f);
 	glBlendFunc(GL_SRC_ALPHA,GL_ONE);
-	textBitmap->BlitCenter(fullRect,1.0);
+	if (textBitmap) textBitmap->BlitCenter(fullRect,1.0);
 	
 	result->DoneRendering();
 		
@@ -228,9 +228,9 @@ FrameBuffer *GuiDraw::makeTextButtonPressed(std::string text)
 	GuiData::buttonPressed->Blit(Vector2d(0,0));
 		
 	glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
-	textBitmap->BlitCenterColor(Rect(Vector2d(1,-1),size)+Vector2d(2,2),colorBlack,1.0f);
+	if (textBitmap) textBitmap->BlitCenterColor(Rect(Vector2d(1,-1),size)+Vector2d(2,2),colorBlack,1.0f);
 	glBlendFunc(GL_SRC_ALPHA,GL_ONE);
-	textBitmap->BlitCenter(Rect(Vector2d(1,-1),size),1.0);
+	if (textBitmap) textBitmap->BlitCenter(Rect(Vector2d(1,-1),size),1.0);
 	
 	result->DoneRendering();
 		
@@ -318,7 +318,7 @@ GLBitmap *GuiDraw::drawTextCentered(std::string intext)
 
 	int x=0;
 	Bitmap *tempText=GuiData::guiFont->renderText(text,colorWhite);
-	tempText->blit(tempBackground,Vector2d(0,0));
+	if (tempText) tempText->blit(tempBackground,Vector2d(0,0));
 	
 	if (shortcut!="") {
 		

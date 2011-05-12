@@ -233,19 +233,21 @@ void CheckBox::setText(std::string text)
 	
 	if (text!="") {
 		Bitmap *tempText=GuiData::guiFont->renderText(text,colorWhite);
+		Bitmap *tempBackground=NULL;
 		
-		m_TextWidth=tempText->getSize().x;
-
-		Bitmap *tempBackground=new Bitmap(tempText->getSize());
-		
-		tempBackground->clearToColor(Color(0.0,0.0,0.0,1.0));
-
-		tempText->blit(tempBackground,Vector2d(0,0));
-		
-		m_TextBitmap=new GLBitmap(*tempBackground);
-		m_TextBitmap->SEND_TO_GPU();
+		if (tempText!=NULL) {
 			
-		if (tempText) {
+			m_TextWidth=tempText->getSize().x;
+
+			tempBackground=new Bitmap(tempText->getSize());
+			
+			tempBackground->clearToColor(Color(0.0,0.0,0.0,1.0));
+
+			tempText->blit(tempBackground,Vector2d(0,0));
+			
+			m_TextBitmap=new GLBitmap(*tempBackground);
+			m_TextBitmap->SEND_TO_GPU();
+			
 			delete tempText;
 			tempText=NULL;
 		}
