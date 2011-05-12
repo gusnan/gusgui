@@ -266,10 +266,10 @@ include_directories(include ${GUSGAME_INCLUDE})
 LINK_DIRECTORIES( ${LINK_DIRECTORIES} ${LIBRARY_OUTPUT_PATH} )
 
 add_executable(example1 WIN32 ${EX_DIR}/example1.cpp)
-target_link_libraries(example1 ${ALL_LIBS} ${LIBRARY_NAME})
+target_link_libraries(example1 ${ALL_LIBS} ${LIBRARY_NAME} ${MY_LIBS})
 
 add_executable(example2 WIN32 ${EX_DIR}/example2.cpp)
-target_link_libraries(example2 ${ALL_LIBS} ${LIBRARY_NAME})
+target_link_libraries(example2 ${ALL_LIBS} ${LIBRARY_NAME} ${MY_LIBS} )
 
 #add_executable(example3 WIN32 ${EX_DIR}/example3.cpp)
 #target_link_libraries(example3 ${ALL_LIBS} ${LIBRARY_NAME})
