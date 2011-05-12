@@ -36,6 +36,8 @@ public:
 	virtual ~GuiEventHandler();
 
 protected:
+	
+	std::vector<GuiObject*> *m_GuiList;
 };
 
 // end of namespace

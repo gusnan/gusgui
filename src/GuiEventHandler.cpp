@@ -37,7 +37,8 @@ namespace GusGui
 /**
  *
  */
-GuiEventHandler::GuiEventHandler(std::vector<GuiObject*> *guiList)
+GuiEventHandler::GuiEventHandler(std::vector<GuiObject*> *guiList) : 
+		m_GuiList(guiList)
 {
 }
 
