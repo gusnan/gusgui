@@ -41,9 +41,13 @@ bool quit=false;
  *	events, and the Quit events. (This event is pushed when you press the close 
  * window button for example)
  */
-class ExampleEventHandler : public EventHandler
+class ExampleEventHandler : public GuiEventHandler
 {
 public:
+	
+	ExampleEventHandler(std::vector<GuiObject*> *guiList) : GuiEventHandler(guiList)
+	{
+	}
 	
 	/**
 	 * Handle keyboard presses and releases
@@ -63,8 +67,49 @@ public:
 	 */
 	virtual void handleQuitEvent()
 	{
+		//printf("HEJ!\n");
 		quit=true;
 	}
+	
+	/**
+	 *
+	 */
+	virtual int handleUserEvent(UserEvent &userEvent)
+	{
+		LOG("User event..");
+		GuiEventHandler::handleUserEvent(userEvent);
+	}
+
+};
+
+/**
+ *
+ */
+class ExampleButton : public Button
+{
+public:
+	
+	ExampleButton(const Rect &rect) : Button(rect,NULL,true)
+	{
+	}
+	
+	virtual ~ExampleButton()
+	{
+	}
+	
+	virtual void draw(const Vector2d& pos,float alpha=1.0)
+	{
+		GLPrimitives::rectFill(getRect()+pos,colorLightGray);
+		if (getMouseOver()) {
+			GLPrimitives::rectFill(getRect()+pos,colorRed);
+			if (getDown()) {
+				GLPrimitives::rectFill(getRect()+pos,colorWhite);
+			}
+		}
+	}
+	
+	
+protected:
 };
 
 /**
@@ -77,19 +122,27 @@ class ExamplePanel : Panel
 public:
 	ExamplePanel() : Panel(Rect(100,100,400,300))
 	{
-		
-		m_ExampleButton=new Button(Rect(10,10,100,20),NULL,true);
+		// We add a button to the panel. This at position 10,10 in the panel,
+		// which places it at 110,110 on the screen.
+		m_ExampleButton=new ExampleButton(Rect(10,10,100,20));
 		addGuiObject(m_ExampleButton);
+		
+		m_QuitButton=new ExampleButton(Rect(10,40,100,20));
+		m_QuitButton->setEvent(EventLib::eventQuit);
+		addGuiObject(m_QuitButton);
 	}
 	
 	virtual ~ExamplePanel()
 	{
-		delete m_ExampleButton;
+		// We don't need to destroy the GuiObjects here - it is automatically done in the
+		// Panel destructor, which we inherit this class from.
 	}
 	
 protected:
 	Button *m_ExampleButton;
+	Button *m_QuitButton;
 };
+
 
 
 /**
@@ -112,7 +165,7 @@ int main(int argc,char **argv)
 		// 
 		// The second indata is a boolean to determine to print the log to std::cout
 		// or not in addition to to the file.
-		LogHandler::initLog("",false);
+		LogHandler::initLog("log.txt",true);
 				
 		// init system stuff
 		System::instance();
@@ -121,13 +174,10 @@ int main(int argc,char **argv)
 		GraphicsHandler::instance()->initGraphicsHandler(Vector2d(640,480),false);
 		
 		// set a window title
-		GraphicsHandler::instance()->setWindowTitle("GusGame Example 4");	
-	
-		// Create an EventHandler for our "custom" events
-		eventHandler=new ExampleEventHandler();
+		GraphicsHandler::instance()->setWindowTitle("GusGame Example 4");
 		
 		// set the used EventHandler to the one we just created.
-		EventHelper::instance()->setEventHandler(eventHandler);
+		//	EventHelper::instance()->setEventHandler(guiEventHandler);
 		
 		mouseBitmap=new GLBitmap("mouse.png");
 		
@@ -141,12 +191,23 @@ int main(int argc,char **argv)
 		
 		testEvent=new UserEvent();
 		
+		// This must be initialized before the Examplepanel
+		EventData::instance();
+
 		guiList=new std::vector<GuiObject*>;
 		panel=new ExamplePanel();
 		
+		//guiList->push_back((GuiObject*)panel);
 		guiList->push_back((GuiObject*)panel);
 		
-		guiEventHandler=new GuiEventHandler(guiList);
+		// Create an EventHandler for our "custom" events
+		// which inherits from the GUI event handler, this for it
+		// to handle both GUI events, and our own custom ones for
+		// just this example
+		eventHandler=new ExampleEventHandler(guiList);
+
+		EventHelper::instance()->setEventHandler(eventHandler);
+
 				
 	}
 	catch (Exception &e)
@@ -181,6 +242,8 @@ int main(int argc,char **argv)
 		// Update the screen
 		GraphicsHandler::instance()->updateScreen();
 	} while(!quit);
+	
+	delete panel;
 	
 	delete font;
 	delete mouseBitmap;

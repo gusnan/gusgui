@@ -20,6 +20,8 @@
 #ifndef __HEADER_GUI_EVENT_HANDLER_
 #define __HEADER_GUI_EVENT_HANDLER_
 
+#include "DynamicLink.h"
+
 /**
  *
  */
@@ -29,11 +31,28 @@ namespace GusGui
 /**
  *
  */
-class GuiEventHandler
+class GuiEventHandler : public EventHandler
 {
 public:
-	GuiEventHandler(std::vector<GuiObject*> *guiList);
-	virtual ~GuiEventHandler();
+	GUSGAME_DLL GuiEventHandler(std::vector<GuiObject*> *guiList);
+	virtual GUSGAME_DLL ~GuiEventHandler();
+
+	void GUSGAME_DLL onLeftMouseButtonPressed(const Vector2d& pos);
+	void GUSGAME_DLL onLeftMouseButtonReleased(const Vector2d& pos);
+
+	void GUSGAME_DLL onRightMouseButtonPressed(const Vector2d& pos);
+	void GUSGAME_DLL onRightMouseButtonReleased(const Vector2d& pos);
+
+	void GUSGAME_DLL onMouseMove(const Vector2d& pos);
+
+	void GUSGAME_DLL onMouseScrollUp(const Vector2d& pos);
+	void GUSGAME_DLL onMouseScrollDown(const Vector2d& pos);
+	
+	virtual void GUSGAME_DLL handleMouseMotion(MouseMotionEvent &mouseMotion);
+	virtual void GUSGAME_DLL handleMouseButton(MouseButtonEvent &mouseButtonEvent);
+
+	virtual int GUSGAME_DLL handleUserEvent(UserEvent &userEvent);
+
 
 protected:
 	
