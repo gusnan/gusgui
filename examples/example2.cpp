@@ -178,7 +178,7 @@ int main(int argc,char **argv)
 		GraphicsHandler::instance()->initGraphicsHandler(Vector2d(640,480),false);
 		
 		// set a window title
-		GraphicsHandler::instance()->setWindowTitle("GusGame Example 4");
+		GraphicsHandler::instance()->setWindowTitle("GusGame Example 2");
 		
 		mouseBitmap=new GLBitmap("mouse.png");
 		
