@@ -67,7 +67,6 @@ public:
 	 */
 	virtual void handleQuitEvent()
 	{
-		//printf("HEJ!\n");
 		quit=true;
 	}
 	
