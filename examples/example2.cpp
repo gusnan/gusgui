@@ -99,10 +99,14 @@ public:
 	
 	virtual void draw(const Vector2d& pos,float alpha=1.0)
 	{
+		// Gray for standard button
 		GLPrimitives::rectFill(getRect()+pos,colorLightGray);
 		if (getMouseOver()) {
+			
+			// red when hovered
 			GLPrimitives::rectFill(getRect()+pos,colorRed);
 			if (getDown()) {
+				// and white when pressed
 				GLPrimitives::rectFill(getRect()+pos,colorWhite);
 			}
 		}
@@ -176,9 +180,6 @@ int main(int argc,char **argv)
 		// set a window title
 		GraphicsHandler::instance()->setWindowTitle("GusGame Example 4");
 		
-		// set the used EventHandler to the one we just created.
-		//	EventHelper::instance()->setEventHandler(guiEventHandler);
-		
 		mouseBitmap=new GLBitmap("mouse.png");
 		
 		System::instance()->getMouse()->setMouseBitmap(mouseBitmap);
@@ -206,6 +207,8 @@ int main(int argc,char **argv)
 		// just this example
 		eventHandler=new ExampleEventHandler(guiList);
 
+		// set the used EventHandler to the one we just created.
+		//	EventHelper::instance()->setEventHandler(guiEventHandler);
 		EventHelper::instance()->setEventHandler(eventHandler);
 
 				
