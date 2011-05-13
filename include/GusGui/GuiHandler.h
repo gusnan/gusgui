@@ -51,20 +51,6 @@ public:
 	void draw(std::vector<GuiObject*> *guiList);
 	void update(std::vector<GuiObject*> *guiList);
 
-	bool handleUserEvent(std::vector<GuiObject*> *guiList,UserEvent &event);
-	bool handleKeyboardEvent(std::vector<GuiObject*> *guiList,KeyEvent &event);
-	
-	void onLeftMouseButtonPressed(std::vector<GuiObject*> *guiList,const Vector2d& pos);
-	void onLeftMouseButtonReleased(std::vector<GuiObject*> *guiList,const Vector2d& pos);
-	
-	void onRightMouseButtonPressed(std::vector<GuiObject*> *guiList,const Vector2d& pos);
-	void onRightMouseButtonReleased(std::vector<GuiObject*> *guiList,const Vector2d& pos);
-	
-	void onMouseMove(std::vector<GuiObject*> *guiList,const Vector2d& pos);
-	
-	void onMouseScrollUp(std::vector<GuiObject*> *guiList,const Vector2d& pos);
-	void onMouseScrollDown(std::vector<GuiObject*> *guiList,const Vector2d& pos);
-
 	//SDL_Event MakeEvent(int code);
 
 	// Events specific to the GUI
