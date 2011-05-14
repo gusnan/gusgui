@@ -181,10 +181,8 @@ int main(int argc,char **argv)
 	EventHandler *eventHandler=NULL;
 	GLBitmap *mouseBitmap=NULL;
 	Font *font=NULL;
-	UserEvent *testEvent=NULL;
 	ExamplePanel *panel=NULL;
 	std::vector<GuiObject*> *guiList=NULL;
-	GuiEventHandler *guiEventHandler=NULL;
 	
 	try {
 		// init the log - this function takes a string (the log file filename) as indata,
@@ -213,8 +211,6 @@ int main(int argc,char **argv)
 		font=new Font("FreeSans.ttf",12);
 		
 		GuiData::setGuiFont(font);
-		
-		testEvent=new UserEvent();
 		
 		// This must be initialized before the Examplepanel
 		EventData::instance();
