@@ -36,6 +36,8 @@ using namespace GusGui;
 
 bool quit=false;
 
+
+
 /**
  * This is an Eventhandler that takes care of the keyboard events, mouse motion
  *	events, and the Quit events. (This event is pushed when you press the close 
@@ -81,6 +83,8 @@ public:
 
 };
 
+
+
 /**
  *
  */
@@ -114,6 +118,8 @@ public:
 	
 protected:
 };
+
+
 
 /**
  * this is a panel for the example
