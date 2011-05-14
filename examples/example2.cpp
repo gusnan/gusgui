@@ -63,6 +63,14 @@ public:
 	}
 	
 	/**
+	 *
+	 */
+	virtual void handleSystemQuitEvent()
+	{
+		//eventQuit->pushEvent();
+	}
+	
+	/**
 	 * handle the quit event (This is called when the window close button is pressed.)
 	 */
 	virtual void handleQuitEvent()
