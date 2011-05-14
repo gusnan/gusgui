@@ -141,6 +141,17 @@ public:
 		// Panel destructor, which we inherit this class from.
 	}
 	
+	void draw(const Vector2d &pos,float opacity=1.0)
+	{
+		// Draw a white outline on the panel
+		Rect newRect=getRect()+pos;
+		
+		GLPrimitives::drawRect(newRect,colorWhite);
+		
+		// Make the Panel class which we inherit from draw the gui objects
+		Panel::draw(pos,opacity);
+	}
+	
 protected:
 	Button *m_ExampleButton;
 	Button *m_QuitButton;
