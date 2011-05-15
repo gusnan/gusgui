@@ -86,8 +86,7 @@ public:
 	virtual int handleUserEvent(UserEvent &userEvent)
 	{
 		LOG("User event..");
-		GuiEventHandler::handleUserEvent(userEvent);
-		return 0;
+		return GuiEventHandler::handleUserEvent(userEvent);
 	}
 
 };
