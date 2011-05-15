@@ -134,7 +134,7 @@ protected:
  * A panel is a container that contains several different GuiObjects. A dialog
  * is a great example of a panel.
  */
-class ExamplePanel : Panel
+class ExamplePanel : public Panel
 {
 public:
 	ExamplePanel() : Panel(Rect(100,100,400,300))
@@ -219,7 +219,7 @@ int main(int argc,char **argv)
 		panel=new ExamplePanel();
 		
 		//guiList->push_back((GuiObject*)panel);
-		guiList->push_back((GuiObject*)panel);
+		guiList->push_back(panel);
 		
 		// Create an EventHandler for our "custom" events
 		// which inherits from the GUI event handler, this for it
