@@ -87,6 +87,7 @@ public:
 	{
 		LOG("User event..");
 		GuiEventHandler::handleUserEvent(userEvent);
+		return 0;
 	}
 
 };
