@@ -35,7 +35,9 @@ using namespace Gus::EventLib;
 #include "GuiHandler.h"
 #include "GuiDraw.h"
 
+#ifndef REMOVE
 #define REMOVE(a) { if (a!=NULL) { delete a; a=NULL; } }
+#endif
 	
 /**
  *
