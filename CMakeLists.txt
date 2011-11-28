@@ -245,7 +245,7 @@ set(ALL_LIBS
 
 link_libraries(${ALL_LIBS} ${GUSGAME_LIBRARY})
 
-add_library(${GUSGUI_LIBRARY_NAME} SHARED ${SOURCES})
+add_library(${GUSGUI_LIBRARY_NAME} STATIC ${SOURCES})
 target_link_libraries(${GUSGUI_LIBRARY_NAME})  #${ALL_LIBS})
 
 set(EX_DIR examples)
