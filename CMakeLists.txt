@@ -150,6 +150,7 @@ set(INC include/GusGui)
 set(INCLUDE_FILES
 	${INC}/Button.h
 	${INC}/DelayButton.h  
+	${INC}/DynamicLink.h
 	${INC}/FileListGui.h  
 	${INC}/GuiDraw.h     
 	${INC}/GuiLib.h     
