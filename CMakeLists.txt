@@ -164,7 +164,7 @@ set(INCLUDE_FILES
 	${INC}/InvisibleGuiObject.h  
 	${INC}/Panel.h        
 	${INC}/TextMarker.h
-	${SRC}/GuiEventHandler.h
+	${INC}/GuiEventHandler.h
 	
 )
 
@@ -278,3 +278,5 @@ target_link_libraries(example2 ${ALL_LIBS} ${GUSGUI_LIBRARY_NAME} ${GUSGAME_LIBR
 #target_link_libraries(example4 ${ALL_LIBS} ${MY_LIBS} ${LIBRARY_NAME})
 
 install_targets(/lib ${GUSGUI_LIBRARY_NAME})
+
+install(FILES ${INCLUDE_FILES} DESTINATION include/GusGui)
