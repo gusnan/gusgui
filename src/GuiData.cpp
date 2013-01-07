@@ -97,7 +97,7 @@ void GuiData::freeGuiGraphics()
 {
 	LOG("Done GUI graphics...");
 	
-#define  REMOVE(a) { if (a!=NULL) { delete a; a=NULL; } }
+// #define  REMOVE(a) { if (a!=NULL) { delete a; a=NULL; } }
 	
 	REMOVE(menuBorder_Top);
 	REMOVE(menuBorder_Bottom);
