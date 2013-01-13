@@ -32,6 +32,8 @@ namespace GusGui
 class Panel : public GuiObject
 {
 public:
+	Panel();
+
 	Panel(Rect rect,bool transFrame=true);
 	Panel(const Panel& source);
 	virtual ~Panel();

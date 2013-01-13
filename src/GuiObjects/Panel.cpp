@@ -50,6 +50,15 @@ Panel::Panel(Rect rect,bool transparentFrame) : GuiObject(rect), m_GuiList(0), m
 	m_GuiList=new std::vector<GuiObject*>;
 }
 
+
+/**
+ *
+ */
+Panel::Panel()
+{
+}
+
+
 /**
  *
  */
