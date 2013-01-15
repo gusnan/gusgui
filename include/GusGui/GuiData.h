@@ -59,7 +59,7 @@ namespace GuiData
 	extern Font *guiSmallFont;
 	extern Font *guiBigFont;
 	
-	void setGuiGraphics(std::vector<Bitmap*> guiBitmapList);
+	void setGuiGraphics(std::vector<SDLBitmap*> guiBitmapList);
 	void setGuiFont(Font *guiFont);
 	void setGuiSmallFont(Font *smallFont);
 	void setGuiBigFont(Font* bigFont);

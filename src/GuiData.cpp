@@ -61,7 +61,7 @@ Font* GuiData::guiBigFont=0;
  *		Called from the Data namespace and the graphics that is set should be 
  *		released in the Data namespace also.
  */
-void GuiData::setGuiGraphics(std::vector<Bitmap*> guiBitmapList)
+void GuiData::setGuiGraphics(std::vector<SDLBitmap*> guiBitmapList)
 {
 	LOG("Set Gui Graphics...");
 	

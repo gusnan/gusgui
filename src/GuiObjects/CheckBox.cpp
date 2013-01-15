@@ -232,14 +232,14 @@ void CheckBox::setText(std::string text)
 	Rect rect=getRect();
 	
 	if (text!="") {
-		Bitmap *tempText=GuiData::guiFont->renderText(text,colorWhite);
-		Bitmap *tempBackground=NULL;
+		SDLBitmap *tempText=GuiData::guiFont->renderText(text,colorWhite);
+		SDLBitmap *tempBackground=NULL;
 		
 		if (tempText!=NULL) {
 			
 			m_TextWidth=tempText->getSize().x;
 
-			tempBackground=new Bitmap(tempText->getSize());
+			tempBackground=new SDLBitmap(tempText->getSize());
 			
 			tempBackground->clearToColor(Color(0.0,0.0,0.0,1.0));
 

@@ -314,12 +314,12 @@ GLBitmap *GuiDraw::drawTextCentered(std::string intext)
 		size.x+=GuiData::guiSmallFont->getStringWidth(shortcut);
 	}
 
-	Bitmap *tempBackground=new Bitmap(size/*GuiData::guiFont->GetStringSize(fullText)*/);
+	SDLBitmap *tempBackground=new SDLBitmap(size/*GuiData::guiFont->GetStringSize(fullText)*/);
 	
 	tempBackground->clearToColor(Color(0.0,0.0,0.0,0.0));
 
 	int x=0;
-	Bitmap *tempText=GuiData::guiFont->renderText(text,colorWhite);
+	SDLBitmap *tempText=GuiData::guiFont->renderText(text,colorWhite);
 	if (tempText) tempText->blit(tempBackground,Vector2d(0,0));
 	
 	if (shortcut!="") {
