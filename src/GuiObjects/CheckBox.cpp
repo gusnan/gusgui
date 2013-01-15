@@ -245,7 +245,7 @@ void CheckBox::setText(std::string text)
 
 			tempText->blit(tempBackground,Vector2d(0,0));
 			
-			m_TextBitmap=new GLBitmap(*tempBackground);
+			m_TextBitmap=new Bitmap(*tempBackground);
 			m_TextBitmap->SEND_TO_GPU();
 			
 			delete tempText;

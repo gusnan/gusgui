@@ -179,7 +179,7 @@ protected:
 int main(int argc,char **argv)
 {
 	EventHandler *eventHandler=NULL;
-	GLBitmap *mouseBitmap=NULL;
+	Bitmap *mouseBitmap=NULL;
 	Font *font=NULL;
 	ExamplePanel *panel=NULL;
 	std::vector<GuiObject*> *guiList=NULL;
@@ -202,7 +202,7 @@ int main(int argc,char **argv)
 		// set a window title
 		GraphicsHandler::instance()->setWindowTitle("GusGame Example 2");
 		
-		mouseBitmap=new GLBitmap("mouse.png");
+		mouseBitmap=new Bitmap("mouse.png");
 		
 		System::instance()->getMouse()->setMouseBitmap(mouseBitmap);
 		

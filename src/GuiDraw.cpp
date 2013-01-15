@@ -48,7 +48,7 @@ namespace GusGui
 /**
  *
  */
-void GuiDraw::drawGuiRect(Rect rect,bool drawTransparentFrame,float opacity)
+void GuiDraw::drawGuiRect(Rect rect, bool drawTransparentFrame, float opacity)
 {
 	Vector2d pos=rect.position;
 	Vector2d size=rect.size;
@@ -283,7 +283,7 @@ void GuiDraw::splitString(std::string instring,std::string& text,std::string& sh
 /**
  *
  */
-GLBitmap *GuiDraw::drawTextCentered(std::string intext)
+Bitmap *GuiDraw::drawTextCentered(std::string intext)
 {
 	std::string text,shortcut;
 	
@@ -350,7 +350,7 @@ GLBitmap *GuiDraw::drawTextCentered(std::string intext)
 	tempText=GuiHandler::guiFont->RenderText(text,colorWhite);
 	tempText->Blit(tempBackground,Vector2d(0,0));
 	*/
-	GLBitmap *textBitmap=new GLBitmap(*tempBackground);
+	Bitmap *textBitmap=new Bitmap(*tempBackground);
 	textBitmap->SEND_TO_GPU();
 		
 	REMOVE(tempText);
@@ -365,7 +365,7 @@ GLBitmap *GuiDraw::drawTextCentered(std::string intext)
 /**
  *
  */
-FrameBuffer *GuiDraw::makeStandardButton(Vector2d size,GLBitmap *icon)
+FrameBuffer *GuiDraw::makeStandardButton(Vector2d size, Bitmap *icon)
 {
 	FrameBuffer *result=0;
 	
@@ -387,7 +387,7 @@ FrameBuffer *GuiDraw::makeStandardButton(Vector2d size,GLBitmap *icon)
 /**
  *
  */
-void GuiDraw::drawStandardButton(Rect rect,GLBitmap *icon) 
+void GuiDraw::drawStandardButton(Rect rect, Bitmap *icon) 
 {
 	Vector2d size=rect.size;
 	Vector2d pos=rect.position;
@@ -443,7 +443,7 @@ FrameBuffer *GuiDraw::makePressedButton(Vector2d size,GLBitmap *icon)
 /**
  *
  */
-void GuiDraw::drawPressedButton(Rect rect,GLBitmap *icon)
+void GuiDraw::drawPressedButton(Rect rect, Bitmap *icon)
 {
 	Vector2d pos=rect.position;
 	Vector2d size=rect.size;

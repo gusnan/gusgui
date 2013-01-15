@@ -49,7 +49,7 @@ namespace GusGui
 /**
  *
  */
-Button::Button(Rect rect,GLBitmap *icon,bool invisible) : GuiObject(rect),
+Button::Button(Rect rect, Bitmap *icon, bool invisible) : GuiObject(rect),
 	m_Down(false), m_Pressed(false), m_Icon(icon), m_TextBitmap(0), m_Invisible(invisible),
 	m_Text(""), m_SourceRect(Rect()), m_ActivateOnDown(false), m_ButtonEvent(), m_MoveOnDown(false)
 {
@@ -100,7 +100,7 @@ Button::Button(Rect rect,GLBitmap *icon,bool invisible) : GuiObject(rect),
 /**
  *
  */
-Button::Button(Rect sourceRect,Rect rect,GLBitmap *icon,bool invisible) : GuiObject(rect),
+Button::Button(Rect sourceRect,Rect rect, Bitmap *icon, bool invisible) : GuiObject(rect),
 	m_Down(false), m_Pressed(false), m_Icon(icon), m_TextBitmap(0), m_Invisible(invisible),
 	m_Text(""), m_SourceRect(), m_ActivateOnDown(false), m_ButtonEvent(), m_MoveOnDown(false)
 {
@@ -385,7 +385,7 @@ void Button::update()
 /**
  *
  */
-void Button::setGraphics(GLBitmap *button,GLBitmap *buttonPressed,GLBitmap *buttonHover)
+void Button::setGraphics(Bitmap *button, Bitmap *buttonPressed, Bitmap *buttonHover)
 {
 	/*
 	m_BitmapStandard=button;

@@ -64,7 +64,7 @@ protected:
 
 	std::string m_Text;
 
-	GLBitmap *m_TextBitmap;
+	Bitmap *m_TextBitmap;
 
 	Vector2d m_CheckBoxSize;
 

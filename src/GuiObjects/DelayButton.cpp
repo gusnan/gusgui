@@ -50,7 +50,8 @@ namespace GusGui
 /**
  *
  */
-DelayButton::DelayButton(Rect rect,Rect sourceRect,Rect sourceRectPressed,GLBitmap *icon,Rect iconSourceRect) : Button(rect,icon),
+DelayButton::DelayButton(Rect rect, Rect sourceRect, Rect sourceRectPressed,
+	Bitmap *icon, Rect iconSourceRect) : Button(rect,icon),
 	m_Delay(0.0f), m_Speed(1.0f), m_IconSourceRect(), m_SourceRectPressed()
 {
 	m_Delay=0.0f;

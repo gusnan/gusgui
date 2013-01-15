@@ -38,22 +38,22 @@ namespace GuiData
 	extern GLBitmap *menuBorder_BottomRight;
 	*/
 
-	extern GLBitmap *menuBorder_Top;
-	extern GLBitmap *menuBorder_Bottom;
-	extern GLBitmap *menuBorder_Left;
-	extern GLBitmap *menuBorder_Right;
+	extern Bitmap *menuBorder_Top;
+	extern Bitmap *menuBorder_Bottom;
+	extern Bitmap *menuBorder_Left;
+	extern Bitmap *menuBorder_Right;
 
-	extern GLBitmap *menuBorder_Top_NoTrans;
-	extern GLBitmap *menuBorder_Bottom_NoTrans;
-	extern GLBitmap *menuBorder_Left_NoTrans;
-	extern GLBitmap *menuBorder_Right_NoTrans;
+	extern Bitmap *menuBorder_Top_NoTrans;
+	extern Bitmap *menuBorder_Bottom_NoTrans;
+	extern Bitmap *menuBorder_Left_NoTrans;
+	extern Bitmap *menuBorder_Right_NoTrans;
 	
-	extern GLBitmap *menuBackground;
+	extern Bitmap *menuBackground;
 	
 	//extern GLBitmap *buttonNormal,*buttonHover,*buttonPressed;
 	
 	//extern GLBitmap *checkBoxActivePressed,*checkBoxActive,*checkBoxPressed,*checkBox;
-	extern GLBitmap *guiData;
+	extern Bitmap *guiData;
 	
 	extern Font *guiFont;
 	extern Font *guiSmallFont;

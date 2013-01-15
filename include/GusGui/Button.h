@@ -32,8 +32,8 @@ namespace GusGui
 class Button : public GuiObject
 {
 public:
-	Button(Rect rect,GLBitmap *icon=0,bool invisible=false);
-	Button(Rect sourceRect,Rect rect,GLBitmap *icon=0,bool invisible=false);
+	Button(Rect rect, Bitmap *icon=0, bool invisible=false);
+	Button(Rect sourceRect, Rect rect, Bitmap *icon=0, bool invisible=false);
 
 	Button(const Button& source);
 
@@ -50,7 +50,7 @@ public:
 
 	virtual void update();
 
-	void setGraphics(GLBitmap *button,GLBitmap *buttonPressed,GLBitmap *buttonHover);
+	void setGraphics(Bitmap *button, Bitmap *buttonPressed, Bitmap *buttonHover);
 
 	//void SetTextBitmap(GLBitmap *textBitmap);
 
@@ -80,7 +80,7 @@ protected:
 	bool m_Down;
 	bool m_Pressed;
 
-	GLBitmap *m_Icon;
+	Bitmap *m_Icon;
 
 /*
 	FrameBuffer *m_FrameBufferPressed;
@@ -96,7 +96,7 @@ protected:
 
 	bool m_Invisible;
 
-	GLBitmap *m_TextBitmap;
+	Bitmap *m_TextBitmap;
 	
 	Rect m_SourceRect;
 	

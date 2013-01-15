@@ -37,19 +37,19 @@ using namespace Gus::LogLib;
 namespace GusGui
 {
 
-GLBitmap *GuiData::menuBorder_Top=0;
-GLBitmap *GuiData::menuBorder_Bottom=0;
-GLBitmap *GuiData::menuBorder_Left=0;
-GLBitmap *GuiData::menuBorder_Right=0;
+Bitmap *GuiData::menuBorder_Top=0;
+Bitmap *GuiData::menuBorder_Bottom=0;
+Bitmap *GuiData::menuBorder_Left=0;
+Bitmap *GuiData::menuBorder_Right=0;
 
-GLBitmap *GuiData::menuBorder_Top_NoTrans=0;
-GLBitmap *GuiData::menuBorder_Bottom_NoTrans=0;
-GLBitmap *GuiData::menuBorder_Left_NoTrans=0;
-GLBitmap *GuiData::menuBorder_Right_NoTrans=0;
+Bitmap *GuiData::menuBorder_Top_NoTrans=0;
+Bitmap *GuiData::menuBorder_Bottom_NoTrans=0;
+Bitmap *GuiData::menuBorder_Left_NoTrans=0;
+Bitmap *GuiData::menuBorder_Right_NoTrans=0;
 	
-GLBitmap *GuiData::menuBackground=0;
+Bitmap *GuiData::menuBackground=0;
 	
-GLBitmap *GuiData::guiData=0;
+Bitmap *GuiData::guiData=0;
 
 Font *GuiData::guiFont=0;
 Font *GuiData::guiSmallFont=0;
@@ -65,19 +65,19 @@ void GuiData::setGuiGraphics(std::vector<SDLBitmap*> guiBitmapList)
 {
 	LOG("Set Gui Graphics...");
 	
-	menuBorder_Top=new GLBitmap(*guiBitmapList[0]);
-	menuBorder_Bottom=new GLBitmap(*guiBitmapList[1]);
-	menuBorder_Left=new GLBitmap(*guiBitmapList[2]);
-	menuBorder_Right=new GLBitmap(*guiBitmapList[3]);
+	menuBorder_Top=new Bitmap(*guiBitmapList[0]);
+	menuBorder_Bottom=new Bitmap(*guiBitmapList[1]);
+	menuBorder_Left=new Bitmap(*guiBitmapList[2]);
+	menuBorder_Right=new Bitmap(*guiBitmapList[3]);
 	
-	menuBorder_Top_NoTrans=new GLBitmap(*guiBitmapList[4]);
-	menuBorder_Bottom_NoTrans=new GLBitmap(*guiBitmapList[5]);
-	menuBorder_Left_NoTrans=new GLBitmap(*guiBitmapList[6]);
-	menuBorder_Right_NoTrans=new GLBitmap(*guiBitmapList[7]);
+	menuBorder_Top_NoTrans=new Bitmap(*guiBitmapList[4]);
+	menuBorder_Bottom_NoTrans=new Bitmap(*guiBitmapList[5]);
+	menuBorder_Left_NoTrans=new Bitmap(*guiBitmapList[6]);
+	menuBorder_Right_NoTrans=new Bitmap(*guiBitmapList[7]);
 	
-	menuBackground=new GLBitmap(*guiBitmapList[8]);
+	menuBackground=new Bitmap(*guiBitmapList[8]);
 	
-	guiData=new GLBitmap(*guiBitmapList[9]);
+	guiData=new Bitmap(*guiBitmapList[9]);
 	
 	menuBorder_Top->SEND_TO_GPU();
 	menuBorder_Bottom->SEND_TO_GPU();

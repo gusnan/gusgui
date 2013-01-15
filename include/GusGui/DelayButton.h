@@ -32,7 +32,8 @@ namespace GusGui
 class DelayButton : public Button
 {
 public:
-	DelayButton(Rect rect,Rect sourceRect,Rect sourceRectPressed,GLBitmap *icon,Rect iconSourceRect);
+	DelayButton(Rect rect, Rect sourceRect, Rect sourceRectPressed,
+		Bitmap *icon, Rect iconSourceRect);
 	virtual ~DelayButton();
 
 	void draw(const Vector2d& pos,float alpha);
