@@ -70,7 +70,7 @@ void FileListGui::draw(const Vector2d &pos,float opacity)
 	
 	//GuiDraw::drawGuiRect(newRect,true,opacity);
 	
-	GLPrimitives::drawRect(newRect,colorWhite);
+	Primitives::rect(newRect,colorWhite);
 	
 	std::stringstream st;
 	

@@ -514,11 +514,8 @@ bool Button::onLeftMouseButtonPressed(const Vector2d& pos)
 			
 			if (m_ActivateOnDown) {
 				m_Pressed=true;
-				if (m_ButtonEvent) {
-					m_ButtonEvent->pushEvent();			
-				}
+				pressed();
 			}
-			//LOG("handled");
 			handled=true;
 		}
 	}
@@ -533,18 +530,16 @@ void Button::onLeftMouseButtonReleased(const Vector2d& pos)
 	GuiObject::onLeftMouseButtonReleased(pos);
 	
 	if (m_Down) {
-	m_Down=false;
-	if (m_Active) {
-		if (m_MouseOver) {
+		m_Down=false;
+		if (m_Active) {
+			if (m_MouseOver) {
 
-			if (!m_ActivateOnDown) {
-				m_Pressed=true;
-				if (m_ButtonEvent) {
-					m_ButtonEvent->pushEvent();
- 				}
+				if (!m_ActivateOnDown) {
+					m_Pressed=true;
+						pressed();
+				}
 			}
 		}
-	}
 	}
 }
 
@@ -560,6 +555,16 @@ void Button::onMouseMove(const Vector2d& pos)
 	}
 }
 
+
+/**
+ *
+ */
+void Button::pressed()
+{
+	if (m_ButtonEvent) {
+		m_ButtonEvent->pushEvent();
+	}
+}
 
 // end of namespace
 // ----------------

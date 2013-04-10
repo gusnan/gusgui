@@ -74,7 +74,7 @@ void FadeButton::draw(const Vector2d& pos,float opacity)
 	
 	Color col=Color(1.0f,1.0f,1.0f,(float)m_Fade*opacity);
 	
-	GLPrimitives::rectFill(newRect,col);
+	Primitives::rectFill(newRect,col);
 }
 
 /**
@@ -94,7 +94,7 @@ void FadeButton::update()
 	float m_Speed=4.0f;
 	
 	if (m_Fade>0.0f) {
-		m_Fade-=(float)(Timer::instance()->getDeltaTime()*m_Speed);
+		m_Fade-=(float)(Timer::getDeltaTime()*m_Speed);
 	} else {
 		m_Fade=0.0f;
 	}

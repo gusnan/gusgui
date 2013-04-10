@@ -251,7 +251,7 @@ bool Panel::onLeftMouseButtonPressed(const Vector2d& pos)
 	if (m_Active) {
 	
 		GuiObject::onLeftMouseButtonPressed(pos);
-			
+
 		if (m_GuiList) {
 			for (std::vector<GuiObject*>::iterator iter=m_GuiList->begin();iter!=m_GuiList->end();) {
 				GuiObject *current=(*iter);

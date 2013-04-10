@@ -74,6 +74,8 @@ public:
 	virtual void onLeftMouseButtonReleased(const Vector2d& pos);
 	
 	virtual void onMouseMove(const Vector2d& pos);
+	
+	virtual void pressed();
 
 protected:
 	

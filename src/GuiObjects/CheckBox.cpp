@@ -232,12 +232,13 @@ void CheckBox::setText(std::string text)
 	Rect rect=getRect();
 	
 	if (text!="") {
-		SDLBitmap *tempText=GuiData::guiFont->renderText(text,colorWhite);
-		SDLBitmap *tempBackground=NULL;
+		//SDLBitmap *tempText=GuiData::guiFont->renderText(text,colorWhite);
+		//SDLBitmap *tempBackground=NULL;
 		
-		if (tempText!=NULL) {
+		//if (tempText!=NULL) {
 			
-			m_TextWidth=tempText->getSize().x;
+			//m_TextWidth=tempText->getSize().x;
+			/*
 
 			tempBackground=new SDLBitmap(tempText->getSize());
 			
@@ -248,17 +249,21 @@ void CheckBox::setText(std::string text)
 			m_TextBitmap=new Bitmap(*tempBackground);
 			m_TextBitmap->SEND_TO_GPU();
 			
+			
 			delete tempText;
-			tempText=NULL;
+			*/
+			//tempText=NULL;
+			/*
 		}
 		if (tempBackground) {
-			delete tempBackground;
-			tempBackground=NULL;
+			//delete tempBackground;
+			//tempBackground=NULL;
 		}
+		*/
 		
 		m_Text=text;
 		
-		m_Rect=Rect(rect.position,m_CheckBoxSize+Vector2d(5,0)+Vector2d(m_TextBitmap->getSize().x,0));
+		//m_Rect=Rect(rect.position,m_CheckBoxSize+Vector2d(5,0)+Vector2d(m_TextBitmap->getSize().x,0));
 		
 	} else {
 		if (m_TextBitmap) {

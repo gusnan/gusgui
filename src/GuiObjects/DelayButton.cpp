@@ -105,12 +105,12 @@ void DelayButton::draw(const Vector2d& pos,float alpha)
 			//GuiDraw::DrawPressedButton(newrect);
 			GuiData::guiData->blit(m_SourceRect,newpos,alpha);
 			
-			m_Icon->blitCenter(m_IconSourceRect,newrect+Vector2d(2,2),alpha);
+			//m_Icon->blitCenter(m_IconSourceRect,newrect+Vector2d(2,2),alpha);
 
 		} else {
 			//GuiDraw::DrawStandardButton(newrect);
 			GuiData::guiData->blit(m_SourceRectPressed,newpos,alpha);
-			m_Icon->blitCenter(m_IconSourceRect,newrect,alpha);
+			//m_Icon->blitCenter(m_IconSourceRect,newrect,alpha);
 		}
 }
 
@@ -121,11 +121,13 @@ void DelayButton::draw(const Vector2d& pos,float alpha)
 void DelayButton::update()
 {
 	//std::cout << "DelayButton::Update" << std::endl;
+	/*
 	if (m_Delay>0.0f) {
 		m_Delay-=(float)(Timer::instance()->getDeltaTime()*m_Speed);
 	} else {
 		m_Delay=0.0f;
 	}
+	*/
 }
 
 /**

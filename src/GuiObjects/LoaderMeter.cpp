@@ -52,7 +52,7 @@ LoaderMeter::LoaderMeter(Rect rect,int maxValue) : GuiObject(rect), m_MaxValue()
 	m_MaxValue=maxValue;
 	m_Value=0;
 	
-	rect.setCenter(GraphicsHandler::instance()->getScreenRect().getCenter());
+	rect.setCenter(GraphicsHandler::getScreenRect().getCenter());
 	
 	//GuiObject(rect);
 	GuiObject::setRect(rect);
@@ -96,14 +96,14 @@ void LoaderMeter::draw(const Vector2d &pos,float opacity)
 		
 		newRect.size.x=newsize;
 		
-		GLPrimitives::rectFill(newRect+pos,colorRed);
+		Primitives::rectFill(newRect+pos,colorRed);
 		
 		Rect centerRect=rect+pos;
 		
 		GuiData::guiFont->drawCenter(centerRect.getCenter()+Vector2d(2,2),"Loading...",colorBlack);
 		GuiData::guiFont->drawCenter(centerRect.getCenter(),"Loading...",colorWhite);
 		
-		SDL_GL_SwapBuffers();
+		//SDL_GL_SwapBuffers();
 	}
 }
 

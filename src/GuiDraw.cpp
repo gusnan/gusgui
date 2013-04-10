@@ -61,7 +61,7 @@ void GuiDraw::drawGuiRect(Rect rect, bool drawTransparentFrame, float opacity)
 	
 	int transAdd=0;
 
-	GraphicsHandler *graphicsHandler=GraphicsHandler::instance();
+	//GraphicsHandler *graphicsHandler=GraphicsHandler::instance();
 	
 	if (!drawTransparentFrame) transAdd+=16;
 	
@@ -69,13 +69,14 @@ void GuiDraw::drawGuiRect(Rect rect, bool drawTransparentFrame, float opacity)
 	GuiData::guiData->blit(Rect(40+transAdd,0,8,8),pos+Vector2d(-8,-8),opacity);
 	
 	if (xs<=128) {
-		graphicsHandler->setClipRect(Rect(pos.x,pos.y-8,xs,8));
+		GraphicsHandler::setClipRect(Rect(pos.x,pos.y-8,xs,8));
 		if (!drawTransparentFrame) {
 			GuiData::menuBorder_Top_NoTrans->blit(pos+Vector2d(0,-8),opacity);
 		} else {
 			GuiData::menuBorder_Top->blit(pos+Vector2d(0,-8),opacity);
 		}
-		graphicsHandler->noClip();
+		//graphicsHandler->noClip();
+		GraphicsHandler::noClip();
 		
 	} else {
 		GuiData::menuBorder_Top->drawPattern(Rect(pos+Vector2d(0,-8),Vector2d(xs,8)),opacity);
@@ -85,14 +86,14 @@ void GuiDraw::drawGuiRect(Rect rect, bool drawTransparentFrame, float opacity)
 	GuiData::guiData->blit(Rect(48+transAdd,0,8,8),pos+Vector2d(xs,-8),opacity);
 	
 	if (ys<120) {
-		graphicsHandler->setClipRect(Rect(pos.x-8,pos.y,8,ys));
+		GraphicsHandler::setClipRect(Rect(pos.x-8,pos.y,8,ys));
 		if (!drawTransparentFrame) {
 			GuiData::menuBorder_Left_NoTrans->blit(pos+Vector2d(-8,0),opacity);
 		} else {
 			GuiData::menuBorder_Left->blit(pos+Vector2d(-8,0),opacity);
 		}
 		//GuiData::menuBorder_Left->DrawPattern(Rect(pos.x,pos.y,5,ys));
-		graphicsHandler->noClip();
+		GraphicsHandler::noClip();
 	} else {
 	
 		GuiData::menuBorder_Left->drawPattern(Rect(pos+Vector2d(-8,0),Vector2d(8,ys)),opacity);
@@ -103,26 +104,26 @@ void GuiDraw::drawGuiRect(Rect rect, bool drawTransparentFrame, float opacity)
 	
 	
 	if (xs<=116) {
-		GraphicsHandler::instance()->setClipRect(Rect(pos.x,y+ys,xs,8));
+		GraphicsHandler::setClipRect(Rect(pos.x,y+ys,xs,8));
 		if (!drawTransparentFrame) {
 			GuiData::menuBorder_Bottom_NoTrans->blit(pos+Vector2d(0,ys),opacity);
 		} else {
 			GuiData::menuBorder_Bottom->blit(pos+Vector2d(0,ys),opacity);
 		}
-		graphicsHandler->noClip();
+		GraphicsHandler::noClip();
 	} else {
 	
 		GuiData::menuBorder_Bottom->drawPattern(Rect(pos+Vector2d(0,ys),Vector2d(xs,8)),opacity);
 	}
 	
 	if (ys<120) {
-		graphicsHandler->setClipRect(Rect(x+xs,pos.y,8,ys));
+		GraphicsHandler::setClipRect(Rect(x+xs,pos.y,8,ys));
 		if (!drawTransparentFrame) {
 			GuiData::menuBorder_Right_NoTrans->blit(pos+Vector2d(xs,0),opacity);
 		} else {
 			GuiData::menuBorder_Right->blit(pos+Vector2d(xs,0),opacity);
 		}
-		graphicsHandler->noClip();
+		GraphicsHandler::noClip();
 	} else {
 	
 		GuiData::menuBorder_Right->drawPattern(Rect(pos+Vector2d(xs,0),Vector2d(8,ys)),opacity);
@@ -285,6 +286,7 @@ void GuiDraw::splitString(std::string instring,std::string& text,std::string& sh
  */
 Bitmap *GuiDraw::drawTextCentered(std::string intext)
 {
+	/*
 	std::string text,shortcut;
 	
 	splitString(intext,text,shortcut);
@@ -314,7 +316,7 @@ Bitmap *GuiDraw::drawTextCentered(std::string intext)
 		size.x+=GuiData::guiSmallFont->getStringWidth(shortcut);
 	}
 
-	SDLBitmap *tempBackground=new SDLBitmap(size/*GuiData::guiFont->GetStringSize(fullText)*/);
+	SDLBitmap *tempBackground=new SDLBitmap(size); //GuiData::guiFont->GetStringSize(fullText));
 	
 	tempBackground->clearToColor(Color(0.0,0.0,0.0,0.0));
 
@@ -344,12 +346,10 @@ Bitmap *GuiDraw::drawTextCentered(std::string intext)
 		
 	}
 
-	/*
-	REMOVE(tempText);
+	//REMOVE(tempText);
 	
-	tempText=GuiHandler::guiFont->RenderText(text,colorWhite);
-	tempText->Blit(tempBackground,Vector2d(0,0));
-	*/
+	//tempText=GuiHandler::guiFont->RenderText(text,colorWhite);
+	//tempText->Blit(tempBackground,Vector2d(0,0));
 	Bitmap *textBitmap=new Bitmap(*tempBackground);
 	textBitmap->SEND_TO_GPU();
 		
@@ -358,7 +358,9 @@ Bitmap *GuiDraw::drawTextCentered(std::string intext)
 	
 	//m_Text=text;
 	return textBitmap;
+	*/
 	
+	return NULL;
 }
 
 #ifndef _NO_FRAME_BUFFER_
@@ -391,24 +393,28 @@ void GuiDraw::drawStandardButton(Rect rect, Bitmap *icon)
 {
 	Vector2d size=rect.size;
 	Vector2d pos=rect.position;
-	GLPrimitives::rectFill(rect,makeColorInt(20,69,112));
+	//Primitives::rectFill(rect, makeColorInt(20,69,112));
+	Primitives::rectFill(rect, Color(0.1,0.25,0.5));
+	
 	//GLPrimitives::RectFill(fullRect,Color(0.014f,0.041,0.26f,1.0));
 	//GLPrimitives::RectFill(fullRect,Color(0.03f,0.129f,0.211f,1.0));
 	//GLPrimitives::RectFill(fullRect,Color(0.0f,0.3f,1.0f,1.0));
 	
-	Rect newRect=Rect(pos+Vector2d(1,1),size-Vector2d(2,2));
-	Rect thirdRect=Rect(pos+Vector2d(2,2),size-Vector2d(4,4));
-	Rect fourthRect=Rect(pos+Vector2d(3,3),size-Vector2d(6,6));
+	Rect newRect=Rect(pos+Vector2d(1,1), size-Vector2d(2,2));
+	Rect thirdRect=Rect(pos+Vector2d(2,2), size-Vector2d(4,4));
+	Rect fourthRect=Rect(pos+Vector2d(3,3), size-Vector2d(6,6));
 	
-	GLPrimitives::niceRect(rect,0.5f,0.4f);
-	GLPrimitives::niceRect(newRect,0.35f,0.3f);
-	GLPrimitives::niceRect(thirdRect,0.2f,0.2f);
-	GLPrimitives::niceRect(fourthRect,0.1f,0.1f);
+	/*
+	Primitives::niceRect(rect,0.5f,0.4f);
+	Primitives::niceRect(newRect,0.35f,0.3f);
+	Primitives::niceRect(thirdRect,0.2f,0.2f);
+	Primitives::niceRect(fourthRect,0.1f,0.1f);
+	*/
 	
 	Color col1=Color(0.0f,0.0f,0.0f,0.7f);
 	Color col2=Color(1.0f,1.0f,1.0f,0.1f);
 
-	GLPrimitives::shadeRect(Rect(pos/*Vector2d(0,0)*/,size/*-Vector2d(8,8)*/),col1,col2);
+	//GLPrimitives::shadeRect(Rect(pos/*Vector2d(0,0)*/,size/*-Vector2d(8,8)*/),col1,col2);
 	
 	if (icon) {
 		
@@ -450,7 +456,7 @@ void GuiDraw::drawPressedButton(Rect rect, Bitmap *icon)
 	
 	// 10,33,54
 	// 19,72,118
-	GLPrimitives::rectFill(rect,makeColorInt(20,69,112));
+	//GLPrimitives::rectFill(rect,makeColorInt(20,69,112));
 	//GLPrimitives::RectFill(fullRect,Color(0.034f,0.211,0.56f,1.0));
 	//GLPrimitives::RectFill(fullRect,Color(0.03f,0.129f,0.211f,1.0));
 	//GLPrimitives::RectFill(fullRect,Color(0.0f,0.2f,0.7f,1.0));
@@ -459,15 +465,17 @@ void GuiDraw::drawPressedButton(Rect rect, Bitmap *icon)
 	Rect thirdRect=Rect(pos+Vector2d(2,2),size-Vector2d(4,4));
 	Rect fourthRect=Rect(pos+Vector2d(3,3),size-Vector2d(6,6));
 	
+	/*
 	GLPrimitives::niceRect(rect,0.5f,0.4f,true);
 	GLPrimitives::niceRect(newRect,0.35f,0.3f,true);
 	GLPrimitives::niceRect(thirdRect,0.2f,0.2f,true);
 	GLPrimitives::niceRect(fourthRect,0.1f,0.1f,true);
+	*/
 	
 	Color col1=Color(0.0f,0.0f,0.0f,0.7f);
 	Color col2=Color(1.0f,1.0f,1.0f,0.1f);
 
-	GLPrimitives::shadeRect(Rect(pos,size/*-Vector2d(8,8)*/),col1,col2);
+	//GLPrimitives::shadeRect(Rect(pos,size/*-Vector2d(8,8)*/),col1,col2);
 	
 	if (icon) {
 	
@@ -513,9 +521,11 @@ void GuiDraw::drawNiceText(Vector2d pos,std::string st,Color col,float opacity)
  */
 void GuiDraw::drawNiceTextSmallCenter(Vector2d pos,std::string st,Color col,float opacity)
 {
+	/*
 	int s=GuiData::guiFont->getStringWidth(st);
 	
 	drawNiceTextSmall(pos-Vector2d(s/2,0),st,col,opacity);
+	*/
 }
 
 /**
@@ -523,10 +533,11 @@ void GuiDraw::drawNiceTextSmallCenter(Vector2d pos,std::string st,Color col,floa
  */
 void GuiDraw::drawNiceTextCenter(Vector2d pos,std::string st,Color col,float opacity)
 {
+	/*
 	int s=GuiData::guiFont->getStringWidth(st);
 	
 	drawNiceText(pos-Vector2d(s/2,0),st,col,opacity);
-
+	*/
 }
 
 

@@ -20,6 +20,8 @@
 #ifndef __HEADER_GUI_DRAW_
 #define __HEADER_GUI_DRAW_
 
+#define _NO_FRAME_BUFFER_
+
 /**
  *
  */

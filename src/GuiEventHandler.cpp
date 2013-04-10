@@ -203,7 +203,7 @@ void GUSGAME_DLL GuiEventHandler::handleMouseButton(MouseButtonEvent &mouseButto
 	
 	Vector2d mousePos=mouseButtonEvent.getPosition();
 
-	if (mouseButtonEvent.getStatus()==MouseButtonPressed/*SDL_MOUSEBUTTONDOWN*/) {
+	if (mouseButtonEvent.getStatus()==MouseButtonStatusPressed/*SDL_MOUSEBUTTONDOWN*/) {
 		
 		switch(mouseButtonEvent.getButton()) {
 		case 1:
@@ -238,7 +238,7 @@ void GUSGAME_DLL GuiEventHandler::handleMouseButton(MouseButtonEvent &mouseButto
 			break;
 		}
 		
-	} else if (mouseButtonEvent.getStatus()==MouseButtonReleased) {
+	} else if (mouseButtonEvent.getStatus()==MouseButtonStatusReleased) {
 		switch(mouseButtonEvent.getButton()) {
 		case 1:
 			{

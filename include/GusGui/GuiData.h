@@ -55,14 +55,14 @@ namespace GuiData
 	//extern GLBitmap *checkBoxActivePressed,*checkBoxActive,*checkBoxPressed,*checkBox;
 	extern Bitmap *guiData;
 	
-	extern Font *guiFont;
-	extern Font *guiSmallFont;
-	extern Font *guiBigFont;
+	extern GraphicsLib::Font *guiFont;
+	extern GraphicsLib::Font *guiSmallFont;
+	extern GraphicsLib::Font *guiBigFont;
 	
-	void setGuiGraphics(std::vector<SDLBitmap*> guiBitmapList);
-	void setGuiFont(Font *guiFont);
-	void setGuiSmallFont(Font *smallFont);
-	void setGuiBigFont(Font* bigFont);
+	void setGuiGraphics(std::vector<Bitmap*> guiBitmapList);
+	void setGuiFont(GraphicsLib::Font *guiFont);
+	void setGuiSmallFont(GraphicsLib::Font *smallFont);
+	void setGuiBigFont(GraphicsLib::Font* bigFont);
 	
 	
 	void freeGuiGraphics();

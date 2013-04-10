@@ -29,8 +29,6 @@
 #include "CheckBox.h"
 #include "DelayButton.h"
 #include "FadeButton.h"
-#include "TextMarker.h"
-#include "TextInput.h"
 #include "InvisibleGuiObject.h"
 #include "LoaderMeter.h"
 #include "FileListGui.h"

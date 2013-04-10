@@ -20,8 +20,12 @@
 #include <cstdlib>
 #include <iostream>
 #include <sstream>
+#include <vector>
 
 #include "GusGame/GusGame.h"
+
+#include "GusGame/EventLib.h"
+#include "GusGame/EventSystem.h"
 
 using namespace Gus;
 
@@ -35,6 +39,8 @@ using namespace EventLib;
 using namespace GusGui;
 
 bool quit=false;
+
+UserEvent *userEvent=NULL;
 
 
 
@@ -86,6 +92,7 @@ public:
 	virtual int handleUserEvent(UserEvent &userEvent)
 	{
 		LOG("User event..");
+		quit=true;
 		return GuiEventHandler::handleUserEvent(userEvent);
 	}
 
@@ -111,18 +118,17 @@ public:
 	virtual void draw(const Vector2d& pos,float alpha=1.0)
 	{
 		// Gray for standard button
-		GLPrimitives::rectFill(getRect()+pos,colorLightGray);
+		Primitives::rectFill(getRect()+pos,colorLightGray);
 		if (getMouseOver()) {
 			
 			// red when hovered
-			GLPrimitives::rectFill(getRect()+pos,colorRed);
+			Primitives::rectFill(getRect()+pos,colorRed);
 			if (getDown()) {
 				// and white when pressed
-				GLPrimitives::rectFill(getRect()+pos,colorWhite);
+				Primitives::rectFill(getRect()+pos,colorWhite);
 			}
 		}
 	}
-	
 	
 protected:
 };
@@ -145,7 +151,9 @@ public:
 		addGuiObject(m_ExampleButton);
 		
 		m_QuitButton=new ExampleButton(Rect(10,40,100,20));
-		m_QuitButton->setEvent(EventLib::eventQuit);
+		//m_QuitButton->setEvent(EventLib::eventQuit);
+		
+		m_QuitButton->setEvent(userEvent);
 		addGuiObject(m_QuitButton);
 	}
 	
@@ -160,11 +168,12 @@ public:
 		// Draw a white outline on the panel
 		Rect newRect=getRect()+pos;
 		
-		GLPrimitives::drawRect(newRect,colorWhite);
+		Primitives::rect(newRect,colorWhite);
 		
 		// Make the Panel class which we inherit from draw the gui objects
 		Panel::draw(pos,opacity);
 	}
+
 	
 protected:
 	Button *m_ExampleButton;
@@ -180,46 +189,55 @@ int main(int argc,char **argv)
 {
 	EventHandler *eventHandler=NULL;
 	Bitmap *mouseBitmap=NULL;
-	Font *font=NULL;
+	GraphicsLib::Font *font=NULL;
 	ExamplePanel *panel=NULL;
 	std::vector<GuiObject*> *guiList=NULL;
 	
 	try {
-		// init the log - this function takes a string (the log file filename) as indata,
-		// if none is inserted, "log.txt" is assumed. If you give the empty string "" 
-		// as filename for the log, no log will be used.
+		// init the log - this function takes a string (the log file filename) as 
+		// indata, if none is inserted, "log.txt" is assumed. If you give the 
+		// empty string "" as filename for the log, no log will be used.
 		// 
-		// The second indata is a boolean to determine to print the log to std::cout
-		// or not in addition to to the file.
+		// The second indata is a boolean to determine to print the log to 
+		// std::cout or not in addition to to the file.
 		LogHandler::initLog("log.txt",true);
 				
 		// init system stuff
-		System::instance();
+		System::initSystem();
 		
 		// set up a screen with resolution of 640x480, and not fullscreen
-		GraphicsHandler::instance()->initGraphicsHandler(Vector2d(640,480),false);
+		GraphicsHandler::initGraphicsHandler();
+		GraphicsHandler::setGraphicsMode(Vector2d(640,480),false);
+		
+		Primitives::initPrimitives();
 		
 		// set a window title
-		GraphicsHandler::instance()->setWindowTitle("GusGame Example 2");
+		GraphicsHandler::setWindowTitle("GusGame Example 2");
 		
 		mouseBitmap=new Bitmap("mouse.png");
 		
-		System::instance()->getMouse()->setMouseBitmap(mouseBitmap);
+		GraphicsHandler::setMouseBitmap(mouseBitmap);
 		
-		FontHandler::instance();
+		FontHandler::initFontHandler();
 		
-		font=new Font("FreeSans.ttf",12);
+		font=new GraphicsLib::Font("FreeSans.ttf",12,true);
 		
 		GuiData::setGuiFont(font);
 		
+		userEvent=new UserEvent();
+		
 		// This must be initialized before the Examplepanel
-		EventData::instance();
+		// EventData::instance();
 
 		guiList=new std::vector<GuiObject*>;
 		panel=new ExamplePanel();
 		
 		//guiList->push_back((GuiObject*)panel);
 		guiList->push_back(panel);
+		
+		EventSystem::initEventSystem();
+		
+		userEvent=new UserEvent();
 		
 		// Create an EventHandler for our "custom" events
 		// which inherits from the GUI event handler, this for it
@@ -229,9 +247,9 @@ int main(int argc,char **argv)
 
 		// set the used EventHandler to the one we just created.
 		//	EventHelper::instance()->setEventHandler(guiEventHandler);
-		EventHelper::instance()->setEventHandler(eventHandler);
+		// EventHelper::instance()->setEventHandler(eventHandler);
+		EventSystem::setEventHandler(eventHandler);
 
-				
 	}
 	catch (Exception &e)
 	{
@@ -247,23 +265,26 @@ int main(int argc,char **argv)
 	// the main loop
 	do {
 		// Update the timer
-		Timer::instance()->updateFrame();
+		Timer::updateFrame();
 		
 		GuiHandler::instance()->update(guiList);
 		
 		// Handle events (see the class just above this main
-		EventHelper::instance()->handleEvents();
+		//EventHelper::instance()->handleEvents();
+		EventSystem::handleEvents();
 		
 		// Clear the screen every sync
-		GraphicsHandler::instance()->clearScreen();
+		GraphicsHandler::clearScreen();
 		
 		GuiHandler::instance()->draw(guiList);
 		
+		/*
 		// Draw the mouse cursor
 		System::instance()->getMouse()->draw();
+		*/
 	
 		// Update the screen
-		GraphicsHandler::instance()->updateScreen();
+		GraphicsHandler::updateScreen();
 	} while(!quit);
 	
 	delete panel;
@@ -271,13 +292,17 @@ int main(int argc,char **argv)
 	delete font;
 	delete mouseBitmap;
 	
+	delete userEvent;
+	
 	// Remove our custom eventHandler
 	delete eventHandler;
 	
-	FontHandler::destroy();
+	FontHandler::doneFontHandler();
+	
+	Primitives::donePrimitives();
 	
 	// done with system stuff
-	System::destroy();
+	System::doneSystem();
 	
 	// done with the Log
 	LogHandler::doneLog();

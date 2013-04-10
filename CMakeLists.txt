@@ -32,6 +32,8 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
 option (DEBUG "Build Debug executable" off)
 
+find_package(Allegro5 REQUIRED)
+
 if (DEBUG)
 	message(STATUS "Building Debug executable")
 	set(CMAKE_BUILD_TYPE "Debug")
@@ -84,9 +86,9 @@ message(STATUS "CMAKE_INSTALL_PREFIX: ${CMAKE_INSTALL_PREFIX}")
 message(STATUS "CMAKE_SOURCE_DIR: ${CMAKE_SOURCE_DIR}")
 
 
-find_package(SDL REQUIRED)
-find_package(SDL_ttf REQUIRED)
-find_package(SDL_image REQUIRED)
+#find_package(SDL REQUIRED)
+#find_package(SDL_ttf REQUIRED)
+#find_package(SDL_image REQUIRED)
 find_package(OpenGL REQUIRED)
 
 find_package(GusGame REQUIRED)
@@ -114,8 +116,8 @@ set(OBJECT_SOURCES
 	${SRC}/InvisibleGuiObject.cpp
 	${SRC}/LoaderMeter.cpp
 	${SRC}/Panel.cpp
-	${SRC}/TextInput.cpp
-	${SRC}/TextMarker.cpp
+	# ${SRC}/TextInput.cpp
+	# ${SRC}/TextMarker.cpp
 )
 
 #add_library(logLib STATIC ${LOG_SOURCES})
@@ -178,9 +180,9 @@ if (WIN32)
 
 endif(WIN32)
 
-find_package(SDL REQUIRED)
-find_package(SDL_ttf REQUIRED)
-find_package(SDL_image REQUIRED)
+#find_package(SDL REQUIRED)
+#find_package(SDL_ttf REQUIRED)
+#find_package(SDL_image REQUIRED)
 find_package(OpenGL REQUIRED)
 
 find_package(GusGame REQUIRED)
@@ -208,10 +210,16 @@ message(STATUS "SDL_IMAGE_INCLUDE_DIR: ${SDLIMAGE_INCLUDE_DIR}")
 
 message(STATUS "GUSGAME_INCLUDE_DIR: ${GUSGAME_INCLUDE_DIR}")
 
+if (NOT ALLEGRO_FOUND)
+	message(FATAL_ERROR "Allegro not found!")
+endif (NOT ALLEGRO_FOUND)
+
 # And some libs:
 
-message(STATUS "SDL_LIBRARY: ${SDL_LIBRARY}")
-message(STATUS "SDLMAIN_LIBRARY: ${SDLMAIN_LIBRARY}")
+#message(STATUS "SDL_LIBRARY: ${SDL_LIBRARY}")
+#message(STATUS "SDLMAIN_LIBRARY: ${SDLMAIN_LIBRARY}")
+
+message(STATUS "Allegro5 LIBRARY: ${ALLEGRO_LIBRARY}")
 
 message(STATUS "OPENGL_LIBRARY: ${OPENGL_LIBRARY}")
 message(STATUS "OPENGL_LIBRARIES: ${OPENGL_LIBRARIES}")
@@ -238,10 +246,13 @@ set(ALL_LIBS
 	${GLUT_LIBRARY}
 	${WINGL_LIBS}
 	${MY_GLEW_LIB}
-	${SDLMAIN_LIBRARY}
-	${SDL_LIBRARY}
-	${SDLTTF_LIBRARY}
-   ${SDLIMAGE_LIBRARY}
+	
+	${ALLEGRO_LIBRARIES}
+	
+#	${SDLMAIN_LIBRARY}
+#	${SDL_LIBRARY}
+#	${SDLTTF_LIBRARY}
+#  ${SDLIMAGE_LIBRARY}
 )
 
 link_libraries(${ALL_LIBS} ${GUSGAME_LIBRARY})
@@ -270,7 +281,7 @@ add_executable(example1 WIN32 ${EX_DIR}/example1.cpp)
 target_link_libraries(example1 ${ALL_LIBS} ${GUSGUI_LIBRARY_NAME} ${GUSGAME_LIBRARY})
 
 add_executable(example2 WIN32 ${EX_DIR}/example2.cpp)
-target_link_libraries(example2 ${ALL_LIBS} ${GUSGUI_LIBRARY_NAME} ${GUSGAME_LIBRARY} )
+target_link_libraries(example2 ${ALL_LIBS} ${GUSGUI_LIBRARY_NAME} ${GUSGAME_LIBRARY})
 
 #add_executable(example3 WIN32 ${EX_DIR}/example3.cpp)
 #target_link_libraries(example3 ${ALL_LIBS} ${LIBRARY_NAME})
