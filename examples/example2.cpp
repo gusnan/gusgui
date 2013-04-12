@@ -79,7 +79,8 @@ public:
 	}
 	
 	/**
-	 * handle the quit event (This is called when the window close button is pressed.)
+	 * handle the quit event (This is called when the window close button is 
+	 * pressed.)
 	 */
 	virtual void handleQuitEvent()
 	{
@@ -159,8 +160,8 @@ public:
 	
 	virtual ~ExamplePanel()
 	{
-		// We don't need to destroy the GuiObjects here - it is automatically done in the
-		// Panel destructor, which we inherit this class from.
+		// We don't need to destroy the GuiObjects here - it is automatically 
+		// done in the Panel destructor, which we inherit this class from.
 	}
 	
 	void draw(const Vector2d &pos,float opacity=1.0)
