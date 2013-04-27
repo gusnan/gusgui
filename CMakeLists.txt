@@ -158,7 +158,7 @@ set(INCLUDE_FILES
 	${INC}/GuiLib.h     
 	${INC}/GusGui.h              
 	${INC}/LoaderMeter.h  
-	${INC}/TextInput.h
+	#${INC}/TextInput.h
 	${INC}/CheckBox.h  
 	${INC}/FadeButton.h   
 	${INC}/GuiData.h      
@@ -166,7 +166,7 @@ set(INCLUDE_FILES
 	${INC}/GuiObject.h  
 	${INC}/InvisibleGuiObject.h  
 	${INC}/Panel.h        
-	${INC}/TextMarker.h
+	#${INC}/TextMarker.h
 	${INC}/GuiEventHandler.h
 	
 )
