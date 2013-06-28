@@ -298,6 +298,8 @@ int main(int argc,char **argv)
 	
 	delete userEvent;
 	
+	eventHandler.~shared_ptr();
+	
 	FontHandler::doneFontHandler();
 	
 	Primitives::donePrimitives();
