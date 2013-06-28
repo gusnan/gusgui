@@ -17,6 +17,9 @@
  *	along with GusGui.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
+
+#include <boost/shared_ptr.hpp>
+
 #include <cstdlib>
 #include <iostream>
 #include <sstream>
@@ -188,7 +191,7 @@ protected:
  */
 int main(int argc,char **argv)
 {
-	EventHandler *eventHandler=NULL;
+	boost::shared_ptr<EventHandler> eventHandler = boost::shared_ptr<EventHandler>();
 	Bitmap *mouseBitmap=NULL;
 	GraphicsLib::Font *font=NULL;
 	ExamplePanel *panel=NULL;
@@ -244,12 +247,12 @@ int main(int argc,char **argv)
 		// which inherits from the GUI event handler, this for it
 		// to handle both GUI events, and our own custom ones for
 		// just this example
-		eventHandler=new ExampleEventHandler(guiList);
+		eventHandler=boost::shared_ptr<EventHandler>(new ExampleEventHandler(guiList));
 
 		// set the used EventHandler to the one we just created.
 		//	EventHelper::instance()->setEventHandler(guiEventHandler);
 		// EventHelper::instance()->setEventHandler(eventHandler);
-		EventSystem::setEventHandler(eventHandler);
+		EventSystem::addEventHandler(eventHandler);
 
 	}
 	catch (Exception &e)
@@ -294,9 +297,6 @@ int main(int argc,char **argv)
 	delete mouseBitmap;
 	
 	delete userEvent;
-	
-	// Remove our custom eventHandler
-	delete eventHandler;
 	
 	FontHandler::doneFontHandler();
 	

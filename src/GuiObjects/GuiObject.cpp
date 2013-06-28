@@ -17,6 +17,9 @@
  *	along with GusGui.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
+
+#include <boost/shared_ptr.hpp>
+
 #include <string>
 #include <vector>
 #include <sstream>
