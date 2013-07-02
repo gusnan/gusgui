@@ -37,6 +37,13 @@ using namespace Gus::EventLib;
 
 namespace GusGui
 {
+	
+/**
+ *
+ */
+GUSGAME_DLL GuiEventHandler::GuiEventHandler()
+{
+}
 
 /**
  *
@@ -53,6 +60,14 @@ GUSGAME_DLL GuiEventHandler::~GuiEventHandler()
 {
 }
 
+
+/**
+ *
+ */
+GuiEventHandler::GuiEventHandler(const GuiEventHandler &source)
+{
+	
+}
 
 /**
  *

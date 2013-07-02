@@ -34,7 +34,10 @@ namespace GusGui
 class GuiEventHandler : public EventHandler
 {
 public:
+	GUSGAME_DLL GuiEventHandler();
+
 	GUSGAME_DLL GuiEventHandler(std::vector<GuiObject*> *guiList);
+	GUSGAME_DLL GuiEventHandler(const GuiEventHandler &source);
 	virtual GUSGAME_DLL ~GuiEventHandler();
 
 	void GUSGAME_DLL onLeftMouseButtonPressed(const Vector2d& pos);
