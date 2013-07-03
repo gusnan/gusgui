@@ -41,7 +41,7 @@ namespace GusGui
 /**
  *
  */
-GUSGAME_DLL GuiEventHandler::GuiEventHandler()
+GUSGAME_DLL GuiEventHandler::GuiEventHandler() : m_GuiList(NULL)
 {
 }
 
