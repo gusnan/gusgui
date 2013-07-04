@@ -75,7 +75,8 @@ GuiHandler::GuiHandler() :
 	eventSwitchConsole(0),
 	eventEnterConsoleCommand(0),
 	m_CurrentGuiObject(boost::shared_ptr<GuiObject>()),
-	showKeyboardShortcuts(false)
+	showKeyboardShortcuts(false),
+	m_GuiList(NULL)
 {
 	LOG("Init Gui Handler...");
 	
@@ -85,6 +86,8 @@ GuiHandler::GuiHandler() :
 	
 	eventSwitchConsole=new UserEvent(EVENT_SWITCH_CONSOLE);
 	eventEnterConsoleCommand=new UserEvent(EVENT_ENTER_CONSOLE_COMMAND);
+	
+	m_GuiList = new std::vector<boost::shared_ptr<GuiObject> >;
 }
 
 /**
@@ -102,6 +105,11 @@ GuiHandler::~GuiHandler()
 	if (eventEnterConsoleCommand!=NULL) {
 		delete eventEnterConsoleCommand;
 		eventEnterConsoleCommand=NULL;
+	}
+	
+	if (m_GuiList!=NULL) {
+		delete m_GuiList;
+		m_GuiList = NULL;
 	}
 }
 
@@ -126,10 +134,10 @@ SDL_Event GuiHandler::MakeEvent(int code)
 /**
  *
  */
-void GuiHandler::draw(std::vector<GuiObjectPtr> *guiList)
+void GuiHandler::draw()
 {
 	const Vector2d pos=Vector2d(0,0);
-	for (std::vector<GuiObjectPtr>::iterator iter=guiList->begin();iter!=guiList->end();) {
+	for (std::vector<GuiObjectPtr>::iterator iter=m_GuiList->begin();iter!=m_GuiList->end();) {
 		//(*iter)->Draw(Vector2d(0,0));
 		(*iter)->draw(pos);
 		++iter;
@@ -140,11 +148,11 @@ void GuiHandler::draw(std::vector<GuiObjectPtr> *guiList)
 /**
  *
  */
-void GuiHandler::update(std::vector<GuiObjectPtr> *guiList)
+void GuiHandler::update()
 {
 	
 	std::vector<GuiObjectPtr>::iterator iter;
-	for (iter=guiList->begin();iter!=guiList->end();) {
+	for (iter=m_GuiList->begin();iter!=m_GuiList->end();) {
 		
 		(*iter)->update();
 		++iter;
@@ -155,9 +163,9 @@ void GuiHandler::update(std::vector<GuiObjectPtr> *guiList)
 /**
  *
  */
-void GuiHandler::setNoMouseOver(std::vector<GuiObjectPtr> *guiList)
+void GuiHandler::setNoMouseOver()
 {
-	for (std::vector<GuiObjectPtr>::iterator iter=guiList->begin();iter!=guiList->end();) {
+	for (std::vector<GuiObjectPtr>::iterator iter=m_GuiList->begin();iter!=m_GuiList->end();) {
 		(*iter)->setMouseOver(false);
 		++iter;
 	}
@@ -197,6 +205,58 @@ void GuiHandler::setCurrentGuiObject(GuiObjectPtr guiObj)
 
 }
 
+
+
+/**
+ *
+ */
+void GuiHandler::addGuiObject(GuiObjectPtr guiObject)
+{
+	if (guiObject != boost::shared_ptr<GuiObject>()) {
+		if (m_GuiList) {
+			m_GuiList->push_back(guiObject);
+		}
+	}
+}
+
+
+/**
+ *
+ */
+void GuiHandler::removeGuiObject(GuiObjectPtr guiObject)
+{
+	std::vector<GuiObjectPtr>::iterator iter;
+	GuiObjectPtr currentGuiObject = boost::shared_ptr<GuiObject>();
+	
+	GuiObject *inGuiObject = guiObject.get();
+	
+	if (m_GuiList) {
+		
+		if (!m_GuiList->empty()) {
+			
+			for (iter = m_GuiList->begin(); iter != m_GuiList->end(); ) {
+				
+				currentGuiObject = (*iter);
+				
+				if (inGuiObject == currentGuiObject.get()) {
+					iter = m_GuiList->erase(iter);
+				} else {
+					++iter;
+				}
+			}
+			
+		}
+	}
+}
+
+
+/**
+ *
+ */
+std::vector<GuiObjectPtr> *GuiHandler::getGuiList()
+{
+	return m_GuiList;
+}
 
 // end of namespace
 // ----------------

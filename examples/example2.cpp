@@ -56,7 +56,7 @@ class ExampleEventHandler : public GuiEventHandler
 {
 public:
 	
-	ExampleEventHandler(std::vector<GuiObjectPtr> *guiList) : GuiEventHandler(guiList)
+	ExampleEventHandler() : GuiEventHandler()
 	{
 	}
 	
@@ -199,7 +199,7 @@ int main(int argc,char **argv)
 	boost::shared_ptr<EventHandler> eventHandler = boost::shared_ptr<EventHandler>();
 	Bitmap *mouseBitmap=NULL;
 	GraphicsLib::Font *font=NULL;
-	std::vector<GuiObjectPtr> *guiList = NULL;
+	// std::vector<GuiObjectPtr> *guiList = NULL;
 
 	boost::shared_ptr<GuiObject> panel; // = boost::shared_ptr<ExamplePanel>();
 	
@@ -239,11 +239,12 @@ int main(int argc,char **argv)
 		// This must be initialized before the Examplepanel
 		// EventData::instance();
 
-		guiList=new std::vector<boost::shared_ptr<GuiObject> >;
+		//guiList=new std::vector<boost::shared_ptr<GuiObject> >;
 		panel = boost::shared_ptr<Panel>(new ExamplePanel());
 		
 		//guiList->push_back((GuiObject*)panel);
-		guiList->push_back(panel);
+		//guiList->push_back(panel);
+		GuiHandler::instance()->addGuiObject(panel);
 		
 		EventSystem::initEventSystem();
 		
@@ -253,7 +254,7 @@ int main(int argc,char **argv)
 		// which inherits from the GUI event handler, this for it
 		// to handle both GUI events, and our own custom ones for
 		// just this example
-		eventHandler = boost::shared_ptr<EventHandler>(new ExampleEventHandler(guiList));
+		eventHandler = boost::shared_ptr<EventHandler>(new ExampleEventHandler());
 
 		// set the used EventHandler to the one we just created.
 		//	EventHelper::instance()->setEventHandler(guiEventHandler);
@@ -277,7 +278,7 @@ int main(int argc,char **argv)
 		// Update the timer
 		Timer::updateFrame();
 		
-		GuiHandler::instance()->update(guiList);
+		GuiHandler::instance()->update();
 		
 		// Handle events (see the class just above this main
 		//EventHelper::instance()->handleEvents();
@@ -286,7 +287,7 @@ int main(int argc,char **argv)
 		// Clear the screen every sync
 		GraphicsHandler::clearScreen();
 		
-		GuiHandler::instance()->draw(guiList);
+		GuiHandler::instance()->draw();
 		
 		/*
 		// Draw the mouse cursor
@@ -303,9 +304,6 @@ int main(int argc,char **argv)
 
 	eventHandler.reset();
 
-	LOG("Destroy guiList");
-	delete guiList;
-	
 	LOG("Destroy panel...");
 	panel.reset();
 	

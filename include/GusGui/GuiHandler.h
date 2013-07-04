@@ -46,16 +46,21 @@ public:
 	GuiObjectPtr getCurrentGuiObject();
 	void setCurrentGuiObject(GuiObjectPtr guiObj);
 
-	void setNoMouseOver(std::vector<GuiObjectPtr> *guiList);
+	void setNoMouseOver();
 	
-	void draw(std::vector<GuiObjectPtr> *guiList);
-	void update(std::vector<GuiObjectPtr> *guiList);
+	void draw();
+	void update();
 
 	//SDL_Event MakeEvent(int code);
 
 	// Events specific to the GUI
 	UserEvent *eventSwitchConsole;
 	UserEvent *eventEnterConsoleCommand;
+
+	void addGuiObject(GuiObjectPtr guiObject);
+	void removeGuiObject(GuiObjectPtr guiObject);
+	
+	std::vector<GuiObjectPtr> *getGuiList();
 
 protected:
 	GuiHandler();
@@ -67,6 +72,8 @@ protected:
 	GuiObjectPtr m_CurrentGuiObject;
 	
 	bool showKeyboardShortcuts;
+
+	std::vector<boost::shared_ptr<GuiObject> > *m_GuiList;
 
 private:
 	static GuiHandler *pinstance;

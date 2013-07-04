@@ -35,21 +35,22 @@ using namespace Gus::EventLib;
 
 #include "GuiEventHandler.h"
 
+#include "GuiHandler.h"
+
 namespace GusGui
 {
 	
 /**
  *
  */
-GUSGAME_DLL GuiEventHandler::GuiEventHandler() : m_GuiList(NULL)
+GUSGAME_DLL GuiEventHandler::GuiEventHandler()
 {
 }
 
 /**
  *
  */
-GUSGAME_DLL GuiEventHandler::GuiEventHandler(std::vector<GuiObjectPtr> *guiList) : EventHandler(), 
-		m_GuiList(guiList)
+GUSGAME_DLL GuiEventHandler::GuiEventHandler(std::vector<GuiObjectPtr> *guiList) : EventHandler()
 {
 }
 
@@ -77,8 +78,10 @@ void GUSGAME_DLL GuiEventHandler::onLeftMouseButtonPressed(const Vector2d& pos)
 {
 	bool handled=false;
 	
-	if (m_GuiList) {
-		for (std::vector<GuiObjectPtr>::iterator iter=m_GuiList->begin();iter!=m_GuiList->end();) {
+	std::vector<GuiObjectPtr> *guiList = GuiHandler::instance()->getGuiList();
+	
+	if (guiList) {
+		for (std::vector<GuiObjectPtr>::iterator iter=guiList->begin();iter!=guiList->end();) {
 			GuiObjectPtr current=(*iter);
 			
 			if ((current != boost::shared_ptr<GuiObject>()) && !handled) {
@@ -94,8 +97,11 @@ void GUSGAME_DLL GuiEventHandler::onLeftMouseButtonPressed(const Vector2d& pos)
  */
 void GUSGAME_DLL GuiEventHandler::onLeftMouseButtonReleased(const Vector2d& pos)
 {
-	if (m_GuiList) {
-		for (std::vector<GuiObjectPtr>::iterator iter=m_GuiList->begin();iter!=m_GuiList->end();) {
+	
+	std::vector<GuiObjectPtr> *guiList = GuiHandler::instance()->getGuiList();
+
+	if (guiList) {
+		for (std::vector<GuiObjectPtr>::iterator iter=guiList->begin();iter!=guiList->end();) {
 			GuiObjectPtr current=(*iter);
 			
 			if (current) {
@@ -111,9 +117,10 @@ void GUSGAME_DLL GuiEventHandler::onLeftMouseButtonReleased(const Vector2d& pos)
  */
 void GUSGAME_DLL GuiEventHandler::onRightMouseButtonPressed(const Vector2d& pos)
 {
+	std::vector<GuiObjectPtr> *guiList = GuiHandler::instance()->getGuiList();
 	bool handled=false;
-	if (m_GuiList) {
-		for (std::vector<GuiObjectPtr>::iterator iter=m_GuiList->begin();iter!=m_GuiList->end();) {
+	if (guiList) {
+		for (std::vector<GuiObjectPtr>::iterator iter=guiList->begin();iter!=guiList->end();) {
 			GuiObjectPtr current=(*iter);
 			
 			if (current && !handled) {
@@ -129,8 +136,11 @@ void GUSGAME_DLL GuiEventHandler::onRightMouseButtonPressed(const Vector2d& pos)
  */
 void GUSGAME_DLL GuiEventHandler::onRightMouseButtonReleased(const Vector2d& pos)
 {
-	if (m_GuiList) {
-		for (std::vector<GuiObjectPtr>::iterator iter=m_GuiList->begin();iter!=m_GuiList->end();) {
+	
+	std::vector<GuiObjectPtr> *guiList = GuiHandler::instance()->getGuiList();
+
+	if (guiList) {
+		for (std::vector<GuiObjectPtr>::iterator iter=guiList->begin();iter!=guiList->end();) {
 			GuiObjectPtr current=(*iter);
 			
 			if (current) {
@@ -148,8 +158,11 @@ void GUSGAME_DLL GuiEventHandler::onRightMouseButtonReleased(const Vector2d& pos
  */
 void GUSGAME_DLL GuiEventHandler::onMouseMove(const Vector2d& pos)
 {
-	if (m_GuiList) {
-		for (std::vector<GuiObjectPtr>::iterator iter=m_GuiList->begin();iter!=m_GuiList->end();) {
+	
+	std::vector<GuiObjectPtr> *guiList = GuiHandler::instance()->getGuiList();
+
+	if (guiList) {
+		for (std::vector<GuiObjectPtr>::iterator iter=guiList->begin();iter!=guiList->end();) {
 			GuiObjectPtr object=(*iter);
 			
 			if (object) {
@@ -166,8 +179,11 @@ void GUSGAME_DLL GuiEventHandler::onMouseMove(const Vector2d& pos)
  */
 void GUSGAME_DLL GuiEventHandler::onMouseScrollUp(const Vector2d& pos)
 {
-	if (m_GuiList) {
-		for (std::vector<GuiObjectPtr>::iterator iter=m_GuiList->begin();iter!=m_GuiList->end();) {
+	
+	std::vector<GuiObjectPtr> *guiList = GuiHandler::instance()->getGuiList();
+
+	if (guiList) {
+		for (std::vector<GuiObjectPtr>::iterator iter=guiList->begin();iter!=guiList->end();) {
 			GuiObjectPtr object=(*iter);
 			
 			if (object) {
@@ -184,8 +200,11 @@ void GUSGAME_DLL GuiEventHandler::onMouseScrollUp(const Vector2d& pos)
  */
 void GUSGAME_DLL GuiEventHandler::onMouseScrollDown(const Vector2d& pos)
 {
-	if (m_GuiList) {	
-		for (std::vector<GuiObjectPtr>::iterator iter=m_GuiList->begin();iter!=m_GuiList->end();) {
+	
+	std::vector<GuiObjectPtr> *guiList = GuiHandler::instance()->getGuiList();
+
+	if (guiList) {	
+		for (std::vector<GuiObjectPtr>::iterator iter=guiList->begin();iter!=guiList->end();) {
 			GuiObjectPtr object=(*iter);
 			
 			if (object) {
