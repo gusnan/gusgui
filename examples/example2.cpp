@@ -224,9 +224,11 @@ int main(int argc,char **argv)
 		// set a window title
 		GraphicsHandler::setWindowTitle("GusGame Example 2");
 		
+		Mouse::initMouse();
+		
 		mouseBitmap=new Bitmap("mouse.png");
 		
-		GraphicsHandler::setMouseBitmap(mouseBitmap);
+		Mouse::setMouseBitmap(mouseBitmap);
 		
 		FontHandler::initFontHandler();
 		
@@ -309,6 +311,8 @@ int main(int argc,char **argv)
 	
 	delete font;
 	delete mouseBitmap;
+	
+	Mouse::doneMouse();
 	
 	delete userEvent;
 	
