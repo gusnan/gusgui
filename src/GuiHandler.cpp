@@ -217,6 +217,7 @@ void GuiHandler::addGuiObject(GuiObjectPtr guiObject)
 			m_GuiList->push_back(guiObject);
 		}
 	}
+	setNoMouseOver();
 }
 
 
@@ -247,6 +248,8 @@ void GuiHandler::removeGuiObject(GuiObjectPtr guiObject)
 			
 		}
 	}
+	
+	setNoMouseOver();
 }
 
 
