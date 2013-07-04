@@ -50,6 +50,8 @@ public:
 
 	virtual void update();
 
+	virtual void setMouseOver(bool over);
+
 	void setGraphics(Bitmap *button, Bitmap *buttonPressed, Bitmap *buttonHover);
 
 	//void SetTextBitmap(GLBitmap *textBitmap);

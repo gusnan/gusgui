@@ -569,6 +569,21 @@ void Button::pressed()
 	}
 }
 
+
+/**
+ *
+ */
+void Button::setMouseOver(bool over)
+{
+	m_MouseOver = over;
+	
+	if (!m_MouseOver) {
+		m_Down=false;
+	}
+	
+	
+}
+
 // end of namespace
 // ----------------
 }
