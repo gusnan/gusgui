@@ -127,7 +127,7 @@ Panel::Panel(const Panel& source) : GuiObject(source), m_GuiList(0), m_DrawFrame
 Panel& Panel::operator=(const Panel& source)
 {
 	if (this!=&source) {
-			m_GuiList=new std::vector<GuiObject*>;
+		m_GuiList=new std::vector<GuiObject*>;
 	
 		m_GuiList->clear();
 		
