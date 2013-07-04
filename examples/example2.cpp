@@ -56,7 +56,12 @@ class ExampleEventHandler : public GuiEventHandler
 {
 public:
 	
-	ExampleEventHandler(std::vector<GuiObject*> *guiList) : GuiEventHandler(guiList)
+	ExampleEventHandler(std::vector<GuiObjectPtr> *guiList) : GuiEventHandler(guiList)
+	{
+	}
+	
+	
+	virtual ~ExampleEventHandler()
 	{
 	}
 	
@@ -151,10 +156,10 @@ public:
 	{
 		// We add a button to the panel. This at position 10,10 in the panel,
 		// which places it at 110,110 on the screen.
-		m_ExampleButton=new ExampleButton(Rect(10,10,100,20));
+		m_ExampleButton = boost::shared_ptr<ExampleButton>(new ExampleButton(Rect(10,10,100,20)));
 		addGuiObject(m_ExampleButton);
 		
-		m_QuitButton=new ExampleButton(Rect(10,40,100,20));
+		m_QuitButton = boost::shared_ptr<ExampleButton>(new ExampleButton(Rect(10,40,100,20)));
 		//m_QuitButton->setEvent(EventLib::eventQuit);
 		
 		m_QuitButton->setEvent(userEvent);
@@ -180,8 +185,8 @@ public:
 
 	
 protected:
-	Button *m_ExampleButton;
-	Button *m_QuitButton;
+	boost::shared_ptr<Button> m_ExampleButton;
+	boost::shared_ptr<Button> m_QuitButton;
 };
 
 
@@ -194,8 +199,9 @@ int main(int argc,char **argv)
 	boost::shared_ptr<EventHandler> eventHandler = boost::shared_ptr<EventHandler>();
 	Bitmap *mouseBitmap=NULL;
 	GraphicsLib::Font *font=NULL;
-	ExamplePanel *panel=NULL;
-	std::vector<GuiObject*> *guiList=NULL;
+	std::vector<GuiObjectPtr> *guiList = NULL;
+
+	boost::shared_ptr<GuiObject> panel; // = boost::shared_ptr<ExamplePanel>();
 	
 	try {
 		// init the log - this function takes a string (the log file filename) as 
@@ -233,8 +239,8 @@ int main(int argc,char **argv)
 		// This must be initialized before the Examplepanel
 		// EventData::instance();
 
-		guiList=new std::vector<GuiObject*>;
-		panel=new ExamplePanel();
+		guiList=new std::vector<boost::shared_ptr<GuiObject> >;
+		panel = boost::shared_ptr<Panel>(new ExamplePanel());
 		
 		//guiList->push_back((GuiObject*)panel);
 		guiList->push_back(panel);
@@ -247,7 +253,7 @@ int main(int argc,char **argv)
 		// which inherits from the GUI event handler, this for it
 		// to handle both GUI events, and our own custom ones for
 		// just this example
-		eventHandler=boost::shared_ptr<EventHandler>(new ExampleEventHandler(guiList));
+		eventHandler = boost::shared_ptr<EventHandler>(new ExampleEventHandler(guiList));
 
 		// set the used EventHandler to the one we just created.
 		//	EventHelper::instance()->setEventHandler(guiEventHandler);
@@ -291,14 +297,24 @@ int main(int argc,char **argv)
 		GraphicsHandler::updateScreen();
 	} while(!quit);
 	
-	delete panel;
+	LOG("All done...");
+
+	EventSystem::removeEventHandler(eventHandler);
+
+	eventHandler.reset();
+
+	LOG("Destroy guiList");
+	delete guiList;
+	
+	LOG("Destroy panel...");
+	panel.reset();
 	
 	delete font;
 	delete mouseBitmap;
 	
 	delete userEvent;
 	
-	eventHandler.~shared_ptr();
+	GuiHandler::destroy();
 	
 	FontHandler::doneFontHandler();
 	

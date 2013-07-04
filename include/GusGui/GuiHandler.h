@@ -43,13 +43,13 @@ public:
 
 	bool getShowKeyboardShortcuts() const;
 
-	GuiObject *getCurrentGuiObject();
-	void setCurrentGuiObject(GuiObject *guiObj);
+	GuiObjectPtr getCurrentGuiObject();
+	void setCurrentGuiObject(GuiObjectPtr guiObj);
 
-	void setNoMouseOver(std::vector<GuiObject*> *guiList);
+	void setNoMouseOver(std::vector<GuiObjectPtr> *guiList);
 	
-	void draw(std::vector<GuiObject*> *guiList);
-	void update(std::vector<GuiObject*> *guiList);
+	void draw(std::vector<GuiObjectPtr> *guiList);
+	void update(std::vector<GuiObjectPtr> *guiList);
 
 	//SDL_Event MakeEvent(int code);
 
@@ -64,7 +64,7 @@ protected:
 	GuiHandler(const GuiHandler &);
 	GuiHandler& operator=(const GuiHandler&);
 	
-	GuiObject *m_CurrentGuiObject;
+	GuiObjectPtr m_CurrentGuiObject;
 	
 	bool showKeyboardShortcuts;
 

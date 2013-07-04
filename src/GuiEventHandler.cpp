@@ -48,7 +48,7 @@ GUSGAME_DLL GuiEventHandler::GuiEventHandler() : m_GuiList(NULL)
 /**
  *
  */
-GUSGAME_DLL GuiEventHandler::GuiEventHandler(std::vector<GuiObject*> *guiList) : EventHandler(), 
+GUSGAME_DLL GuiEventHandler::GuiEventHandler(std::vector<GuiObjectPtr> *guiList) : EventHandler(), 
 		m_GuiList(guiList)
 {
 }
@@ -58,6 +58,7 @@ GUSGAME_DLL GuiEventHandler::GuiEventHandler(std::vector<GuiObject*> *guiList) :
  */
 GUSGAME_DLL GuiEventHandler::~GuiEventHandler()
 {
+	LOG("Gui EventHandler destructor");
 }
 
 
@@ -77,10 +78,10 @@ void GUSGAME_DLL GuiEventHandler::onLeftMouseButtonPressed(const Vector2d& pos)
 	bool handled=false;
 	
 	if (m_GuiList) {
-		for (std::vector<GuiObject*>::iterator iter=m_GuiList->begin();iter!=m_GuiList->end();) {
-			GuiObject *current=(*iter);
+		for (std::vector<GuiObjectPtr>::iterator iter=m_GuiList->begin();iter!=m_GuiList->end();) {
+			GuiObjectPtr current=(*iter);
 			
-			if (current && !handled) {
+			if ((current != boost::shared_ptr<GuiObject>()) && !handled) {
 				handled=current->onLeftMouseButtonPressed(pos);
 			}
 			++iter;
@@ -94,8 +95,8 @@ void GUSGAME_DLL GuiEventHandler::onLeftMouseButtonPressed(const Vector2d& pos)
 void GUSGAME_DLL GuiEventHandler::onLeftMouseButtonReleased(const Vector2d& pos)
 {
 	if (m_GuiList) {
-		for (std::vector<GuiObject*>::iterator iter=m_GuiList->begin();iter!=m_GuiList->end();) {
-			GuiObject *current=(*iter);
+		for (std::vector<GuiObjectPtr>::iterator iter=m_GuiList->begin();iter!=m_GuiList->end();) {
+			GuiObjectPtr current=(*iter);
 			
 			if (current) {
 				current->onLeftMouseButtonReleased(pos);
@@ -112,8 +113,8 @@ void GUSGAME_DLL GuiEventHandler::onRightMouseButtonPressed(const Vector2d& pos)
 {
 	bool handled=false;
 	if (m_GuiList) {
-		for (std::vector<GuiObject*>::iterator iter=m_GuiList->begin();iter!=m_GuiList->end();) {
-			GuiObject *current=(*iter);
+		for (std::vector<GuiObjectPtr>::iterator iter=m_GuiList->begin();iter!=m_GuiList->end();) {
+			GuiObjectPtr current=(*iter);
 			
 			if (current && !handled) {
 				handled=current->onRightMouseButtonPressed(pos);
@@ -129,8 +130,8 @@ void GUSGAME_DLL GuiEventHandler::onRightMouseButtonPressed(const Vector2d& pos)
 void GUSGAME_DLL GuiEventHandler::onRightMouseButtonReleased(const Vector2d& pos)
 {
 	if (m_GuiList) {
-		for (std::vector<GuiObject*>::iterator iter=m_GuiList->begin();iter!=m_GuiList->end();) {
-			GuiObject *current=(*iter);
+		for (std::vector<GuiObjectPtr>::iterator iter=m_GuiList->begin();iter!=m_GuiList->end();) {
+			GuiObjectPtr current=(*iter);
 			
 			if (current) {
 				current->onRightMouseButtonReleased(pos);
@@ -148,8 +149,8 @@ void GUSGAME_DLL GuiEventHandler::onRightMouseButtonReleased(const Vector2d& pos
 void GUSGAME_DLL GuiEventHandler::onMouseMove(const Vector2d& pos)
 {
 	if (m_GuiList) {
-		for (std::vector<GuiObject*>::iterator iter=m_GuiList->begin();iter!=m_GuiList->end();) {
-			GuiObject *object=(*iter);
+		for (std::vector<GuiObjectPtr>::iterator iter=m_GuiList->begin();iter!=m_GuiList->end();) {
+			GuiObjectPtr object=(*iter);
 			
 			if (object) {
 				object->onMouseMove(pos);
@@ -166,8 +167,8 @@ void GUSGAME_DLL GuiEventHandler::onMouseMove(const Vector2d& pos)
 void GUSGAME_DLL GuiEventHandler::onMouseScrollUp(const Vector2d& pos)
 {
 	if (m_GuiList) {
-		for (std::vector<GuiObject*>::iterator iter=m_GuiList->begin();iter!=m_GuiList->end();) {
-			GuiObject *object=(*iter);
+		for (std::vector<GuiObjectPtr>::iterator iter=m_GuiList->begin();iter!=m_GuiList->end();) {
+			GuiObjectPtr object=(*iter);
 			
 			if (object) {
 				object->onMouseScrollUp(pos);
@@ -184,8 +185,8 @@ void GUSGAME_DLL GuiEventHandler::onMouseScrollUp(const Vector2d& pos)
 void GUSGAME_DLL GuiEventHandler::onMouseScrollDown(const Vector2d& pos)
 {
 	if (m_GuiList) {	
-		for (std::vector<GuiObject*>::iterator iter=m_GuiList->begin();iter!=m_GuiList->end();) {
-			GuiObject *object=(*iter);
+		for (std::vector<GuiObjectPtr>::iterator iter=m_GuiList->begin();iter!=m_GuiList->end();) {
+			GuiObjectPtr object=(*iter);
 			
 			if (object) {
 				object->onMouseScrollDown(pos);

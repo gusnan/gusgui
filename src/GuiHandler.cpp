@@ -74,14 +74,14 @@ void GuiHandler::destroy()
 GuiHandler::GuiHandler() : 
 	eventSwitchConsole(0),
 	eventEnterConsoleCommand(0),
-	m_CurrentGuiObject(0),
+	m_CurrentGuiObject(boost::shared_ptr<GuiObject>()),
 	showKeyboardShortcuts(false)
 {
 	LOG("Init Gui Handler...");
 	
 	showKeyboardShortcuts=false;
 	
-	m_CurrentGuiObject=0;
+	m_CurrentGuiObject = boost::shared_ptr<GuiObject>();
 	
 	eventSwitchConsole=new UserEvent(EVENT_SWITCH_CONSOLE);
 	eventEnterConsoleCommand=new UserEvent(EVENT_ENTER_CONSOLE_COMMAND);
@@ -126,10 +126,10 @@ SDL_Event GuiHandler::MakeEvent(int code)
 /**
  *
  */
-void GuiHandler::draw(std::vector<GuiObject*> *guiList)
+void GuiHandler::draw(std::vector<GuiObjectPtr> *guiList)
 {
 	const Vector2d pos=Vector2d(0,0);
-	for (std::vector<GuiObject*>::iterator iter=guiList->begin();iter!=guiList->end();) {
+	for (std::vector<GuiObjectPtr>::iterator iter=guiList->begin();iter!=guiList->end();) {
 		//(*iter)->Draw(Vector2d(0,0));
 		(*iter)->draw(pos);
 		++iter;
@@ -140,10 +140,10 @@ void GuiHandler::draw(std::vector<GuiObject*> *guiList)
 /**
  *
  */
-void GuiHandler::update(std::vector<GuiObject*> *guiList)
+void GuiHandler::update(std::vector<GuiObjectPtr> *guiList)
 {
 	
-	std::vector<GuiObject*>::iterator iter;
+	std::vector<GuiObjectPtr>::iterator iter;
 	for (iter=guiList->begin();iter!=guiList->end();) {
 		
 		(*iter)->update();
@@ -155,9 +155,9 @@ void GuiHandler::update(std::vector<GuiObject*> *guiList)
 /**
  *
  */
-void GuiHandler::setNoMouseOver(std::vector<GuiObject*> *guiList)
+void GuiHandler::setNoMouseOver(std::vector<GuiObjectPtr> *guiList)
 {
-	for (std::vector<GuiObject*>::iterator iter=guiList->begin();iter!=guiList->end();) {
+	for (std::vector<GuiObjectPtr>::iterator iter=guiList->begin();iter!=guiList->end();) {
 		(*iter)->setMouseOver(false);
 		++iter;
 	}
@@ -175,7 +175,7 @@ bool GuiHandler::getShowKeyboardShortcuts() const
 /**
  *
  */
-GuiObject *GuiHandler::getCurrentGuiObject()
+GuiObjectPtr GuiHandler::getCurrentGuiObject()
 {
 	return m_CurrentGuiObject;
 }
@@ -183,13 +183,13 @@ GuiObject *GuiHandler::getCurrentGuiObject()
 /**
  *
  */
-void GuiHandler::setCurrentGuiObject(GuiObject *guiObj)
+void GuiHandler::setCurrentGuiObject(GuiObjectPtr guiObj)
 {
-	GuiObject *oldCurrentGuiObject=m_CurrentGuiObject;
+	GuiObject *oldCurrentGuiObject=m_CurrentGuiObject.get();
 	
 	m_CurrentGuiObject=guiObj;
 	
-	if	(m_CurrentGuiObject!=oldCurrentGuiObject) {
+	if	(m_CurrentGuiObject.get()!=oldCurrentGuiObject) {
 		if (m_CurrentGuiObject) {
 			m_CurrentGuiObject->gainFocus();
 		}

@@ -25,6 +25,10 @@
 namespace GusGui
 {
 
+class GuiObject;
+		
+typedef boost::shared_ptr<GuiObject> GuiObjectPtr;
+
 /**
  *
  */
