@@ -36,7 +36,7 @@ class GuiEventHandler : public EventHandler
 public:
 	GUSGAME_DLL GuiEventHandler();
 
-	GUSGAME_DLL GuiEventHandler(std::vector<GuiObjectPtr> *guiList);
+	//GUSGAME_DLL GuiEventHandler(std::vector<GuiObjectPtr> *guiList);
 	GUSGAME_DLL GuiEventHandler(const GuiEventHandler &source);
 	virtual GUSGAME_DLL ~GuiEventHandler();
 
@@ -59,7 +59,7 @@ public:
 
 protected:
 	
-	std::vector<GuiObjectPtr> *m_GuiList;
+	//std::vector<GuiObjectPtr> *m_GuiList;
 };
 
 // end of namespace

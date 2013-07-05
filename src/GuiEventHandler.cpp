@@ -43,14 +43,16 @@ namespace GusGui
 /**
  *
  */
+	/*
 GUSGAME_DLL GuiEventHandler::GuiEventHandler()
 {
 }
+*/
 
 /**
  *
  */
-GUSGAME_DLL GuiEventHandler::GuiEventHandler(std::vector<GuiObjectPtr> *guiList) : EventHandler()
+GUSGAME_DLL GuiEventHandler::GuiEventHandler(/*std::vector<GuiObjectPtr> *guiList*/) : EventHandler()
 {
 }
 
