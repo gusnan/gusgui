@@ -226,7 +226,23 @@ void GuiHandler::addGuiObject(GuiObjectPtr guiObject)
 		}
 	}
 	setNoMouseOver();
-	update();
+	
+	MouseMotionEvent mouseMotion;
+	Vector2d position = mouseMotion.getPosition();
+	
+	if (m_GuiList) {
+		for (std::vector<GuiObjectPtr>::iterator iter=m_GuiList->begin();iter!=m_GuiList->end();) {
+			GuiObjectPtr object=(*iter);
+			
+			if (object) {
+				object->onMouseMove(position);
+			}
+			
+			++iter;
+		}
+	}
+	
+	//update();
 }
 
 
