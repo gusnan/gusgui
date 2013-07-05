@@ -77,16 +77,13 @@ Panel::~Panel()
 			//if (iter!=m_GuiList->end())  {
 			GuiObjectPtr obj=(*iter);
 			
-			obj.reset();
+			iter = m_GuiList->erase(iter);
 			
 			/*
-			if (obj!=NULL) {
-				delete obj;
-				obj=NULL;
-			}
-			*/
+			obj.reset();
 			++iter;
-			//}
+			*/
+
 		}
 		
 		
