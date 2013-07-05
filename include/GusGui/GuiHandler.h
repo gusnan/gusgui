@@ -53,10 +53,6 @@ public:
 
 	//SDL_Event MakeEvent(int code);
 
-	// Events specific to the GUI
-	UserEvent *eventSwitchConsole;
-	UserEvent *eventEnterConsoleCommand;
-
 	void addGuiObject(GuiObjectPtr guiObject);
 	void removeGuiObject(GuiObjectPtr guiObject);
 	

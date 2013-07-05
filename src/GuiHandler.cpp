@@ -73,8 +73,6 @@ void GuiHandler::destroy()
  *
  */
 GuiHandler::GuiHandler() : 
-	eventSwitchConsole(0),
-	eventEnterConsoleCommand(0),
 	m_CurrentGuiObject(boost::shared_ptr<GuiObject>()),
 	showKeyboardShortcuts(false),
 	m_GuiList(NULL)
@@ -85,9 +83,6 @@ GuiHandler::GuiHandler() :
 	
 	m_CurrentGuiObject = boost::shared_ptr<GuiObject>();
 	
-	eventSwitchConsole=new UserEvent(EVENT_SWITCH_CONSOLE);
-	eventEnterConsoleCommand=new UserEvent(EVENT_ENTER_CONSOLE_COMMAND);
-	
 	m_GuiList = new std::vector<boost::shared_ptr<GuiObject> >;
 }
 
@@ -97,16 +92,6 @@ GuiHandler::GuiHandler() :
 GuiHandler::~GuiHandler()
 {
 	LOG("Done Gui Handler");
-	
-	if (eventSwitchConsole!=NULL) {
-		delete eventSwitchConsole;
-		eventSwitchConsole=NULL;
-	}
-	
-	if (eventEnterConsoleCommand!=NULL) {
-		delete eventEnterConsoleCommand;
-		eventEnterConsoleCommand=NULL;
-	}
 	
 	if (m_GuiList!=NULL) {
 			
