@@ -108,6 +108,14 @@ GuiHandler::~GuiHandler()
 	}
 	
 	if (m_GuiList!=NULL) {
+			
+		std::vector<GuiObjectPtr>::iterator iter;
+		for (iter=m_GuiList->begin();iter!=m_GuiList->end();) {
+			
+			iter = m_GuiList->erase(iter);
+		}
+
+	
 		delete m_GuiList;
 		m_GuiList = NULL;
 	}
