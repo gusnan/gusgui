@@ -60,9 +60,10 @@ public:
 	void addGuiObject(GuiObjectPtr guiObject);
 	void removeGuiObject(GuiObjectPtr guiObject);
 	
-	std::vector<GuiObjectPtr> *getGuiList();
+	friend GuiEventHandler;
 
 protected:
+
 	GuiHandler();
 	virtual ~GuiHandler();
 

@@ -37,6 +37,7 @@ using namespace Gus::EventLib;
 
 #include "Button.h"
 
+#include "GuiEventHandler.h"
 #include "GuiHandler.h"
 
 #include "GuiData.h"

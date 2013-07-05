@@ -36,6 +36,7 @@ using namespace Gus::EventLib;
 #include "Button.h"
 #include "Panel.h"
 
+#include "GuiEventHandler.h"
 #include "GuiHandler.h"
 
 /**
@@ -282,10 +283,12 @@ void GuiHandler::removeGuiObject(GuiObjectPtr guiObject)
 /**
  *
  */
+/*
 std::vector<GuiObjectPtr> *GuiHandler::getGuiList()
 {
 	return m_GuiList;
 }
+*/
 
 // end of namespace
 // ----------------

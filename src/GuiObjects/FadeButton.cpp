@@ -38,6 +38,7 @@ using namespace Gus::EventLib;
 #include "Button.h"
 #include "FadeButton.h"
 
+#include "GuiEventHandler.h"
 #include "GuiHandler.h"
 
 /**
