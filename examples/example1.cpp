@@ -22,6 +22,7 @@
 
 #include <cstdlib>
 #include <sstream>
+#include <list>
 
 #include "GusGame/GusGame.h"
 
