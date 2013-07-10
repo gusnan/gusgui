@@ -86,9 +86,6 @@ message(STATUS "CMAKE_INSTALL_PREFIX: ${CMAKE_INSTALL_PREFIX}")
 message(STATUS "CMAKE_SOURCE_DIR: ${CMAKE_SOURCE_DIR}")
 
 
-#find_package(SDL REQUIRED)
-#find_package(SDL_ttf REQUIRED)
-#find_package(SDL_image REQUIRED)
 find_package(OpenGL REQUIRED)
 
 find_package(GusGame REQUIRED)
@@ -181,19 +178,11 @@ if (WIN32)
 
 endif(WIN32)
 
-#find_package(SDL REQUIRED)
-#find_package(SDL_ttf REQUIRED)
-#find_package(SDL_image REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(GusGame REQUIRED)
 find_package(Boost REQUIRED)
 
 message(STATUS "GusGame Library: ${GUSGAME_LIBRARY}")
-
-#include_directories(include ${SDL_INCLUDE_DIR})
-#include_directories(include ${SDL_IMAGE_INCLUDE_DIR})
-#include_directories(include ${SDLIMAGE_INCLUDE_DIR})
-#include_directories(include ${SDLTTF_INCLUDE_DIR})
 
 
 include_directories(include ${CMAKE_SOURCE_DIR}/src)
@@ -206,10 +195,6 @@ if (MSYS)
 	message(STATUS "MingDir: $ENV{%MINGDIR%}")
 endif (MSYS)
 
-# Print some include dirs
-#message(STATUS "SDL_INCLUDE_DIR: ${SDL_INCLUDE_DIR}")
-#message(STATUS "SDL_IMAGE_INCLUDE_DIR: ${SDLIMAGE_INCLUDE_DIR}")
-
 message(STATUS "Boost INCLUDE_DIR: ${Boost_INCLUDE_DIR}")
 message(STATUS "GUSGAME_INCLUDE_DIR: ${GUSGAME_INCLUDE_DIR}")
 
@@ -218,9 +203,6 @@ if (NOT ALLEGRO_FOUND)
 endif (NOT ALLEGRO_FOUND)
 
 # And some libs:
-
-#message(STATUS "SDL_LIBRARY: ${SDL_LIBRARY}")
-#message(STATUS "SDLMAIN_LIBRARY: ${SDLMAIN_LIBRARY}")
 
 message(STATUS "Allegro5 LIBRARY: ${ALLEGRO_LIBRARY}")
 
@@ -251,12 +233,8 @@ set(ALL_LIBS
 	${MY_GLEW_LIB}
 	
 	${ALLEGRO_LIBRARIES}
-	
-#	${SDLMAIN_LIBRARY}
-#	${SDL_LIBRARY}
-#	${SDLTTF_LIBRARY}
-#  ${SDLIMAGE_LIBRARY}
 )
+	
 
 link_libraries(${ALL_LIBS} ${GUSGAME_LIBRARY})
 
@@ -269,11 +247,6 @@ set(EX_DIR examples)
 
 #add_dependencies(example1 ${LIBRARY_NAME})
 
-
-include_directories(include ${SDL_INCLUDE_DIR})
-include_directories(include ${SDL_IMAGE_INCLUDE_DIR})
-include_directories(include ${SDLIMAGE_INCLUDE_DIR})
-include_directories(include ${SDLTTF_INCLUDE_DIR})
 
 include_directories(include "/usr/local/include")
 include_directories(include ${GUSGAME_INCLUDE})
