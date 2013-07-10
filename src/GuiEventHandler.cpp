@@ -24,6 +24,7 @@
 #include <vector>
 #include <sstream>
 #include <iostream>
+#include <list>
 
 #include "GusGame/GusGame.h"
 using namespace Gus;
