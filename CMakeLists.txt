@@ -89,6 +89,7 @@ message(STATUS "CMAKE_SOURCE_DIR: ${CMAKE_SOURCE_DIR}")
 find_package(OpenGL REQUIRED)
 
 find_package(GusGame REQUIRED)
+find_package(Allegro5 REQUIRED)
 
 message(STATUS "GusGame Library: ${GUSGAME_LIBRARY}")
 
@@ -204,7 +205,7 @@ endif (NOT ALLEGRO_FOUND)
 
 # And some libs:
 
-message(STATUS "Allegro5 LIBRARY: ${ALLEGRO_LIBRARY}")
+message(STATUS "Allegro5 LIBRARY: ${ALLEGRO_LIBRARIES}")
 
 message(STATUS "OPENGL_LIBRARY: ${OPENGL_LIBRARY}")
 message(STATUS "OPENGL_LIBRARIES: ${OPENGL_LIBRARIES}")
