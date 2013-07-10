@@ -99,6 +99,7 @@ include_directories(include ${GUSGAME_INCLUDE_DIR})
 
 include_directories(include ${CMAKE_SOURCE_DIR}/include)
 include_directories(include ${CMAKE_SOURCE_DIR}/include/GusGui)
+include_directories(include ${ALLEGRO_INCLUDE_DIR})
 
 
 # -------------------------------------------------------
@@ -184,8 +185,8 @@ endif(WIN32)
 #find_package(SDL_ttf REQUIRED)
 #find_package(SDL_image REQUIRED)
 find_package(OpenGL REQUIRED)
-
 find_package(GusGame REQUIRED)
+find_package(Boost REQUIRED)
 
 message(STATUS "GusGame Library: ${GUSGAME_LIBRARY}")
 
@@ -199,15 +200,17 @@ include_directories(include ${CMAKE_SOURCE_DIR}/src)
 include_directories(include ${CMAKE_SOURCE_DIR}/src/Objects)
 
 include_directories(include ${GUSGAME_INCLUDE_DIR})
+include_directories(include ${Boost_INCLUDE_DIR})
 
 if (MSYS)
 	message(STATUS "MingDir: $ENV{%MINGDIR%}")
 endif (MSYS)
 
 # Print some include dirs
-message(STATUS "SDL_INCLUDE_DIR: ${SDL_INCLUDE_DIR}")
-message(STATUS "SDL_IMAGE_INCLUDE_DIR: ${SDLIMAGE_INCLUDE_DIR}")
+#message(STATUS "SDL_INCLUDE_DIR: ${SDL_INCLUDE_DIR}")
+#message(STATUS "SDL_IMAGE_INCLUDE_DIR: ${SDLIMAGE_INCLUDE_DIR}")
 
+message(STATUS "Boost INCLUDE_DIR: ${Boost_INCLUDE_DIR}")
 message(STATUS "GUSGAME_INCLUDE_DIR: ${GUSGAME_INCLUDE_DIR}")
 
 if (NOT ALLEGRO_FOUND)
