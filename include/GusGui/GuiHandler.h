@@ -60,6 +60,8 @@ public:
 	
 	friend GuiEventHandler;
 
+	void setGuiObjectListActive(bool active);
+
 protected:
 
 	GuiHandler();

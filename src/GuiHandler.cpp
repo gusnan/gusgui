@@ -293,6 +293,33 @@ bool GuiHandler::isGuiObjectInList(GuiObjectPtr inGuiObject)
 	return result;
 }
 
+
+
+/**
+ *
+ */
+void GuiHandler::setGuiObjectListActive(bool active = true)
+{
+	std::vector<GuiObjectPtr>::iterator iter;
+	GuiObjectPtr currentGuiObject = boost::shared_ptr<GuiObject>();
+
+	if (m_GuiList) {
+		
+		if (!m_GuiList->empty()) {
+			
+			for (iter = m_GuiList->begin(); iter != m_GuiList->end(); ) {
+				
+				currentGuiObject = (*iter);
+				
+				currentGuiObject->setActive(active);
+				
+				++iter;
+			}
+		}
+	}
+}
+
+
 /**
  *
  */
