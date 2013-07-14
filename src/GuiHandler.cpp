@@ -268,6 +268,34 @@ void GuiHandler::removeGuiObject(GuiObjectPtr guiObject)
 /**
  *
  */
+bool GuiHandler::isGuiObjectInList(GuiObjectPtr inGuiObject)
+{
+	bool result=false;
+	std::vector<GuiObjectPtr>::iterator iter;
+	GuiObjectPtr currentGuiObject = boost::shared_ptr<GuiObject>();
+	
+	if (m_GuiList) {
+		
+		if (!m_GuiList->empty()) {
+			
+			for (iter = m_GuiList->begin(); iter != m_GuiList->end(); ) {
+				
+				currentGuiObject = (*iter);
+				
+				if (inGuiObject.get() == currentGuiObject.get()) {
+					result=true;
+				}
+				
+				++iter;
+			}
+		}
+	}
+	return result;
+}
+
+/**
+ *
+ */
 /*
 std::vector<GuiObjectPtr> *GuiHandler::getGuiList()
 {

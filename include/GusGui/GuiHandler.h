@@ -55,6 +55,8 @@ public:
 
 	void addGuiObject(GuiObjectPtr guiObject);
 	void removeGuiObject(GuiObjectPtr guiObject);
+
+	bool isGuiObjectInList(GuiObjectPtr guiObject);
 	
 	friend GuiEventHandler;
 
