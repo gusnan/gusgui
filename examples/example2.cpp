@@ -250,7 +250,6 @@ int main(int argc,char **argv)
 		//guiList->push_back((GuiObject*)panel);
 		//guiList->push_back(panel);
 		GuiHandler::instance()->addGuiObject(panel);
-		GuiHandler::instance()->addGuiObjectToDrawList(panel);
 		
 		EventSystem::initEventSystem();
 		

@@ -56,8 +56,11 @@ public:
 	void addGuiObject(GuiObjectPtr guiObject);
 	void removeGuiObject(GuiObjectPtr guiObject);
 
-	void addGuiObjectToDrawList(GuiObjectPtr guiObject);
-	void removeGuiObjectFromDrawList(GuiObjectPtr guiObject);
+	void addToDrawList(GuiObjectPtr guiObject);
+	void removeFromDrawList(GuiObjectPtr guiObject);
+	
+	void addToHandleList(GuiObjectPtr guiObject);
+	void removeFromHandleList(GuiObjectPtr guiObject);
 
 	bool isGuiObjectInList(GuiObjectPtr guiObject);
 	
