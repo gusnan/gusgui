@@ -61,6 +61,10 @@ public:
 	
 	void addToHandleList(GuiObjectPtr guiObject);
 	void removeFromHandleList(GuiObjectPtr guiObject);
+	
+	void copyDrawListToHandleList();
+	
+	void clearHandleList();
 
 	bool isGuiObjectInList(GuiObjectPtr guiObject);
 	

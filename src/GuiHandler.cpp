@@ -95,17 +95,11 @@ GuiHandler::~GuiHandler()
 {
 	LOG("Done Gui Handler");
 	
-	if (m_GuiList!=NULL) {
-			
-		std::vector<GuiObjectPtr>::iterator iter;
-		for (iter=m_GuiList->begin();iter!=m_GuiList->end();) {
-			
-			iter = m_GuiList->erase(iter);
-		}
-
+	clearHandleList();
 	
+	if (m_GuiList) {
 		delete m_GuiList;
-		m_GuiList = NULL;
+		m_GuiList=NULL;
 	}
 	
 	if (m_GuiDrawList!=NULL) {
@@ -120,6 +114,24 @@ GuiHandler::~GuiHandler()
 		delete m_GuiDrawList;
 		m_GuiDrawList = NULL;
 	}
+}
+
+
+/**
+ *
+ */
+void GuiHandler::clearHandleList()
+{
+		
+	if (m_GuiList!=NULL) {
+			
+		std::vector<GuiObjectPtr>::iterator iter;
+		for (iter=m_GuiList->begin();iter!=m_GuiList->end();) {
+			
+			iter = m_GuiList->erase(iter);
+		}
+	}
+
 }
 
 /**
@@ -323,6 +335,31 @@ void GuiHandler::removeFromDrawList(GuiObjectPtr guiObject)
 		}
 	}
 	
+}
+
+
+/**
+ *
+ */
+void GuiHandler::copyDrawListToHandleList()
+{
+	GuiObjectPtr currentGuiObject = boost::shared_ptr<GuiObject>();
+	
+	if (m_GuiDrawList) {
+		if (m_GuiList) {
+			clearHandleList();
+			
+			std::vector<GuiObjectPtr>::iterator iter;
+			for (iter = m_GuiDrawList->begin(); iter != m_GuiDrawList->end(); ) {
+				
+				currentGuiObject = (*iter);
+				
+				m_GuiList->push_back(currentGuiObject);
+				
+				++iter;
+			}
+		}
+	}
 }
 
 
