@@ -75,7 +75,8 @@ void GuiHandler::destroy()
 GuiHandler::GuiHandler() : 
 	m_CurrentGuiObject(boost::shared_ptr<GuiObject>()),
 	showKeyboardShortcuts(false),
-	m_GuiList(NULL)
+	m_GuiList(NULL),
+	m_GuiDrawList(NULL)
 {
 	LOG("Init Gui Handler...");
 	
@@ -84,6 +85,7 @@ GuiHandler::GuiHandler() :
 	m_CurrentGuiObject = boost::shared_ptr<GuiObject>();
 	
 	m_GuiList = new std::vector<boost::shared_ptr<GuiObject> >;
+	m_GuiDrawList = new std::vector<boost::shared_ptr<GuiObject> >;
 }
 
 /**
@@ -104,6 +106,19 @@ GuiHandler::~GuiHandler()
 	
 		delete m_GuiList;
 		m_GuiList = NULL;
+	}
+	
+	if (m_GuiDrawList!=NULL) {
+			
+		std::vector<GuiObjectPtr>::iterator iter;
+		for (iter=m_GuiDrawList->begin();iter!=m_GuiDrawList->end();) {
+			
+			iter = m_GuiDrawList->erase(iter);
+		}
+
+	
+		delete m_GuiDrawList;
+		m_GuiDrawList = NULL;
 	}
 }
 
@@ -131,10 +146,12 @@ SDL_Event GuiHandler::MakeEvent(int code)
 void GuiHandler::draw()
 {
 	const Vector2d pos=Vector2d(0,0);
-	for (std::vector<GuiObjectPtr>::iterator iter=m_GuiList->begin();iter!=m_GuiList->end();) {
-		//(*iter)->Draw(Vector2d(0,0));
-		(*iter)->draw(pos);
-		++iter;
+	if (m_GuiDrawList) {
+		for (std::vector<GuiObjectPtr>::iterator iter=m_GuiDrawList->begin();iter!=m_GuiDrawList->end();) {
+			//(*iter)->Draw(Vector2d(0,0));
+			(*iter)->draw(pos);
+			++iter;
+		}
 	}
 
 }
@@ -262,6 +279,50 @@ void GuiHandler::removeGuiObject(GuiObjectPtr guiObject)
 	
 	setNoMouseOver();
 	update();
+}
+
+
+/**
+ *
+ */
+void GuiHandler::addGuiObjectToDrawList(GuiObjectPtr guiObject)
+{
+	if (guiObject != boost::shared_ptr<GuiObject>()) {
+		if (m_GuiDrawList) {
+			m_GuiDrawList->push_back(guiObject);
+		}
+	}
+}
+
+
+/**
+ *
+ */
+void GuiHandler::removeGuiObjectFromDrawList(GuiObjectPtr guiObject)
+{
+	std::vector<GuiObjectPtr>::iterator iter;
+	GuiObjectPtr currentGuiObject = boost::shared_ptr<GuiObject>();
+	
+	GuiObject *inGuiObject = guiObject.get();
+	
+	if (m_GuiDrawList) {
+		
+		if (!m_GuiDrawList->empty()) {
+			
+			for (iter = m_GuiDrawList->begin(); iter != m_GuiDrawList->end(); ) {
+				
+				currentGuiObject = (*iter);
+				
+				if (inGuiObject == currentGuiObject.get()) {
+					iter = m_GuiDrawList->erase(iter);
+				} else {
+					++iter;
+				}
+			}
+			
+		}
+	}
+	
 }
 
 

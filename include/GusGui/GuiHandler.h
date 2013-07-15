@@ -56,6 +56,9 @@ public:
 	void addGuiObject(GuiObjectPtr guiObject);
 	void removeGuiObject(GuiObjectPtr guiObject);
 
+	void addGuiObjectToDrawList(GuiObjectPtr guiObject);
+	void removeGuiObjectFromDrawList(GuiObjectPtr guiObject);
+
 	bool isGuiObjectInList(GuiObjectPtr guiObject);
 	
 	friend GuiEventHandler;
@@ -75,6 +78,7 @@ protected:
 	bool showKeyboardShortcuts;
 
 	std::vector<boost::shared_ptr<GuiObject> > *m_GuiList;
+	std::vector<boost::shared_ptr<GuiObject> > *m_GuiDrawList;
 
 private:
 	static GuiHandler *pinstance;
