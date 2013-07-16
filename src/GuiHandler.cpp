@@ -229,19 +229,11 @@ void GuiHandler::setCurrentGuiObject(GuiObjectPtr guiObj)
 }
 
 
-
 /**
  *
  */
-void GuiHandler::addToHandleList(GuiObjectPtr guiObject)
+void GuiHandler::updateMouseOver()
 {
-	if (guiObject != boost::shared_ptr<GuiObject>()) {
-		if (m_GuiList) {
-			m_GuiList->push_back(guiObject);
-		}
-	}
-	setNoMouseOver();
-	
 	MouseMotionEvent mouseMotion;
 	Vector2d position = mouseMotion.getPosition();
 	
@@ -256,6 +248,25 @@ void GuiHandler::addToHandleList(GuiObjectPtr guiObject)
 			++iter;
 		}
 	}
+
+}
+
+
+
+/**
+ *
+ */
+void GuiHandler::addToHandleList(GuiObjectPtr guiObject)
+{
+	if (guiObject != boost::shared_ptr<GuiObject>()) {
+		if (m_GuiList) {
+			m_GuiList->push_back(guiObject);
+		}
+	}
+	setNoMouseOver();
+	
+	updateMouseOver();
+	
 	
 	//update();
 }

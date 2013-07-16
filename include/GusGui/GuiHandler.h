@@ -71,6 +71,8 @@ public:
 	friend GuiEventHandler;
 
 	void setGuiObjectListActive(bool active);
+	
+	void updateMouseOver();
 
 protected:
 
