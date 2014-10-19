@@ -434,6 +434,20 @@ void Panel::setActive(bool active)
 	GuiObject::setActive(active);
 }
 
+/**
+ *
+ */
+void Panel::setCenter(int directions)
+{
+	if (directions & PANEL_CENTER_HORISONTALLY) {
+		std::cout << "Panel venter horisontally" << std::endl;
+	}
+
+	if (directions & PANEL_CENTER_VERTICALLY) {
+		std::cout << "Panel center vertically" << std::endl;
+	}
+}
+
 // end of namespace
 // ----------------
 }

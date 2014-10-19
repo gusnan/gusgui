@@ -25,7 +25,11 @@
  */
 namespace GusGui
 {
-	
+
+const int PANEL_CENTER_HORISONTALLY = 1;
+const int PANEL_CENTER_VERTICALLY = 2;
+const int PANEL_CENTER_BOTH = 3;
+
 /**
  *
  */
@@ -54,32 +58,34 @@ public:
 
 	virtual bool handleUserEvent(UserEvent &event);
 	virtual bool handleKeyboardEvent(KeyEvent &event);
-	
+
 	virtual bool onLeftMouseButtonPressed(const Vector2d& pos);
 	virtual void onLeftMouseButtonReleased(const Vector2d& pos);
-	
+
 	virtual bool onRightMouseButtonPressed(const Vector2d& pos);
 	virtual void onRightMouseButtonReleased(const Vector2d& pos);
-	
+
 	virtual void onMouseMove(const Vector2d& pos);
-	
+
 	virtual void onMouseScrollUp();
 	virtual void onMouseScrollDown();
-	
+
 	virtual void onDrag(const Vector2d& pos);
 
 	virtual void setVisible(bool visible=true);
 	
 	virtual void setActive(bool active=true);
-	
+
+	virtual void setCenter(int directions);
+
 protected:
-	
+
 	std::vector<GuiObjectPtr> *m_GuiList;
 
 	bool m_DrawFrame;
 	bool m_TransparentFrame;
 	bool m_DrawBackground;
-	
+
 };
 
 // end of namespace
