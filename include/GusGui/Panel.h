@@ -76,7 +76,7 @@ public:
 	
 	virtual void setActive(bool active=true);
 
-	virtual void setCenter(int directions);
+	virtual void setCenter(Rect sourceRect, int directions);
 
 protected:
 

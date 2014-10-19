@@ -434,17 +434,40 @@ void Panel::setActive(bool active)
 	GuiObject::setActive(active);
 }
 
+
 /**
  *
  */
-void Panel::setCenter(int directions)
+void Panel::setCenter(Rect sourceRect, int directions)
 {
+	//Rect screenRect = GraphicsHandler::getScreenRect();
+	Vector2d center = sourceRect.getCenter();
+
+	int x = center.x;
+	int y = center.y;
+
+	Rect tempRect = getRect();
+
+	Vector2d position = tempRect.position;
+	Vector2d size = tempRect.size;
+
+	int newXPos = x - size.x/2;
+	int newYPos = y - size.y/2;
+
 	if (directions & PANEL_CENTER_HORISONTALLY) {
-		std::cout << "Panel venter horisontally" << std::endl;
+		position = Vector2d(newXPos, position.y);
+		setRect(Rect(position, size));
 	}
 
 	if (directions & PANEL_CENTER_VERTICALLY) {
-		std::cout << "Panel center vertically" << std::endl;
+
+		position = Vector2d(position.x, newYPos);
+		setRect(Rect(position, size));
+	}
+
+	if (directions & (PANEL_CENTER_HORISONTALLY + PANEL_CENTER_VERTICALLY)) {
+		position = Vector2d(newXPos, newYPos);
+		setRect(Rect(position, size));
 	}
 }
 
