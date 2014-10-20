@@ -73,7 +73,7 @@ public:
 	virtual void onDrag(const Vector2d& pos);
 
 	virtual void setVisible(bool visible=true);
-	
+
 	virtual void setActive(bool active=true);
 
 	virtual void setCenter(Rect sourceRect, int directions);
