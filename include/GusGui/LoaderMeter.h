@@ -42,13 +42,13 @@ public:
 	void increaseValue();
 
 protected:
-	
+
 	int m_MaxValue;
 	int m_Value;
 
 	int m_FullWidth;
 };
-	
+
 // end of namespace
 // ----------------
 };

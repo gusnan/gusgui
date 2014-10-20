@@ -45,41 +45,41 @@ using namespace Gus::EventLib;
  */
 namespace GusGui
 {
-	
+
 /**
  *
  */
-CheckBox::CheckBox() : GuiObject(), 
+CheckBox::CheckBox() : GuiObject(),
 	m_TextBitmap(0), m_Checked(false), m_Text(""), m_Down(false), m_CheckBoxSize(), m_TextWidth()
 {
 	m_CheckBoxSize=Vector2d(20,18); //GuiData::checkBoxActivePressed->GetSize();
 
 	m_Rect=Rect(0,0,0,0);
-	
+
 	m_Text="";
-	
+
 	m_MouseOver=false;
 }
 
 /**
  *
  */
-CheckBox::CheckBox(Rect rect,bool checked) : GuiObject(rect), 
+CheckBox::CheckBox(Rect rect,bool checked) : GuiObject(rect),
 	m_TextBitmap(0), m_Checked(false), m_Text(""), m_Down(false), m_CheckBoxSize(), m_TextWidth()
 {
-	
+
 	m_TextBitmap=0;
-	
+
 	m_CheckBoxSize=Vector2d(20,18); //GuiData::checkBoxActivePressed->GetSize();
 
 	m_Rect=Rect(rect.position,m_CheckBoxSize);
 
 	m_Checked=checked;
-	
+
 	m_Text="";
-	
+
 	m_MouseOver=false;
-	
+
 }
 
 /**
@@ -89,15 +89,15 @@ CheckBox::CheckBox(Rect rect,std::string text,bool checked) : GuiObject(rect),
 	m_TextBitmap(0), m_Checked(false), m_Text(""), m_Down(false), m_CheckBoxSize(), m_TextWidth()
 {
 	m_TextBitmap=0;
-	
+
 	m_CheckBoxSize=Vector2d(20,18); //GuiData::checkBoxActivePressed->GetSize();
-	
+
 	m_Rect=Rect(rect.position,m_CheckBoxSize);
-	
+
 	m_Checked=checked;
 
 	setText(text);
-	
+
 	m_MouseOver=false;
 
 }
@@ -105,20 +105,20 @@ CheckBox::CheckBox(Rect rect,std::string text,bool checked) : GuiObject(rect),
 /**
  *
  */
-CheckBox::CheckBox(const CheckBox& source) : 
+CheckBox::CheckBox(const CheckBox& source) :
 	m_TextBitmap(0), m_Checked(false), m_Text(""), m_Down(false), m_CheckBoxSize(), m_TextWidth()
 {
 	m_TextBitmap=source.m_TextBitmap;
-	
+
 	m_CheckBoxSize=source.m_CheckBoxSize;
-	
+
 	m_Rect=source.m_Rect;
-	
+
 	m_Checked=source.m_Checked;
 
 	m_Text=source.m_Text;
-	
-	m_MouseOver=source.m_MouseOver;	
+
+	m_MouseOver=source.m_MouseOver;
 }
 
 /**
@@ -128,17 +128,17 @@ CheckBox& CheckBox::operator=(const CheckBox& source)
 {
 	if (this!=&source) {
 		m_TextBitmap=source.m_TextBitmap;
-		
+
 		m_CheckBoxSize=source.m_CheckBoxSize;
-		
+
 		m_Rect=source.m_Rect;
-		
+
 		m_Checked=source.m_Checked;
 
 		m_Text=source.m_Text;
-		
-		m_MouseOver=source.m_MouseOver;	
-		
+
+		m_MouseOver=source.m_MouseOver;
+
 	}
 	return *this;
 }
@@ -153,14 +153,14 @@ CheckBox::~CheckBox()
 		m_TextBitmap=NULL;
 	}
 }
-	
+
 /**
  *
  */
 void CheckBox::draw(const Vector2d& pos,float alpha)
 {
 	Rect rect=getRect();
-	
+
 	if (m_MouseOver) {
 		if (m_Checked) {
 			//GuiData::checkBoxActivePressed->Blit(pos+GetRect().position,alpha);
@@ -180,11 +180,11 @@ void CheckBox::draw(const Vector2d& pos,float alpha)
 	}
 
 	if (m_TextBitmap) {
-		
+
 		Color col=colorLightGray; //Color(0.75f,0.75f,0.75f,1.0f);;
-		
+
 		if (m_MouseOver) col=colorWhite;
-		
+
 		m_TextBitmap->blitColor(pos+rect.position+Vector2d(m_CheckBoxSize.x,0)+Vector2d(6,4),colorBlack,alpha);
 		m_TextBitmap->blitColor(pos+rect.position+Vector2d(m_CheckBoxSize.x,0)+Vector2d(5,3),col,alpha);
 	}
@@ -197,14 +197,14 @@ void CheckBox::draw(const Vector2d& pos,float alpha)
 bool CheckBox::onLeftMouseButtonPressed(const Vector2d& pos)
 {
 	bool handled=false;
-	
+
 	GuiObject::onLeftMouseButtonPressed(pos);
-	
+
 	if (m_MouseOver) {
 		switchChecked();
 		handled=true;
 	}
-	
+
 	return handled;
 }
 
@@ -214,7 +214,7 @@ bool CheckBox::onLeftMouseButtonPressed(const Vector2d& pos)
 void CheckBox::onLeftMouseButtonReleased(const Vector2d& pos)
 {
 	GuiObject::onLeftMouseButtonReleased(pos);
-	
+
 	if (m_MouseOver) {
 	}
 }
@@ -235,26 +235,26 @@ void CheckBox::update()
 void CheckBox::setText(std::string text)
 {
 	Rect rect=getRect();
-	
+
 	if (text!="") {
 		//SDLBitmap *tempText=GuiData::guiFont->renderText(text,colorWhite);
 		//SDLBitmap *tempBackground=NULL;
-		
+
 		//if (tempText!=NULL) {
-			
+
 			//m_TextWidth=tempText->getSize().x;
 			/*
 
 			tempBackground=new SDLBitmap(tempText->getSize());
-			
+
 			tempBackground->clearToColor(Color(0.0,0.0,0.0,1.0));
 
 			tempText->blit(tempBackground,Vector2d(0,0));
-			
+
 			m_TextBitmap=new Bitmap(*tempBackground);
 			m_TextBitmap->SEND_TO_GPU();
-			
-			
+
+
 			delete tempText;
 			*/
 			//tempText=NULL;
@@ -265,17 +265,17 @@ void CheckBox::setText(std::string text)
 			//tempBackground=NULL;
 		}
 		*/
-		
+
 		m_Text=text;
-		
+
 		//m_Rect=Rect(rect.position,m_CheckBoxSize+Vector2d(5,0)+Vector2d(m_TextBitmap->getSize().x,0));
-		
+
 	} else {
 		if (m_TextBitmap) {
 			delete m_TextBitmap;
 			m_TextBitmap=NULL;
 		}
-		
+
 		m_Rect=Rect(rect.position,m_CheckBoxSize);
 	}
 }

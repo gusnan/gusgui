@@ -68,16 +68,16 @@ FadeButton::~FadeButton()
 void FadeButton::draw(const Vector2d& pos,float opacity)
 {
 	Rect newRect=getRect()+pos;
-	
+
 	if (m_Fade<0.1f) {
 		if (m_MouseOver) {
 			m_Fade=0.1f;
 		}
 		//
 	}
-	
+
 	Color col=Color(1.0f,1.0f,1.0f,(float)m_Fade*opacity);
-	
+
 	Primitives::rectFill(newRect,col);
 }
 
@@ -96,7 +96,7 @@ void FadeButton::setPressed()
 void FadeButton::update()
 {
 	float m_Speed=4.0f;
-	
+
 	if (m_Fade>0.0f) {
 		m_Fade-=(float)(Timer::getDeltaTime()*m_Speed);
 	} else {
@@ -121,21 +121,21 @@ bool FadeButton::onLeftMouseButtonPressed(const Vector2d& pos)
 	if (m_Active) {
 		if (m_MouseOver) {
 			m_Down=true;
-			
+
 			setPressed();
-			
+
 			handled=true;
-			
+
 			if (m_ActivateOnDown) {
 				m_Pressed=true;
-				
+
 				if (m_ButtonEvent) {
 					m_ButtonEvent->pushEvent();
 				}
 			}
 		}
 	}
-	
+
 	return handled;
 }
 
@@ -144,7 +144,7 @@ bool FadeButton::onLeftMouseButtonPressed(const Vector2d& pos)
  */
 void FadeButton::onLeftMouseButtonReleased(const Vector2d& pos)
 {
-	
+
 }
 
 /**

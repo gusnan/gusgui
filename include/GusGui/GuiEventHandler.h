@@ -50,7 +50,7 @@ public:
 
 	void GUSGAME_DLL onMouseScrollUp(const Vector2d& pos);
 	void GUSGAME_DLL onMouseScrollDown(const Vector2d& pos);
-	
+
 	virtual void GUSGAME_DLL handleMouseMotion(MouseMotionEvent &mouseMotion);
 	virtual void GUSGAME_DLL handleMouseButton(MouseButtonEvent &mouseButtonEvent);
 
@@ -58,7 +58,7 @@ public:
 
 
 protected:
-	
+
 	//std::vector<GuiObjectPtr> *m_GuiList;
 };
 

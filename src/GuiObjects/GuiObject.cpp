@@ -43,7 +43,7 @@ namespace GusGui
 /**
  *
  */
-GuiObject::GuiObject() : m_Rect(), m_MouseOver(false), m_Active(true), m_Visible(true), 
+GuiObject::GuiObject() : m_Rect(), m_MouseOver(false), m_Active(true), m_Visible(true),
 	m_PanelPosition(), m_Drag(false), m_DragOnlyWhenMouseOver(true), m_LastMousePosition()
 {
 
@@ -52,7 +52,7 @@ GuiObject::GuiObject() : m_Rect(), m_MouseOver(false), m_Active(true), m_Visible
 /**
  *
  */
-GuiObject::GuiObject(Rect rect) : m_Rect(rect), m_Active(true), m_Visible(true), m_MouseOver(false), 
+GuiObject::GuiObject(Rect rect) : m_Rect(rect), m_Active(true), m_Visible(true), m_MouseOver(false),
 	m_PanelPosition(), m_Drag(false), m_DragOnlyWhenMouseOver(true), m_LastMousePosition()
 {
 }
@@ -119,13 +119,13 @@ void GuiObject::setMouseOver(bool over)
 void GuiObject::setActive(bool active)
 {
 	m_Active=active;
-	
+
 	//if (m_Active) {
 		onMouseMove(m_LastMousePosition);
 	//}
-	
+
 	//if (!active) m_MouseOver=false;
-	
+
 }
 
 /**
@@ -165,7 +165,7 @@ bool GuiObject::getMouseOver() const
  */
 bool GuiObject::handleUserEvent(UserEvent &event)
 {
-	return false;	
+	return false;
 }
 
 /**
@@ -181,7 +181,7 @@ bool GuiObject::handleKeyboardEvent(KeyEvent &event)
  */
 void GuiObject::gainFocus()
 {
-	
+
 }
 
 /**
@@ -221,7 +221,7 @@ bool GuiObject::onRightMouseButtonPressed(const Vector2d& pos)
  */
 void GuiObject::onRightMouseButtonReleased(const Vector2d& pos)
 {
-	
+
 }
 
 /**
@@ -245,13 +245,13 @@ void GuiObject::onMouseMove(const Vector2d& pos)
 			m_MouseOver=false;
 		}
 	}
-	
+
 	if (m_DragOnlyWhenMouseOver) {
 		if (!m_MouseOver) m_Drag=false;
 	}
-	
+
 	if (m_Drag) onDrag(pos);
-	
+
 	m_LastMousePosition=pos;
 }
 

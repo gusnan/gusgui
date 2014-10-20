@@ -25,14 +25,14 @@
  */
 namespace GusGui
 {
-	
+
 /**
  *
  */
 class CheckBox : public GuiObject
 {
 public:
-	
+
 	CheckBox();
 	CheckBox(const CheckBox& source);
 	CheckBox(Rect pos,bool checked=false);
@@ -53,7 +53,7 @@ public:
 	void switchChecked();
 
 	virtual bool handleKeyboardEvent(KeyEvent &event);
-	
+
 	bool onLeftMouseButtonPressed(const Vector2d& pos);
 	void onLeftMouseButtonReleased(const Vector2d& pos);
 
@@ -72,7 +72,7 @@ protected:
 	int m_TextWidth;
 
 };
-	
+
 // end of namespace
 // ----------------
 };

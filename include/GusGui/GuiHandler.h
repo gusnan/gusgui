@@ -27,7 +27,7 @@ namespace GusGui
 {
 
 
-// Gui Events 64 - 127	
+// Gui Events 64 - 127
 const int EVENT_SWITCH_CONSOLE=				64;
 const int EVENT_ENTER_CONSOLE_COMMAND=		65;
 
@@ -47,7 +47,7 @@ public:
 	void setCurrentGuiObject(GuiObjectPtr guiObj);
 
 	void setNoMouseOver();
-	
+
 	void draw();
 	void update();
 
@@ -58,20 +58,20 @@ public:
 
 	void addToDrawList(GuiObjectPtr guiObject);
 	void removeFromDrawList(GuiObjectPtr guiObject);
-	
+
 	void addToHandleList(GuiObjectPtr guiObject);
 	void removeFromHandleList(GuiObjectPtr guiObject);
-	
+
 	void copyDrawListToHandleList();
-	
+
 	void clearHandleList();
 
 	bool isGuiObjectInList(GuiObjectPtr guiObject);
-	
+
 	friend GuiEventHandler;
 
 	void setGuiObjectListActive(bool active);
-	
+
 	void updateMouseOver();
 
 protected:
@@ -81,9 +81,9 @@ protected:
 
 	GuiHandler(const GuiHandler &);
 	GuiHandler& operator=(const GuiHandler&);
-	
+
 	GuiObjectPtr m_CurrentGuiObject;
-	
+
 	bool showKeyboardShortcuts;
 
 	std::vector<boost::shared_ptr<GuiObject> > *m_GuiList;
@@ -91,7 +91,7 @@ protected:
 
 private:
 	static GuiHandler *pinstance;
-	
+
 };
 
 // end of namespace

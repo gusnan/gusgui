@@ -47,24 +47,24 @@ namespace GuiData
 	extern Bitmap *menuBorder_Bottom_NoTrans;
 	extern Bitmap *menuBorder_Left_NoTrans;
 	extern Bitmap *menuBorder_Right_NoTrans;
-	
+
 	extern Bitmap *menuBackground;
-	
+
 	//extern GLBitmap *buttonNormal,*buttonHover,*buttonPressed;
-	
+
 	//extern GLBitmap *checkBoxActivePressed,*checkBoxActive,*checkBoxPressed,*checkBox;
 	extern Bitmap *guiData;
-	
+
 	extern GraphicsLib::Font *guiFont;
 	extern GraphicsLib::Font *guiSmallFont;
 	extern GraphicsLib::Font *guiBigFont;
-	
+
 	void setGuiGraphics(std::vector<Bitmap*> guiBitmapList);
 	void setGuiFont(GraphicsLib::Font *guiFont);
 	void setGuiSmallFont(GraphicsLib::Font *smallFont);
 	void setGuiBigFont(GraphicsLib::Font* bigFont);
-	
-	
+
+
 	void freeGuiGraphics();
 };
 

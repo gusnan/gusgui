@@ -39,12 +39,12 @@ public:
 	virtual void draw(const Vector2d &pos,float opacity=1.0f);
 
 	virtual void update();
-	
+
 protected:
-	
+
 	// How many lines of text are visible?
 	int m_VisibleLines;
-	
+
 };
 
 // end of namespace
