@@ -80,7 +80,7 @@ void FileListGui::draw(const Vector2d &pos,float opacity)
 	for (int co=0;co<m_VisibleLines;co++) {
 
 		st.str("");
-		st << "Kweriohsdfyyjpqj " << co
+		st << "Kweriohsdfyyjpqj " << co;
 
 		GuiData::guiFont->draw(newPos+Vector2d(2,2+14*co),st.str(),colorWhite);
 	}
