@@ -64,23 +64,23 @@ public:
 	void setActivateOnDown(bool active=true);
 
 	//void SetInvisible(bool invisible=true);
-	
+
 	//GLBitmap *DrawTextCentered(std::string text);
-	
+
 	void setMoveOnDown(bool move=true);
-	
+
 	bool handleUserEvent(UserEvent &event);
 	virtual bool handleKeyboardEvent(KeyEvent &event);
 
 	virtual bool onLeftMouseButtonPressed(const Vector2d& pos);
 	virtual void onLeftMouseButtonReleased(const Vector2d& pos);
-	
+
 	virtual void onMouseMove(const Vector2d& pos);
-	
+
 	virtual void pressed();
 
 protected:
-	
+
 	bool m_Down;
 	bool m_Pressed;
 
@@ -101,13 +101,13 @@ protected:
 	bool m_Invisible;
 
 	Bitmap *m_TextBitmap;
-	
+
 	Rect m_SourceRect;
-	
+
 	bool m_MoveOnDown;
-	
+
 	//bool m_HasEvent;
-	
+
 };
 
 // end of namespace

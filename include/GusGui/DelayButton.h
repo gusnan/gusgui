@@ -25,7 +25,7 @@
  */
 namespace GusGui
 {
-	
+
 /**
  *
  */
@@ -61,7 +61,7 @@ protected:
 
 };
 
-// end of namespace 
+// end of namespace
 // ----------------
 };
 

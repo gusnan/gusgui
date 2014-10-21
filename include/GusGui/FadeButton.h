@@ -53,7 +53,7 @@ protected:
 
 	bool m_ShowHover;
 };
-	
+
 // end of namespace
 // ----------------
 };

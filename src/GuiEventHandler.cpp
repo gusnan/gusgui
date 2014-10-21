@@ -40,7 +40,7 @@ using namespace Gus::EventLib;
 
 namespace GusGui
 {
-	
+
 /**
  *
  */
@@ -71,7 +71,7 @@ GUSGAME_DLL GuiEventHandler::~GuiEventHandler()
  */
 GuiEventHandler::GuiEventHandler(const GuiEventHandler &source)
 {
-	
+
 }
 
 /**
@@ -80,13 +80,13 @@ GuiEventHandler::GuiEventHandler(const GuiEventHandler &source)
 void GUSGAME_DLL GuiEventHandler::onLeftMouseButtonPressed(const Vector2d& pos)
 {
 	bool handled=false;
-	
+
 	std::vector<GuiObjectPtr> *guiList = GuiHandler::instance()->m_GuiList; //getGuiList();
-	
+
 	if (guiList) {
 		for (std::vector<GuiObjectPtr>::iterator iter=guiList->begin();iter!=guiList->end();) {
 			GuiObjectPtr current=(*iter);
-			
+
 			if ((current != boost::shared_ptr<GuiObject>()) && !handled) {
 				handled=current->onLeftMouseButtonPressed(pos);
 			}
@@ -100,13 +100,13 @@ void GUSGAME_DLL GuiEventHandler::onLeftMouseButtonPressed(const Vector2d& pos)
  */
 void GUSGAME_DLL GuiEventHandler::onLeftMouseButtonReleased(const Vector2d& pos)
 {
-	
+
 	std::vector<GuiObjectPtr> *guiList = GuiHandler::instance()->m_GuiList; //getGuiList();
 
 	if (guiList) {
 		for (std::vector<GuiObjectPtr>::iterator iter=guiList->begin();iter!=guiList->end();) {
 			GuiObjectPtr current=(*iter);
-			
+
 			if (current) {
 				current->onLeftMouseButtonReleased(pos);
 			}
@@ -125,7 +125,7 @@ void GUSGAME_DLL GuiEventHandler::onRightMouseButtonPressed(const Vector2d& pos)
 	if (guiList) {
 		for (std::vector<GuiObjectPtr>::iterator iter=guiList->begin();iter!=guiList->end();) {
 			GuiObjectPtr current=(*iter);
-			
+
 			if (current && !handled) {
 				handled=current->onRightMouseButtonPressed(pos);
 			}
@@ -139,13 +139,13 @@ void GUSGAME_DLL GuiEventHandler::onRightMouseButtonPressed(const Vector2d& pos)
  */
 void GUSGAME_DLL GuiEventHandler::onRightMouseButtonReleased(const Vector2d& pos)
 {
-	
+
 	std::vector<GuiObjectPtr> *guiList = GuiHandler::instance()->m_GuiList; //getGuiList();
 
 	if (guiList) {
 		for (std::vector<GuiObjectPtr>::iterator iter=guiList->begin();iter!=guiList->end();) {
 			GuiObjectPtr current=(*iter);
-			
+
 			if (current) {
 				current->onRightMouseButtonReleased(pos);
 			}
@@ -161,17 +161,17 @@ void GUSGAME_DLL GuiEventHandler::onRightMouseButtonReleased(const Vector2d& pos
  */
 void GUSGAME_DLL GuiEventHandler::onMouseMove(const Vector2d& pos)
 {
-	
+
 	std::vector<GuiObjectPtr> *guiList = GuiHandler::instance()->m_GuiList; //getGuiList();
 
 	if (guiList) {
 		for (std::vector<GuiObjectPtr>::iterator iter=guiList->begin();iter!=guiList->end();) {
 			GuiObjectPtr object=(*iter);
-			
+
 			if (object) {
 				object->onMouseMove(pos);
 			}
-			
+
 			++iter;
 		}
 	}
@@ -182,19 +182,19 @@ void GUSGAME_DLL GuiEventHandler::onMouseMove(const Vector2d& pos)
  */
 void GUSGAME_DLL GuiEventHandler::onMouseScrollUp(const Vector2d& pos)
 {
-	
+
 	std::vector<GuiObjectPtr> *guiList = GuiHandler::instance()->m_GuiList; //getGuiList();
 
 	if (guiList) {
 		for (std::vector<GuiObjectPtr>::iterator iter=guiList->begin();iter!=guiList->end();) {
 			GuiObjectPtr object=(*iter);
-			
+
 			if (object) {
 				object->onMouseScrollUp(pos);
 			}
-			
+
 			++iter;
-		}	
+		}
 	}
 }
 
@@ -203,19 +203,19 @@ void GUSGAME_DLL GuiEventHandler::onMouseScrollUp(const Vector2d& pos)
  */
 void GUSGAME_DLL GuiEventHandler::onMouseScrollDown(const Vector2d& pos)
 {
-	
+
 	std::vector<GuiObjectPtr> *guiList = GuiHandler::instance()->m_GuiList; //getGuiList();
 
-	if (guiList) {	
+	if (guiList) {
 		for (std::vector<GuiObjectPtr>::iterator iter=guiList->begin();iter!=guiList->end();) {
 			GuiObjectPtr object=(*iter);
-			
+
 			if (object) {
 				object->onMouseScrollDown(pos);
 			}
-			
+
 			++iter;
-		}	
+		}
 	}
 }
 
@@ -235,23 +235,23 @@ void GUSGAME_DLL GuiEventHandler::handleMouseButton(MouseButtonEvent &mouseButto
 //void GameEventHandler::HandleMouseButton(Uint8 type,SDL_MouseButtonEvent buttonEvent)
 {
 	//Data::mouse->SetButton(0);
-	
+
 	//Mouse *mouse=Data::instance()->mouse;
-	
+
 	std::stringstream st;
-	
+
 	//if (mouse->GetButton()==0) mouse->SetWaitForZero(false);
-	
+
 	Vector2d mousePos=mouseButtonEvent.getPosition();
 
 	if (mouseButtonEvent.getStatus()==MouseButtonStatusPressed/*SDL_MOUSEBUTTONDOWN*/) {
-		
+
 		switch(mouseButtonEvent.getButton()) {
 		case 1:
 			{
 				//mouse->setButton(1);
 				onLeftMouseButtonPressed(mousePos);
-				
+
 			}
 			break;
 		case 3:
@@ -260,7 +260,7 @@ void GUSGAME_DLL GuiEventHandler::handleMouseButton(MouseButtonEvent &mouseButto
 				onRightMouseButtonPressed(mousePos);
 			}
 			break;
-			
+
 		case 4:
 			{
 				//EventData::eventMouseScrollUp->PushEvent();
@@ -271,32 +271,32 @@ void GUSGAME_DLL GuiEventHandler::handleMouseButton(MouseButtonEvent &mouseButto
 			{
 				//EventData::eventMouseScrollDown->PushEvent();
 				onMouseScrollDown(mousePos);
-				
+
 			}
 			break;
-			
+
 		default:
 			break;
 		}
-		
+
 	} else if (mouseButtonEvent.getStatus()==MouseButtonStatusReleased) {
 		switch(mouseButtonEvent.getButton()) {
 		case 1:
 			{
 				//mouse->setButton(0);
-				
+
 				onLeftMouseButtonReleased(mousePos);
-				
+
 			}
 			break;
 		case 3:
 			{
 				//mouse->setButton(0);
 				onRightMouseButtonReleased(mousePos);
-				
+
 			}
 			break;
-			
+
 		case 4:
 		case 5:
 		{
@@ -305,12 +305,12 @@ void GUSGAME_DLL GuiEventHandler::handleMouseButton(MouseButtonEvent &mouseButto
 
 			break;
 		}
-			
+
 		default:
 			break;
 		}
 	}
-	
+
 }
 
 
