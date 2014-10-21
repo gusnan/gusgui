@@ -238,8 +238,6 @@ void GUSGAME_DLL GuiEventHandler::handleMouseButton(MouseButtonEvent &mouseButto
 
 	//Mouse *mouse=Data::instance()->mouse;
 
-	std::stringstream st;
-
 	//if (mouse->GetButton()==0) mouse->SetWaitForZero(false);
 
 	Vector2d mousePos=mouseButtonEvent.getPosition();
