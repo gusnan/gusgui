@@ -26,10 +26,6 @@
 namespace GusGui
 {
 
-const int PANEL_CENTER_HORISONTALLY = 1;
-const int PANEL_CENTER_VERTICALLY = 2;
-const int PANEL_CENTER_BOTH = 3;
-
 /**
  *
  */
@@ -75,8 +71,6 @@ public:
 	virtual void setVisible(bool visible=true);
 
 	virtual void setActive(bool active=true);
-
-	virtual void setCenter(Rect sourceRect, int directions);
 
 protected:
 

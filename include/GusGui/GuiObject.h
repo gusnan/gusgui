@@ -25,6 +25,10 @@
 namespace GusGui
 {
 
+const int GUI_OBJECT_CENTER_HORISONTALLY = 1;
+const int GUI_OBJECT_CENTER_VERTICALLY = 2;
+const int GUI_OBJECT_CENTER_BOTH = 3;
+
 class GuiObject;
 
 typedef boost::shared_ptr<GuiObject> GuiObjectPtr;
@@ -83,6 +87,8 @@ public:
 	virtual void onDrag(const Vector2d& pos);
 
 	void setPanelPosition(const Vector2d& pos);
+
+	void setCenter(Rect sourceRect, int directions);
 
 protected:
 
