@@ -1,4 +1,5 @@
 /**
+ *
  * This file is part of GusGui
  * Copyright 2008-2014 Andreas Rönnquist
  *
