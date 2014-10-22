@@ -290,34 +290,30 @@ void GuiObject::onDrag(const Vector2d& pos)
 void GuiObject::setCenter(Rect sourceRect, int directions)
 {
 	//Rect screenRect = GraphicsHandler::getScreenRect();
-	Vector2d center = sourceRect.getCenter();
+	Vector2d sourceSize = sourceRect.size;
 
-	int x = center.x;
-	int y = center.y;
+	int x = sourceSize.x/2;
+	int y = sourceSize.y/2;
 
 	Rect tempRect = getRect();
 
 	Vector2d position = tempRect.position;
 	Vector2d size = tempRect.size;
 
-	int newXPos = x - size.x/2;
-	int newYPos = y - size.y/2;
+	int newXPos = x - (size.x/2);
+	int newYPos = y - (size.y/2);
 
-	if (directions & GUI_OBJECT_CENTER_HORISONTALLY) {
-		position = Vector2d(newXPos, position.y);
-		setRect(Rect(position, size));
+	Vector2d newposition;
+
+	if ((directions & GUI_OBJECT_CENTER_BOTH) == GUI_OBJECT_CENTER_BOTH) {
+		newposition = Vector2d(newXPos, newYPos);
+	} else if ((directions & GUI_OBJECT_CENTER_HORISONTALLY) == GUI_OBJECT_CENTER_HORISONTALLY) {
+		newposition = Vector2d(newXPos, position.y);
+	} else if ((directions & GUI_OBJECT_CENTER_VERTICALLY) == GUI_OBJECT_CENTER_VERTICALLY) {
+		newposition = Vector2d(position.x, newYPos);
 	}
 
-	if (directions & GUI_OBJECT_CENTER_VERTICALLY) {
-
-		position = Vector2d(position.x, newYPos);
-		setRect(Rect(position, size));
-	}
-
-	if (directions & (GUI_OBJECT_CENTER_HORISONTALLY + GUI_OBJECT_CENTER_VERTICALLY)) {
-		position = Vector2d(newXPos, newYPos);
-		setRect(Rect(position, size));
-	}
+	setRect(Rect(newposition, size));
 }
 
 
