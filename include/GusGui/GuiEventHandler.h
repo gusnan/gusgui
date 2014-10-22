@@ -54,7 +54,7 @@ public:
 	virtual void GUSGAME_DLL handleMouseMotion(MouseMotionEvent &mouseMotion);
 	virtual void GUSGAME_DLL handleMouseButton(MouseButtonEvent &mouseButtonEvent);
 
-	virtual int GUSGAME_DLL handleUserEvent(UserEvent &userEvent);
+	virtual bool GUSGAME_DLL handleUserEvent(UserEvent &userEvent);
 
 
 protected:

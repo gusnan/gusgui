@@ -312,7 +312,7 @@ void GUSGAME_DLL GuiEventHandler::handleMouseButton(MouseButtonEvent &mouseButto
 }
 
 
-int GUSGAME_DLL GuiEventHandler::handleUserEvent(UserEvent &userEvent)
+bool GUSGAME_DLL GuiEventHandler::handleUserEvent(UserEvent &userEvent)
 {
 	return EventHandler::handleUserEvent(userEvent);
 }

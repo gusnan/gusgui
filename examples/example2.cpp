@@ -101,7 +101,7 @@ public:
 	/**
 	 *
 	 */
-	virtual int handleUserEvent(UserEvent &userEvent)
+	virtual bool handleUserEvent(UserEvent &userEvent)
 	{
 		LOG("User event..");
 		quit=true;
