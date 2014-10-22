@@ -42,9 +42,9 @@ using namespace EventLib;
 
 using namespace GusGui;
 
-bool quit=false;
+bool quit = false;
 
-UserEvent *userEvent=NULL;
+UserEvent *userEvent = NULL;
 
 
 
@@ -72,8 +72,8 @@ public:
 	virtual bool handleKeyboard(KeyEvent &keyEvent) {
 
 		// Is it the Escape Button that is pressed? - then quit
-		if (keyEvent.getType()==KeyEventPressed) {
-			if (keyEvent.getValue()==Key::Escape) {
+		if (keyEvent.getType() == KeyEventPressed) {
+			if (keyEvent.getValue() == Key::Escape) {
 				quit=true;
 				return true;
 			}
@@ -95,7 +95,7 @@ public:
 	 */
 	virtual void handleQuitEvent()
 	{
-		quit=true;
+		quit = true;
 	}
 
 	/**
@@ -104,7 +104,7 @@ public:
 	virtual bool handleUserEvent(UserEvent &userEvent)
 	{
 		LOG("User event..");
-		quit=true;
+		quit = true;
 		return GuiEventHandler::handleUserEvent(userEvent);
 	}
 
@@ -119,7 +119,7 @@ class ExampleButton : public Button
 {
 public:
 
-	ExampleButton(const Rect &rect) : Button(rect,NULL,true)
+	ExampleButton(const Rect &rect) : Button(rect, NULL, true)
 	{
 	}
 
@@ -127,17 +127,17 @@ public:
 	{
 	}
 
-	virtual void draw(const Vector2d& pos,float alpha=1.0)
+	virtual void draw(const Vector2d& pos,float alpha = 1.0)
 	{
 		// Gray for standard button
-		Primitives::rectFill(getRect()+pos,colorLightGray);
+		Primitives::rectFill(getRect() + pos, colorLightGray);
 		if (getMouseOver()) {
 
 			// red when hovered
-			Primitives::rectFill(getRect()+pos,colorRed);
+			Primitives::rectFill(getRect() + pos, colorRed);
 			if (getDown()) {
 				// and white when pressed
-				Primitives::rectFill(getRect()+pos,colorWhite);
+				Primitives::rectFill(getRect() + pos, colorWhite);
 			}
 		}
 	}
@@ -155,16 +155,16 @@ protected:
 class ExamplePanel : public Panel
 {
 public:
-	ExamplePanel() : Panel(Rect(100,100,400,300))
+	ExamplePanel() : Panel(Rect(100, 100, 400, 300))
 	{
 		// We add a button to the panel. This at position 10,10 in the panel,
 		// which places it at 110,110 on the screen.
-		m_ExampleButton = boost::shared_ptr<ExampleButton>(new ExampleButton(Rect(10,10,100,20)));
+		m_ExampleButton = boost::shared_ptr<ExampleButton>(new ExampleButton(Rect(10, 10, 100, 20)));
 
-		m_ExampleButton->setCenter(Rect(0,0,400,300), GUI_OBJECT_CENTER_HORISONTALLY);
+		m_ExampleButton->setCenter(Rect(0, 0, 400, 300), GUI_OBJECT_CENTER_HORISONTALLY);
 		addGuiObject(m_ExampleButton);
 
-		m_QuitButton = boost::shared_ptr<ExampleButton>(new ExampleButton(Rect(10,40,100,20)));
+		m_QuitButton = boost::shared_ptr<ExampleButton>(new ExampleButton(Rect(10, 40, 100, 20)));
 		//m_QuitButton->setEvent(EventLib::eventQuit);
 
 		m_QuitButton->setEvent(userEvent);
@@ -177,15 +177,15 @@ public:
 		// done in the Panel destructor, which we inherit this class from.
 	}
 
-	void draw(const Vector2d &pos,float opacity=1.0)
+	void draw(const Vector2d &pos,float opacity = 1.0)
 	{
 		// Draw a white outline on the panel
-		Rect newRect=getRect()+pos;
+		Rect newRect = getRect() + pos;
 
-		Primitives::rect(newRect,colorWhite);
+		Primitives::rect(newRect, colorWhite);
 
 		// Make the Panel class which we inherit from draw the gui objects
-		Panel::draw(pos,opacity);
+		Panel::draw(pos, opacity);
 	}
 
 
@@ -202,8 +202,8 @@ protected:
 int main(int argc,char **argv)
 {
 	boost::shared_ptr<EventHandler> eventHandler = boost::shared_ptr<EventHandler>();
-	Bitmap *mouseBitmap=NULL;
-	GraphicsLib::Font *font=NULL;
+	Bitmap *mouseBitmap = NULL;
+	GraphicsLib::Font *font = NULL;
 	// std::vector<GuiObjectPtr> *guiList = NULL;
 
 	boost::shared_ptr<GuiObject> panel; // = boost::shared_ptr<ExamplePanel>();
@@ -215,14 +215,14 @@ int main(int argc,char **argv)
 		//
 		// The second indata is a boolean to determine to print the log to
 		// std::cout or not in addition to to the file.
-		LogHandler::initLog("log.txt",true);
+		LogHandler::initLog("log.txt", true);
 
 		// init system stuff
 		System::initSystem();
 
 		// set up a screen with resolution of 640x480, and not fullscreen
 		GraphicsHandler::initGraphicsHandler();
-		GraphicsHandler::setGraphicsMode(Vector2d(640,480),false);
+		GraphicsHandler::setGraphicsMode(Vector2d(640, 480), false);
 
 		Primitives::initPrimitives();
 
@@ -237,11 +237,11 @@ int main(int argc,char **argv)
 
 		FontHandler::initFontHandler();
 
-		font=new GraphicsLib::Font("FreeSans.ttf",12,true);
+		font = new GraphicsLib::Font("FreeSans.ttf", 12, true);
 
 		GuiData::setGuiFont(font);
 
-		userEvent=new UserEvent();
+		userEvent = new UserEvent();
 
 		// This must be initialized before the Examplepanel
 		// EventData::instance();
@@ -255,7 +255,7 @@ int main(int argc,char **argv)
 
 		EventSystem::initEventSystem();
 
-		userEvent=new UserEvent();
+		userEvent = new UserEvent();
 
 		// Create an EventHandler for our "custom" events
 		// which inherits from the GUI event handler, this for it
