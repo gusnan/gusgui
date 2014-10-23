@@ -32,8 +32,8 @@ namespace GusGui
 class Button : public GuiObject
 {
 public:
-	Button(Rect rect, Bitmap *icon=0, bool invisible=false);
-	Button(Rect sourceRect, Rect rect, Bitmap *icon=0, bool invisible=false);
+	Button(const Rect &rect, Bitmap *icon=0, bool invisible=false);
+	Button(const Rect &sourceRect, const Rect &rect, Bitmap *icon=0, bool invisible=false);
 
 	Button(const Button& source);
 
