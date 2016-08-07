@@ -32,8 +32,8 @@ namespace GusGui
 class Button : public GuiObject
 {
 public:
-	Button(const Rect &rect, Bitmap *icon=0, bool invisible=false);
-	Button(const Rect &sourceRect, const Rect &rect, Bitmap *icon=0, bool invisible=false);
+	Button(const Rect &rect, Bitmap *icon = 0, bool invisible = false);
+	Button(const Rect &sourceRect, const Rect &rect, Bitmap *icon = 0, bool invisible = false);
 
 	Button(const Button& source);
 
@@ -43,7 +43,7 @@ public:
 
 	Button *makeCopy();
 
-	void draw(const Vector2d& pos,float alpha=1.0);
+	void draw(const Vector2d& pos, float alpha = 1.0);
 
 	bool getPressed();
 	bool getDown();
@@ -56,18 +56,18 @@ public:
 
 	//void SetTextBitmap(GLBitmap *textBitmap);
 
-	void setText(std::string file,int line,std::string text);
+	void setText(std::string file, int line, std::string text);
 
 	void setEvent(UserEvent *event);
 	UserEvent *getEvent();
 
-	void setActivateOnDown(bool active=true);
+	void setActivateOnDown(bool active = true);
 
 	//void SetInvisible(bool invisible=true);
 
 	//GLBitmap *DrawTextCentered(std::string text);
 
-	void setMoveOnDown(bool move=true);
+	void setMoveOnDown(bool move = true);
 
 	bool handleUserEvent(UserEvent &event);
 	virtual bool handleKeyboardEvent(KeyEvent &event);

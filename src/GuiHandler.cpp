@@ -65,7 +65,7 @@ GuiHandler* GuiHandler::instance ()
 void GuiHandler::destroy()
 {
 	delete pinstance;
-	pinstance=0;
+	pinstance = 0;
 }
 
 
@@ -102,10 +102,10 @@ GuiHandler::~GuiHandler()
 		m_GuiList=NULL;
 	}
 
-	if (m_GuiDrawList!=NULL) {
+	if (m_GuiDrawList != NULL) {
 
 		std::vector<GuiObjectPtr>::iterator iter;
-		for (iter=m_GuiDrawList->begin();iter!=m_GuiDrawList->end();) {
+		for (iter = m_GuiDrawList->begin(); iter != m_GuiDrawList->end();) {
 
 			iter = m_GuiDrawList->erase(iter);
 		}
@@ -123,10 +123,10 @@ GuiHandler::~GuiHandler()
 void GuiHandler::clearHandleList()
 {
 
-	if (m_GuiList!=NULL) {
+	if (m_GuiList != NULL) {
 
 		std::vector<GuiObjectPtr>::iterator iter;
-		for (iter=m_GuiList->begin();iter!=m_GuiList->end();) {
+		for (iter = m_GuiList->begin(); iter != m_GuiList->end();) {
 
 			iter = m_GuiList->erase(iter);
 		}
@@ -159,7 +159,7 @@ void GuiHandler::draw()
 {
 	const Vector2d pos=Vector2d(0,0);
 	if (m_GuiDrawList) {
-		for (std::vector<GuiObjectPtr>::iterator iter=m_GuiDrawList->begin();iter!=m_GuiDrawList->end();) {
+		for (std::vector<GuiObjectPtr>::iterator iter = m_GuiDrawList->begin(); iter != m_GuiDrawList->end();) {
 			//(*iter)->Draw(Vector2d(0,0));
 			(*iter)->draw(pos);
 			++iter;
@@ -175,7 +175,7 @@ void GuiHandler::update()
 {
 
 	std::vector<GuiObjectPtr>::iterator iter;
-	for (iter=m_GuiList->begin();iter!=m_GuiList->end();) {
+	for (iter=m_GuiList->begin(); iter != m_GuiList->end();) {
 
 		(*iter)->update();
 		++iter;
@@ -188,7 +188,7 @@ void GuiHandler::update()
  */
 void GuiHandler::setNoMouseOver()
 {
-	for (std::vector<GuiObjectPtr>::iterator iter=m_GuiList->begin();iter!=m_GuiList->end();) {
+	for (std::vector<GuiObjectPtr>::iterator iter = m_GuiList->begin(); iter != m_GuiList->end();) {
 		(*iter)->setMouseOver(false);
 		++iter;
 	}
@@ -216,11 +216,11 @@ GuiObjectPtr GuiHandler::getCurrentGuiObject()
  */
 void GuiHandler::setCurrentGuiObject(GuiObjectPtr guiObj)
 {
-	GuiObject *oldCurrentGuiObject=m_CurrentGuiObject.get();
+	GuiObject *oldCurrentGuiObject = m_CurrentGuiObject.get();
 
-	m_CurrentGuiObject=guiObj;
+	m_CurrentGuiObject = guiObj;
 
-	if	(m_CurrentGuiObject.get()!=oldCurrentGuiObject) {
+	if	(m_CurrentGuiObject.get() != oldCurrentGuiObject) {
 		if (m_CurrentGuiObject) {
 			m_CurrentGuiObject->gainFocus();
 		}
@@ -238,7 +238,7 @@ void GuiHandler::updateMouseOver()
 	Vector2d position = mouseMotion.getPosition();
 
 	if (m_GuiList) {
-		for (std::vector<GuiObjectPtr>::iterator iter=m_GuiList->begin();iter!=m_GuiList->end();) {
+		for (std::vector<GuiObjectPtr>::iterator iter = m_GuiList->begin(); iter != m_GuiList->end();) {
 			GuiObjectPtr object=(*iter);
 
 			if (object) {

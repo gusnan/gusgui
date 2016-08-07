@@ -34,7 +34,7 @@ class Panel : public GuiObject
 public:
 	Panel();
 
-	Panel(Rect rect,bool transFrame=true);
+	Panel(Rect rect,bool transFrame = true);
 	Panel(const Panel& source);
 	virtual ~Panel();
 
@@ -43,12 +43,12 @@ public:
 
 	void addGuiObject(GuiObjectPtr guiObject);
 
-	void draw(const Vector2d& pos,float alpha=1.0);
+	void draw(const Vector2d& pos, float alpha = 1.0);
 
 	void update();
 
-	void setDrawFrame(bool drawFrame=true);
-	void setDrawBackground(bool drawBackground=true);
+	void setDrawFrame(bool drawFrame = true);
+	void setDrawBackground(bool drawBackground = true);
 
 	void setMouseOver(bool b);
 
@@ -68,9 +68,9 @@ public:
 
 	virtual void onDrag(const Vector2d& pos);
 
-	virtual void setVisible(bool visible=true);
+	virtual void setVisible(bool visible = true);
 
-	virtual void setActive(bool active=true);
+	virtual void setActive(bool active = true);
 
 protected:
 

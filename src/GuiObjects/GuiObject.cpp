@@ -85,7 +85,7 @@ Rect GuiObject::getRect() const
  */
 void GuiObject::setRect(const Rect& rect)
 {
-	m_Rect=rect;
+	m_Rect = rect;
 }
 
 /**
@@ -93,7 +93,7 @@ void GuiObject::setRect(const Rect& rect)
  */
 void GuiObject::setSize(const Vector2d& size)
 {
-	m_Rect.size=size;
+	m_Rect.size = size;
 }
 
 /**
@@ -110,7 +110,7 @@ void GuiObject::setCenter(const Vector2d& pos)
  */
 void GuiObject::setMouseOver(bool over)
 {
-	m_MouseOver=over;
+	m_MouseOver = over;
 }
 
 /**
@@ -118,7 +118,7 @@ void GuiObject::setMouseOver(bool over)
  */
 void GuiObject::setActive(bool active)
 {
-	m_Active=active;
+	m_Active = active;
 
 	//if (m_Active) {
 		onMouseMove(m_LastMousePosition);
@@ -133,7 +133,7 @@ void GuiObject::setActive(bool active)
  */
 void GuiObject::setVisible(bool visible)
 {
-	m_Visible=visible;
+	m_Visible = visible;
 }
 
 /**
@@ -141,7 +141,7 @@ void GuiObject::setVisible(bool visible)
  */
 void GuiObject::switchVisible()
 {
-	m_Visible=!m_Visible;
+	m_Visible = !m_Visible;
 }
 
 /**
@@ -196,7 +196,7 @@ void GuiObject::releaseFocus()
  */
 bool GuiObject::onLeftMouseButtonPressed(const Vector2d& pos)
 {
-	m_Drag=true;
+	m_Drag = true;
 	return false;
 }
 
@@ -205,7 +205,7 @@ bool GuiObject::onLeftMouseButtonPressed(const Vector2d& pos)
  */
 void GuiObject::onLeftMouseButtonReleased(const Vector2d& pos)
 {
-	m_Drag=false;
+	m_Drag = false;
 }
 
 /**
@@ -237,22 +237,22 @@ void GuiObject::setPanelPosition(const Vector2d& pos)
  */
 void GuiObject::onMouseMove(const Vector2d& pos)
 {
-	m_MouseOver=false;
+	m_MouseOver = false;
 	if (m_Active) {
 		if (m_Rect.isPointOver(pos)) {
-			m_MouseOver=true;
+			m_MouseOver = true;
 		} else {
-			m_MouseOver=false;
+			m_MouseOver = false;
 		}
 	}
 
 	if (m_DragOnlyWhenMouseOver) {
-		if (!m_MouseOver) m_Drag=false;
+		if (!m_MouseOver) m_Drag = false;
 	}
 
 	if (m_Drag) onDrag(pos);
 
-	m_LastMousePosition=pos;
+	m_LastMousePosition = pos;
 }
 
 /**
@@ -292,16 +292,16 @@ void GuiObject::setCenter(Rect sourceRect, int directions)
 	//Rect screenRect = GraphicsHandler::getScreenRect();
 	Vector2d sourceSize = sourceRect.size;
 
-	int x = sourceSize.x/2;
-	int y = sourceSize.y/2;
+	int x = sourceSize.x / 2;
+	int y = sourceSize.y / 2;
 
 	Rect tempRect = getRect();
 
 	Vector2d position = tempRect.position;
 	Vector2d size = tempRect.size;
 
-	int newXPos = x - (size.x/2);
-	int newYPos = y - (size.y/2);
+	int newXPos = x - (size.x / 2);
+	int newYPos = y - (size.y / 2);
 
 	Vector2d newposition;
 

@@ -50,9 +50,9 @@ namespace GusGui
 FileListGui::FileListGui(Rect rect) : GuiObject(rect), m_VisibleLines(0)
 {
 
-	int fontHeight=GuiData::guiFont->getHeight(); // 13
+	int fontHeight = GuiData::guiFont->getHeight(); // 13
 
-	m_VisibleLines=((getRect().size.y)/fontHeight)-1;
+	m_VisibleLines = ((getRect().size.y) / fontHeight) - 1;
 
 }
 
@@ -68,21 +68,21 @@ FileListGui::~FileListGui()
  */
 void FileListGui::draw(const Vector2d &pos,float opacity)
 {
-	Rect newRect=getRect()+pos;
-	Vector2d newPos=newRect.position;
+	Rect newRect = getRect() + pos;
+	Vector2d newPos = newRect.position;
 
 	//GuiDraw::drawGuiRect(newRect,true,opacity);
 
-	Primitives::rect(newRect,colorWhite);
+	Primitives::rect(newRect, colorWhite);
 
 	std::stringstream st;
 
-	for (int co=0;co<m_VisibleLines;co++) {
+	for (int co = 0; co < m_VisibleLines; co++) {
 
 		st.str("");
 		st << "Kweriohsdfyyjpqj " << co;
 
-		GuiData::guiFont->draw(newPos+Vector2d(2,2+14*co),st.str(),colorWhite);
+		GuiData::guiFont->draw(newPos + Vector2d(2, 2 + 14 * co), st.str(), colorWhite);
 	}
 }
 

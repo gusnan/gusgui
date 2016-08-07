@@ -36,7 +36,7 @@ public:
 	InvisibleGuiObject();
 	virtual ~InvisibleGuiObject();
 
-	virtual void draw(const Vector2d &pos,float opacity=1.0f);
+	virtual void draw(const Vector2d &pos, float opacity = 1.0f);
 
 	virtual void update();
 

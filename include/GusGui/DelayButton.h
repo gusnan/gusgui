@@ -36,7 +36,7 @@ public:
 		Bitmap *icon, Rect iconSourceRect);
 	virtual ~DelayButton();
 
-	void draw(const Vector2d& pos,float alpha);
+	void draw(const Vector2d& pos, float alpha);
 
 	virtual void update();
 

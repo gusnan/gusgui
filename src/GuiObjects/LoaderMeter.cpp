@@ -49,18 +49,18 @@ namespace GusGui
 /**
  *
  */
-LoaderMeter::LoaderMeter(Rect rect,int maxValue) : GuiObject(rect), m_MaxValue(), m_Value(),
+LoaderMeter::LoaderMeter(Rect rect, int maxValue) : GuiObject(rect), m_MaxValue(), m_Value(),
 		m_FullWidth()
 {
-	m_MaxValue=maxValue;
-	m_Value=0;
+	m_MaxValue = maxValue;
+	m_Value = 0;
 
 	rect.setCenter(GraphicsHandler::getScreenRect().getCenter());
 
 	//GuiObject(rect);
 	GuiObject::setRect(rect);
 
-	m_FullWidth=rect.size.x;
+	m_FullWidth = rect.size.x;
 }
 
 /**
@@ -76,7 +76,7 @@ LoaderMeter::~LoaderMeter()
 void LoaderMeter::draw(const Vector2d &pos,float opacity)
 {
 
-	double percent=(double)(m_Value)/(double)(m_MaxValue);
+	double percent = (double)(m_Value) / (double)(m_MaxValue);
 
 	/*
 	std::stringstream st;
@@ -85,26 +85,26 @@ void LoaderMeter::draw(const Vector2d &pos,float opacity)
 	STLOG(st);
 	*/
 
-	int newsize=(int)((double)(percent)*(double)(m_FullWidth));
+	int newsize = (int)((double)(percent) * (double)(m_FullWidth));
 
-	if (m_Value%8==0) {
+	if (m_Value%8 == 0) {
 
 		glClear(GL_COLOR_BUFFER_BIT /*| GL_DEPTH_BUFFER_BIT*/);
 
-		Rect rect=getRect();
+		Rect rect = getRect();
 
-		GuiDraw::drawGuiRect(rect+pos,false);
+		GuiDraw::drawGuiRect(rect + pos, false);
 
-		Rect newRect=rect;
+		Rect newRect = rect;
 
-		newRect.size.x=newsize;
+		newRect.size.x = newsize;
 
-		Primitives::rectFill(newRect+pos,colorRed);
+		Primitives::rectFill(newRect + pos, colorRed);
 
-		Rect centerRect=rect+pos;
+		Rect centerRect = rect + pos;
 
-		GuiData::guiFont->drawCenter(centerRect.getCenter()+Vector2d(2,2),"Loading...",colorBlack);
-		GuiData::guiFont->drawCenter(centerRect.getCenter(),"Loading...",colorWhite);
+		GuiData::guiFont->drawCenter(centerRect.getCenter() + Vector2d(2,2), "Loading...", colorBlack);
+		GuiData::guiFont->drawCenter(centerRect.getCenter(), "Loading...", colorWhite);
 
 		//SDL_GL_SwapBuffers();
 	}
@@ -132,7 +132,7 @@ void LoaderMeter::increaseValue()
 	STLOG(st);
 	*/
 
-	draw(Vector2d(0,0),1.0f);
+	draw(Vector2d(0, 0), 1.0f);
 
 
 }

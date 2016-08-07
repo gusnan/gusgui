@@ -59,7 +59,7 @@ DelayButton::DelayButton(Rect rect, Rect sourceRect, Rect sourceRectPressed,
 	Bitmap *icon, Rect iconSourceRect) : Button(rect,icon),
 	m_Delay(0.0f), m_Speed(1.0f), m_IconSourceRect(), m_SourceRectPressed()
 {
-	m_Delay=0.0f;
+	m_Delay = 0.0f;
 
 	//m_TextBitmap=0;
 
@@ -68,14 +68,14 @@ DelayButton::DelayButton(Rect rect, Rect sourceRect, Rect sourceRectPressed,
 	m_FrameBufferPressed=GuiDraw::MakePressedButton(rect.size,icon);
 	*/
 
-	m_Speed=1.0f;
+	m_Speed = 1.0f;
 
-	m_IconSourceRect=iconSourceRect;
+	m_IconSourceRect = iconSourceRect;
 
-	m_SourceRect=sourceRect;
-	m_SourceRectPressed=sourceRectPressed;
+	m_SourceRect = sourceRect;
+	m_SourceRectPressed = sourceRectPressed;
 
-	m_MouseOver=false;
+	m_MouseOver = false;
 
 	//m_FrameBufferHover=m_FrameBufferStandard;
 
@@ -99,9 +99,9 @@ DelayButton::~DelayButton()
  */
 void DelayButton::draw(const Vector2d& pos,float alpha)
 {
-	Vector2d newpos=getRect().position+pos;
+	Vector2d newpos = getRect().position+pos;
 
-	Rect newrect=Rect(newpos,getRect().size);
+	Rect newrect = Rect(newpos,getRect().size);
 
 	Vector2d shadePos(2,2);
 
@@ -140,9 +140,9 @@ void DelayButton::update()
  */
 bool DelayButton::getPressed() const
 {
-	bool result=false;
+	bool result = false;
 
-	if (m_Delay!=0.0f) result=true;
+	if (m_Delay!=0.0f) result = true;
 
 	return result;
 }
@@ -152,7 +152,7 @@ bool DelayButton::getPressed() const
  */
 void DelayButton::setPressed()
 {
-	m_Delay=1.0f;
+	m_Delay = 1.0f;
 
 	//SDL_PushEvent(&m_ButtonEvent);
 	m_ButtonEvent->pushEvent();
@@ -163,7 +163,7 @@ void DelayButton::setPressed()
  */
 void DelayButton::setSpeed(float speed)
 {
-	m_Speed=speed;
+	m_Speed = speed;
 }
 
 /**
@@ -180,12 +180,12 @@ bool DelayButton::handleKeyboardEvent(KeyEvent &event)
  */
 bool DelayButton::onLeftMouseButtonPressed(const Vector2d& pos)
 {
-	bool handled=false;
+	bool handled = false;
 
 	if (m_MouseOver) {
 		if (!getPressed()) {
 			setPressed();
-			handled=true;
+			handled = true;
 		}
 	}
 	return handled;

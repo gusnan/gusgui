@@ -33,7 +33,7 @@ namespace GusGui
  */
 namespace GuiDraw
 {
-	void drawGuiRect(Rect rect, bool drawTransparentFrame, float opacity=1.0f);
+	void drawGuiRect(Rect rect, bool drawTransparentFrame, float opacity = 1.0f);
 
 #ifndef _NO_FRAME_BUFFER_
 	FrameBuffer *makeTextButtonStandard(std::string text);
@@ -44,21 +44,21 @@ namespace GuiDraw
 	FrameBuffer *makePressedButton(Vector2d size, Bitmap *icon=0);
 
 #endif
-	void drawStandardButton(Rect rect, Bitmap *icon=0);
+	void drawStandardButton(Rect rect, Bitmap *icon = 0);
 
-	void drawPressedButton(Rect rect, Bitmap *icon=0);
+	void drawPressedButton(Rect rect, Bitmap *icon = 0);
 
-	void splitString(std::string instring,std::string& text,std::string& shortcut);
+	void splitString(std::string instring, std::string& text, std::string& shortcut);
 
 	//void MakeTextButton(FrameBuffer *standard,FrameBuffer *hover,FrameBuffer *pressed,std::string text);
 
 	Bitmap *drawTextCentered(std::string intext);
 
-	void drawNiceTextSmall(Vector2d pos,std::string st,Color col,float opacity=1.0f);
-	void drawNiceText(Vector2d pos,std::string st,Color col,float opacity=1.0f);
+	void drawNiceTextSmall(Vector2d pos, std::string st, Color col, float opacity = 1.0f);
+	void drawNiceText(Vector2d pos, std::string st, Color col, float opacity = 1.0f);
 
-	void drawNiceTextSmallCenter(Vector2d pos,std::string st,Color col,float opacity=1.0f);
-	void drawNiceTextCenter(Vector2d pos,std::string st,Color col,float opacity=1.0f);
+	void drawNiceTextSmallCenter(Vector2d pos, std::string st, Color col, float opacity = 1.0f);
+	void drawNiceTextCenter(Vector2d pos, std::string st, Color col, float opacity = 1.0f);
 
 
 

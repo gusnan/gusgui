@@ -45,7 +45,7 @@ namespace GusGui
 /**
  *
  */
-InvisibleGuiObject::InvisibleGuiObject() : GuiObject(Rect(-1,-1,-1,-1))
+InvisibleGuiObject::InvisibleGuiObject() : GuiObject(Rect(-1, -1, -1, -1))
 {
 }
 

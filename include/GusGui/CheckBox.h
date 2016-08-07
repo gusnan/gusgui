@@ -35,13 +35,13 @@ public:
 
 	CheckBox();
 	CheckBox(const CheckBox& source);
-	CheckBox(Rect pos,bool checked=false);
-	CheckBox(Rect pos,std::string text,bool checked=false);
+	CheckBox(Rect pos, bool checked = false);
+	CheckBox(Rect pos,std::string text, bool checked = false);
 	virtual ~CheckBox();
 
 	CheckBox& operator=(const CheckBox& source);
 
-	void draw(const Vector2d& pos,float alpha=1.0);
+	void draw(const Vector2d& pos, float alpha = 1.0f);
 
 	void update();
 
