@@ -284,9 +284,9 @@ void Button::draw(const Vector2d& pos, float alpha)
 {
 	Vector2d newpos = getRect().position + pos;
 
-	Rect newrect=Rect(newpos, getRect().size);
+	Rect newrect = Rect(newpos, getRect().size);
 
-	Vector2d size=Vector2d(108, 22); //GuiData::buttonNormal->GetSize();
+	Vector2d size = Vector2d(108, 22); //GuiData::buttonNormal->GetSize();
 
 	//Vector2d shadePos(2,2);
 
@@ -300,7 +300,7 @@ void Button::draw(const Vector2d& pos, float alpha)
 			GuiData::guiData->blit(Rect(0, 85, 108, 22), newpos, alpha);
 
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-			m_TextBitmap->blitCenterColor(Rect(newrect.position+Vector2d(1+2, -1+2), size), colorBlack, alpha);
+			m_TextBitmap->blitCenterColor(Rect(newrect.position+Vector2d(1 + 2, -1 + 2), size), colorBlack, alpha);
 			glBlendFunc(GL_SRC_ALPHA,GL_ONE);
 			m_TextBitmap->blitCenter(Rect(newrect.position + Vector2d(1, -1), size), alpha);
 		}
@@ -314,7 +314,7 @@ void Button::draw(const Vector2d& pos, float alpha)
 				GuiData::guiData->blit(Rect(0, 107, 108, 22), newpos, alpha);
 
 				glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-				m_TextBitmap->blitCenterColor(newrect+Vector2d(2, 2), colorBlack, alpha);
+				m_TextBitmap->blitCenterColor(newrect + Vector2d(2, 2), colorBlack, alpha);
 				glBlendFunc(GL_SRC_ALPHA, GL_ONE);
 				m_TextBitmap->blitCenter(newrect, alpha);
 			}
@@ -328,7 +328,7 @@ void Button::draw(const Vector2d& pos, float alpha)
 				GuiData::guiData->blit(Rect(0, 63, 108, 22), newpos, alpha);
 
 				glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-				m_TextBitmap->blitCenterColor(newrect+Vector2d(2, 2), colorBlack, alpha);
+				m_TextBitmap->blitCenterColor(newrect + Vector2d(2, 2), colorBlack, alpha);
 				glBlendFunc(GL_SRC_ALPHA, GL_ONE);
 				m_TextBitmap->blitCenter(newrect ,alpha);
 			}

@@ -52,7 +52,7 @@ namespace GusGui
  */
 FadeButton::FadeButton(Rect rect) : Button(rect), m_Fade(0.0f), m_ShowHover(true)
 {
-	m_MouseOver=false;
+	m_MouseOver = false;
 }
 
 /**

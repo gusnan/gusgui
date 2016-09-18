@@ -99,7 +99,7 @@ GuiHandler::~GuiHandler()
 
 	if (m_GuiList) {
 		delete m_GuiList;
-		m_GuiList=NULL;
+		m_GuiList = NULL;
 	}
 
 	if (m_GuiDrawList != NULL) {
@@ -175,7 +175,7 @@ void GuiHandler::update()
 {
 
 	std::vector<GuiObjectPtr>::iterator iter;
-	for (iter=m_GuiList->begin(); iter != m_GuiList->end();) {
+	for (iter = m_GuiList->begin(); iter != m_GuiList->end();) {
 
 		(*iter)->update();
 		++iter;

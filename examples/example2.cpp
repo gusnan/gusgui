@@ -231,7 +231,7 @@ int main(int argc,char **argv)
 
 		Mouse::initMouse();
 
-		mouseBitmap=new Bitmap("mouse.png");
+		mouseBitmap = new Bitmap("mouse.png");
 
 		Mouse::setMouseBitmap(mouseBitmap);
 

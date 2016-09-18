@@ -40,23 +40,23 @@ using namespace Gus::LogLib;
 namespace GusGui
 {
 
-Bitmap *GuiData::menuBorder_Top=0;
-Bitmap *GuiData::menuBorder_Bottom=0;
-Bitmap *GuiData::menuBorder_Left=0;
-Bitmap *GuiData::menuBorder_Right=0;
+Bitmap *GuiData::menuBorder_Top = 0;
+Bitmap *GuiData::menuBorder_Bottom = 0;
+Bitmap *GuiData::menuBorder_Left = 0;
+Bitmap *GuiData::menuBorder_Right = 0;
 
-Bitmap *GuiData::menuBorder_Top_NoTrans=0;
-Bitmap *GuiData::menuBorder_Bottom_NoTrans=0;
-Bitmap *GuiData::menuBorder_Left_NoTrans=0;
-Bitmap *GuiData::menuBorder_Right_NoTrans=0;
+Bitmap *GuiData::menuBorder_Top_NoTrans = 0;
+Bitmap *GuiData::menuBorder_Bottom_NoTrans = 0;
+Bitmap *GuiData::menuBorder_Left_NoTrans = 0;
+Bitmap *GuiData::menuBorder_Right_NoTrans = 0;
 
-Bitmap *GuiData::menuBackground=0;
+Bitmap *GuiData::menuBackground = 0;
 
-Bitmap *GuiData::guiData=0;
+Bitmap *GuiData::guiData = 0;
 
-GraphicsLib::Font *GuiData::guiFont=0;
-GraphicsLib::Font *GuiData::guiSmallFont=0;
-GraphicsLib::Font* GuiData::guiBigFont=0;
+GraphicsLib::Font *GuiData::guiFont = 0;
+GraphicsLib::Font *GuiData::guiSmallFont = 0;
+GraphicsLib::Font* GuiData::guiBigFont = 0;
 
 
 /**
@@ -68,19 +68,19 @@ void GuiData::setGuiGraphics(std::vector<Bitmap*> guiBitmapList)
 {
 	LOG("Set Gui Graphics...");
 
-	menuBorder_Top=guiBitmapList[0]->makeCopy();
-	menuBorder_Bottom=guiBitmapList[1]->makeCopy();
-	menuBorder_Left=guiBitmapList[2]->makeCopy();
-	menuBorder_Right=guiBitmapList[3]->makeCopy();
+	menuBorder_Top = guiBitmapList[0]->makeCopy();
+	menuBorder_Bottom = guiBitmapList[1]->makeCopy();
+	menuBorder_Left = guiBitmapList[2]->makeCopy();
+	menuBorder_Right = guiBitmapList[3]->makeCopy();
 
-	menuBorder_Top_NoTrans=guiBitmapList[4]->makeCopy();
-	menuBorder_Bottom_NoTrans=guiBitmapList[5]->makeCopy();
-	menuBorder_Left_NoTrans=guiBitmapList[6]->makeCopy();
-	menuBorder_Right_NoTrans=guiBitmapList[7]->makeCopy();
+	menuBorder_Top_NoTrans = guiBitmapList[4]->makeCopy();
+	menuBorder_Bottom_NoTrans = guiBitmapList[5]->makeCopy();
+	menuBorder_Left_NoTrans = guiBitmapList[6]->makeCopy();
+	menuBorder_Right_NoTrans = guiBitmapList[7]->makeCopy();
 
-	menuBackground=guiBitmapList[8]->makeCopy();
+	menuBackground = guiBitmapList[8]->makeCopy();
 
-	guiData=guiBitmapList[9]->makeCopy();
+	guiData = guiBitmapList[9]->makeCopy();
 
 	/*
 	menuBorder_Top->SEND_TO_GPU();
@@ -125,7 +125,7 @@ void GuiData::freeGuiGraphics()
  */
 void GuiData::setGuiFont(GraphicsLib::Font *font)
 {
-	guiFont=font;
+	guiFont = font;
 }
 
 /**
@@ -133,7 +133,7 @@ void GuiData::setGuiFont(GraphicsLib::Font *font)
  */
 void GuiData::setGuiSmallFont(GraphicsLib::Font *smallFont)
 {
-	guiSmallFont=smallFont;
+	guiSmallFont = smallFont;
 }
 
 /**
@@ -141,7 +141,7 @@ void GuiData::setGuiSmallFont(GraphicsLib::Font *smallFont)
  */
 void GuiData::setGuiBigFont(GraphicsLib::Font *bigFont)
 {
-	guiBigFont=bigFont;
+	guiBigFont = bigFont;
 }
 
 // end of namespace

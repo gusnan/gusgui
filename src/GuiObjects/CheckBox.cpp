@@ -164,18 +164,18 @@ void CheckBox::draw(const Vector2d& pos,float alpha)
 	if (m_MouseOver) {
 		if (m_Checked) {
 			//GuiData::checkBoxActivePressed->Blit(pos+GetRect().position,alpha);
-			GuiData::guiData->blit(Rect(20,18,20,18),pos+getRect().position,alpha);
+			GuiData::guiData->blit(Rect(20, 18, 20, 18),pos + getRect().position, alpha);
 		} else {
 			//GuiData::checkBoxActive->Blit(pos+GetRect().position,alpha);
-			GuiData::guiData->blit(Rect(20,0,20,18),pos+getRect().position,alpha);
+			GuiData::guiData->blit(Rect(20, 0, 20, 18),pos + getRect().position, alpha);
 		}
 	} else {
 		if (m_Checked) {
 			//GuiData::checkBoxPressed->Blit(pos+GetRect().position,alpha);
-			GuiData::guiData->blit(Rect(0,18,20,18),pos+getRect().position,alpha);
+			GuiData::guiData->blit(Rect(0, 18, 20, 18),pos + getRect().position, alpha);
 		} else {
 			//GuiData::checkBox->Blit(pos+GetRect().position,alpha);
-			GuiData::guiData->blit(Rect(0,0,20,18),pos+getRect().position,alpha);
+			GuiData::guiData->blit(Rect(0, 0, 20, 18),pos + getRect().position, alpha);
 		}
 	}
 
@@ -185,8 +185,8 @@ void CheckBox::draw(const Vector2d& pos,float alpha)
 
 		if (m_MouseOver) col = colorWhite;
 
-		m_TextBitmap->blitColor(pos+rect.position+Vector2d(m_CheckBoxSize.x,0)+Vector2d(6,4),colorBlack,alpha);
-		m_TextBitmap->blitColor(pos+rect.position+Vector2d(m_CheckBoxSize.x,0)+Vector2d(5,3),col,alpha);
+		m_TextBitmap->blitColor(pos + rect.position + Vector2d(m_CheckBoxSize.x, 0) + Vector2d(6, 4), colorBlack, alpha);
+		m_TextBitmap->blitColor(pos + rect.position + Vector2d(m_CheckBoxSize.x, 0) + Vector2d(5, 3), col, alpha);
 	}
 }
 
@@ -276,7 +276,7 @@ void CheckBox::setText(std::string text)
 			m_TextBitmap = NULL;
 		}
 
-		m_Rect = Rect(rect.position,m_CheckBoxSize);
+		m_Rect = Rect(rect.position, m_CheckBoxSize);
 	}
 }
 

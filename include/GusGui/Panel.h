@@ -43,7 +43,7 @@ public:
 
 	void addGuiObject(GuiObjectPtr guiObject);
 
-	void draw(const Vector2d& pos, float alpha = 1.0);
+	void draw(const Vector2d& pos, float alpha = 1.0f);
 
 	void update();
 
