@@ -239,7 +239,7 @@ void GuiObject::onMouseMove(const Vector2d& pos)
 {
 	m_MouseOver = false;
 	if (m_Active) {
-		if (m_Rect.isPointOver(pos)) {
+		if (m_Rect.isPointOverTranslated(pos, GraphicsHandler::zoomX, GraphicsHandler::zoomY)) {
 			m_MouseOver = true;
 		} else {
 			m_MouseOver = false;

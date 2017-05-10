@@ -355,6 +355,8 @@ void Panel::onMouseMove(const Vector2d& pos)
 {
 	Vector2d panelPos = getPosition();
 
+	Vector2d tempPos = Vector2d(panelPos.x * GraphicsHandler::zoomX, panelPos.y * GraphicsHandler::zoomY);
+
 	GuiObject::onMouseMove(pos);
 
 	if (m_Active) {
@@ -363,7 +365,7 @@ void Panel::onMouseMove(const Vector2d& pos)
 			GuiObjectPtr current = (*iter);
 
 			if (current) {
-				current->onMouseMove(pos - panelPos);
+				current->onMouseMove(pos - tempPos);
 			}
 			++iter;
 		}
