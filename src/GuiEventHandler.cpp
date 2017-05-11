@@ -240,7 +240,7 @@ void GUSGAME_DLL GuiEventHandler::handleMouseButton(MouseButtonEvent &mouseButto
 
 	//if (mouse->GetButton()==0) mouse->SetWaitForZero(false);
 
-	Vector2d mousePos=mouseButtonEvent.getPosition();
+	Vector2d mousePos = mouseButtonEvent.getPosition();
 
 	if (mouseButtonEvent.getStatus() == MouseButtonStatusPressed/*SDL_MOUSEBUTTONDOWN*/) {
 
