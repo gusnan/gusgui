@@ -80,7 +80,7 @@ GuiHandler::GuiHandler() :
 {
 	LOG("Init Gui Handler...");
 
-	showKeyboardShortcuts=false;
+	showKeyboardShortcuts = false;
 
 	m_CurrentGuiObject = boost::shared_ptr<GuiObject>();
 
