@@ -87,7 +87,7 @@ void LoaderMeter::draw(const Vector2d &pos,float opacity)
 
 	int newsize = (int)((double)(percent) * (double)(m_FullWidth));
 
-	if (m_Value%8 == 0) {
+	if (m_Value % 8 == 0) {
 
 		glClear(GL_COLOR_BUFFER_BIT /*| GL_DEPTH_BUFFER_BIT*/);
 
@@ -103,7 +103,7 @@ void LoaderMeter::draw(const Vector2d &pos,float opacity)
 
 		Rect centerRect = rect + pos;
 
-		GuiData::guiFont->drawCenter(centerRect.getCenter() + Vector2d(2,2), "Loading...", colorBlack);
+		GuiData::guiFont->drawCenter(centerRect.getCenter() + Vector2d(2, 2), "Loading...", colorBlack);
 		GuiData::guiFont->drawCenter(centerRect.getCenter(), "Loading...", colorWhite);
 
 		//SDL_GL_SwapBuffers();
