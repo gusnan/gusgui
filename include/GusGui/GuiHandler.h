@@ -26,11 +26,6 @@
 namespace GusGui
 {
 
-
-// Gui Events 64 - 127
-const int EVENT_SWITCH_CONSOLE = 64;
-const int EVENT_ENTER_CONSOLE_COMMAND = 65;
-
 /**
  *	GuiHandler Singleton
  */
