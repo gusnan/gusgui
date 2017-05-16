@@ -85,7 +85,7 @@ void GUSGAME_DLL GuiEventHandler::onLeftMouseButtonPressed(const Vector2d& pos)
 		bool handled=false;
 
 		for (std::vector<GuiObjectPtr>::iterator iter = guiList->begin(); iter != guiList->end();) {
-			GuiObjectPtr current=(*iter);
+			GuiObjectPtr current = (*iter);
 
 			if ((current != boost::shared_ptr<GuiObject>()) && !handled) {
 				handled = current->onLeftMouseButtonPressed(pos);
@@ -122,7 +122,7 @@ void GUSGAME_DLL GuiEventHandler::onRightMouseButtonPressed(const Vector2d& pos)
 {
 	std::vector<GuiObjectPtr> *guiList = GuiHandler::instance()->m_GuiList; //getGuiList();
 	if (guiList) {
-		bool handled=false;
+		bool handled = false;
 		for (std::vector<GuiObjectPtr>::iterator iter = guiList->begin(); iter != guiList->end();) {
 			GuiObjectPtr current = (*iter);
 
