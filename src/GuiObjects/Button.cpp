@@ -118,7 +118,7 @@ Button::Button(const Rect &sourceRect,const Rect &rect, Bitmap *icon, bool invis
 
 	m_TextBitmap = 0;
 
-	m_Invisible=invisible;
+	m_Invisible = invisible;
 
 #ifndef _NO_FRAME_BUFFER_
 	m_FrameBufferStandard = 0;
@@ -382,7 +382,7 @@ bool Button::getDown()
 void Button::update()
 {
 	if (!m_Active) {
-		m_MouseOver=false;
+		m_MouseOver = false;
 	}
 }
 
@@ -517,7 +517,7 @@ bool Button::onLeftMouseButtonPressed(const Vector2d& pos)
 			m_Down = true;
 
 			if (m_ActivateOnDown) {
-				m_Pressed=true;
+				m_Pressed = true;
 				pressed();
 			}
 			handled = true;
