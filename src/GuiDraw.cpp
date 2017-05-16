@@ -55,16 +55,16 @@ namespace GusGui
  */
 void GuiDraw::drawGuiRect(Rect rect, bool drawTransparentFrame, float opacity)
 {
-	Vector2d pos=rect.position;
-	Vector2d size=rect.size;
+	Vector2d pos = rect.position;
+	Vector2d size = rect.size;
 
-	int x=rect.position.x;
-	int y=rect.position.y;
+	int x = rect.position.x;
+	int y = rect.position.y;
 
-	int xs=rect.size.x;
-	int ys=rect.size.y;
+	int xs = rect.size.x;
+	int ys = rect.size.y;
 
-	int transAdd=0;
+	int transAdd = 0;
 
 	//GraphicsHandler *graphicsHandler=GraphicsHandler::instance();
 
@@ -108,7 +108,7 @@ void GuiDraw::drawGuiRect(Rect rect, bool drawTransparentFrame, float opacity)
 	GuiData::guiData->blit(Rect(40 + transAdd, 8, 8, 8),pos + Vector2d(-8, ys), opacity);
 
 
-	if (xs<=116) {
+	if (xs <= 116) {
 		GraphicsHandler::setClipRect(Rect(pos.x, y + ys, xs, 8));
 		if (!drawTransparentFrame) {
 			GuiData::menuBorder_Bottom_NoTrans->blit(pos + Vector2d(0, ys), opacity);
@@ -134,7 +134,7 @@ void GuiDraw::drawGuiRect(Rect rect, bool drawTransparentFrame, float opacity)
 		GuiData::menuBorder_Right->drawPattern(Rect(pos + Vector2d(xs, 0), Vector2d(8, ys)), opacity);
 	}
 
-	GuiData::guiData->blit(Rect(48 + transAdd, 8, 8, 8),Vector2d(x + xs, y + ys), opacity);
+	GuiData::guiData->blit(Rect(48 + transAdd, 8, 8, 8), Vector2d(x + xs, y + ys), opacity);
 
 }
 
@@ -164,7 +164,7 @@ FrameBuffer *GuiDraw::makeTextButtonStandard(std::string text)
 
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	if (textBitmap) textBitmap->BlitCenterColor(fullRect + Vector2d(2, 2), colorBlack, 1.0f);
-	glBlendFunc(GL_SRC_ALPHA,GL_ONE);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE);
 	if (textBitmap) textBitmap->BlitCenter(fullRect, 1.0f);
 
 
@@ -203,7 +203,7 @@ FrameBuffer *GuiDraw::makeTextButtonHover(std::string text)
 
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	if (textBitmap) textBitmap->BlitCenterColor(fullRect + Vector2d(2, 2), colorBlack, 1.0f);
-	glBlendFunc(GL_SRC_ALPHA,GL_ONE);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE);
 	if (textBitmap) textBitmap->BlitCenter(fullRect, 1.0f);
 
 	result->DoneRendering();
@@ -220,12 +220,12 @@ FrameBuffer *GuiDraw::makeTextButtonPressed(std::string text)
 {
 	FrameBuffer *result = 0;
 
-	GLBitmap *textBitmap=GuiDraw::DrawTextCentered(text);
+	GLBitmap *textBitmap = GuiDraw::DrawTextCentered(text);
 
 	// Fix FrameBuffers instead.
 
 	Vector2d size = GuiData::buttonNormal->GetSize();
-	Rect fullRect(Vector2d(0,0),size);
+	Rect fullRect(Vector2d(0, 0), size);
 
 	result = new FrameBuffer(size);
 	result->SetRenderToThis();
@@ -236,8 +236,8 @@ FrameBuffer *GuiDraw::makeTextButtonPressed(std::string text)
 	GuiData::buttonPressed->Blit(Vector2d(0, 0));
 
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	if (textBitmap) textBitmap->BlitCenterColor(Rect(Vector2d(1, -1),size) + Vector2d(2, 2), colorBlack, 1.0f);
-	glBlendFunc(GL_SRC_ALPHA,GL_ONE);
+	if (textBitmap) textBitmap->BlitCenterColor(Rect(Vector2d(1, -1), size) + Vector2d(2, 2), colorBlack, 1.0f);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE);
 	if (textBitmap) textBitmap->BlitCenter(Rect(Vector2d(1, -1), size), 1.0f);
 
 	result->DoneRendering();
@@ -378,7 +378,7 @@ FrameBuffer *GuiDraw::makeStandardButton(Vector2d size, Bitmap *icon)
 
 	Rect fullRect(Vector2d(0, 0), size);
 
-	result=new FrameBuffer(size);
+	result = new FrameBuffer(size);
 	result->SetRenderToThis();
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -396,8 +396,8 @@ FrameBuffer *GuiDraw::makeStandardButton(Vector2d size, Bitmap *icon)
  */
 void GuiDraw::drawStandardButton(Rect rect, Bitmap *icon)
 {
-	Vector2d size=rect.size;
-	Vector2d pos=rect.position;
+	Vector2d size = rect.size;
+	Vector2d pos = rect.position;
 	//Primitives::rectFill(rect, makeColorInt(20,69,112));
 	Primitives::rectFill(rect, Color(0.1f, 0.25f, 0.5f));
 
@@ -405,9 +405,9 @@ void GuiDraw::drawStandardButton(Rect rect, Bitmap *icon)
 	//GLPrimitives::RectFill(fullRect,Color(0.03f,0.129f,0.211f,1.0));
 	//GLPrimitives::RectFill(fullRect,Color(0.0f,0.3f,1.0f,1.0));
 
-	Rect newRect=Rect(pos + Vector2d(1, 1), size - Vector2d(2, 2));
-	Rect thirdRect=Rect(pos + Vector2d(2, 2), size - Vector2d(4, 4));
-	Rect fourthRect=Rect(pos + Vector2d(3, 3), size - Vector2d(6, 6));
+	Rect newRect = Rect(pos + Vector2d(1, 1), size - Vector2d(2, 2));
+	Rect thirdRect = Rect(pos + Vector2d(2, 2), size - Vector2d(4, 4));
+	Rect fourthRect = Rect(pos + Vector2d(3, 3), size - Vector2d(6, 6));
 
 	/*
 	Primitives::niceRect(rect,0.5f,0.4f);
@@ -416,8 +416,8 @@ void GuiDraw::drawStandardButton(Rect rect, Bitmap *icon)
 	Primitives::niceRect(fourthRect,0.1f,0.1f);
 	*/
 
-	Color col1=Color(0.0f, 0.0f, 0.0f, 0.7f);
-	Color col2=Color(1.0f, 1.0f, 1.0f, 0.1f);
+	Color col1 = Color(0.0f, 0.0f, 0.0f, 0.7f);
+	Color col2 = Color(1.0f, 1.0f, 1.0f, 0.1f);
 
 	//GLPrimitives::shadeRect(Rect(pos/*Vector2d(0,0)*/,size/*-Vector2d(8,8)*/),col1,col2);
 
@@ -498,7 +498,7 @@ void GuiDraw::drawPressedButton(Rect rect, Bitmap *icon)
  */
 void GuiDraw::drawNiceTextSmall(Vector2d pos,std::string st,Color col,float opacity)
 {
-	Color black=Color(0.0f, 0.0f, 0.0f, (GLfloat)opacity);
+	Color black = Color(0.0f, 0.0f, 0.0f, (GLfloat)opacity);
 	GuiData::guiSmallFont->draw(pos + Vector2d(2, 2), st, black);
 
 	Color textCol = col;
@@ -512,7 +512,7 @@ void GuiDraw::drawNiceTextSmall(Vector2d pos,std::string st,Color col,float opac
  */
 void GuiDraw::drawNiceText(Vector2d pos,std::string st,Color col,float opacity)
 {
-	Color black=Color(0.0f ,0.0f, 0.0f, (GLfloat)opacity);
+	Color black = Color(0.0f ,0.0f, 0.0f, (GLfloat)opacity);
 	GuiData::guiSmallFont->draw(pos + Vector2d(2, 2), st, black);
 
 	Color textCol = col;
