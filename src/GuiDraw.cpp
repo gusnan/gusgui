@@ -252,7 +252,7 @@ FrameBuffer *GuiDraw::makeTextButtonPressed(std::string text)
 /**
  *
  */
-void GuiDraw::splitString(std::string instring,std::string& text,std::string& shortcut)
+void GuiDraw::splitString(std::string instring, std::string& text, std::string& shortcut)
 {
 	text = instring;
 	shortcut = "";
@@ -270,7 +270,7 @@ void GuiDraw::splitString(std::string instring,std::string& text,std::string& sh
 
 	int posEndPar = -1;
 
-	for (int co = 0;co < (int)instring.length(); co++) {
+	for (int co = 0; co < (int)instring.length(); co++) {
 		if (instring[co] == ')') {
 			posEndPar = co;
 		}
@@ -432,7 +432,7 @@ void GuiDraw::drawStandardButton(Rect rect, Bitmap *icon)
 /**
  *
  */
-FrameBuffer *GuiDraw::makePressedButton(Vector2d size,GLBitmap *icon)
+FrameBuffer *GuiDraw::makePressedButton(Vector2d size, GLBitmap *icon)
 {
 	FrameBuffer *result = 0;
 
@@ -496,7 +496,7 @@ void GuiDraw::drawPressedButton(Rect rect, Bitmap *icon)
 /**
  *
  */
-void GuiDraw::drawNiceTextSmall(Vector2d pos,std::string st,Color col,float opacity)
+void GuiDraw::drawNiceTextSmall(Vector2d pos, std::string st, Color col, float opacity)
 {
 	Color black = Color(0.0f, 0.0f, 0.0f, (GLfloat)opacity);
 	GuiData::guiSmallFont->draw(pos + Vector2d(2, 2), st, black);
@@ -510,7 +510,7 @@ void GuiDraw::drawNiceTextSmall(Vector2d pos,std::string st,Color col,float opac
 /**
  *
  */
-void GuiDraw::drawNiceText(Vector2d pos,std::string st,Color col,float opacity)
+void GuiDraw::drawNiceText(Vector2d pos, std::string st, Color col, float opacity)
 {
 	Color black = Color(0.0f ,0.0f, 0.0f, (GLfloat)opacity);
 	GuiData::guiSmallFont->draw(pos + Vector2d(2, 2), st, black);
