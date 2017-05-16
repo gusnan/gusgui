@@ -55,7 +55,8 @@ namespace GusGui
  */
 Button::Button(const Rect &rect, Bitmap *icon, bool invisible) : GuiObject(rect),
 	m_Down(false), m_Pressed(false), m_Icon(icon), m_TextBitmap(0), m_Invisible(invisible),
-	m_Text(""), m_SourceRect(Rect()), m_ActivateOnDown(false), m_ButtonEvent(), m_MoveOnDown(false)
+	m_Text(""), m_SourceRect(Rect()), m_ActivateOnDown(false), 
+	m_ButtonPressEvent(), m_ButtonReleaseEvent(), m_MoveOnDown(false)
 {
 	//SetInvisible(invisible);
 
@@ -97,7 +98,8 @@ Button::Button(const Rect &rect, Bitmap *icon, bool invisible) : GuiObject(rect)
 
 	m_MoveOnDown = false;
 
-	m_ButtonEvent = NULL;
+	m_ButtonPressEvent = NULL;
+	m_ButtonReleaseEvent = NULL;
 
 }
 
@@ -106,7 +108,8 @@ Button::Button(const Rect &rect, Bitmap *icon, bool invisible) : GuiObject(rect)
  */
 Button::Button(const Rect &sourceRect,const Rect &rect, Bitmap *icon, bool invisible) : GuiObject(rect),
 	m_Down(false), m_Pressed(false), m_Icon(icon), m_TextBitmap(0), m_Invisible(invisible),
-	m_Text(""), m_SourceRect(), m_ActivateOnDown(false), m_ButtonEvent(), m_MoveOnDown(false)
+	m_Text(""), m_SourceRect(), m_ActivateOnDown(false), m_ButtonPressEvent(),
+	m_ButtonReleaseEvent(), m_MoveOnDown(false)
 {
 	//SetInvisible(invisible);
 
@@ -146,7 +149,8 @@ Button::Button(const Rect &sourceRect,const Rect &rect, Bitmap *icon, bool invis
 
 	m_MoveOnDown = false;
 
-	m_ButtonEvent = NULL;
+	m_ButtonPressEvent = NULL;
+	m_ButtonReleaseEvent = NULL;
 
 }
 
@@ -155,7 +159,8 @@ Button::Button(const Rect &sourceRect,const Rect &rect, Bitmap *icon, bool invis
  */
 Button::Button(const Button& source) : GuiObject(source),
 	m_Down(false), m_Pressed(false), m_Icon(), m_TextBitmap(0), m_Invisible(false),
-	m_Text(""), m_SourceRect(), m_ActivateOnDown(false), m_ButtonEvent(), m_MoveOnDown(false)
+	m_Text(""), m_SourceRect(), m_ActivateOnDown(false), m_ButtonPressEvent(),
+	m_ButtonReleaseEvent(), m_MoveOnDown(false)
 {
 	m_Down = source.m_Down;
 	m_Pressed = source.m_Pressed;
@@ -193,7 +198,8 @@ Button::Button(const Button& source) : GuiObject(source),
 
 	m_MoveOnDown = source.m_MoveOnDown;
 
-	m_ButtonEvent = source.m_ButtonEvent;
+	m_ButtonPressEvent = source.m_ButtonPressEvent;
+	m_ButtonReleaseEvent = source.m_ButtonReleaseEvent;
 }
 
 /**
@@ -238,7 +244,8 @@ Button& Button::operator=(const Button& source)
 
 		m_MoveOnDown = source.m_MoveOnDown;
 
-		m_ButtonEvent = source.m_ButtonEvent;
+		m_ButtonPressEvent = source.m_ButtonPressEvent;
+		m_ButtonReleaseEvent = source.m_ButtonReleaseEvent;
 	}
 
 	return *this;
@@ -448,18 +455,37 @@ void Button::setText(std::string file, int line, std::string text)
  *	SetEvent
  *		Sets the event thats is executed when the button is pressed.
  */
-void Button::setEvent(UserEvent *event)
+void Button::setPressEvent(UserEvent *inEvent)
 {
-	m_ButtonEvent = event;
+	m_ButtonPressEvent = inEvent;
 	//m_HasEvent=true;
 }
+
 
 /**
  *
  */
-UserEvent *Button::getEvent()
+void Button::setReleaseEvent(UserEvent *inEvent)
 {
-	return m_ButtonEvent;
+	m_ButtonReleaseEvent = inEvent;
+}
+
+
+/**
+ *
+ */
+UserEvent *Button::getPressEvent()
+{
+	return m_ButtonPressEvent;
+}
+
+
+/**
+ *
+ */
+UserEvent *Button::getReleaseEvent()
+{
+	return m_ButtonReleaseEvent;
 }
 
 /**
@@ -565,8 +591,8 @@ void Button::onMouseMove(const Vector2d& pos)
  */
 void Button::pressed()
 {
-	if (m_ButtonEvent) {
-		m_ButtonEvent->pushEvent();
+	if (m_ButtonPressEvent) {
+		m_ButtonPressEvent->pushEvent();
 	}
 }
 

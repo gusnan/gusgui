@@ -167,7 +167,7 @@ public:
 		m_QuitButton = boost::shared_ptr<ExampleButton>(new ExampleButton(Rect(10, 40, 100, 20)));
 		//m_QuitButton->setEvent(EventLib::eventQuit);
 
-		m_QuitButton->setEvent(userEvent);
+		m_QuitButton->setPressEvent(userEvent);
 		addGuiObject(m_QuitButton);
 	}
 

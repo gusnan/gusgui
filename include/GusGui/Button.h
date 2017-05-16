@@ -58,8 +58,11 @@ public:
 
 	void setText(std::string file, int line, std::string text);
 
-	void setEvent(UserEvent *event);
-	UserEvent *getEvent();
+	void setPressEvent(UserEvent *event);
+	UserEvent *getPressEvent();
+	
+	void setReleaseEvent(UserEvent *event);
+	UserEvent *getReleaseEvent();
 
 	void setActivateOnDown(bool active = true);
 
@@ -94,7 +97,8 @@ protected:
 
 	std::string m_Text;
 
-	UserEvent *m_ButtonEvent;
+	UserEvent *m_ButtonPressEvent;
+	UserEvent *m_ButtonReleaseEvent;
 
 	bool m_ActivateOnDown;
 

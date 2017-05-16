@@ -155,7 +155,7 @@ void DelayButton::setPressed()
 	m_Delay = 1.0f;
 
 	//SDL_PushEvent(&m_ButtonEvent);
-	m_ButtonEvent->pushEvent();
+	m_ButtonPressEvent->pushEvent();
 }
 
 /**
