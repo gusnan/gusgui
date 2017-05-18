@@ -108,13 +108,13 @@ void DelayButton::draw(const Vector2d& pos,float alpha)
 		if (m_Delay != 0.0f) {
 			//if (m_FrameBufferPressed) m_FrameBufferPressed->Blit(newrect.position,alpha);
 			//GuiDraw::DrawPressedButton(newrect);
-			GuiData::guiData->blit(m_SourceRect, newpos, alpha);
+			GuiData::guiData->blit(m_SourceRect, newpos, FlipNone, alpha);
 
 			//m_Icon->blitCenter(m_IconSourceRect,newrect+Vector2d(2, 2),alpha);
 
 		} else {
 			//GuiDraw::DrawStandardButton(newrect);
-			GuiData::guiData->blit(m_SourceRectPressed, newpos, alpha);
+			GuiData::guiData->blit(m_SourceRectPressed, newpos, FlipNone, alpha);
 			//m_Icon->blitCenter(m_IconSourceRect,newrect,alpha);
 		}
 }

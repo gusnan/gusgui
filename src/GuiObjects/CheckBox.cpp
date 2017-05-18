@@ -164,18 +164,18 @@ void CheckBox::draw(const Vector2d& pos,float alpha)
 	if (m_MouseOver) {
 		if (m_Checked) {
 			//GuiData::checkBoxActivePressed->Blit(pos+GetRect().position,alpha);
-			GuiData::guiData->blit(Rect(20, 18, 20, 18),pos + getRect().position, alpha);
+			GuiData::guiData->blit(Rect(20, 18, 20, 18),pos + getRect().position, FlipNone, alpha);
 		} else {
 			//GuiData::checkBoxActive->Blit(pos+GetRect().position,alpha);
-			GuiData::guiData->blit(Rect(20, 0, 20, 18),pos + getRect().position, alpha);
+			GuiData::guiData->blit(Rect(20, 0, 20, 18),pos + getRect().position, FlipNone, alpha);
 		}
 	} else {
 		if (m_Checked) {
 			//GuiData::checkBoxPressed->Blit(pos+GetRect().position,alpha);
-			GuiData::guiData->blit(Rect(0, 18, 20, 18),pos + getRect().position, alpha);
+			GuiData::guiData->blit(Rect(0, 18, 20, 18),pos + getRect().position, FlipNone, alpha);
 		} else {
 			//GuiData::checkBox->Blit(pos+GetRect().position,alpha);
-			GuiData::guiData->blit(Rect(0, 0, 20, 18),pos + getRect().position, alpha);
+			GuiData::guiData->blit(Rect(0, 0, 20, 18),pos + getRect().position, FlipNone, alpha);
 		}
 	}
 

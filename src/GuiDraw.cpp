@@ -71,7 +71,7 @@ void GuiDraw::drawGuiRect(Rect rect, bool drawTransparentFrame, float opacity)
 	if (!drawTransparentFrame) transAdd += 16;
 
 	//GuiData::menuBorder_TopLeft->Blit(pos+Vector2d(-8,-8),opacity);
-	GuiData::guiData->blit(Rect(40 + transAdd, 0, 8, 8), pos + Vector2d(-8, -8), opacity);
+	GuiData::guiData->blit(Rect(40 + transAdd, 0, 8, 8), pos + Vector2d(-8, -8), FlipNone, opacity);
 
 	if (xs <= 128) {
 		GraphicsHandler::setClipRect(Rect(pos.x, pos.y - 8, xs, 8));
@@ -88,7 +88,7 @@ void GuiDraw::drawGuiRect(Rect rect, bool drawTransparentFrame, float opacity)
 	}
 
 	//GuiData::menuBorder_TopRight->Blit(pos+Vector2d(xs,-8),opacity);
-	GuiData::guiData->blit(Rect(48 + transAdd, 0, 8, 8),pos + Vector2d(xs, -8),opacity);
+	GuiData::guiData->blit(Rect(48 + transAdd, 0, 8, 8),pos + Vector2d(xs, -8), FlipNone, opacity);
 
 	if (ys < 120) {
 		GraphicsHandler::setClipRect(Rect(pos.x - 8, pos.y, 8, ys));
@@ -105,7 +105,7 @@ void GuiDraw::drawGuiRect(Rect rect, bool drawTransparentFrame, float opacity)
 	}
 
 	//GuiData::menuBorder_BottomLeft->Blit(pos+Vector2d(-8,ys),opacity);
-	GuiData::guiData->blit(Rect(40 + transAdd, 8, 8, 8),pos + Vector2d(-8, ys), opacity);
+	GuiData::guiData->blit(Rect(40 + transAdd, 8, 8, 8), pos + Vector2d(-8, ys), FlipNone, opacity);
 
 
 	if (xs <= 116) {
@@ -134,7 +134,7 @@ void GuiDraw::drawGuiRect(Rect rect, bool drawTransparentFrame, float opacity)
 		GuiData::menuBorder_Right->drawPattern(Rect(pos + Vector2d(xs, 0), Vector2d(8, ys)), opacity);
 	}
 
-	GuiData::guiData->blit(Rect(48 + transAdd, 8, 8, 8), Vector2d(x + xs, y + ys), opacity);
+	GuiData::guiData->blit(Rect(48 + transAdd, 8, 8, 8), Vector2d(x + xs, y + ys), FlipNone, opacity);
 
 }
 

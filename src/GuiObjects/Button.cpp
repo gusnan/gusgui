@@ -304,7 +304,7 @@ void Button::draw(const Vector2d& pos, float alpha)
 
 		if (m_TextBitmap) {
 			//GuiData::buttonPressed->Blit(newpos,alpha);
-			GuiData::guiData->blit(Rect(0, 85, 108, 22), newpos, alpha);
+			GuiData::guiData->blit(Rect(0, 85, 108, 22), newpos, FlipNone, alpha);
 
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 			m_TextBitmap->blitCenterColor(Rect(newrect.position+Vector2d(1 + 2, -1 + 2), size), colorBlack, alpha);
@@ -318,7 +318,7 @@ void Button::draw(const Vector2d& pos, float alpha)
 
 			if (m_TextBitmap) {
 				//GuiData::buttonHover->Blit(newpos,alpha);
-				GuiData::guiData->blit(Rect(0, 107, 108, 22), newpos, alpha);
+				GuiData::guiData->blit(Rect(0, 107, 108, 22), newpos, FlipNone, alpha);
 
 				glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 				m_TextBitmap->blitCenterColor(newrect + Vector2d(2, 2), colorBlack, alpha);
@@ -332,7 +332,7 @@ void Button::draw(const Vector2d& pos, float alpha)
 
 			if (m_TextBitmap) {
 				//GuiData::buttonNormal->Blit(newpos,alpha);
-				GuiData::guiData->blit(Rect(0, 63, 108, 22), newpos, alpha);
+				GuiData::guiData->blit(Rect(0, 63, 108, 22), newpos, FlipNone, alpha);
 
 				glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 				m_TextBitmap->blitCenterColor(newrect + Vector2d(2, 2), colorBlack, alpha);
@@ -356,7 +356,7 @@ void Button::draw(const Vector2d& pos, float alpha)
 		}
 
 		if (m_SourceRect.position.x != -1) {
-			m_Icon->blit(m_SourceRect, newPos, alpha);
+			m_Icon->blit(m_SourceRect, newPos, FlipNone, alpha);
 		} else {
 			m_Icon->blit(newPos, alpha);
 		}
