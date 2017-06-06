@@ -172,7 +172,7 @@ set(INCLUDE_FILES
 
 if (WIN32)
 	if (MSYS) 
-		Set (WINGL_LIBS glu32 glaux)
+		Set (WINGL_LIBS glu32)
 	else (MSYS)
 		Set (WINGL_LIBS glu32)
 	endif (MSYS)
@@ -193,7 +193,7 @@ include_directories(include ${GUSGAME_INCLUDE_DIR})
 include_directories(include ${Boost_INCLUDE_DIR})
 
 if (MSYS)
-	message(STATUS "MingDir: $ENV{%MINGDIR%}")
+	message(STATUS "MingDir: $ENV{MINGDIR}")
 endif (MSYS)
 
 message(STATUS "Boost INCLUDE_DIR: ${Boost_INCLUDE_DIR}")
