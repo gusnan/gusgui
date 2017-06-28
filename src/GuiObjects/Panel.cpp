@@ -67,8 +67,6 @@ Panel::Panel() : m_GuiList(NULL)
  */
 Panel::~Panel()
 {
-	LOG("Panel destructor");
-
 	if (m_GuiList) {
 
 		std::vector<GuiObjectPtr>::iterator iter;
