@@ -44,7 +44,7 @@ public:
 	GuiObject(Rect rect);
 	virtual ~GuiObject();
 
-	bool operator==(const GuiObject &inObject);
+	bool operator==(GuiObject &inObject);
 
 	Vector2d getPosition() const;
 	Rect getRect() const;

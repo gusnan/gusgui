@@ -67,7 +67,7 @@ GuiObject::~GuiObject()
 /**
  *
  */
-bool GuiObject::operator==(const GuiObject &source)
+bool GuiObject::operator==(GuiObject &source)
 {
 	bool result = true;
 	
