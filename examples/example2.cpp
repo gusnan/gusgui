@@ -119,7 +119,7 @@ class ExampleButton : public Button
 {
 public:
 
-	ExampleButton(const Rect &rect) : Button(rect, NULL, true)
+	ExampleButton(const Rect &rect) : Button(rect, "ExampleButton", NULL, true)
 	{
 	}
 
@@ -155,7 +155,7 @@ protected:
 class ExamplePanel : public Panel
 {
 public:
-	ExamplePanel() : Panel(Rect(100, 100, 400, 300))
+	ExamplePanel() : Panel(Rect(100, 100, 400, 300), "ExamplePanel")
 	{
 		// We add a button to the panel. This at position 10,10 in the panel,
 		// which places it at 110,110 on the screen.

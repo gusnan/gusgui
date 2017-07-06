@@ -32,7 +32,7 @@ namespace GusGui
 class FadeButton : public Button
 {
 public:
-	FadeButton(Rect rect);
+	FadeButton(Rect rect, std::string name);
 	virtual ~FadeButton();
 
 	void setPressed();

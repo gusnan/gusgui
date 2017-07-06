@@ -44,6 +44,8 @@ public:
 	GuiObject(Rect rect);
 	virtual ~GuiObject();
 
+	bool operator==(const GuiObject &inObject);
+
 	Vector2d getPosition() const;
 	Rect getRect() const;
 	void setRect(const Rect& rect);
@@ -90,6 +92,11 @@ public:
 	void setPanelPosition(const Vector2d& pos);
 
 	void setCenter(Rect sourceRect, int directions);
+	
+	void setName(std::string inName);
+	std::string getName();
+	
+	virtual void print();
 
 protected:
 
@@ -108,6 +115,8 @@ protected:
 	bool m_DragOnlyWhenMouseOver;
 
 	Gus::GraphicsLib::Vector2d m_LastMousePosition;
+
+	std::string m_Name;
 
 };
 

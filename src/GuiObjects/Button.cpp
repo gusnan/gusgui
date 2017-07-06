@@ -53,12 +53,14 @@ namespace GusGui
 /**
  *
  */
-Button::Button(const Rect &rect, Bitmap *icon, bool invisible) : GuiObject(rect),
+Button::Button(const Rect &rect, std::string name, Bitmap *icon, bool invisible) : GuiObject(rect),
 	m_Down(false), m_Pressed(false), m_Icon(icon), m_TextBitmap(0), m_Invisible(invisible),
 	m_Text(""), m_SourceRect(Rect()), m_ActivateOnDown(false), 
 	m_ButtonPressEvent(), m_ButtonReleaseEvent(), m_MoveOnDown(false)
 {
 	//SetInvisible(invisible);
+	
+	setName(name);
 
 	m_Active = true;
 	m_MouseOver = false;
@@ -106,12 +108,14 @@ Button::Button(const Rect &rect, Bitmap *icon, bool invisible) : GuiObject(rect)
 /**
  *
  */
-Button::Button(const Rect &sourceRect,const Rect &rect, Bitmap *icon, bool invisible) : GuiObject(rect),
+Button::Button(const Rect &sourceRect, std::string name, const Rect &rect, Bitmap *icon, bool invisible) : GuiObject(rect),
 	m_Down(false), m_Pressed(false), m_Icon(icon), m_TextBitmap(0), m_Invisible(invisible),
 	m_Text(""), m_SourceRect(), m_ActivateOnDown(false), m_ButtonPressEvent(),
 	m_ButtonReleaseEvent(), m_MoveOnDown(false)
 {
 	//SetInvisible(invisible);
+	
+	setName(name);
 
 	m_Down = false;
 	m_Pressed = false;

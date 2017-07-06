@@ -32,8 +32,8 @@ namespace GusGui
 class Button : public GuiObject
 {
 public:
-	Button(const Rect &rect, Bitmap *icon = 0, bool invisible = false);
-	Button(const Rect &sourceRect, const Rect &rect, Bitmap *icon = 0, bool invisible = false);
+	Button(const Rect &rect, std::string name, Bitmap *icon = 0, bool invisible = false);
+	Button(const Rect &sourceRect, std::string name, const Rect &rect, Bitmap *icon = 0, bool invisible = false);
 
 	Button(const Button& source);
 
@@ -109,6 +109,8 @@ protected:
 	Rect m_SourceRect;
 
 	bool m_MoveOnDown;
+	
+	// std::string m_Name;
 
 	//bool m_HasEvent;
 

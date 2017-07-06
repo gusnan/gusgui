@@ -67,6 +67,20 @@ GuiObject::~GuiObject()
 /**
  *
  */
+bool GuiObject::operator==(const GuiObject &source)
+{
+	bool result = true;
+	
+	if (m_Rect != source.m_Rect) result = false;
+	if (m_Visible != source.m_Visible) result = false;
+	if (m_Active != source.m_Active) result = false;
+	
+	return result;
+}
+
+/**
+ *
+ */
 Vector2d GuiObject::getPosition() const
 {
 	return m_Rect.position;
@@ -314,6 +328,22 @@ void GuiObject::setCenter(Rect sourceRect, int directions)
 	}
 
 	setRect(Rect(newposition, size));
+}
+
+	
+void GuiObject::setName(std::string inName)
+{
+	m_Name = inName;
+}
+
+std::string GuiObject::getName()
+{
+	return m_Name;
+}
+
+void GuiObject::print()
+{
+	std::cout << getName() << std::endl;
 }
 
 

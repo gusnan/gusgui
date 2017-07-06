@@ -48,14 +48,14 @@ public:
 
 	//SDL_Event MakeEvent(int code);
 
-	void addGuiObject(GuiObjectPtr guiObject);
-	void removeGuiObject(GuiObjectPtr guiObject);
+	void addGuiObject(const GuiObjectPtr &guiObject);
+	void removeGuiObject(const GuiObjectPtr &guiObject);
 
-	void addToDrawList(GuiObjectPtr guiObject);
-	void removeFromDrawList(GuiObjectPtr guiObject);
+	void addToDrawList(const GuiObjectPtr &guiObject);
+	void removeFromDrawList(const GuiObjectPtr &guiObject);
 
-	void addToHandleList(GuiObjectPtr guiObject);
-	void removeFromHandleList(GuiObjectPtr guiObject);
+	void addToHandleList(const GuiObjectPtr &guiObject);
+	void removeFromHandleList(const GuiObjectPtr &guiObject);
 
 	void copyDrawListToHandleList();
 
@@ -68,6 +68,8 @@ public:
 	void setGuiObjectListActive(bool active);
 
 	void updateMouseOver();
+	
+	void print();
 
 protected:
 

@@ -50,7 +50,7 @@ namespace GusGui
 /**
  *
  */
-FadeButton::FadeButton(Rect rect) : Button(rect), m_Fade(0.0f), m_ShowHover(true)
+FadeButton::FadeButton(Rect rect, std::string name) : Button(rect, name), m_Fade(0.0f), m_ShowHover(true)
 {
 	m_MouseOver = false;
 }

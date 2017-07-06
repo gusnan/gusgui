@@ -34,7 +34,7 @@ class Panel : public GuiObject
 public:
 	Panel();
 
-	Panel(Rect rect,bool transFrame = true);
+	Panel(Rect rect, std::string name, bool transFrame = true);
 	Panel(const Panel& source);
 	virtual ~Panel();
 
@@ -71,6 +71,8 @@ public:
 	virtual void setVisible(bool visible = true);
 
 	virtual void setActive(bool active = true);
+	
+	void print();
 
 protected:
 
