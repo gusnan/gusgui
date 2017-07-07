@@ -276,8 +276,9 @@ bool Panel::onLeftMouseButtonPressed(const Vector2d& pos)
 /**
  *
  */
-void Panel::onLeftMouseButtonReleased(const Vector2d& pos)
+bool Panel::onLeftMouseButtonReleased(const Vector2d& pos)
 {
+	bool result = false;
 	Vector2d panelPos = getPosition();
 
 	if (m_Active) {
@@ -289,12 +290,14 @@ void Panel::onLeftMouseButtonReleased(const Vector2d& pos)
 				GuiObjectPtr current = (*iter);
 
 				if (current) {
-					current->onLeftMouseButtonReleased(pos - panelPos);
+					result = current->onLeftMouseButtonReleased(pos - panelPos);
 				}
 				++iter;
 			}
 		}
 	}
+	
+	return result;
 }
 
 /**
@@ -326,8 +329,9 @@ bool Panel::onRightMouseButtonPressed(const Vector2d& pos)
 /**
  *
  */
-void Panel::onRightMouseButtonReleased(const Vector2d& pos)
+bool Panel::onRightMouseButtonReleased(const Vector2d& pos)
 {
+	bool result = false;
 	Vector2d panelPos = getPosition();
 
 	GuiObject::onRightMouseButtonReleased(pos);
@@ -339,12 +343,13 @@ void Panel::onRightMouseButtonReleased(const Vector2d& pos)
 				GuiObjectPtr current = (*iter);
 
 				if (current) {
-					current->onRightMouseButtonReleased(pos - panelPos);
+					result = current->onRightMouseButtonReleased(pos - panelPos);
 				}
 				++iter;
 			}
 		}
 	}
+	return result;
 }
 
 /**

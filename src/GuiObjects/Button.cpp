@@ -559,8 +559,9 @@ bool Button::onLeftMouseButtonPressed(const Vector2d& pos)
 /**
  *
  */
-void Button::onLeftMouseButtonReleased(const Vector2d& pos)
+bool Button::onLeftMouseButtonReleased(const Vector2d& pos)
 {
+	bool handled = false;
 	GuiObject::onLeftMouseButtonReleased(pos);
 
 	if (m_Down) {
@@ -572,9 +573,12 @@ void Button::onLeftMouseButtonReleased(const Vector2d& pos)
 					m_Pressed = true;
 						pressed();
 				}
+				handled = true;
 			}
 		}
 	}
+	
+	return handled;
 }
 
 /**

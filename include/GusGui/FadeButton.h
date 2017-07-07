@@ -44,7 +44,7 @@ public:
 	void setShowHover(bool hover);
 
 	bool onLeftMouseButtonPressed(const Vector2d& pos);
-	void onLeftMouseButtonReleased(const Vector2d& pos);
+	bool onLeftMouseButtonReleased(const Vector2d& pos);
 
 	virtual void onMouseMove(const Vector2d& pos);
 

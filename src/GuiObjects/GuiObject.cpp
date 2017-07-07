@@ -217,9 +217,10 @@ bool GuiObject::onLeftMouseButtonPressed(const Vector2d& pos)
 /**
  *
  */
-void GuiObject::onLeftMouseButtonReleased(const Vector2d& pos)
+bool GuiObject::onLeftMouseButtonReleased(const Vector2d& pos)
 {
 	m_Drag = false;
+	return false;
 }
 
 /**
@@ -233,9 +234,9 @@ bool GuiObject::onRightMouseButtonPressed(const Vector2d& pos)
 /**
  *
  */
-void GuiObject::onRightMouseButtonReleased(const Vector2d& pos)
+bool GuiObject::onRightMouseButtonReleased(const Vector2d& pos)
 {
-
+	return false;
 }
 
 /**

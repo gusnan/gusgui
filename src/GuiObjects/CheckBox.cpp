@@ -211,12 +211,15 @@ bool CheckBox::onLeftMouseButtonPressed(const Vector2d& pos)
 /**
  *
  */
-void CheckBox::onLeftMouseButtonReleased(const Vector2d& pos)
+bool CheckBox::onLeftMouseButtonReleased(const Vector2d& pos)
 {
+	bool handled = false;
 	GuiObject::onLeftMouseButtonReleased(pos);
 
 	if (m_MouseOver) {
 	}
+	
+	return handled;
 }
 
 /**

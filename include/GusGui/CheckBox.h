@@ -55,7 +55,7 @@ public:
 	virtual bool handleKeyboardEvent(KeyEvent &event);
 
 	bool onLeftMouseButtonPressed(const Vector2d& pos);
-	void onLeftMouseButtonReleased(const Vector2d& pos);
+	bool onLeftMouseButtonReleased(const Vector2d& pos);
 
 protected:
 	bool m_Checked;

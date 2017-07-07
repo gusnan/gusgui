@@ -142,9 +142,9 @@ bool FadeButton::onLeftMouseButtonPressed(const Vector2d& pos)
 /**
  *
  */
-void FadeButton::onLeftMouseButtonReleased(const Vector2d& pos)
+bool FadeButton::onLeftMouseButtonReleased(const Vector2d& pos)
 {
-
+	return false;
 }
 
 /**

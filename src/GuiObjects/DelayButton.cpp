@@ -195,8 +195,9 @@ bool DelayButton::onLeftMouseButtonPressed(const Vector2d& pos)
 /**
  *
  */
-void DelayButton::onLeftMouseButtonReleased(const Vector2d& pos)
+bool DelayButton::onLeftMouseButtonReleased(const Vector2d& pos)
 {
+	return false;
 }
 
 

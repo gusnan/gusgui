@@ -56,10 +56,10 @@ public:
 	virtual bool handleKeyboardEvent(KeyEvent &event);
 
 	virtual bool onLeftMouseButtonPressed(const Vector2d& pos);
-	virtual void onLeftMouseButtonReleased(const Vector2d& pos);
+	virtual bool onLeftMouseButtonReleased(const Vector2d& pos);
 
 	virtual bool onRightMouseButtonPressed(const Vector2d& pos);
-	virtual void onRightMouseButtonReleased(const Vector2d& pos);
+	virtual bool onRightMouseButtonReleased(const Vector2d& pos);
 
 	virtual void onMouseMove(const Vector2d& pos);
 
