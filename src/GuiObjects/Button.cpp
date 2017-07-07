@@ -571,8 +571,9 @@ bool Button::onLeftMouseButtonReleased(const Vector2d& pos)
 
 				if (!m_ActivateOnDown) {
 					m_Pressed = true;
-						pressed();
+					pressed();
 				}
+				released();
 				handled = true;
 			}
 		}
@@ -601,6 +602,17 @@ void Button::pressed()
 {
 	if (m_ButtonPressEvent) {
 		m_ButtonPressEvent->pushEvent();
+	}
+}
+
+
+/**
+ *
+ */
+void Button::released()
+{
+	if (m_ButtonReleaseEvent) {
+		m_ButtonReleaseEvent->pushEvent();
 	}
 }
 

@@ -81,6 +81,7 @@ public:
 	virtual void onMouseMove(const Vector2d& pos);
 
 	virtual void pressed();
+	virtual void released();
 
 protected:
 
