@@ -1,7 +1,7 @@
 /**
  *
  *	This file is part of GusGui.
- *	Copyright 2011 Andreas Rönnquist
+ *	Copyright 2011-2017 Andreas Rönnquist
  *
  *	GusGui is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU Lesser General Public License as published by
