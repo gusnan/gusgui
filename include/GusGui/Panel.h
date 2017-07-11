@@ -41,7 +41,7 @@ public:
 	Panel& operator=(const Panel& source);
 
 
-	void addGuiObject(GuiObjectPtr guiObject);
+	void addGuiObject(const GuiObjectPtr &guiObject);
 
 	void draw(const Vector2d& pos, float alpha = 1.0f);
 

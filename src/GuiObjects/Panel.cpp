@@ -153,7 +153,7 @@ Panel& Panel::operator=(const Panel& source)
 /**
  *
  */
-void Panel::addGuiObject(GuiObjectPtr guiObject)
+void Panel::addGuiObject(const GuiObjectPtr &guiObject)
 {
 	m_GuiList->push_back(guiObject);
 }
