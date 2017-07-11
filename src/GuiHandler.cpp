@@ -397,8 +397,10 @@ void GuiHandler::copyDrawListToHandleList()
  */
 void GuiHandler::addGuiObject(const GuiObjectPtr &guiObject)
 {
-	addToDrawList(guiObject);
-	addToHandleList(guiObject);
+	if (!isGuiObjectInList(guiObject)) {
+		addToDrawList(guiObject);
+		addToHandleList(guiObject);
+	}
 }
 
 
