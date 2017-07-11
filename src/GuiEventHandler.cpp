@@ -111,7 +111,7 @@ bool GUSGAME_DLL GuiEventHandler::onLeftMouseButtonReleased(const Vector2d& pos)
 		for (std::vector<GuiObjectPtr>::iterator iter = guiList->begin(); iter != guiList->end();) {
 			GuiObjectPtr current = (*iter);
 
-			if (current) {
+			if ((current)  && (!result)) {
 				result = current->onLeftMouseButtonReleased(pos);
 			}
 			++iter;
