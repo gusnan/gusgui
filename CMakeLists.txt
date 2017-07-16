@@ -181,7 +181,7 @@ endif(WIN32)
 
 find_package(OpenGL REQUIRED)
 find_package(GusGame REQUIRED)
-find_package(Boost REQUIRED)
+find_package(Boost REQUIRED COMPONENTS filesystem system)
 
 message(STATUS "GusGame Library: ${GUSGAME_LIBRARY}")
 
@@ -240,7 +240,7 @@ set(ALL_LIBS
 link_libraries(${ALL_LIBS} ${GUSGAME_LIBRARY})
 
 add_library(${GUSGUI_LIBRARY_NAME} STATIC ${SOURCES})
-target_link_libraries(${GUSGUI_LIBRARY_NAME})  #${ALL_LIBS})
+target_link_libraries(${GUSGUI_LIBRARY_NAME} ${Boost_SYSTEM_LIBRARY} ${Boost_FILESYSTEM_LIBRARY})  #${ALL_LIBS})
 
 set(EX_DIR examples)
 
@@ -255,10 +255,10 @@ include_directories(include ${GUSGAME_INCLUDE})
 LINK_DIRECTORIES( ${LINK_DIRECTORIES} ${LIBRARY_OUTPUT_PATH} )
 
 add_executable(example1 WIN32 ${EX_DIR}/example1.cpp)
-target_link_libraries(example1 ${ALL_LIBS} ${GUSGUI_LIBRARY_NAME} ${GUSGAME_LIBRARY})
+target_link_libraries(example1 ${ALL_LIBS} ${GUSGUI_LIBRARY_NAME} ${GUSGAME_LIBRARY} ${Boost_SYSTEM_LIBRARY} ${Boost_FILESYSTEM_LIBRARY})
 
 add_executable(example2 WIN32 ${EX_DIR}/example2.cpp)
-target_link_libraries(example2 ${ALL_LIBS} ${GUSGUI_LIBRARY_NAME} ${GUSGAME_LIBRARY})
+target_link_libraries(example2 ${ALL_LIBS} ${GUSGUI_LIBRARY_NAME} ${GUSGAME_LIBRARY} ${Boost_SYSTEM_LIBRARY} ${Boost_FILESYSTEM_LIBRARY})
 
 #add_executable(example3 WIN32 ${EX_DIR}/example3.cpp)
 #target_link_libraries(example3 ${ALL_LIBS} ${LIBRARY_NAME})
