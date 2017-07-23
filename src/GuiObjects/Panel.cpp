@@ -296,7 +296,7 @@ bool Panel::onLeftMouseButtonReleased(const Vector2d& pos)
 			}
 		}
 	}
-	
+
 	return result;
 }
 
