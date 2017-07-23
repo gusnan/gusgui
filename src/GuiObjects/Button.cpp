@@ -103,6 +103,9 @@ Button::Button(const Rect &rect, std::string name, Bitmap *icon, bool invisible)
 	m_ButtonPressEvent = NULL;
 	m_ButtonReleaseEvent = NULL;
 
+	m_ButtonLostFocusEvent = NULL;
+	m_ButtonGainedFocusEvent = NULL;
+
 }
 
 /**
@@ -156,6 +159,9 @@ Button::Button(const Rect &sourceRect, std::string name, const Rect &rect, Bitma
 	m_ButtonPressEvent = NULL;
 	m_ButtonReleaseEvent = NULL;
 
+	m_ButtonLostFocusEvent = NULL;
+	m_ButtonGainedFocusEvent = NULL;
+
 }
 
 /**
@@ -204,6 +210,10 @@ Button::Button(const Button& source) : GuiObject(source),
 
 	m_ButtonPressEvent = source.m_ButtonPressEvent;
 	m_ButtonReleaseEvent = source.m_ButtonReleaseEvent;
+
+	m_ButtonLostFocusEvent = source.m_ButtonLostFocusEvent;
+	m_ButtonGainedFocusEvent = source.m_ButtonGainedFocusEvent;
+
 }
 
 /**
@@ -250,6 +260,9 @@ Button& Button::operator=(const Button& source)
 
 		m_ButtonPressEvent = source.m_ButtonPressEvent;
 		m_ButtonReleaseEvent = source.m_ButtonReleaseEvent;
+
+		m_ButtonLostFocusEvent = source.m_ButtonLostFocusEvent;
+		m_ButtonGainedFocusEvent = source.m_ButtonGainedFocusEvent;
 	}
 
 	return *this;
@@ -492,6 +505,43 @@ UserEvent *Button::getReleaseEvent()
 	return m_ButtonReleaseEvent;
 }
 
+
+/**
+ *
+ */
+void Button::setGainedFocusEvent(UserEvent *inEvent)
+{
+	m_ButtonGainedFocusEvent = inEvent;
+}
+
+
+/**
+ *
+ */
+UserEvent *Button::getGainedFocusEvent()
+{
+	return m_ButtonGainedFocusEvent;
+}
+
+
+/**
+ *
+ */
+void Button::setLostFocusEvent(UserEvent *inEvent)
+{
+	m_ButtonLostFocusEvent = inEvent;
+}
+
+
+/**
+ *
+ */
+UserEvent *Button::getLostFocusEvent()
+{
+	return m_ButtonLostFocusEvent;
+}
+
+
 /**
  *
  */
@@ -587,7 +637,20 @@ bool Button::onLeftMouseButtonReleased(const Vector2d& pos)
  */
 void Button::onMouseMove(const Vector2d& pos)
 {
+	bool oldMouseOver = m_MouseOver;
 	GuiObject::onMouseMove(pos);
+
+	if (m_MouseOver != oldMouseOver) {
+		if (m_MouseOver) {
+			if (m_ButtonGainedFocusEvent != NULL) {
+				m_ButtonGainedFocusEvent->pushEvent();
+			}
+		} else {
+			if (m_ButtonLostFocusEvent != NULL) {
+				m_ButtonLostFocusEvent->pushEvent();
+			}
+		}
+	}
 
 	if (!m_MouseOver) {
 		m_Down = false;
