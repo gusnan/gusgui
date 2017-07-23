@@ -60,9 +60,15 @@ public:
 
 	void setPressEvent(UserEvent *event);
 	UserEvent *getPressEvent();
-	
+
 	void setReleaseEvent(UserEvent *event);
 	UserEvent *getReleaseEvent();
+
+	void setGainedFocusEvent(UserEvent *event);
+	UserEvent *getGainedFocusEvent();
+
+	void setLostFocusEvent(UserEvent *event);
+	UserEvent *getLostFocusEvent();
 
 	void setActivateOnDown(bool active = true);
 
@@ -101,6 +107,9 @@ protected:
 	UserEvent *m_ButtonPressEvent;
 	UserEvent *m_ButtonReleaseEvent;
 
+	UserEvent *m_ButtonLostFocusEvent;
+	UserEvent *m_ButtonGainedFocusEvent;
+
 	bool m_ActivateOnDown;
 
 	bool m_Invisible;
@@ -110,7 +119,7 @@ protected:
 	Rect m_SourceRect;
 
 	bool m_MoveOnDown;
-	
+
 	// std::string m_Name;
 
 	//bool m_HasEvent;

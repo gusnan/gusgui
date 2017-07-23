@@ -227,6 +227,7 @@ void GUSGAME_DLL GuiEventHandler::onMouseScrollDown(const Vector2d& pos)
 	}
 }
 
+
 /**
  *
  */
@@ -235,6 +236,39 @@ void GUSGAME_DLL GuiEventHandler::handleMouseMotion(MouseMotionEvent &mouseMotio
 	onMouseMove(mouseMotion.getPosition());
 }
 
+
+/**
+ *
+ */
+void GUSGAME_DLL GuiEventHandler::handleActiveEvent(ActiveEvent &activeEvent)
+{
+	if (activeEvent.getWindowState() == WindowStateMouseFocusLost) {
+		// printf("MouseFocusLost\n");
+
+		handleMouseLeaveScreen();
+	}
+}
+
+/**
+ *
+ */
+void GUSGAME_DLL GuiEventHandler::handleMouseLeaveScreen()
+{
+	std::vector<GuiObjectPtr> *guiList = GuiHandler::instance()->m_GuiList; //getGuiList();
+
+	if (guiList) {
+		for (std::vector<GuiObjectPtr>::iterator iter = guiList->begin(); iter != guiList->end();) {
+			GuiObjectPtr object = (*iter);
+
+			if (object) {
+				object->onMouseMove(Vector2d(-1, -1));
+				object->setMouseOver(false);
+			}
+
+			++iter;
+		}
+	}
+}
 
 /**
  *
