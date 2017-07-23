@@ -51,10 +51,14 @@ public:
 	void GUSGAME_DLL onMouseScrollUp(const Vector2d& pos);
 	void GUSGAME_DLL onMouseScrollDown(const Vector2d& pos);
 
+	void GUSGAME_DLL handleMouseLeaveScreen();
+
 	virtual void GUSGAME_DLL handleMouseMotion(MouseMotionEvent &mouseMotion);
 	virtual bool GUSGAME_DLL handleMouseButton(MouseButtonEvent &mouseButtonEvent);
 
 	virtual bool GUSGAME_DLL handleUserEvent(UserEvent &userEvent);
+
+	void GUSGAME_DLL handleActiveEvent(ActiveEvent &activeEvent);
 
 
 protected:
