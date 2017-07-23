@@ -218,7 +218,7 @@ bool CheckBox::onLeftMouseButtonReleased(const Vector2d& pos)
 
 	if (m_MouseOver) {
 	}
-	
+
 	return handled;
 }
 

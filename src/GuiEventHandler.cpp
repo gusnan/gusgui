@@ -80,7 +80,7 @@ GuiEventHandler::GuiEventHandler(const GuiEventHandler &source)
 bool GUSGAME_DLL GuiEventHandler::onLeftMouseButtonPressed(const Vector2d& pos)
 {
 	bool handled=false;
-	
+
 	std::vector<GuiObjectPtr> *guiList = GuiHandler::instance()->m_GuiList; //getGuiList();
 
 	if (guiList) {
@@ -94,7 +94,7 @@ bool GUSGAME_DLL GuiEventHandler::onLeftMouseButtonPressed(const Vector2d& pos)
 			++iter;
 		}
 	}
-	
+
 	return handled;
 }
 
@@ -104,7 +104,7 @@ bool GUSGAME_DLL GuiEventHandler::onLeftMouseButtonPressed(const Vector2d& pos)
 bool GUSGAME_DLL GuiEventHandler::onLeftMouseButtonReleased(const Vector2d& pos)
 {
 	bool result = false;
-	
+
 	std::vector<GuiObjectPtr> *guiList = GuiHandler::instance()->m_GuiList; //getGuiList();
 
 	if (guiList) {
@@ -242,7 +242,7 @@ void GUSGAME_DLL GuiEventHandler::handleMouseMotion(MouseMotionEvent &mouseMotio
 bool GUSGAME_DLL GuiEventHandler::handleMouseButton(MouseButtonEvent &mouseButtonEvent)
 //void GameEventHandler::HandleMouseButton(Uint8 type,SDL_MouseButtonEvent buttonEvent)
 {
-	
+
 	bool handled = false;
 	//Data::mouse->SetButton(0);
 
