@@ -49,6 +49,7 @@ GuiObject::GuiObject() : m_Rect(), m_MouseOver(false), m_Active(true), m_Visible
 
 }
 
+
 /**
  *
  */
@@ -57,12 +58,14 @@ GuiObject::GuiObject(Rect rect) : m_Rect(rect), m_Active(true), m_Visible(true),
 {
 }
 
+
 /**
  *
  */
 GuiObject::~GuiObject()
 {
 }
+
 
 /**
  *
@@ -78,6 +81,7 @@ bool GuiObject::operator==(GuiObject &source)
 	return result;
 }
 
+
 /**
  *
  */
@@ -85,6 +89,7 @@ Vector2d GuiObject::getPosition() const
 {
 	return m_Rect.position;
 }
+
 
 /**
  *
@@ -94,6 +99,7 @@ Rect GuiObject::getRect() const
 	return m_Rect;
 }
 
+
 /**
  *
  */
@@ -102,6 +108,7 @@ void GuiObject::setRect(const Rect& rect)
 	m_Rect = rect;
 }
 
+
 /**
  *
  */
@@ -109,6 +116,7 @@ void GuiObject::setSize(const Vector2d& size)
 {
 	m_Rect.size = size;
 }
+
 
 /**
  *
@@ -127,6 +135,7 @@ void GuiObject::setMouseOver(bool over)
 	m_MouseOver = over;
 }
 
+
 /**
  *
  */
@@ -142,6 +151,7 @@ void GuiObject::setActive(bool active)
 
 }
 
+
 /**
  *
  */
@@ -149,6 +159,7 @@ void GuiObject::setVisible(bool visible)
 {
 	m_Visible = visible;
 }
+
 
 /**
  *
@@ -158,6 +169,7 @@ void GuiObject::switchVisible()
 	m_Visible = !m_Visible;
 }
 
+
 /**
  *
  */
@@ -165,6 +177,7 @@ bool GuiObject::getVisible() const
 {
 	return m_Visible;
 }
+
 
 /**
  *
@@ -174,6 +187,7 @@ bool GuiObject::getMouseOver() const
 	return m_MouseOver;
 }
 
+
 /**
  *
  */
@@ -181,6 +195,7 @@ bool GuiObject::handleUserEvent(UserEvent &event)
 {
 	return false;
 }
+
 
 /**
  *
@@ -190,6 +205,7 @@ bool GuiObject::handleKeyboardEvent(KeyEvent &event)
 	return false;
 }
 
+
 /**
  *
  */
@@ -198,12 +214,14 @@ void GuiObject::gainFocus()
 
 }
 
+
 /**
  *
  */
 void GuiObject::releaseFocus()
 {
 }
+
 
 /**
  *
@@ -214,6 +232,7 @@ bool GuiObject::onLeftMouseButtonPressed(const Vector2d& pos)
 	return false;
 }
 
+
 /**
  *
  */
@@ -223,6 +242,7 @@ bool GuiObject::onLeftMouseButtonReleased(const Vector2d& pos)
 	return false;
 }
 
+
 /**
  *
  */
@@ -230,6 +250,7 @@ bool GuiObject::onRightMouseButtonPressed(const Vector2d& pos)
 {
 	return false;
 }
+
 
 /**
  *
@@ -239,6 +260,7 @@ bool GuiObject::onRightMouseButtonReleased(const Vector2d& pos)
 	return false;
 }
 
+
 /**
  *
  */
@@ -246,6 +268,7 @@ void GuiObject::setPanelPosition(const Vector2d& pos)
 {
 	m_PanelPosition=pos;
 }
+
 
 /**
  *
@@ -277,12 +300,14 @@ void GuiObject::onMouseScrollUp(const Vector2d& pos)
 {
 }
 
+
 /**
  *
  */
 void GuiObject::onMouseScrollDown(const Vector2d& pos)
 {
 }
+
 
 /**
  *
@@ -332,16 +357,27 @@ void GuiObject::setCenter(Rect sourceRect, int directions)
 }
 
 
+/**
+ *
+ */
 void GuiObject::setName(std::string inName)
 {
 	m_Name = inName;
 }
 
+
+/**
+ *
+ */
 std::string GuiObject::getName()
 {
 	return m_Name;
 }
 
+
+/**
+ *
+ */
 void GuiObject::print()
 {
 	std::cout << getName() << std::endl;

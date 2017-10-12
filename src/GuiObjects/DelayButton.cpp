@@ -86,6 +86,7 @@ DelayButton::DelayButton(Rect rect, Rect sourceRect, Rect sourceRectPressed,
 	*/
 }
 
+
 /**
  *
  */
@@ -93,6 +94,7 @@ DelayButton::~DelayButton()
 {
 	//REMOVE(m_TextBitmap);
 }
+
 
 /**
  *
@@ -135,6 +137,7 @@ void DelayButton::update()
 	*/
 }
 
+
 /**
  *
  */
@@ -147,6 +150,7 @@ bool DelayButton::getPressed() const
 	return result;
 }
 
+
 /**
  *
  */
@@ -158,6 +162,7 @@ void DelayButton::setPressed()
 	m_ButtonPressEvent->pushEvent();
 }
 
+
 /**
  *
  */
@@ -165,6 +170,7 @@ void DelayButton::setSpeed(float speed)
 {
 	m_Speed = speed;
 }
+
 
 /**
  *
