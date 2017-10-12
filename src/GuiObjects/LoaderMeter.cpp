@@ -63,12 +63,14 @@ LoaderMeter::LoaderMeter(Rect rect, int maxValue) : GuiObject(rect), m_MaxValue(
 	m_FullWidth = rect.size.x;
 }
 
+
 /**
  *
  */
 LoaderMeter::~LoaderMeter()
 {
 }
+
 
 /**
  *
@@ -110,12 +112,14 @@ void LoaderMeter::draw(const Vector2d &pos,float opacity)
 	}
 }
 
+
 /**
  *
  */
 void LoaderMeter::update()
 {
 }
+
 
 /**
  *
