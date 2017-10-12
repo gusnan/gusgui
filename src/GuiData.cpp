@@ -40,23 +40,23 @@ using namespace Gus::LogLib;
 namespace GusGui
 {
 
-Bitmap *GuiData::menuBorder_Top = 0;
-Bitmap *GuiData::menuBorder_Bottom = 0;
-Bitmap *GuiData::menuBorder_Left = 0;
-Bitmap *GuiData::menuBorder_Right = 0;
+Bitmap *GuiData::menuBorder_Top = nullptr;
+Bitmap *GuiData::menuBorder_Bottom = nullptr;
+Bitmap *GuiData::menuBorder_Left = nullptr;
+Bitmap *GuiData::menuBorder_Right = nullptr;
 
-Bitmap *GuiData::menuBorder_Top_NoTrans = 0;
-Bitmap *GuiData::menuBorder_Bottom_NoTrans = 0;
-Bitmap *GuiData::menuBorder_Left_NoTrans = 0;
-Bitmap *GuiData::menuBorder_Right_NoTrans = 0;
+Bitmap *GuiData::menuBorder_Top_NoTrans = nullptr;
+Bitmap *GuiData::menuBorder_Bottom_NoTrans = nullptr;
+Bitmap *GuiData::menuBorder_Left_NoTrans = nullptr;
+Bitmap *GuiData::menuBorder_Right_NoTrans = nullptr;
 
-Bitmap *GuiData::menuBackground = 0;
+Bitmap *GuiData::menuBackground = nullptr;
 
-Bitmap *GuiData::guiData = 0;
+Bitmap *GuiData::guiData = nullptr;
 
-GraphicsLib::Font *GuiData::guiFont = 0;
-GraphicsLib::Font *GuiData::guiSmallFont = 0;
-GraphicsLib::Font* GuiData::guiBigFont = 0;
+GraphicsLib::Font *GuiData::guiFont = nullptr;
+GraphicsLib::Font *GuiData::guiSmallFont = nullptr;
+GraphicsLib::Font* GuiData::guiBigFont = nullptr;
 
 
 /**
@@ -102,7 +102,7 @@ void GuiData::freeGuiGraphics()
 {
 	LOG("Done GUI graphics...");
 #ifndef REMOVE
-#define  REMOVE(a) { if (a!=NULL) { delete a; a=NULL; } }
+#define  REMOVE(a) { if (a != nullptr) { delete a; a = nullptr; } }
 #endif
 
 	REMOVE(menuBorder_Top);
