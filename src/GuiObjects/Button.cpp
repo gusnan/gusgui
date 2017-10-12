@@ -108,6 +108,7 @@ Button::Button(const Rect &rect, std::string name, Bitmap *icon, bool invisible)
 
 }
 
+
 /**
  *
  */
@@ -164,6 +165,7 @@ Button::Button(const Rect &sourceRect, std::string name, const Rect &rect, Bitma
 
 }
 
+
 /**
  *
  */
@@ -215,6 +217,7 @@ Button::Button(const Button& source) : GuiObject(source),
 	m_ButtonGainedFocusEvent = source.m_ButtonGainedFocusEvent;
 
 }
+
 
 /**
  *
@@ -268,6 +271,7 @@ Button& Button::operator=(const Button& source)
 	return *this;
 }
 
+
 /**
  *
  */
@@ -296,10 +300,15 @@ Button::~Button()
 
 }
 
+
+/**
+ *
+ */
 Button *Button::makeCopy()
 {
 	return new Button(*this);
 }
+
 
 /**
  *
@@ -381,6 +390,7 @@ void Button::draw(const Vector2d& pos, float alpha)
 
 }
 
+
 /**
  *
  */
@@ -390,6 +400,7 @@ bool Button::getPressed()
 	m_Pressed = false;
 	return result;
 }
+
 
 /**
  *
@@ -410,6 +421,7 @@ void Button::update()
 	}
 }
 
+
 /**
  *
  */
@@ -426,6 +438,7 @@ void Button::setGraphics(Bitmap *button, Bitmap *buttonPressed, Bitmap *buttonHo
 	//GuiData::buttonNormal->GetSize();
 
 }
+
 
 /**
  *
@@ -445,6 +458,7 @@ void Button::SetTextBitmap(GLBitmap *textBitmap)
 	delete tempText;
 }
 */
+
 
 /**
  *
@@ -550,6 +564,7 @@ void Button::setActivateOnDown(bool onDown)
 	m_ActivateOnDown = onDown;
 }
 
+
 /**
  *
  */
@@ -557,6 +572,7 @@ void Button::setMoveOnDown(bool move)
 {
 	m_MoveOnDown = move;
 }
+
 
 /**
  *
@@ -567,6 +583,7 @@ void Button::setMoveOnDown(bool move)
 }
 */
 
+
 /**
  *
  */
@@ -575,6 +592,7 @@ bool Button::handleUserEvent(UserEvent &event)
 	return false;
 }
 
+
 /**
  *
  */
@@ -582,6 +600,7 @@ bool Button::handleKeyboardEvent(KeyEvent &event)
 {
 	return false;
 }
+
 
 /**
  *
@@ -605,6 +624,7 @@ bool Button::onLeftMouseButtonPressed(const Vector2d& pos)
 	}
 	return handled;
 }
+
 
 /**
  *
@@ -631,6 +651,7 @@ bool Button::onLeftMouseButtonReleased(const Vector2d& pos)
 
 	return handled;
 }
+
 
 /**
  *

@@ -56,12 +56,14 @@ FileListGui::FileListGui(Rect rect) : GuiObject(rect), m_VisibleLines(0)
 
 }
 
+
 /**
  *
  */
 FileListGui::~FileListGui()
 {
 }
+
 
 /**
  *
@@ -85,6 +87,7 @@ void FileListGui::draw(const Vector2d &pos,float opacity)
 		GuiData::guiFont->draw(newPos + Vector2d(2, 2 + 14 * co), st.str(), colorWhite);
 	}
 }
+
 
 /**
  *

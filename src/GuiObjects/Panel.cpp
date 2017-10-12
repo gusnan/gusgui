@@ -103,6 +103,7 @@ Panel::~Panel()
 	}
 }
 
+
 /**
  *
  */
@@ -123,6 +124,7 @@ Panel::Panel(const Panel& source) : GuiObject(source), m_GuiList(0), m_DrawFrame
 		++iter;
 	}
 }
+
 
 /**
  *
@@ -158,6 +160,7 @@ void Panel::addGuiObject(const GuiObjectPtr &guiObject)
 	m_GuiList->push_back(guiObject);
 }
 
+
 /**
  *
  */
@@ -179,6 +182,7 @@ void Panel::draw(const Vector2d& pos,float alpha)
 	}
 }
 
+
 /**
  *
  */
@@ -189,6 +193,7 @@ void Panel::update()
 		++iter;
 	}
 }
+
 
 /**
  *
@@ -209,6 +214,7 @@ void Panel::setMouseOver(bool mouseOver)
 	}
 }
 
+
 /**
  *
  */
@@ -216,6 +222,7 @@ void Panel::setDrawBackground(bool drawBackground)
 {
 	m_DrawBackground=drawBackground;
 }
+
 
 /**
  *
@@ -236,6 +243,7 @@ bool Panel::handleKeyboardEvent(KeyEvent &event)
 
 	return result;
 }
+
 
 /**
  *
@@ -273,6 +281,7 @@ bool Panel::onLeftMouseButtonPressed(const Vector2d& pos)
 	return handled;
 }
 
+
 /**
  *
  */
@@ -300,6 +309,7 @@ bool Panel::onLeftMouseButtonReleased(const Vector2d& pos)
 	return result;
 }
 
+
 /**
  *
  */
@@ -325,6 +335,7 @@ bool Panel::onRightMouseButtonPressed(const Vector2d& pos)
 	}
 	return handled;
 }
+
 
 /**
  *
@@ -352,6 +363,7 @@ bool Panel::onRightMouseButtonReleased(const Vector2d& pos)
 	return result;
 }
 
+
 /**
  *
  */
@@ -377,6 +389,7 @@ void Panel::onMouseMove(const Vector2d& pos)
 
 }
 
+
 /**
  *
  */
@@ -384,12 +397,14 @@ void Panel::onMouseScrollUp()
 {
 }
 
+
 /**
  *
  */
 void Panel::onMouseScrollDown()
 {
 }
+
 
 /**
  *
@@ -408,6 +423,7 @@ void Panel::onDrag(const Vector2d& pos)
 	}
 }
 
+
 /**
  *
  */
@@ -423,6 +439,7 @@ void Panel::setVisible(bool visible)
 
 	GuiObject::setVisible(visible);
 }
+
 
 /**
  *
@@ -441,6 +458,9 @@ void Panel::setActive(bool active)
 }
 
 
+/**
+ *
+ */
 void Panel::print()
 {
 	std::cout << getName() << std::endl;

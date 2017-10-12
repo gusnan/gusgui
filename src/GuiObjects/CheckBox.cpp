@@ -61,6 +61,7 @@ CheckBox::CheckBox() : GuiObject(),
 	m_MouseOver = false;
 }
 
+
 /**
  *
  */
@@ -82,6 +83,7 @@ CheckBox::CheckBox(Rect rect,bool checked) : GuiObject(rect),
 
 }
 
+
 /**
  *
  */
@@ -102,6 +104,7 @@ CheckBox::CheckBox(Rect rect,std::string text,bool checked) : GuiObject(rect),
 
 }
 
+
 /**
  *
  */
@@ -120,6 +123,7 @@ CheckBox::CheckBox(const CheckBox& source) :
 
 	m_MouseOver = source.m_MouseOver;
 }
+
 
 /**
  *
@@ -143,6 +147,7 @@ CheckBox& CheckBox::operator=(const CheckBox& source)
 	return *this;
 }
 
+
 /**
  *
  */
@@ -153,6 +158,7 @@ CheckBox::~CheckBox()
 		m_TextBitmap = nullptr;
 	}
 }
+
 
 /**
  *
@@ -208,6 +214,7 @@ bool CheckBox::onLeftMouseButtonPressed(const Vector2d& pos)
 	return handled;
 }
 
+
 /**
  *
  */
@@ -222,6 +229,7 @@ bool CheckBox::onLeftMouseButtonReleased(const Vector2d& pos)
 	return handled;
 }
 
+
 /**
  *
  */
@@ -231,6 +239,7 @@ void CheckBox::update()
 		m_MouseOver = false;
 	}
 }
+
 
 /**
  *
@@ -283,6 +292,7 @@ void CheckBox::setText(std::string text)
 	}
 }
 
+
 /**
  *
  */
@@ -290,6 +300,7 @@ bool CheckBox::getChecked() const
 {
 	return m_Checked;
 }
+
 
 /**
  *
@@ -299,6 +310,7 @@ void CheckBox::setChecked(bool checked)
 	m_Checked = checked;
 }
 
+
 /**
  *
  */
@@ -306,6 +318,7 @@ void CheckBox::switchChecked()
 {
 	m_Checked = !m_Checked;
 }
+
 
 /**
  *

@@ -55,12 +55,14 @@ FadeButton::FadeButton(Rect rect, std::string name) : Button(rect, name), m_Fade
 	m_MouseOver = false;
 }
 
+
 /**
  *
  */
 FadeButton::~FadeButton()
 {
 }
+
 
 /**
  *
@@ -81,6 +83,7 @@ void FadeButton::draw(const Vector2d& pos, float opacity)
 	Primitives::rectFill(newRect, col);
 }
 
+
 /**
  *
  */
@@ -89,6 +92,7 @@ void FadeButton::setPressed()
 	m_Fade = 1.0f;
 	m_Pressed = true;
 }
+
 
 /**
  *
@@ -104,6 +108,7 @@ void FadeButton::update()
 	}
 }
 
+
 /**
  *
  */
@@ -111,6 +116,7 @@ void FadeButton::setShowHover(bool hover)
 {
 	m_ShowHover = hover;
 }
+
 
 /**
  *
@@ -139,6 +145,7 @@ bool FadeButton::onLeftMouseButtonPressed(const Vector2d& pos)
 	return handled;
 }
 
+
 /**
  *
  */
@@ -146,6 +153,7 @@ bool FadeButton::onLeftMouseButtonReleased(const Vector2d& pos)
 {
 	return false;
 }
+
 
 /**
  *

@@ -42,12 +42,14 @@ using namespace Gus::EventLib;
 namespace GusGui
 {
 
+	
 /**
  *
  */
 InvisibleGuiObject::InvisibleGuiObject() : GuiObject(Rect(-1, -1, -1, -1))
 {
 }
+
 
 /**
  *
@@ -56,12 +58,14 @@ InvisibleGuiObject::~InvisibleGuiObject()
 {
 }
 
+
 /**
  *
  */
 void InvisibleGuiObject::draw(const Vector2d &pos,float opacity)
 {
 }
+
 
 /**
  *
