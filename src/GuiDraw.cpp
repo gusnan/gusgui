@@ -145,7 +145,7 @@ void GuiDraw::drawGuiRect(Rect rect, bool drawTransparentFrame, float opacity)
  */
 FrameBuffer *GuiDraw::makeTextButtonStandard(std::string text)
 {
-	FrameBuffer *result = 0;
+	FrameBuffer *result = nullptr;
 
 	GLBitmap *textBitmap = GuiDraw::DrawTextCentered(text);
 
@@ -184,7 +184,7 @@ FrameBuffer *GuiDraw::makeTextButtonStandard(std::string text)
  */
 FrameBuffer *GuiDraw::makeTextButtonHover(std::string text)
 {
-	FrameBuffer *result = 0;
+	FrameBuffer *result = nullptr;
 
 	GLBitmap *textBitmap = GuiDraw::DrawTextCentered(text);
 
@@ -218,7 +218,7 @@ FrameBuffer *GuiDraw::makeTextButtonHover(std::string text)
  */
 FrameBuffer *GuiDraw::makeTextButtonPressed(std::string text)
 {
-	FrameBuffer *result = 0;
+	FrameBuffer *result = nullptr;
 
 	GLBitmap *textBitmap = GuiDraw::DrawTextCentered(text);
 
@@ -374,7 +374,7 @@ Bitmap *GuiDraw::drawTextCentered(std::string intext)
  */
 FrameBuffer *GuiDraw::makeStandardButton(Vector2d size, Bitmap *icon)
 {
-	FrameBuffer *result = 0;
+	FrameBuffer *result = nullptr;
 
 	Rect fullRect(Vector2d(0, 0), size);
 
@@ -434,7 +434,7 @@ void GuiDraw::drawStandardButton(Rect rect, Bitmap *icon)
  */
 FrameBuffer *GuiDraw::makePressedButton(Vector2d size, GLBitmap *icon)
 {
-	FrameBuffer *result = 0;
+	FrameBuffer *result = nullptr;
 
 	Rect fullRect(Vector2d(0, 0), size);
 

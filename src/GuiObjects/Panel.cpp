@@ -48,7 +48,7 @@ namespace GusGui
 /**
  *
  */
-Panel::Panel(Rect rect, std::string name, bool transparentFrame) : GuiObject(rect), m_GuiList(NULL), m_DrawFrame(false), m_DrawBackground(false), m_TransparentFrame(transparentFrame)
+Panel::Panel(Rect rect, std::string name, bool transparentFrame) : GuiObject(rect), m_GuiList(nullptr), m_DrawFrame(false), m_DrawBackground(false), m_TransparentFrame(transparentFrame)
 {
 	m_GuiList = new std::vector<GuiObjectPtr>;
 	setName(name);
@@ -58,7 +58,7 @@ Panel::Panel(Rect rect, std::string name, bool transparentFrame) : GuiObject(rec
 /**
  *
  */
-Panel::Panel() : m_GuiList(NULL)
+Panel::Panel() : m_GuiList(nullptr)
 {
 }
 
@@ -97,9 +97,9 @@ Panel::~Panel()
 
 	}
 
-	if (m_GuiList != NULL) {
+	if (m_GuiList != nullptr) {
 		delete m_GuiList;
-		m_GuiList = NULL;
+		m_GuiList = nullptr;
 	}
 }
 

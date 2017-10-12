@@ -50,7 +50,7 @@ namespace GusGui
  *
  */
 CheckBox::CheckBox() : GuiObject(),
-	m_TextBitmap(0), m_Checked(false), m_Text(""), m_Down(false), m_CheckBoxSize(), m_TextWidth()
+	m_TextBitmap(nullptr), m_Checked(false), m_Text(""), m_Down(false), m_CheckBoxSize(), m_TextWidth()
 {
 	m_CheckBoxSize = Vector2d(20, 18); //GuiData::checkBoxActivePressed->GetSize();
 
@@ -65,10 +65,10 @@ CheckBox::CheckBox() : GuiObject(),
  *
  */
 CheckBox::CheckBox(Rect rect,bool checked) : GuiObject(rect),
-	m_TextBitmap(0), m_Checked(false), m_Text(""), m_Down(false), m_CheckBoxSize(), m_TextWidth()
+	m_TextBitmap(nullptr), m_Checked(false), m_Text(""), m_Down(false), m_CheckBoxSize(), m_TextWidth()
 {
 
-	m_TextBitmap = 0;
+	m_TextBitmap = nullptr;
 
 	m_CheckBoxSize = Vector2d(20, 18); //GuiData::checkBoxActivePressed->GetSize();
 
@@ -86,9 +86,9 @@ CheckBox::CheckBox(Rect rect,bool checked) : GuiObject(rect),
  *
  */
 CheckBox::CheckBox(Rect rect,std::string text,bool checked) : GuiObject(rect),
-	m_TextBitmap(0), m_Checked(false), m_Text(""), m_Down(false), m_CheckBoxSize(), m_TextWidth()
+	m_TextBitmap(nullptr), m_Checked(false), m_Text(""), m_Down(false), m_CheckBoxSize(), m_TextWidth()
 {
-	m_TextBitmap = 0;
+	m_TextBitmap = nullptr;
 
 	m_CheckBoxSize = Vector2d(20, 18); //GuiData::checkBoxActivePressed->GetSize();
 
@@ -106,7 +106,7 @@ CheckBox::CheckBox(Rect rect,std::string text,bool checked) : GuiObject(rect),
  *
  */
 CheckBox::CheckBox(const CheckBox& source) :
-	m_TextBitmap(0), m_Checked(false), m_Text(""), m_Down(false), m_CheckBoxSize(), m_TextWidth()
+	m_TextBitmap(nullptr), m_Checked(false), m_Text(""), m_Down(false), m_CheckBoxSize(), m_TextWidth()
 {
 	m_TextBitmap = source.m_TextBitmap;
 
@@ -150,7 +150,7 @@ CheckBox::~CheckBox()
 {
 	if (m_TextBitmap) {
 		delete m_TextBitmap;
-		m_TextBitmap = NULL;
+		m_TextBitmap = nullptr;
 	}
 }
 
@@ -276,7 +276,7 @@ void CheckBox::setText(std::string text)
 	} else {
 		if (m_TextBitmap) {
 			delete m_TextBitmap;
-			m_TextBitmap = NULL;
+			m_TextBitmap = nullptr;
 		}
 
 		m_Rect = Rect(rect.position, m_CheckBoxSize);

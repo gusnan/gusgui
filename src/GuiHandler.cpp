@@ -46,14 +46,14 @@ namespace GusGui
 {
 
 
-GuiHandler* GuiHandler::pinstance = 0;// initialize pointer
+GuiHandler* GuiHandler::pinstance = nullptr;// initialize pointer
 
 /**
  *	This should be a singleton, thus we need the Instance method
  */
 GuiHandler* GuiHandler::instance ()
 {
-	if (pinstance == 0) {
+	if (pinstance == nullptr) {
 		pinstance = new GuiHandler;
 	}
 	return pinstance;
@@ -65,7 +65,7 @@ GuiHandler* GuiHandler::instance ()
 void GuiHandler::destroy()
 {
 	delete pinstance;
-	pinstance = 0;
+	pinstance = nullptr;
 }
 
 
@@ -75,8 +75,8 @@ void GuiHandler::destroy()
 GuiHandler::GuiHandler() :
 	m_CurrentGuiObject(boost::shared_ptr<GuiObject>()),
 	showKeyboardShortcuts(false),
-	m_GuiList(NULL),
-	m_GuiDrawList(NULL)
+	m_GuiList(nullptr),
+	m_GuiDrawList(nullptr)
 {
 	LOG("Init Gui Handler...");
 
@@ -99,10 +99,10 @@ GuiHandler::~GuiHandler()
 
 	if (m_GuiList) {
 		delete m_GuiList;
-		m_GuiList = NULL;
+		m_GuiList = nullptr;
 	}
 
-	if (m_GuiDrawList != NULL) {
+	if (m_GuiDrawList != nullptr) {
 
 		std::vector<GuiObjectPtr>::iterator iter;
 		for (iter = m_GuiDrawList->begin(); iter != m_GuiDrawList->end();) {
@@ -112,7 +112,7 @@ GuiHandler::~GuiHandler()
 
 
 		delete m_GuiDrawList;
-		m_GuiDrawList = NULL;
+		m_GuiDrawList = nullptr;
 	}
 }
 
@@ -123,7 +123,7 @@ GuiHandler::~GuiHandler()
 void GuiHandler::clearHandleList()
 {
 
-	if (m_GuiList != NULL) {
+	if (m_GuiList != nullptr) {
 
 		std::vector<GuiObjectPtr>::iterator iter;
 		for (iter = m_GuiList->begin(); iter != m_GuiList->end();) {
