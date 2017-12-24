@@ -177,7 +177,7 @@ public:
 		// done in the Panel destructor, which we inherit this class from.
 	}
 
-	void draw(const Vector2d &pos,float opacity = 1.0)
+	void draw(const Vector2d &pos, float opacity = 1.0)
 	{
 		// Draw a white outline on the panel
 		Rect newRect = getRect() + pos;
@@ -199,7 +199,7 @@ protected:
 /**
  * main - the standard c++ program main entry point
  */
-int main(int argc,char **argv)
+int main(int argc, char **argv)
 {
 	boost::shared_ptr<EventHandler> eventHandler = boost::shared_ptr<EventHandler>();
 	Bitmap *mouseBitmap = nullptr;
