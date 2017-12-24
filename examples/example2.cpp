@@ -127,7 +127,7 @@ public:
 	{
 	}
 
-	virtual void draw(const Vector2d& pos,float alpha = 1.0)
+	virtual void draw(const Vector2d& pos, float alpha = 1.0)
 	{
 		// Gray for standard button
 		Primitives::rectFill(getRect() + pos, colorLightGray);
