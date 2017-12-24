@@ -44,7 +44,7 @@ using namespace GusGui;
 
 bool quit = false;
 
-UserEvent *userEvent = NULL;
+UserEvent *userEvent = nullptr;
 
 
 
