@@ -101,11 +101,16 @@ public:
 	/**
 	 *
 	 */
-	virtual bool handleUserEvent(UserEvent &userEvent)
+	virtual bool handleUserEvent(UserEvent &inUserEvent)
 	{
 		LOG("User event..");
-		quit = true;
-		return GuiEventHandler::handleUserEvent(userEvent);
+
+		if (*userEvent == inUserEvent) {
+			quit = true;
+
+			return true;
+		}
+		return GuiEventHandler::handleUserEvent(inUserEvent);
 	}
 
 };
