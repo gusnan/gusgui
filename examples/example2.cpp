@@ -202,8 +202,8 @@ protected:
 int main(int argc,char **argv)
 {
 	boost::shared_ptr<EventHandler> eventHandler = boost::shared_ptr<EventHandler>();
-	Bitmap *mouseBitmap = NULL;
-	GraphicsLib::Font *font = NULL;
+	Bitmap *mouseBitmap = nullptr;
+	GraphicsLib::Font *font = nullptr;
 	// std::vector<GuiObjectPtr> *guiList = NULL;
 
 	boost::shared_ptr<GuiObject> panel; // = boost::shared_ptr<ExamplePanel>();
