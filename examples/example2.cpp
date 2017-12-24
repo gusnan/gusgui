@@ -50,7 +50,7 @@ UserEvent *userEvent = NULL;
 
 /**
  * This is an Eventhandler that takes care of the keyboard events, mouse motion
- *	events, and the Quit events. (This event is pushed when you press the close
+ * events, and the Quit events. (This event is pushed when you press the close
  * window button for example)
  */
 class ExampleEventHandler : public GuiEventHandler
