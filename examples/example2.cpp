@@ -260,8 +260,6 @@ int main(int argc, char **argv)
 
 		EventSystem::initEventSystem();
 
-		userEvent = new UserEvent();
-
 		// Create an EventHandler for our "custom" events
 		// which inherits from the GUI event handler, this for it
 		// to handle both GUI events, and our own custom ones for
