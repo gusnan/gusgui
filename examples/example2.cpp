@@ -227,7 +227,7 @@ int main(int argc, char **argv)
 
 		// set up a screen with resolution of 640x480, and not fullscreen
 		GraphicsHandler::initGraphicsHandler();
-		GraphicsHandler::setGraphicsMode(Vector2d(640, 480), false);
+		GraphicsHandler::setGraphicsMode(Vector2d(640, 480), false, true);
 
 		Primitives::initPrimitives();
 
