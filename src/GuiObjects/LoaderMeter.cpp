@@ -18,13 +18,12 @@
  *
  */
 
-#include <boost/shared_ptr.hpp>
-
 #include <vector>
 #include <list>
 #include <string>
 #include <sstream>
 #include <fstream>
+#include <memory>
 
 #include "GusGame/GusGame.h"
 

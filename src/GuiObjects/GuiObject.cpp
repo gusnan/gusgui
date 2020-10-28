@@ -18,13 +18,12 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <boost/shared_ptr.hpp>
-
 #include <string>
 #include <vector>
 #include <sstream>
 #include <fstream>
 #include <list>
+#include <memory>
 
 #include "GusGame/GusGame.h"
 
