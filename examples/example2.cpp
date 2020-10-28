@@ -18,13 +18,12 @@
  *
  */
 
-#include <boost/shared_ptr.hpp>
-
 #include <cstdlib>
 #include <iostream>
 #include <sstream>
 #include <vector>
 #include <list>
+#include <memory>
 
 #include "GusGame/GusGame.h"
 
@@ -164,12 +163,12 @@ public:
 	{
 		// We add a button to the panel. This at position 10,10 in the panel,
 		// which places it at 110,110 on the screen.
-		m_ExampleButton = boost::shared_ptr<ExampleButton>(new ExampleButton(Rect(10, 10, 100, 20)));
+		m_ExampleButton = std::shared_ptr<ExampleButton>(new ExampleButton(Rect(10, 10, 100, 20)));
 
 		m_ExampleButton->setCenter(Rect(0, 0, 400, 300), GUI_OBJECT_CENTER_HORISONTALLY);
 		addGuiObject(m_ExampleButton);
 
-		m_QuitButton = boost::shared_ptr<ExampleButton>(new ExampleButton(Rect(10, 40, 100, 20)));
+		m_QuitButton = std::shared_ptr<ExampleButton>(new ExampleButton(Rect(10, 40, 100, 20)));
 		//m_QuitButton->setEvent(EventLib::eventQuit);
 
 		m_QuitButton->setPressEvent(userEvent);
@@ -195,8 +194,8 @@ public:
 
 
 protected:
-	boost::shared_ptr<Button> m_ExampleButton;
-	boost::shared_ptr<Button> m_QuitButton;
+	std::shared_ptr<Button> m_ExampleButton;
+	std::shared_ptr<Button> m_QuitButton;
 };
 
 
@@ -206,12 +205,12 @@ protected:
  */
 int main(int argc, char **argv)
 {
-	boost::shared_ptr<EventHandler> eventHandler = boost::shared_ptr<EventHandler>();
+	std::shared_ptr<EventHandler> eventHandler = std::shared_ptr<EventHandler>();
 	Bitmap *mouseBitmap = nullptr;
 	GraphicsLib::Font *font = nullptr;
 	// std::vector<GuiObjectPtr> *guiList = NULL;
 
-	boost::shared_ptr<GuiObject> panel; // = boost::shared_ptr<ExamplePanel>();
+	std::shared_ptr<GuiObject> panel; // = boost::shared_ptr<ExamplePanel>();
 
 	try {
 		// init the log - this function takes a string (the log file filename) as
@@ -252,7 +251,7 @@ int main(int argc, char **argv)
 		// EventData::instance();
 
 		//guiList=new std::vector<boost::shared_ptr<GuiObject> >;
-		panel = boost::shared_ptr<Panel>(new ExamplePanel());
+		panel = std::shared_ptr<Panel>(new ExamplePanel());
 
 		//guiList->push_back((GuiObject*)panel);
 		//guiList->push_back(panel);
@@ -264,7 +263,7 @@ int main(int argc, char **argv)
 		// which inherits from the GUI event handler, this for it
 		// to handle both GUI events, and our own custom ones for
 		// just this example
-		eventHandler = boost::shared_ptr<EventHandler>(new ExampleEventHandler());
+		eventHandler = std::shared_ptr<EventHandler>(new ExampleEventHandler());
 
 		// set the used EventHandler to the one we just created.
 		//	EventHelper::instance()->setEventHandler(guiEventHandler);

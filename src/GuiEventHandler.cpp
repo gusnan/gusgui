@@ -18,13 +18,12 @@
  *
  */
 
-#include <boost/shared_ptr.hpp>
-
 #include <string>
 #include <vector>
 #include <sstream>
 #include <iostream>
 #include <list>
+#include <memory>
 
 #include "GusGame/GusGame.h"
 using namespace Gus;
@@ -88,7 +87,7 @@ bool GUSGAME_DLL GuiEventHandler::onLeftMouseButtonPressed(const Vector2d& pos)
 		for (std::vector<GuiObjectPtr>::iterator iter = guiList->begin(); iter != guiList->end();) {
 			GuiObjectPtr current = (*iter);
 
-			if ((current != boost::shared_ptr<GuiObject>()) && !handled) {
+			if ((current != std::shared_ptr<GuiObject>()) && !handled) {
 				handled = current->onLeftMouseButtonPressed(pos);
 			}
 			++iter;

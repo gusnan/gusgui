@@ -83,8 +83,8 @@ protected:
 
 	bool showKeyboardShortcuts;
 
-	std::vector<boost::shared_ptr<GuiObject> > *m_GuiList;
-	std::vector<boost::shared_ptr<GuiObject> > *m_GuiDrawList;
+	std::vector<std::shared_ptr<GuiObject> > *m_GuiList;
+	std::vector<std::shared_ptr<GuiObject> > *m_GuiDrawList;
 
 private:
 	static GuiHandler *pinstance;
