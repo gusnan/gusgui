@@ -32,7 +32,7 @@ const int GUI_OBJECT_CENTER_BOTH = 3;
 
 class GuiObject;
 
-typedef boost::shared_ptr<GuiObject> GuiObjectPtr;
+typedef std::shared_ptr<GuiObject> GuiObjectPtr;
 
 /**
  *
