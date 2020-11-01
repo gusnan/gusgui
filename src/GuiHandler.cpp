@@ -350,7 +350,8 @@ void GuiHandler::removeFromDrawList(const GuiObjectPtr &guiObject)
 
 			m_GuiDrawList->erase(
 				std::remove(m_GuiDrawList->begin(), m_GuiDrawList->end(), guiObject),
-    m_GuiDrawList->end());
+				m_GuiDrawList->end()
+			);
 
 		}
 	}
