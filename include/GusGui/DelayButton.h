@@ -33,7 +33,7 @@ class DelayButton : public Button
 {
 public:
 	DelayButton(Rect rect, Rect sourceRect, Rect sourceRectPressed,
-		std::string name, Bitmap *icon, Rect iconSourceRect);
+		std::string name, std::shared_ptr<Bitmap> icon, Rect iconSourceRect);
 	virtual ~DelayButton();
 
 	void draw(const Vector2d& pos, float alpha);

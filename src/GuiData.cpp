@@ -39,19 +39,19 @@ using namespace Gus::LogLib;
 namespace GusGui
 {
 
-Bitmap *GuiData::menuBorder_Top = nullptr;
-Bitmap *GuiData::menuBorder_Bottom = nullptr;
-Bitmap *GuiData::menuBorder_Left = nullptr;
-Bitmap *GuiData::menuBorder_Right = nullptr;
+std::shared_ptr<Bitmap> GuiData::menuBorder_Top = nullptr;
+std::shared_ptr<Bitmap> GuiData::menuBorder_Bottom = nullptr;
+std::shared_ptr<Bitmap> GuiData::menuBorder_Left = nullptr;
+std::shared_ptr<Bitmap> GuiData::menuBorder_Right = nullptr;
 
-Bitmap *GuiData::menuBorder_Top_NoTrans = nullptr;
-Bitmap *GuiData::menuBorder_Bottom_NoTrans = nullptr;
-Bitmap *GuiData::menuBorder_Left_NoTrans = nullptr;
-Bitmap *GuiData::menuBorder_Right_NoTrans = nullptr;
+std::shared_ptr<Bitmap> GuiData::menuBorder_Top_NoTrans = nullptr;
+std::shared_ptr<Bitmap> GuiData::menuBorder_Bottom_NoTrans = nullptr;
+std::shared_ptr<Bitmap> GuiData::menuBorder_Left_NoTrans = nullptr;
+std::shared_ptr<Bitmap> GuiData::menuBorder_Right_NoTrans = nullptr;
 
-Bitmap *GuiData::menuBackground = nullptr;
+std::shared_ptr<Bitmap> GuiData::menuBackground = nullptr;
 
-Bitmap *GuiData::guiData = nullptr;
+std::shared_ptr<Bitmap> GuiData::guiData = nullptr;
 
 GraphicsLib::Font *GuiData::guiFont = nullptr;
 GraphicsLib::Font *GuiData::guiSmallFont = nullptr;
@@ -101,7 +101,7 @@ void GuiData::freeGuiGraphics()
 {
 	LOG("Done GUI graphics...");
 #ifndef REMOVE
-#define  REMOVE(a) { if (a != nullptr) { delete a; a = nullptr; } }
+#define  REMOVE(a) { if (a != nullptr) { a.reset(); a = nullptr; } }
 #endif
 
 	REMOVE(menuBorder_Top);
