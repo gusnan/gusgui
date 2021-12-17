@@ -1,50 +1,50 @@
 <root identifier="sciteproj project file">
-	<group name='src' expanded='TRUE'>
-		<group name='GuiObjects' expanded='TRUE'>
-			<file>./src/GuiObjects/Button.cpp</file>
-			<file>./src/GuiObjects/CheckBox.cpp</file>
-			<file>./src/GuiObjects/DelayButton.cpp</file>
-			<file>./src/GuiObjects/FadeButton.cpp</file>
-			<file>./src/GuiObjects/FileListGui.cpp</file>
-			<file>./src/GuiObjects/GuiObject.cpp</file>
-			<file>./src/GuiObjects/InvisibleGuiObject.cpp</file>
-			<file>./src/GuiObjects/LoaderMeter.cpp</file>
-			<file>./src/GuiObjects/Panel.cpp</file>
-			<file>./src/GuiObjects/TextInput.cpp</file>
-			<file>./src/GuiObjects/TextMarker.cpp</file>
-		</group>
-		<file>./src/GuiData.cpp</file>
-		<file>./src/GuiDraw.cpp</file>
-		<file>./src/GuiHandler.cpp</file>
-		<file>./src/GuiEventHandler.cpp</file>
-	</group>
-	<group name='include' expanded='TRUE'>
-		<file>./include/GusGui/Button.h</file>
-		<file>./include/GusGui/CheckBox.h</file>
-		<file>./include/GusGui/DelayButton.h</file>
-		<file>./include/GusGui/FadeButton.h</file>
-		<file>./include/GusGui/FileListGui.h</file>
-		<file>./include/GusGui/GuiObject.h</file>
-		<file>./include/GusGui/InvisibleGuiObject.h</file>
-		<file>./include/GusGui/LoaderMeter.h</file>
-		<file>./include/GusGui/Panel.h</file>
-		<file>./include/GusGui/TextInput.h</file>
-		<file>./include/GusGui/TextMarker.h</file>
-		<file>./include/GusGui/GuiData.h</file>
-		<file>./include/GusGui/GuiDraw.h</file>
-		<file>./include/GusGui/GuiLib.h</file>
-		<file>./include/GusGui/GuiHandler.h</file>
-		<file>./include/GusGui/GusGui.h</file>
-		<file>./include/GusGui/GuiEventHandler.h</file>
-	</group>
-	<group name='examples' expanded='TRUE'>
-		<group name='example1' expanded='TRUE'>
-			<file>./examples/example1.cpp</file>
-		</group>
-		<group name='example2' expanded='TRUE'>
-			<file>./examples/example2.cpp</file>
-		</group>
-	</group>
-	<file>./CMakeLists.txt</file>
-	<file>./cmake/FindGusGame.cmake</file>
+   <group name='src' expanded='TRUE'>
+      <group name='GuiObjects' expanded='TRUE'>
+         <file>./src/GuiObjects/Button.cpp</file>
+         <file>./src/GuiObjects/CheckBox.cpp</file>
+         <file>./src/GuiObjects/DelayButton.cpp</file>
+         <file>./src/GuiObjects/FadeButton.cpp</file>
+         <file>./src/GuiObjects/FileListGui.cpp</file>
+         <file>./src/GuiObjects/GuiObject.cpp</file>
+         <file>./src/GuiObjects/InvisibleGuiObject.cpp</file>
+         <file>./src/GuiObjects/LoaderMeter.cpp</file>
+         <file>./src/GuiObjects/Panel.cpp</file>
+         <file>./src/GuiObjects/TextInput.cpp</file>
+         <file>./src/GuiObjects/TextMarker.cpp</file>
+      </group>
+      <file>./src/GuiData.cpp</file>
+      <file>./src/GuiDraw.cpp</file>
+      <file>./src/GuiHandler.cpp</file>
+      <file>./src/GuiEventHandler.cpp</file>
+   </group>
+   <group name='include' expanded='TRUE'>
+      <file>./include/GusGui/Button.h</file>
+      <file>./include/GusGui/CheckBox.h</file>
+      <file>./include/GusGui/DelayButton.h</file>
+      <file>./include/GusGui/FadeButton.h</file>
+      <file>./include/GusGui/FileListGui.h</file>
+      <file>./include/GusGui/GuiObject.h</file>
+      <file>./include/GusGui/InvisibleGuiObject.h</file>
+      <file>./include/GusGui/LoaderMeter.h</file>
+      <file>./include/GusGui/Panel.h</file>
+      <file>./include/GusGui/TextInput.h</file>
+      <file>./include/GusGui/TextMarker.h</file>
+      <file>./include/GusGui/GuiData.h</file>
+      <file>./include/GusGui/GuiDraw.h</file>
+      <file>./include/GusGui/GuiLib.h</file>
+      <file>./include/GusGui/GuiHandler.h</file>
+      <file>./include/GusGui/GusGui.h</file>
+      <file>./include/GusGui/GuiEventHandler.h</file>
+   </group>
+   <group name='examples' expanded='TRUE'>
+      <group name='example1' expanded='TRUE'>
+         <file>./examples/example1.cpp</file>
+      </group>
+      <group name='example2' expanded='TRUE'>
+         <file>./examples/example2.cpp</file>
+      </group>
+   </group>
+   <file>./CMakeLists.txt</file>
+   <file>./cmake/FindGusGame.cmake</file>
 </root>

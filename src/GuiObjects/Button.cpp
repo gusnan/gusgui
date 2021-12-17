@@ -52,7 +52,7 @@ namespace GusGui
 /**
  *
  */
-Button::Button(const Rect &rect, std::string name, Bitmap *icon, bool invisible) : GuiObject(rect),
+Button::Button(const Rect &rect, std::string name, std::shared_ptr<Bitmap> icon, bool invisible) : GuiObject(rect),
 	m_Down(false), m_Pressed(false), m_Icon(icon), m_TextBitmap(nullptr), m_Invisible(invisible),
 	m_Text(""), m_SourceRect(Rect()), m_ActivateOnDown(false),
 	m_ButtonPressEvent(), m_ButtonReleaseEvent(), m_MoveOnDown(false)
@@ -111,7 +111,7 @@ Button::Button(const Rect &rect, std::string name, Bitmap *icon, bool invisible)
 /**
  *
  */
-Button::Button(const Rect &sourceRect, std::string name, const Rect &rect, Bitmap *icon, bool invisible) : GuiObject(rect),
+Button::Button(const Rect &sourceRect, std::string name, const Rect &rect, std::shared_ptr<Bitmap> icon, bool invisible) : GuiObject(rect),
 	m_Down(false), m_Pressed(false), m_Icon(icon), m_TextBitmap(nullptr), m_Invisible(invisible),
 	m_Text(""), m_SourceRect(), m_ActivateOnDown(false), m_ButtonPressEvent(),
 	m_ButtonReleaseEvent(), m_MoveOnDown(false)
@@ -277,7 +277,8 @@ Button& Button::operator=(const Button& source)
 Button::~Button()
 {
 	if (m_TextBitmap) {
-		delete m_TextBitmap;
+		// delete m_TextBitmap;
+      m_TextBitmap.reset();
 		m_TextBitmap = nullptr;
 	}
 

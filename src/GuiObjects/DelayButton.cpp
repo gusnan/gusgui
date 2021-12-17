@@ -55,7 +55,7 @@ namespace GusGui
  *
  */
 DelayButton::DelayButton(Rect rect, Rect sourceRect, Rect sourceRectPressed,
-	std::string name, Bitmap *icon, Rect iconSourceRect) : Button(rect, name, icon),
+	std::string name, std::shared_ptr<Bitmap> icon, Rect iconSourceRect) : Button(rect, name, icon),
 	m_Delay(0.0f), m_Speed(1.0f), m_IconSourceRect(), m_SourceRectPressed()
 {
 	m_Delay = 0.0f;

@@ -32,8 +32,8 @@ namespace GusGui
 class Button : public GuiObject
 {
 public:
-	Button(const Rect &rect, std::string name, Bitmap *icon = nullptr, bool invisible = false);
-	Button(const Rect &sourceRect, std::string name, const Rect &rect, Bitmap *icon = nullptr, bool invisible = false);
+	Button(const Rect &rect, std::string name, std::shared_ptr<Bitmap> icon = nullptr, bool invisible = false);
+	Button(const Rect &sourceRect, std::string name, const Rect &rect, std::shared_ptr<Bitmap> icon = nullptr, bool invisible = false);
 
 	Button(const Button& source);
 
@@ -94,7 +94,7 @@ protected:
 	bool m_Down;
 	bool m_Pressed;
 
-	Bitmap *m_Icon;
+	std::shared_ptr<Bitmap> m_Icon;
 
 /*
 	FrameBuffer *m_FrameBufferPressed;
@@ -114,7 +114,7 @@ protected:
 
 	bool m_Invisible;
 
-	Bitmap *m_TextBitmap;
+	std::shared_ptr<Bitmap> m_TextBitmap;
 
 	Rect m_SourceRect;
 

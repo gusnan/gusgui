@@ -38,22 +38,22 @@ namespace GuiData
 	extern GLBitmap *menuBorder_BottomRight;
 	*/
 
-	extern Bitmap *menuBorder_Top;
-	extern Bitmap *menuBorder_Bottom;
-	extern Bitmap *menuBorder_Left;
-	extern Bitmap *menuBorder_Right;
+	extern std::shared_ptr<Bitmap> menuBorder_Top;
+	extern std::shared_ptr<Bitmap> menuBorder_Bottom;
+	extern std::shared_ptr<Bitmap> menuBorder_Left;
+	extern std::shared_ptr<Bitmap> menuBorder_Right;
 
-	extern Bitmap *menuBorder_Top_NoTrans;
-	extern Bitmap *menuBorder_Bottom_NoTrans;
-	extern Bitmap *menuBorder_Left_NoTrans;
-	extern Bitmap *menuBorder_Right_NoTrans;
+	extern std::shared_ptr<Bitmap> menuBorder_Top_NoTrans;
+	extern std::shared_ptr<Bitmap> menuBorder_Bottom_NoTrans;
+	extern std::shared_ptr<Bitmap> menuBorder_Left_NoTrans;
+	extern std::shared_ptr<Bitmap> menuBorder_Right_NoTrans;
 
-	extern Bitmap *menuBackground;
+	extern std::shared_ptr<Bitmap> menuBackground;
 
 	//extern GLBitmap *buttonNormal,*buttonHover,*buttonPressed;
 
 	//extern GLBitmap *checkBoxActivePressed,*checkBoxActive,*checkBoxPressed,*checkBox;
-	extern Bitmap *guiData;
+	extern std::shared_ptr<Bitmap> guiData;
 
 	extern GraphicsLib::Font *guiFont;
 	extern GraphicsLib::Font *guiSmallFont;

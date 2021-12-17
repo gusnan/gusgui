@@ -4,9 +4,9 @@
 --
 -- 
 hide_filter = {
-	"lib",
-	"build",
-	".git"
+   "lib",
+   "build",
+   ".git"
 }
 
 

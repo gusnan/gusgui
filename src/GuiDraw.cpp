@@ -288,7 +288,7 @@ void GuiDraw::splitString(std::string instring, std::string& text, std::string& 
 /**
  *
  */
-Bitmap *GuiDraw::drawTextCentered(std::string intext)
+std::shared_ptr<Bitmap> GuiDraw::drawTextCentered(std::string intext)
 {
 	/*
 	std::string text,shortcut;

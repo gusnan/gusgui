@@ -206,7 +206,7 @@ protected:
 int main(int argc, char **argv)
 {
 	std::shared_ptr<EventHandler> eventHandler = std::shared_ptr<EventHandler>();
-	Bitmap *mouseBitmap = nullptr;
+	std::shared_ptr<Bitmap> mouseBitmap = nullptr;
 	GraphicsLib::Font *font = nullptr;
 	// std::vector<GuiObjectPtr> *guiList = NULL;
 
@@ -235,7 +235,7 @@ int main(int argc, char **argv)
 
 		Mouse::initMouse();
 
-		mouseBitmap = new Bitmap("mouse.png");
+		mouseBitmap = std::make_shared<Bitmap> ("mouse.png");
 
 		Mouse::setMouseBitmap(mouseBitmap);
 
@@ -317,9 +317,10 @@ int main(int argc, char **argv)
 	panel.reset();
 
 	delete font;
-	delete mouseBitmap;
 
 	Mouse::doneMouse();
+
+	mouseBitmap.reset();
 
 	delete userEvent;
 

@@ -35,31 +35,31 @@ option (DEBUG "Build Debug executable" off)
 find_package(Allegro5 REQUIRED)
 
 if (DEBUG)
-	message(STATUS "Building Debug executable")
-	set(CMAKE_BUILD_TYPE "Debug")
-	add_definitions(-D_DEBUG)
-	#add_definitions(-Wwrite-strings 
-			#-Wextra 
-			#-Wall 
-			#-Winit-self 
-			#-O 
-			#-Wno-uninitialized 
-			#-Wno-unused-parameter 
-			#-Wno-switch
-			#-w
-			#-Wreturn-type
-			#-Weffc++
-		#)
-	# Cpp only flags: (Will not be applied to C files.)
-	# set(CMAKE_CXX_FLAGS -Weffc++)
-	
+   message(STATUS "Building Debug executable")
+   set(CMAKE_BUILD_TYPE "Debug")
+   add_definitions(-D_DEBUG)
+   #add_definitions(-Wwrite-strings 
+         #-Wextra 
+         #-Wall 
+         #-Winit-self 
+         #-O 
+         #-Wno-uninitialized 
+         #-Wno-unused-parameter 
+         #-Wno-switch
+         #-w
+         #-Wreturn-type
+         #-Weffc++
+      #)
+   # Cpp only flags: (Will not be applied to C files.)
+   # set(CMAKE_CXX_FLAGS -Weffc++)
+   
 else (DEBUG)
-	message(STATUS "Building Release executable")
-	#add_definitions(-fomit-frame-pointer)
-	set(CMAKE_BUILD_TYPE "Release")
-	
+   message(STATUS "Building Release executable")
+   #add_definitions(-fomit-frame-pointer)
+   set(CMAKE_BUILD_TYPE "Release")
+   
 endif (DEBUG)
-	
+   
 set(DLL_FLAGS -DBUILDING_GUSGAME_DLL)
 
 set(BUILD_SHARED_LIBS on)
@@ -77,7 +77,7 @@ SET(CMAKE_SHARED_LIBRARY_CXX_FLAGS "${CMAKE_SHARED_LIBRARY_CXX_FLAGS} -DBUILDING
 #
 # for some info.
 if (MSYS) 
-	set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,-enable-auto-import")
+   set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,-enable-auto-import")
 endif (MSYS)
 
 
@@ -106,17 +106,17 @@ include_directories(include ${ALLEGRO_INCLUDE_DIR})
 set(SRC src/GuiObjects)
 
 set(OBJECT_SOURCES
-	${SRC}/Button.cpp
-	${SRC}/CheckBox.cpp
-	${SRC}/DelayButton.cpp
-	${SRC}/FadeButton.cpp
-	${SRC}/FileListGui.cpp
-	${SRC}/GuiObject.cpp
-	${SRC}/InvisibleGuiObject.cpp
-	${SRC}/LoaderMeter.cpp
-	${SRC}/Panel.cpp
-	# ${SRC}/TextInput.cpp
-	# ${SRC}/TextMarker.cpp
+   ${SRC}/Button.cpp
+   ${SRC}/CheckBox.cpp
+   ${SRC}/DelayButton.cpp
+   ${SRC}/FadeButton.cpp
+   ${SRC}/FileListGui.cpp
+   ${SRC}/GuiObject.cpp
+   ${SRC}/InvisibleGuiObject.cpp
+   ${SRC}/LoaderMeter.cpp
+   ${SRC}/Panel.cpp
+   # ${SRC}/TextInput.cpp
+   # ${SRC}/TextMarker.cpp
 )
 
 #add_library(logLib STATIC ${LOG_SOURCES})
@@ -128,10 +128,10 @@ set(OBJECT_SOURCES
 set(SRC src/)
 
 set(LIB_SOURCES
-	${SRC}/GuiData.cpp
-	${SRC}/GuiDraw.cpp
-	${SRC}/GuiHandler.cpp
-	${SRC}/GuiEventHandler.cpp
+   ${SRC}/GuiData.cpp
+   ${SRC}/GuiDraw.cpp
+   ${SRC}/GuiHandler.cpp
+   ${SRC}/GuiEventHandler.cpp
 
 )
 
@@ -142,40 +142,40 @@ set(LIB_SOURCES
 #add_library(eventLib STATIC ${EVENTLIB_SOURCES})
 
 set(SOURCES
-	${OBJECT_SOURCES}
-	${LIB_SOURCES}
+   ${OBJECT_SOURCES}
+   ${LIB_SOURCES}
 )
 
 set(INC include/GusGui)
 
 set(INCLUDE_FILES
-	${INC}/Button.h
-	${INC}/DelayButton.h  
-	${INC}/DynamicLink.h
-	${INC}/FileListGui.h  
-	${INC}/GuiDraw.h     
-	${INC}/GuiLib.h     
-	${INC}/GusGui.h              
-	${INC}/LoaderMeter.h  
-	#${INC}/TextInput.h
-	${INC}/CheckBox.h  
-	${INC}/FadeButton.h   
-	${INC}/GuiData.h      
-	${INC}/GuiHandler.h  
-	${INC}/GuiObject.h  
-	${INC}/InvisibleGuiObject.h  
-	${INC}/Panel.h        
-	#${INC}/TextMarker.h
-	${INC}/GuiEventHandler.h
-	
+   ${INC}/Button.h
+   ${INC}/DelayButton.h  
+   ${INC}/DynamicLink.h
+   ${INC}/FileListGui.h  
+   ${INC}/GuiDraw.h     
+   ${INC}/GuiLib.h     
+   ${INC}/GusGui.h              
+   ${INC}/LoaderMeter.h  
+   #${INC}/TextInput.h
+   ${INC}/CheckBox.h  
+   ${INC}/FadeButton.h   
+   ${INC}/GuiData.h      
+   ${INC}/GuiHandler.h  
+   ${INC}/GuiObject.h  
+   ${INC}/InvisibleGuiObject.h  
+   ${INC}/Panel.h        
+   #${INC}/TextMarker.h
+   ${INC}/GuiEventHandler.h
+   
 )
 
 if (WIN32)
-	if (MSYS) 
-		Set (WINGL_LIBS glu32)
-	else (MSYS)
-		Set (WINGL_LIBS glu32)
-	endif (MSYS)
+   if (MSYS) 
+      Set (WINGL_LIBS glu32)
+   else (MSYS)
+      Set (WINGL_LIBS glu32)
+   endif (MSYS)
 
 endif(WIN32)
 
@@ -193,14 +193,14 @@ include_directories(include ${GUSGAME_INCLUDE_DIR})
 include_directories(include ${Boost_INCLUDE_DIR})
 
 if (MSYS)
-	message(STATUS "MingDir: $ENV{MINGDIR}")
+   message(STATUS "MingDir: $ENV{MINGDIR}")
 endif (MSYS)
 
 message(STATUS "Boost INCLUDE_DIR: ${Boost_INCLUDE_DIR}")
 message(STATUS "GUSGAME_INCLUDE_DIR: ${GUSGAME_INCLUDE_DIR}")
 
 if (NOT ALLEGRO_FOUND)
-	message(FATAL_ERROR "Allegro not found!")
+   message(FATAL_ERROR "Allegro not found!")
 endif (NOT ALLEGRO_FOUND)
 
 # And some libs:
@@ -214,28 +214,28 @@ message(STATUS "GLUT_LIBRARY: ${GLUT_LIBRARY}")
 message(STATUS "MY_GLEW_LIB: ${MY_GLEW_LIB}")
 
 if (USE_GLEW) 
-	set (MY_GLEW_LIB ${GLEW_LIBRARY})
+   set (MY_GLEW_LIB ${GLEW_LIBRARY})
 else (USE_GLEW)
-	set (MY_GLEW_LIB )
+   set (MY_GLEW_LIB )
 endif (USE_GLEW)
 
 if (MSYS)
-	set (GL_LIBS ${OPENGL_LIBRARY} ${OPENGL_LIBRARIES})
+   set (GL_LIBS ${OPENGL_LIBRARY} ${OPENGL_LIBRARIES})
 else (MSYS)
-	set (GL_LIBS ${OPENGL_LIBRARY})
+   set (GL_LIBS ${OPENGL_LIBRARY})
 endif (MSYS)
 
 set(ALL_LIBS 
 
-	${LUA_LIBRARIES}
-	${GL_LIBS}
-	${GLUT_LIBRARY}
-	${WINGL_LIBS}
-	${MY_GLEW_LIB}
-	
-	${ALLEGRO_LIBRARIES}
+   ${LUA_LIBRARIES}
+   ${GL_LIBS}
+   ${GLUT_LIBRARY}
+   ${WINGL_LIBS}
+   ${MY_GLEW_LIB}
+   
+   ${ALLEGRO_LIBRARIES}
 )
-	
+   
 
 link_libraries(${ALL_LIBS} ${GUSGAME_LIBRARY})
 

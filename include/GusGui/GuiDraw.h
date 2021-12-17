@@ -52,7 +52,7 @@ namespace GuiDraw
 
 	//void MakeTextButton(FrameBuffer *standard,FrameBuffer *hover,FrameBuffer *pressed,std::string text);
 
-	Bitmap *drawTextCentered(std::string intext);
+	std::shared_ptr<Bitmap> drawTextCentered(std::string intext);
 
 	void drawNiceTextSmall(Vector2d pos, std::string st, Color col, float opacity = 1.0f);
 	void drawNiceText(Vector2d pos, std::string st, Color col, float opacity = 1.0f);
