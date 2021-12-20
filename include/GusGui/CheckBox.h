@@ -33,43 +33,43 @@ class CheckBox : public GuiObject
 {
 public:
 
-	CheckBox();
-	CheckBox(const CheckBox& source);
-	CheckBox(Rect pos, bool checked = false);
-	CheckBox(Rect pos,std::string text, bool checked = false);
-	virtual ~CheckBox();
+   CheckBox();
+   CheckBox(const CheckBox& source);
+   CheckBox(Rect pos, bool checked = false);
+   CheckBox(Rect pos,std::string text, bool checked = false);
+   virtual ~CheckBox();
 
-	CheckBox& operator=(const CheckBox& source);
+   CheckBox& operator=(const CheckBox& source);
 
-	void draw(const Vector2d& pos, float alpha = 1.0f);
+   void draw(const Vector2d& pos, float alpha = 1.0f);
 
-	void update();
+   void update();
 
-	void setText(std::string text);
+   void setText(std::string text);
 
-	bool getChecked() const;
-	void setChecked(bool);
+   bool getChecked() const;
+   void setChecked(bool);
 
-	void switchChecked();
+   void switchChecked();
 
-	virtual bool handleKeyboardEvent(KeyEvent &event);
+   virtual bool handleKeyboardEvent(KeyEvent &event);
 
-	bool onLeftMouseButtonPressed(const Vector2d& pos);
-	bool onLeftMouseButtonReleased(const Vector2d& pos);
+   bool onLeftMouseButtonPressed(const Vector2d& pos);
+   bool onLeftMouseButtonReleased(const Vector2d& pos);
 
 protected:
-	bool m_Checked;
+   bool m_Checked;
 
-	bool m_Down;
+   bool m_Down;
 
-	std::string m_Text;
+   std::string m_Text;
 
-	Bitmap *m_TextBitmap;
+   Bitmap *m_TextBitmap;
 
-	Vector2d m_CheckBoxSize;
+   Vector2d m_CheckBoxSize;
 
-	// the text width in pixels
-	int m_TextWidth;
+   // the text width in pixels
+   int m_TextWidth;
 
 };
 

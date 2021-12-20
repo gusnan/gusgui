@@ -41,7 +41,6 @@ using namespace Gus::EventLib;
 namespace GusGui
 {
 
-	
 /**
  *
  */

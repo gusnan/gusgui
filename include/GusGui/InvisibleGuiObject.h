@@ -33,12 +33,12 @@ namespace GusGui
 class InvisibleGuiObject : public GuiObject
 {
 public:
-	InvisibleGuiObject();
-	virtual ~InvisibleGuiObject();
+   InvisibleGuiObject();
+   virtual ~InvisibleGuiObject();
 
-	virtual void draw(const Vector2d &pos, float opacity = 1.0f);
+   virtual void draw(const Vector2d &pos, float opacity = 1.0f);
 
-	virtual void update();
+   virtual void update();
 
 
 };

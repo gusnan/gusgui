@@ -32,26 +32,26 @@ namespace GusGui
 class FadeButton : public Button
 {
 public:
-	FadeButton(Rect rect, std::string name);
-	virtual ~FadeButton();
+   FadeButton(Rect rect, std::string name);
+   virtual ~FadeButton();
 
-	void setPressed();
+   void setPressed();
 
-	virtual void draw(const Vector2d& pos, float opacity = 1.0f);
+   virtual void draw(const Vector2d& pos, float opacity = 1.0f);
 
-	virtual void update();
+   virtual void update();
 
-	void setShowHover(bool hover);
+   void setShowHover(bool hover);
 
-	bool onLeftMouseButtonPressed(const Vector2d& pos);
-	bool onLeftMouseButtonReleased(const Vector2d& pos);
+   bool onLeftMouseButtonPressed(const Vector2d& pos);
+   bool onLeftMouseButtonReleased(const Vector2d& pos);
 
-	virtual void onMouseMove(const Vector2d& pos);
+   virtual void onMouseMove(const Vector2d& pos);
 
 protected:
-	float m_Fade;
+   float m_Fade;
 
-	bool m_ShowHover;
+   bool m_ShowHover;
 };
 
 // end of namespace

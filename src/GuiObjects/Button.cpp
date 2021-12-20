@@ -53,57 +53,57 @@ namespace GusGui
  *
  */
 Button::Button(const Rect &rect, std::string name, std::shared_ptr<Bitmap> icon, bool invisible) : GuiObject(rect),
-	m_Down(false), m_Pressed(false), m_Icon(icon), m_TextBitmap(nullptr), m_Invisible(invisible),
-	m_Text(""), m_SourceRect(Rect()), m_ActivateOnDown(false),
-	m_ButtonPressEvent(), m_ButtonReleaseEvent(), m_MoveOnDown(false)
+   m_Down(false), m_Pressed(false), m_Icon(icon), m_TextBitmap(nullptr), m_Invisible(invisible),
+   m_Text(""), m_SourceRect(Rect()), m_ActivateOnDown(false),
+   m_ButtonPressEvent(), m_ButtonReleaseEvent(), m_MoveOnDown(false)
 {
-	//SetInvisible(invisible);
+   //SetInvisible(invisible);
 
-	setName(name);
+   setName(name);
 
-	m_Active = true;
-	m_MouseOver = false;
+   m_Active = true;
+   m_MouseOver = false;
 
-	/*
-	m_TextBitmap=0;
+   /*
+   m_TextBitmap=0;
 
-	m_Invisible=invisible;
-	*/
+   m_Invisible=invisible;
+   */
 
-	//m_HasEvent=false;
+   //m_HasEvent=false;
 
 #ifndef _NO_FRAME_BUFFER_
-	m_FrameBufferStandard = nullptr;
-	m_FrameBufferPressed = nullptr;
-	m_FrameBufferHover = nullptr;
+   m_FrameBufferStandard = nullptr;
+   m_FrameBufferPressed = nullptr;
+   m_FrameBufferHover = nullptr;
 #endif
 
-	if (!m_Invisible) {
-		//m_Rect=Rect(rect.position,GuiData::buttonNormal->GetSize());
-		m_Rect = rect; //Rect(rect.position,GuiData::buttonNormal->GetSize());
+   if (!m_Invisible) {
+      //m_Rect=Rect(rect.position,GuiData::buttonNormal->GetSize());
+      m_Rect = rect; //Rect(rect.position,GuiData::buttonNormal->GetSize());
 
-	} else {
-	}
+   } else {
+   }
 
-	m_Icon = icon;
+   m_Icon = icon;
 
-	m_SourceRect = Rect(-1, -1, -1, -1);
+   m_SourceRect = Rect(-1, -1, -1, -1);
 
-	//m_TextBitmap=0;
+   //m_TextBitmap=0;
 
-	/*
-	m_ActivateOnDown=false;
-	m_MouseOver=false;
-	m_Pressed=false;
-	*/
+   /*
+   m_ActivateOnDown=false;
+   m_MouseOver=false;
+   m_Pressed=false;
+   */
 
-	m_MoveOnDown = false;
+   m_MoveOnDown = false;
 
-	m_ButtonPressEvent = nullptr;
-	m_ButtonReleaseEvent = nullptr;
+   m_ButtonPressEvent = nullptr;
+   m_ButtonReleaseEvent = nullptr;
 
-	m_ButtonLostFocusEvent = nullptr;
-	m_ButtonGainedFocusEvent = nullptr;
+   m_ButtonLostFocusEvent = nullptr;
+   m_ButtonGainedFocusEvent = nullptr;
 
 }
 
@@ -112,55 +112,55 @@ Button::Button(const Rect &rect, std::string name, std::shared_ptr<Bitmap> icon,
  *
  */
 Button::Button(const Rect &sourceRect, std::string name, const Rect &rect, std::shared_ptr<Bitmap> icon, bool invisible) : GuiObject(rect),
-	m_Down(false), m_Pressed(false), m_Icon(icon), m_TextBitmap(nullptr), m_Invisible(invisible),
-	m_Text(""), m_SourceRect(), m_ActivateOnDown(false), m_ButtonPressEvent(),
-	m_ButtonReleaseEvent(), m_MoveOnDown(false)
+   m_Down(false), m_Pressed(false), m_Icon(icon), m_TextBitmap(nullptr), m_Invisible(invisible),
+   m_Text(""), m_SourceRect(), m_ActivateOnDown(false), m_ButtonPressEvent(),
+   m_ButtonReleaseEvent(), m_MoveOnDown(false)
 {
-	//SetInvisible(invisible);
+   //SetInvisible(invisible);
 
-	setName(name);
+   setName(name);
 
-	m_Down = false;
-	m_Pressed = false;
-	m_Active = true;
+   m_Down = false;
+   m_Pressed = false;
+   m_Active = true;
 
-	m_Icon = icon;
+   m_Icon = icon;
 
-	m_TextBitmap = nullptr;
+   m_TextBitmap = nullptr;
 
-	m_Invisible = invisible;
+   m_Invisible = invisible;
 
 #ifndef _NO_FRAME_BUFFER_
-	m_FrameBufferStandard = nullptr;
-	m_FrameBufferPressed = nullptr;
-	m_FrameBufferHover = nullptr;
+   m_FrameBufferStandard = nullptr;
+   m_FrameBufferPressed = nullptr;
+   m_FrameBufferHover = nullptr;
 #endif
 
-	//m_HasEvent=false;
+   //m_HasEvent=false;
 
-	if (!m_Invisible) {
-		m_Rect = rect;
+   if (!m_Invisible) {
+      m_Rect = rect;
 
-	} else {
-	}
+   } else {
+   }
 
-	m_SourceRect = sourceRect;
+   m_SourceRect = sourceRect;
 
-	m_Icon = icon;
+   m_Icon = icon;
 
-	//m_TextBitmap=0;
+   //m_TextBitmap=0;
 
-	m_ActivateOnDown = false;
-	m_MouseOver = false;
-	m_Pressed = false;
+   m_ActivateOnDown = false;
+   m_MouseOver = false;
+   m_Pressed = false;
 
-	m_MoveOnDown = false;
+   m_MoveOnDown = false;
 
-	m_ButtonPressEvent = nullptr;
-	m_ButtonReleaseEvent = nullptr;
+   m_ButtonPressEvent = nullptr;
+   m_ButtonReleaseEvent = nullptr;
 
-	m_ButtonLostFocusEvent = nullptr;
-	m_ButtonGainedFocusEvent = nullptr;
+   m_ButtonLostFocusEvent = nullptr;
+   m_ButtonGainedFocusEvent = nullptr;
 
 }
 
@@ -169,51 +169,51 @@ Button::Button(const Rect &sourceRect, std::string name, const Rect &rect, std::
  *
  */
 Button::Button(const Button& source) : GuiObject(source),
-	m_Down(false), m_Pressed(false), m_Icon(), m_TextBitmap(nullptr), m_Invisible(false),
-	m_Text(""), m_SourceRect(), m_ActivateOnDown(false), m_ButtonPressEvent(),
-	m_ButtonReleaseEvent(), m_MoveOnDown(false)
+   m_Down(false), m_Pressed(false), m_Icon(), m_TextBitmap(nullptr), m_Invisible(false),
+   m_Text(""), m_SourceRect(), m_ActivateOnDown(false), m_ButtonPressEvent(),
+   m_ButtonReleaseEvent(), m_MoveOnDown(false)
 {
-	m_Down = source.m_Down;
-	m_Pressed = source.m_Pressed;
-	m_Active = source.m_Active;
+   m_Down = source.m_Down;
+   m_Pressed = source.m_Pressed;
+   m_Active = source.m_Active;
 
-	m_Icon = source.m_Icon;
+   m_Icon = source.m_Icon;
 
-	m_TextBitmap = source.m_TextBitmap->makeCopy();
+   m_TextBitmap = source.m_TextBitmap->makeCopy();
 
-	m_Invisible = source.m_Invisible;
+   m_Invisible = source.m_Invisible;
 
 #ifndef _NO_FRAME_BUFFER_
-	m_FrameBufferStandard = nullptr;
-	m_FrameBufferPressed = nullptr;
-	m_FrameBufferHover = nullptr;
+   m_FrameBufferStandard = nullptr;
+   m_FrameBufferPressed = nullptr;
+   m_FrameBufferHover = nullptr;
 #endif
 
-	//m_HasEvent=false;
+   //m_HasEvent=false;
 
-	if (!m_Invisible) {
-		m_Rect = source.m_Rect;
+   if (!m_Invisible) {
+      m_Rect = source.m_Rect;
 
-	} else {
-	}
+   } else {
+   }
 
-	m_SourceRect = source.m_SourceRect;
+   m_SourceRect = source.m_SourceRect;
 
-	m_Icon = source.m_Icon->makeCopy();
+   m_Icon = source.m_Icon->makeCopy();
 
-	//m_TextBitmap=0;
+   //m_TextBitmap=0;
 
-	m_ActivateOnDown = source.m_ActivateOnDown;
-	m_MouseOver = source.m_MouseOver;
-	m_Pressed = source.m_Pressed;
+   m_ActivateOnDown = source.m_ActivateOnDown;
+   m_MouseOver = source.m_MouseOver;
+   m_Pressed = source.m_Pressed;
 
-	m_MoveOnDown = source.m_MoveOnDown;
+   m_MoveOnDown = source.m_MoveOnDown;
 
-	m_ButtonPressEvent = source.m_ButtonPressEvent;
-	m_ButtonReleaseEvent = source.m_ButtonReleaseEvent;
+   m_ButtonPressEvent = source.m_ButtonPressEvent;
+   m_ButtonReleaseEvent = source.m_ButtonReleaseEvent;
 
-	m_ButtonLostFocusEvent = source.m_ButtonLostFocusEvent;
-	m_ButtonGainedFocusEvent = source.m_ButtonGainedFocusEvent;
+   m_ButtonLostFocusEvent = source.m_ButtonLostFocusEvent;
+   m_ButtonGainedFocusEvent = source.m_ButtonGainedFocusEvent;
 
 }
 
@@ -223,51 +223,51 @@ Button::Button(const Button& source) : GuiObject(source),
  */
 Button& Button::operator=(const Button& source)
 {
-	if (this!=&source) {
-		m_Down = source.m_Down;
-		m_Pressed = source.m_Pressed;
-		m_Active = source.m_Active;
+   if (this!=&source) {
+      m_Down = source.m_Down;
+      m_Pressed = source.m_Pressed;
+      m_Active = source.m_Active;
 
-		m_Icon = source.m_Icon;
+      m_Icon = source.m_Icon;
 
-		m_TextBitmap = source.m_TextBitmap->makeCopy();
+      m_TextBitmap = source.m_TextBitmap->makeCopy();
 
-		m_Invisible = source.m_Invisible;
+      m_Invisible = source.m_Invisible;
 
-	#ifndef _NO_FRAME_BUFFER_
-		m_FrameBufferStandard = 0;
-		m_FrameBufferPressed = 0;
-		m_FrameBufferHover = 0;
-	#endif
+   #ifndef _NO_FRAME_BUFFER_
+      m_FrameBufferStandard = 0;
+      m_FrameBufferPressed = 0;
+      m_FrameBufferHover = 0;
+   #endif
 
-		//m_HasEvent=false;
+      //m_HasEvent=false;
 
-		if (!m_Invisible) {
-			m_Rect = source.m_Rect;
+      if (!m_Invisible) {
+         m_Rect = source.m_Rect;
 
-		} else {
-		}
+      } else {
+      }
 
-		m_SourceRect = source.m_SourceRect;
+      m_SourceRect = source.m_SourceRect;
 
-		m_Icon = source.m_Icon->makeCopy();
+      m_Icon = source.m_Icon->makeCopy();
 
-		//m_TextBitmap=0;
+      //m_TextBitmap=0;
 
-		m_ActivateOnDown = source.m_ActivateOnDown;
-		m_MouseOver = source.m_MouseOver;
-		m_Pressed = source.m_Pressed;
+      m_ActivateOnDown = source.m_ActivateOnDown;
+      m_MouseOver = source.m_MouseOver;
+      m_Pressed = source.m_Pressed;
 
-		m_MoveOnDown = source.m_MoveOnDown;
+      m_MoveOnDown = source.m_MoveOnDown;
 
-		m_ButtonPressEvent = source.m_ButtonPressEvent;
-		m_ButtonReleaseEvent = source.m_ButtonReleaseEvent;
+      m_ButtonPressEvent = source.m_ButtonPressEvent;
+      m_ButtonReleaseEvent = source.m_ButtonReleaseEvent;
 
-		m_ButtonLostFocusEvent = source.m_ButtonLostFocusEvent;
-		m_ButtonGainedFocusEvent = source.m_ButtonGainedFocusEvent;
-	}
+      m_ButtonLostFocusEvent = source.m_ButtonLostFocusEvent;
+      m_ButtonGainedFocusEvent = source.m_ButtonGainedFocusEvent;
+   }
 
-	return *this;
+   return *this;
 }
 
 
@@ -276,26 +276,26 @@ Button& Button::operator=(const Button& source)
  */
 Button::~Button()
 {
-	if (m_TextBitmap) {
-		// delete m_TextBitmap;
+   if (m_TextBitmap) {
+      // delete m_TextBitmap;
       m_TextBitmap.reset();
-		m_TextBitmap = nullptr;
-	}
+      m_TextBitmap = nullptr;
+   }
 
 #ifndef _NO_FRAME_BUFFER_
 
-	if (m_FrameBufferPressed) {
-		delete m_FrameBufferPressed;
-		m_FrameBufferPressed = nullptr;
-	}
-	if (m_FrameBufferHover) {
-		delete m_FrameBufferHover;
-		m_FrameBufferHover = nullptr;
-	}
-	if (m_FrameBufferStandard) {
-		delete m_FrameBufferHover;
-		m_FrameBufferHover = nullptr;
-	}
+   if (m_FrameBufferPressed) {
+      delete m_FrameBufferPressed;
+      m_FrameBufferPressed = nullptr;
+   }
+   if (m_FrameBufferHover) {
+      delete m_FrameBufferHover;
+      m_FrameBufferHover = nullptr;
+   }
+   if (m_FrameBufferStandard) {
+      delete m_FrameBufferHover;
+      m_FrameBufferHover = nullptr;
+   }
 #endif
 
 }
@@ -306,7 +306,7 @@ Button::~Button()
  */
 Button *Button::makeCopy()
 {
-	return new Button(*this);
+   return new Button(*this);
 }
 
 
@@ -315,78 +315,78 @@ Button *Button::makeCopy()
  */
 void Button::draw(const Vector2d& pos, float alpha)
 {
-	Vector2d newpos = getRect().position + pos;
+   Vector2d newpos = getRect().position + pos;
 
-	Rect newrect = Rect(newpos, getRect().size);
+   Rect newrect = Rect(newpos, getRect().size);
 
-	Vector2d size = Vector2d(108, 22); //GuiData::buttonNormal->GetSize();
+   Vector2d size = Vector2d(108, 22); //GuiData::buttonNormal->GetSize();
 
-	//Vector2d shadePos(2,2);
+   //Vector2d shadePos(2,2);
 
-	//if (m_FrameBufferStandard!=0) {
+   //if (m_FrameBufferStandard!=0) {
 
-	if (m_Down) {
-		//if (m_FrameBufferPressed) m_FrameBufferPressed->Blit(newrect.position,alpha);
+   if (m_Down) {
+      //if (m_FrameBufferPressed) m_FrameBufferPressed->Blit(newrect.position,alpha);
 
-		if (m_TextBitmap) {
-			//GuiData::buttonPressed->Blit(newpos,alpha);
-			GuiData::guiData->blit(Rect(0, 85, 108, 22), newpos, FlipNone, alpha);
+      if (m_TextBitmap) {
+         //GuiData::buttonPressed->Blit(newpos,alpha);
+         GuiData::guiData->blit(Rect(0, 85, 108, 22), newpos, FlipNone, alpha);
 
-			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-			m_TextBitmap->blitCenterColor(Rect(newrect.position+Vector2d(1 + 2, -1 + 2), size), colorBlack, alpha);
-			glBlendFunc(GL_SRC_ALPHA,GL_ONE);
-			m_TextBitmap->blitCenter(Rect(newrect.position + Vector2d(1, -1), size), alpha);
-		}
+         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+         m_TextBitmap->blitCenterColor(Rect(newrect.position+Vector2d(1 + 2, -1 + 2), size), colorBlack, alpha);
+         glBlendFunc(GL_SRC_ALPHA,GL_ONE);
+         m_TextBitmap->blitCenter(Rect(newrect.position + Vector2d(1, -1), size), alpha);
+      }
 
-	} else {
-		if (m_MouseOver) {
-			//if (m_FrameBufferHover) m_FrameBufferHover->Blit(newrect.position,alpha);
+   } else {
+      if (m_MouseOver) {
+         //if (m_FrameBufferHover) m_FrameBufferHover->Blit(newrect.position,alpha);
 
-			if (m_TextBitmap) {
-				//GuiData::buttonHover->Blit(newpos,alpha);
-				GuiData::guiData->blit(Rect(0, 107, 108, 22), newpos, FlipNone, alpha);
+         if (m_TextBitmap) {
+            //GuiData::buttonHover->Blit(newpos,alpha);
+            GuiData::guiData->blit(Rect(0, 107, 108, 22), newpos, FlipNone, alpha);
 
-				glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-				m_TextBitmap->blitCenterColor(newrect + Vector2d(2, 2), colorBlack, alpha);
-				glBlendFunc(GL_SRC_ALPHA, GL_ONE);
-				m_TextBitmap->blitCenter(newrect, alpha);
-			}
+            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+            m_TextBitmap->blitCenterColor(newrect + Vector2d(2, 2), colorBlack, alpha);
+            glBlendFunc(GL_SRC_ALPHA, GL_ONE);
+            m_TextBitmap->blitCenter(newrect, alpha);
+         }
 
-		} else {
-			//if (m_FrameBufferStandard) m_FrameBufferStandard->Blit(newrect.position,alpha);
-			//if (!m_Invisible)
+      } else {
+         //if (m_FrameBufferStandard) m_FrameBufferStandard->Blit(newrect.position,alpha);
+         //if (!m_Invisible)
 
-			if (m_TextBitmap) {
-				//GuiData::buttonNormal->Blit(newpos,alpha);
-				GuiData::guiData->blit(Rect(0, 63, 108, 22), newpos, FlipNone, alpha);
+         if (m_TextBitmap) {
+            //GuiData::buttonNormal->Blit(newpos,alpha);
+            GuiData::guiData->blit(Rect(0, 63, 108, 22), newpos, FlipNone, alpha);
 
-				glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-				m_TextBitmap->blitCenterColor(newrect + Vector2d(2, 2), colorBlack, alpha);
-				glBlendFunc(GL_SRC_ALPHA, GL_ONE);
-				m_TextBitmap->blitCenter(newrect ,alpha);
-			}
-		}
-	}
+            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+            m_TextBitmap->blitCenterColor(newrect + Vector2d(2, 2), colorBlack, alpha);
+            glBlendFunc(GL_SRC_ALPHA, GL_ONE);
+            m_TextBitmap->blitCenter(newrect ,alpha);
+         }
+      }
+   }
 
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 
-	if (m_Icon) {
+   if (m_Icon) {
 
-		Vector2d newPos = newrect.position;
+      Vector2d newPos = newrect.position;
 
-		if (m_Down) {
-			if (m_MoveOnDown) {
-				newPos += Vector2d(1, 1);
-			}
-		}
+      if (m_Down) {
+         if (m_MoveOnDown) {
+            newPos += Vector2d(1, 1);
+         }
+      }
 
-		if (m_SourceRect.position.x != -1) {
-			m_Icon->blit(m_SourceRect, newPos, FlipNone, alpha);
-		} else {
-			m_Icon->blit(newPos, alpha);
-		}
-	}
+      if (m_SourceRect.position.x != -1) {
+         m_Icon->blit(m_SourceRect, newPos, FlipNone, alpha);
+      } else {
+         m_Icon->blit(newPos, alpha);
+      }
+   }
 
 }
 
@@ -396,9 +396,9 @@ void Button::draw(const Vector2d& pos, float alpha)
  */
 bool Button::getPressed()
 {
-	bool result = m_Pressed;
-	m_Pressed = false;
-	return result;
+   bool result = m_Pressed;
+   m_Pressed = false;
+   return result;
 }
 
 
@@ -407,7 +407,7 @@ bool Button::getPressed()
  */
 bool Button::getDown()
 {
-	return m_Down;
+   return m_Down;
 }
 
 
@@ -416,9 +416,9 @@ bool Button::getDown()
  */
 void Button::update()
 {
-	if (!m_Active) {
-		m_MouseOver = false;
-	}
+   if (!m_Active) {
+      m_MouseOver = false;
+   }
 }
 
 
@@ -427,15 +427,15 @@ void Button::update()
  */
 void Button::setGraphics(Bitmap *button, Bitmap *buttonPressed, Bitmap *buttonHover)
 {
-	/*
-	m_BitmapStandard=button;
-	m_BitmapHover=buttonHover;
-	m_BitmapPressed=buttonPressed;
-	*/
+   /*
+   m_BitmapStandard=button;
+   m_BitmapHover=buttonHover;
+   m_BitmapPressed=buttonPressed;
+   */
 
 
-	m_Rect.size = Vector2d(108, 22); //GuiData::buttonNormal->GetSize();
-	//GuiData::buttonNormal->GetSize();
+   m_Rect.size = Vector2d(108, 22); //GuiData::buttonNormal->GetSize();
+   //GuiData::buttonNormal->GetSize();
 
 }
 
@@ -446,16 +446,16 @@ void Button::setGraphics(Bitmap *button, Bitmap *buttonPressed, Bitmap *buttonHo
 /*
 void Button::SetTextBitmap(GLBitmap *textBitmap)
 {
-	Bitmap *tempText;
-	Bitmap *buttonText;
+   Bitmap *tempText;
+   Bitmap *buttonText;
 
-	tempText=GuiHandler::guiFont->RenderText("Hej!",colorWhite);
+   tempText=GuiHandler::guiFont->RenderText("Hej!",colorWhite);
 
-	buttonText=new Bitmap(tempText->GetSize());
+   buttonText=new Bitmap(tempText->GetSize());
 
-	m_TextBitmap=new GLBitmap(tempText);
+   m_TextBitmap=new GLBitmap(tempText);
 
-	delete tempText;
+   delete tempText;
 }
 */
 
@@ -465,20 +465,20 @@ void Button::SetTextBitmap(GLBitmap *textBitmap)
  */
 void Button::setText(std::string file, int line, std::string text)
 {
-	/*m_Text=text;*/
+   /*m_Text=text;*/
 
-	m_TextBitmap = GuiDraw::drawTextCentered(text/*m_Text*/);
+   m_TextBitmap = GuiDraw::drawTextCentered(text/*m_Text*/);
 
-	/*
-	m_FrameBufferStandard=GuiDraw::MakeTextButtonStandard(text);
-	*/
-	///m_FrameBufferPressed=GuiDraw::MakeTextButtonPressed(text);
-	//m_FrameBufferHover=GuiDraw::MakeTextButtonHover(text);
+   /*
+   m_FrameBufferStandard=GuiDraw::MakeTextButtonStandard(text);
+   */
+   ///m_FrameBufferPressed=GuiDraw::MakeTextButtonPressed(text);
+   //m_FrameBufferHover=GuiDraw::MakeTextButtonHover(text);
 
-	//SetSize(m_FrameBufferStandard->GetSize());
-	//SetSize(GuiData::buttonNormal->GetSize());
+   //SetSize(m_FrameBufferStandard->GetSize());
+   //SetSize(GuiData::buttonNormal->GetSize());
 
-	setSize(Vector2d(108, 22)); //GuiData::buttonNormal->GetSize();
+   setSize(Vector2d(108, 22)); //GuiData::buttonNormal->GetSize();
 }
 
 
@@ -488,8 +488,8 @@ void Button::setText(std::string file, int line, std::string text)
  */
 void Button::setPressEvent(UserEvent *inEvent)
 {
-	m_ButtonPressEvent = inEvent;
-	//m_HasEvent=true;
+   m_ButtonPressEvent = inEvent;
+   //m_HasEvent=true;
 }
 
 
@@ -498,7 +498,7 @@ void Button::setPressEvent(UserEvent *inEvent)
  */
 void Button::setReleaseEvent(UserEvent *inEvent)
 {
-	m_ButtonReleaseEvent = inEvent;
+   m_ButtonReleaseEvent = inEvent;
 }
 
 
@@ -507,7 +507,7 @@ void Button::setReleaseEvent(UserEvent *inEvent)
  */
 UserEvent *Button::getPressEvent()
 {
-	return m_ButtonPressEvent;
+   return m_ButtonPressEvent;
 }
 
 
@@ -516,7 +516,7 @@ UserEvent *Button::getPressEvent()
  */
 UserEvent *Button::getReleaseEvent()
 {
-	return m_ButtonReleaseEvent;
+   return m_ButtonReleaseEvent;
 }
 
 
@@ -525,7 +525,7 @@ UserEvent *Button::getReleaseEvent()
  */
 void Button::setGainedFocusEvent(UserEvent *inEvent)
 {
-	m_ButtonGainedFocusEvent = inEvent;
+   m_ButtonGainedFocusEvent = inEvent;
 }
 
 
@@ -534,7 +534,7 @@ void Button::setGainedFocusEvent(UserEvent *inEvent)
  */
 UserEvent *Button::getGainedFocusEvent()
 {
-	return m_ButtonGainedFocusEvent;
+   return m_ButtonGainedFocusEvent;
 }
 
 
@@ -543,7 +543,7 @@ UserEvent *Button::getGainedFocusEvent()
  */
 void Button::setLostFocusEvent(UserEvent *inEvent)
 {
-	m_ButtonLostFocusEvent = inEvent;
+   m_ButtonLostFocusEvent = inEvent;
 }
 
 
@@ -552,7 +552,7 @@ void Button::setLostFocusEvent(UserEvent *inEvent)
  */
 UserEvent *Button::getLostFocusEvent()
 {
-	return m_ButtonLostFocusEvent;
+   return m_ButtonLostFocusEvent;
 }
 
 
@@ -561,7 +561,7 @@ UserEvent *Button::getLostFocusEvent()
  */
 void Button::setActivateOnDown(bool onDown)
 {
-	m_ActivateOnDown = onDown;
+   m_ActivateOnDown = onDown;
 }
 
 
@@ -570,7 +570,7 @@ void Button::setActivateOnDown(bool onDown)
  */
 void Button::setMoveOnDown(bool move)
 {
-	m_MoveOnDown = move;
+   m_MoveOnDown = move;
 }
 
 
@@ -579,7 +579,7 @@ void Button::setMoveOnDown(bool move)
  */
 /*void Button::SetInvisible(bool invisible)
 {
-	m_Invisible=invisible;
+   m_Invisible=invisible;
 }
 */
 
@@ -589,7 +589,7 @@ void Button::setMoveOnDown(bool move)
  */
 bool Button::handleUserEvent(UserEvent &event)
 {
-	return false;
+   return false;
 }
 
 
@@ -598,7 +598,7 @@ bool Button::handleUserEvent(UserEvent &event)
  */
 bool Button::handleKeyboardEvent(KeyEvent &event)
 {
-	return false;
+   return false;
 }
 
 
@@ -608,21 +608,21 @@ bool Button::handleKeyboardEvent(KeyEvent &event)
 bool Button::onLeftMouseButtonPressed(const Vector2d& pos)
 {
 
-	GuiObject::onLeftMouseButtonPressed(pos);
+   GuiObject::onLeftMouseButtonPressed(pos);
 
-	bool handled = false;
-	if (m_Active) {
-		if (m_MouseOver) {
-			m_Down = true;
+   bool handled = false;
+   if (m_Active) {
+      if (m_MouseOver) {
+         m_Down = true;
 
-			if (m_ActivateOnDown) {
-				m_Pressed = true;
-				pressed();
-			}
-			handled = true;
-		}
-	}
-	return handled;
+         if (m_ActivateOnDown) {
+            m_Pressed = true;
+            pressed();
+         }
+         handled = true;
+      }
+   }
+   return handled;
 }
 
 
@@ -631,25 +631,25 @@ bool Button::onLeftMouseButtonPressed(const Vector2d& pos)
  */
 bool Button::onLeftMouseButtonReleased(const Vector2d& pos)
 {
-	bool handled = false;
-	GuiObject::onLeftMouseButtonReleased(pos);
+   bool handled = false;
+   GuiObject::onLeftMouseButtonReleased(pos);
 
-	if (m_Down) {
-		m_Down = false;
-		if (m_Active) {
-			if (m_MouseOver) {
+   if (m_Down) {
+      m_Down = false;
+      if (m_Active) {
+         if (m_MouseOver) {
 
-				if (!m_ActivateOnDown) {
-					m_Pressed = true;
-					pressed();
-				}
-				released();
-				handled = true;
-			}
-		}
-	}
+            if (!m_ActivateOnDown) {
+               m_Pressed = true;
+               pressed();
+            }
+            released();
+            handled = true;
+         }
+      }
+   }
 
-	return handled;
+   return handled;
 }
 
 
@@ -658,24 +658,24 @@ bool Button::onLeftMouseButtonReleased(const Vector2d& pos)
  */
 void Button::onMouseMove(const Vector2d& pos)
 {
-	bool oldMouseOver = m_MouseOver;
-	GuiObject::onMouseMove(pos);
+   bool oldMouseOver = m_MouseOver;
+   GuiObject::onMouseMove(pos);
 
-	if (m_MouseOver != oldMouseOver) {
-		if (m_MouseOver) {
-			if (m_ButtonGainedFocusEvent != nullptr) {
-				m_ButtonGainedFocusEvent->pushEvent();
-			}
-		} else {
-			if (m_ButtonLostFocusEvent != nullptr) {
-				m_ButtonLostFocusEvent->pushEvent();
-			}
-		}
-	}
+   if (m_MouseOver != oldMouseOver) {
+      if (m_MouseOver) {
+         if (m_ButtonGainedFocusEvent != nullptr) {
+            m_ButtonGainedFocusEvent->pushEvent();
+         }
+      } else {
+         if (m_ButtonLostFocusEvent != nullptr) {
+            m_ButtonLostFocusEvent->pushEvent();
+         }
+      }
+   }
 
-	if (!m_MouseOver) {
-		m_Down = false;
-	}
+   if (!m_MouseOver) {
+      m_Down = false;
+   }
 }
 
 
@@ -684,9 +684,9 @@ void Button::onMouseMove(const Vector2d& pos)
  */
 void Button::pressed()
 {
-	if (m_ButtonPressEvent) {
-		m_ButtonPressEvent->pushEvent();
-	}
+   if (m_ButtonPressEvent) {
+      m_ButtonPressEvent->pushEvent();
+   }
 }
 
 
@@ -695,9 +695,9 @@ void Button::pressed()
  */
 void Button::released()
 {
-	if (m_ButtonReleaseEvent) {
-		m_ButtonReleaseEvent->pushEvent();
-	}
+   if (m_ButtonReleaseEvent) {
+      m_ButtonReleaseEvent->pushEvent();
+   }
 }
 
 
@@ -706,11 +706,11 @@ void Button::released()
  */
 void Button::setMouseOver(bool over)
 {
-	m_MouseOver = over;
+   m_MouseOver = over;
 
-	if (!m_MouseOver) {
-		m_Down = false;
-	}
+   if (!m_MouseOver) {
+      m_Down = false;
+   }
 
 
 }
