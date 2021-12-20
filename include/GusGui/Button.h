@@ -32,97 +32,97 @@ namespace GusGui
 class Button : public GuiObject
 {
 public:
-	Button(const Rect &rect, std::string name, std::shared_ptr<Bitmap> icon = nullptr, bool invisible = false);
-	Button(const Rect &sourceRect, std::string name, const Rect &rect, std::shared_ptr<Bitmap> icon = nullptr, bool invisible = false);
+   Button(const Rect &rect, std::string name, std::shared_ptr<Bitmap> icon = nullptr, bool invisible = false);
+   Button(const Rect &sourceRect, std::string name, const Rect &rect, std::shared_ptr<Bitmap> icon = nullptr, bool invisible = false);
 
-	Button(const Button& source);
+   Button(const Button& source);
 
-	Button& operator=(const Button& source);
+   Button& operator=(const Button& source);
 
-	virtual ~Button();
+   virtual ~Button();
 
-	Button *makeCopy();
+   Button *makeCopy();
 
-	void draw(const Vector2d& pos, float alpha = 1.0);
+   void draw(const Vector2d& pos, float alpha = 1.0);
 
-	bool getPressed();
-	bool getDown();
+   bool getPressed();
+   bool getDown();
 
-	virtual void update();
+   virtual void update();
 
-	virtual void setMouseOver(bool over);
+   virtual void setMouseOver(bool over);
 
-	void setGraphics(Bitmap *button, Bitmap *buttonPressed, Bitmap *buttonHover);
+   void setGraphics(Bitmap *button, Bitmap *buttonPressed, Bitmap *buttonHover);
 
-	//void SetTextBitmap(GLBitmap *textBitmap);
+   //void SetTextBitmap(GLBitmap *textBitmap);
 
-	void setText(std::string file, int line, std::string text);
+   void setText(std::string file, int line, std::string text);
 
-	void setPressEvent(UserEvent *event);
-	UserEvent *getPressEvent();
+   void setPressEvent(UserEvent *event);
+   UserEvent *getPressEvent();
 
-	void setReleaseEvent(UserEvent *event);
-	UserEvent *getReleaseEvent();
+   void setReleaseEvent(UserEvent *event);
+   UserEvent *getReleaseEvent();
 
-	void setGainedFocusEvent(UserEvent *event);
-	UserEvent *getGainedFocusEvent();
+   void setGainedFocusEvent(UserEvent *event);
+   UserEvent *getGainedFocusEvent();
 
-	void setLostFocusEvent(UserEvent *event);
-	UserEvent *getLostFocusEvent();
+   void setLostFocusEvent(UserEvent *event);
+   UserEvent *getLostFocusEvent();
 
-	void setActivateOnDown(bool active = true);
+   void setActivateOnDown(bool active = true);
 
-	//void SetInvisible(bool invisible=true);
+   //void SetInvisible(bool invisible=true);
 
-	//GLBitmap *DrawTextCentered(std::string text);
+   //GLBitmap *DrawTextCentered(std::string text);
 
-	void setMoveOnDown(bool move = true);
+   void setMoveOnDown(bool move = true);
 
-	bool handleUserEvent(UserEvent &event);
-	virtual bool handleKeyboardEvent(KeyEvent &event);
+   bool handleUserEvent(UserEvent &event);
+   virtual bool handleKeyboardEvent(KeyEvent &event);
 
-	virtual bool onLeftMouseButtonPressed(const Vector2d& pos);
-	virtual bool onLeftMouseButtonReleased(const Vector2d& pos);
+   virtual bool onLeftMouseButtonPressed(const Vector2d& pos);
+   virtual bool onLeftMouseButtonReleased(const Vector2d& pos);
 
-	virtual void onMouseMove(const Vector2d& pos);
+   virtual void onMouseMove(const Vector2d& pos);
 
-	virtual void pressed();
-	virtual void released();
+   virtual void pressed();
+   virtual void released();
 
 protected:
 
-	bool m_Down;
-	bool m_Pressed;
+   bool m_Down;
+   bool m_Pressed;
 
-	std::shared_ptr<Bitmap> m_Icon;
+   std::shared_ptr<Bitmap> m_Icon;
 
 /*
-	FrameBuffer *m_FrameBufferPressed;
-	FrameBuffer *m_FrameBufferHover;
-	FrameBuffer *m_FrameBufferStandard;
+   FrameBuffer *m_FrameBufferPressed;
+   FrameBuffer *m_FrameBufferHover;
+   FrameBuffer *m_FrameBufferStandard;
 */
 
-	std::string m_Text;
+   std::string m_Text;
 
-	UserEvent *m_ButtonPressEvent;
-	UserEvent *m_ButtonReleaseEvent;
+   UserEvent *m_ButtonPressEvent;
+   UserEvent *m_ButtonReleaseEvent;
 
-	UserEvent *m_ButtonLostFocusEvent;
-	UserEvent *m_ButtonGainedFocusEvent;
+   UserEvent *m_ButtonLostFocusEvent;
+   UserEvent *m_ButtonGainedFocusEvent;
 
-	bool m_ActivateOnDown;
+   bool m_ActivateOnDown;
 
-	bool m_Invisible;
+   bool m_Invisible;
 
-	std::shared_ptr<Bitmap> m_TextBitmap;
+   std::shared_ptr<Bitmap> m_TextBitmap;
 
-	Rect m_SourceRect;
+   Rect m_SourceRect;
 
-	bool m_MoveOnDown;
+   bool m_MoveOnDown;
 
-	// std::string m_Name;
+   // std::string m_Name;
 
-	//bool m_HasEvent;
+   //bool m_HasEvent;
 
 };
 

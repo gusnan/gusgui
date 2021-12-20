@@ -32,62 +32,62 @@ namespace GusGui
 class GuiHandler
 {
 public:
-	static GuiHandler *instance();
+   static GuiHandler *instance();
 
-	static void destroy();
+   static void destroy();
 
-	bool getShowKeyboardShortcuts() const;
+   bool getShowKeyboardShortcuts() const;
 
-	GuiObjectPtr getCurrentGuiObject();
-	void setCurrentGuiObject(GuiObjectPtr guiObj);
+   GuiObjectPtr getCurrentGuiObject();
+   void setCurrentGuiObject(GuiObjectPtr guiObj);
 
-	void setNoMouseOver();
+   void setNoMouseOver();
 
-	void draw();
-	void update();
+   void draw();
+   void update();
 
-	//SDL_Event MakeEvent(int code);
+   //SDL_Event MakeEvent(int code);
 
-	void addGuiObject(const GuiObjectPtr &guiObject);
-	void removeGuiObject(const GuiObjectPtr &guiObject);
+   void addGuiObject(const GuiObjectPtr &guiObject);
+   void removeGuiObject(const GuiObjectPtr &guiObject);
 
-	void addToDrawList(const GuiObjectPtr &guiObject);
-	void removeFromDrawList(const GuiObjectPtr &guiObject);
+   void addToDrawList(const GuiObjectPtr &guiObject);
+   void removeFromDrawList(const GuiObjectPtr &guiObject);
 
-	void addToHandleList(const GuiObjectPtr &guiObject);
-	void removeFromHandleList(const GuiObjectPtr &guiObject);
+   void addToHandleList(const GuiObjectPtr &guiObject);
+   void removeFromHandleList(const GuiObjectPtr &guiObject);
 
-	void copyDrawListToHandleList();
+   void copyDrawListToHandleList();
 
-	void clearHandleList();
+   void clearHandleList();
 
-	bool isGuiObjectInList(GuiObjectPtr guiObject);
+   bool isGuiObjectInList(GuiObjectPtr guiObject);
 
-	friend GuiEventHandler;
+   friend GuiEventHandler;
 
-	void setGuiObjectListActive(bool active);
+   void setGuiObjectListActive(bool active);
 
-	void updateMouseOver();
-	
-	void print();
+   void updateMouseOver();
+   
+   void print();
 
 protected:
 
-	GuiHandler();
-	virtual ~GuiHandler();
+   GuiHandler();
+   virtual ~GuiHandler();
 
-	GuiHandler(const GuiHandler &);
-	GuiHandler& operator=(const GuiHandler&);
+   GuiHandler(const GuiHandler &);
+   GuiHandler& operator=(const GuiHandler&);
 
-	GuiObjectPtr m_CurrentGuiObject;
+   GuiObjectPtr m_CurrentGuiObject;
 
-	bool showKeyboardShortcuts;
+   bool showKeyboardShortcuts;
 
-	std::vector<std::shared_ptr<GuiObject> > *m_GuiList;
-	std::vector<std::shared_ptr<GuiObject> > *m_GuiDrawList;
+   std::vector<std::shared_ptr<GuiObject> > *m_GuiList;
+   std::vector<std::shared_ptr<GuiObject> > *m_GuiDrawList;
 
 private:
-	static GuiHandler *pinstance;
+   static GuiHandler *pinstance;
 
 };
 

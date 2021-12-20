@@ -43,7 +43,7 @@ namespace GusGui
  *
  */
 GuiObject::GuiObject() : m_Rect(), m_MouseOver(false), m_Active(true), m_Visible(true),
-	m_PanelPosition(), m_Drag(false), m_DragOnlyWhenMouseOver(true), m_LastMousePosition()
+   m_PanelPosition(), m_Drag(false), m_DragOnlyWhenMouseOver(true), m_LastMousePosition()
 {
 
 }
@@ -53,7 +53,7 @@ GuiObject::GuiObject() : m_Rect(), m_MouseOver(false), m_Active(true), m_Visible
  *
  */
 GuiObject::GuiObject(Rect rect) : m_Rect(rect), m_Active(true), m_Visible(true), m_MouseOver(false),
-	m_PanelPosition(), m_Drag(false), m_DragOnlyWhenMouseOver(true), m_LastMousePosition()
+   m_PanelPosition(), m_Drag(false), m_DragOnlyWhenMouseOver(true), m_LastMousePosition()
 {
 }
 
@@ -71,13 +71,13 @@ GuiObject::~GuiObject()
  */
 bool GuiObject::operator==(GuiObject &source)
 {
-	bool result = true;
+   bool result = true;
 
-	if (m_Rect != source.m_Rect) result = false;
-	if (m_Visible != source.m_Visible) result = false;
-	if (m_Active != source.m_Active) result = false;
+   if (m_Rect != source.m_Rect) result = false;
+   if (m_Visible != source.m_Visible) result = false;
+   if (m_Active != source.m_Active) result = false;
 
-	return result;
+   return result;
 }
 
 
@@ -86,7 +86,7 @@ bool GuiObject::operator==(GuiObject &source)
  */
 Vector2d GuiObject::getPosition() const
 {
-	return m_Rect.position;
+   return m_Rect.position;
 }
 
 
@@ -95,7 +95,7 @@ Vector2d GuiObject::getPosition() const
  */
 Rect GuiObject::getRect() const
 {
-	return m_Rect;
+   return m_Rect;
 }
 
 
@@ -104,7 +104,7 @@ Rect GuiObject::getRect() const
  */
 void GuiObject::setRect(const Rect& rect)
 {
-	m_Rect = rect;
+   m_Rect = rect;
 }
 
 
@@ -113,7 +113,7 @@ void GuiObject::setRect(const Rect& rect)
  */
 void GuiObject::setSize(const Vector2d& size)
 {
-	m_Rect.size = size;
+   m_Rect.size = size;
 }
 
 
@@ -122,7 +122,7 @@ void GuiObject::setSize(const Vector2d& size)
  */
 void GuiObject::setCenter(const Vector2d& pos)
 {
-	m_Rect.setCenter(pos);
+   m_Rect.setCenter(pos);
 }
 
 
@@ -131,7 +131,7 @@ void GuiObject::setCenter(const Vector2d& pos)
  */
 void GuiObject::setMouseOver(bool over)
 {
-	m_MouseOver = over;
+   m_MouseOver = over;
 }
 
 
@@ -140,13 +140,13 @@ void GuiObject::setMouseOver(bool over)
  */
 void GuiObject::setActive(bool active)
 {
-	m_Active = active;
+   m_Active = active;
 
-	//if (m_Active) {
-		onMouseMove(m_LastMousePosition);
-	//}
+   //if (m_Active) {
+      onMouseMove(m_LastMousePosition);
+   //}
 
-	//if (!active) m_MouseOver=false;
+   //if (!active) m_MouseOver=false;
 
 }
 
@@ -156,7 +156,7 @@ void GuiObject::setActive(bool active)
  */
 void GuiObject::setVisible(bool visible)
 {
-	m_Visible = visible;
+   m_Visible = visible;
 }
 
 
@@ -165,7 +165,7 @@ void GuiObject::setVisible(bool visible)
  */
 void GuiObject::switchVisible()
 {
-	m_Visible = !m_Visible;
+   m_Visible = !m_Visible;
 }
 
 
@@ -174,7 +174,7 @@ void GuiObject::switchVisible()
  */
 bool GuiObject::getVisible() const
 {
-	return m_Visible;
+   return m_Visible;
 }
 
 
@@ -183,7 +183,7 @@ bool GuiObject::getVisible() const
  */
 bool GuiObject::getMouseOver() const
 {
-	return m_MouseOver;
+   return m_MouseOver;
 }
 
 
@@ -192,7 +192,7 @@ bool GuiObject::getMouseOver() const
  */
 bool GuiObject::handleUserEvent(UserEvent &event)
 {
-	return false;
+   return false;
 }
 
 
@@ -201,7 +201,7 @@ bool GuiObject::handleUserEvent(UserEvent &event)
  */
 bool GuiObject::handleKeyboardEvent(KeyEvent &event)
 {
-	return false;
+   return false;
 }
 
 
@@ -227,8 +227,8 @@ void GuiObject::releaseFocus()
  */
 bool GuiObject::onLeftMouseButtonPressed(const Vector2d& pos)
 {
-	m_Drag = true;
-	return false;
+   m_Drag = true;
+   return false;
 }
 
 
@@ -237,8 +237,8 @@ bool GuiObject::onLeftMouseButtonPressed(const Vector2d& pos)
  */
 bool GuiObject::onLeftMouseButtonReleased(const Vector2d& pos)
 {
-	m_Drag = false;
-	return false;
+   m_Drag = false;
+   return false;
 }
 
 
@@ -247,7 +247,7 @@ bool GuiObject::onLeftMouseButtonReleased(const Vector2d& pos)
  */
 bool GuiObject::onRightMouseButtonPressed(const Vector2d& pos)
 {
-	return false;
+   return false;
 }
 
 
@@ -256,7 +256,7 @@ bool GuiObject::onRightMouseButtonPressed(const Vector2d& pos)
  */
 bool GuiObject::onRightMouseButtonReleased(const Vector2d& pos)
 {
-	return false;
+   return false;
 }
 
 
@@ -265,7 +265,7 @@ bool GuiObject::onRightMouseButtonReleased(const Vector2d& pos)
  */
 void GuiObject::setPanelPosition(const Vector2d& pos)
 {
-	m_PanelPosition=pos;
+   m_PanelPosition=pos;
 }
 
 
@@ -274,22 +274,22 @@ void GuiObject::setPanelPosition(const Vector2d& pos)
  */
 void GuiObject::onMouseMove(const Vector2d& pos)
 {
-	m_MouseOver = false;
-	if (m_Active) {
-		if (m_Rect.isPointOverTranslated(pos, GraphicsHandler::zoomX, GraphicsHandler::zoomY)) {
-			m_MouseOver = true;
-		} else {
-			m_MouseOver = false;
-		}
-	}
+   m_MouseOver = false;
+   if (m_Active) {
+      if (m_Rect.isPointOverTranslated(pos, GraphicsHandler::zoomX, GraphicsHandler::zoomY)) {
+         m_MouseOver = true;
+      } else {
+         m_MouseOver = false;
+      }
+   }
 
-	if (m_DragOnlyWhenMouseOver) {
-		if (!m_MouseOver) m_Drag = false;
-	}
+   if (m_DragOnlyWhenMouseOver) {
+      if (!m_MouseOver) m_Drag = false;
+   }
 
-	if (m_Drag) onDrag(pos);
+   if (m_Drag) onDrag(pos);
 
-	m_LastMousePosition = pos;
+   m_LastMousePosition = pos;
 }
 
 /**
@@ -313,13 +313,13 @@ void GuiObject::onMouseScrollDown(const Vector2d& pos)
  */
 void GuiObject::onDrag(const Vector2d& pos)
 {
-	if (m_MouseOver) {
-		/*
-		std::stringstream st;
-		st << "GuiObject::Drag:" << pos.x << "," << pos.y;
-		STLOG(st);
-		*/
-	}
+   if (m_MouseOver) {
+      /*
+      std::stringstream st;
+      st << "GuiObject::Drag:" << pos.x << "," << pos.y;
+      STLOG(st);
+      */
+   }
 }
 
 
@@ -328,31 +328,31 @@ void GuiObject::onDrag(const Vector2d& pos)
  */
 void GuiObject::setCenter(Rect sourceRect, int directions)
 {
-	//Rect screenRect = GraphicsHandler::getScreenRect();
-	Vector2d sourceSize = sourceRect.size;
+   //Rect screenRect = GraphicsHandler::getScreenRect();
+   Vector2d sourceSize = sourceRect.size;
 
-	int x = sourceSize.x / 2;
-	int y = sourceSize.y / 2;
+   int x = sourceSize.x / 2;
+   int y = sourceSize.y / 2;
 
-	Rect tempRect = getRect();
+   Rect tempRect = getRect();
 
-	Vector2d position = tempRect.position;
-	Vector2d size = tempRect.size;
+   Vector2d position = tempRect.position;
+   Vector2d size = tempRect.size;
 
-	int newXPos = x - (size.x / 2);
-	int newYPos = y - (size.y / 2);
+   int newXPos = x - (size.x / 2);
+   int newYPos = y - (size.y / 2);
 
-	Vector2d newposition;
+   Vector2d newposition;
 
-	if ((directions & GUI_OBJECT_CENTER_BOTH) == GUI_OBJECT_CENTER_BOTH) {
-		newposition = Vector2d(newXPos, newYPos);
-	} else if ((directions & GUI_OBJECT_CENTER_HORISONTALLY) == GUI_OBJECT_CENTER_HORISONTALLY) {
-		newposition = Vector2d(newXPos, position.y);
-	} else if ((directions & GUI_OBJECT_CENTER_VERTICALLY) == GUI_OBJECT_CENTER_VERTICALLY) {
-		newposition = Vector2d(position.x, newYPos);
-	}
+   if ((directions & GUI_OBJECT_CENTER_BOTH) == GUI_OBJECT_CENTER_BOTH) {
+      newposition = Vector2d(newXPos, newYPos);
+   } else if ((directions & GUI_OBJECT_CENTER_HORISONTALLY) == GUI_OBJECT_CENTER_HORISONTALLY) {
+      newposition = Vector2d(newXPos, position.y);
+   } else if ((directions & GUI_OBJECT_CENTER_VERTICALLY) == GUI_OBJECT_CENTER_VERTICALLY) {
+      newposition = Vector2d(position.x, newYPos);
+   }
 
-	setRect(Rect(newposition, size));
+   setRect(Rect(newposition, size));
 }
 
 
@@ -361,7 +361,7 @@ void GuiObject::setCenter(Rect sourceRect, int directions)
  */
 void GuiObject::setName(std::string inName)
 {
-	m_Name = inName;
+   m_Name = inName;
 }
 
 
@@ -370,7 +370,7 @@ void GuiObject::setName(std::string inName)
  */
 std::string GuiObject::getName()
 {
-	return m_Name;
+   return m_Name;
 }
 
 
@@ -379,7 +379,7 @@ std::string GuiObject::getName()
  */
 void GuiObject::print()
 {
-	std::cout << getName() << std::endl;
+   std::cout << getName() << std::endl;
 }
 
 

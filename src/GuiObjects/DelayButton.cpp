@@ -55,34 +55,34 @@ namespace GusGui
  *
  */
 DelayButton::DelayButton(Rect rect, Rect sourceRect, Rect sourceRectPressed,
-	std::string name, std::shared_ptr<Bitmap> icon, Rect iconSourceRect) : Button(rect, name, icon),
-	m_Delay(0.0f), m_Speed(1.0f), m_IconSourceRect(), m_SourceRectPressed()
+   std::string name, std::shared_ptr<Bitmap> icon, Rect iconSourceRect) : Button(rect, name, icon),
+   m_Delay(0.0f), m_Speed(1.0f), m_IconSourceRect(), m_SourceRectPressed()
 {
-	m_Delay = 0.0f;
+   m_Delay = 0.0f;
 
-	//m_TextBitmap=0;
+   //m_TextBitmap=0;
 
-	/*
-	m_FrameBufferStandard=GuiDraw::MakeStandardButton(rect.size,icon);
-	m_FrameBufferPressed=GuiDraw::MakePressedButton(rect.size,icon);
-	*/
+   /*
+   m_FrameBufferStandard=GuiDraw::MakeStandardButton(rect.size,icon);
+   m_FrameBufferPressed=GuiDraw::MakePressedButton(rect.size,icon);
+   */
 
-	m_Speed = 1.0f;
+   m_Speed = 1.0f;
 
-	m_IconSourceRect = iconSourceRect;
+   m_IconSourceRect = iconSourceRect;
 
-	m_SourceRect = sourceRect;
-	m_SourceRectPressed = sourceRectPressed;
+   m_SourceRect = sourceRect;
+   m_SourceRectPressed = sourceRectPressed;
 
-	m_MouseOver = false;
+   m_MouseOver = false;
 
-	//m_FrameBufferHover=m_FrameBufferStandard;
+   //m_FrameBufferHover=m_FrameBufferStandard;
 
-	/*
-	m_BitmapStandard=GuiData::buttonNormal;
-	m_BitmapHover=GuiData::buttonHover;
-	m_BitmapPressed=GuiData::buttonPressed;
-	*/
+   /*
+   m_BitmapStandard=GuiData::buttonNormal;
+   m_BitmapHover=GuiData::buttonHover;
+   m_BitmapPressed=GuiData::buttonPressed;
+   */
 }
 
 
@@ -91,7 +91,7 @@ DelayButton::DelayButton(Rect rect, Rect sourceRect, Rect sourceRectPressed,
  */
 DelayButton::~DelayButton()
 {
-	//REMOVE(m_TextBitmap);
+   //REMOVE(m_TextBitmap);
 }
 
 
@@ -100,24 +100,24 @@ DelayButton::~DelayButton()
  */
 void DelayButton::draw(const Vector2d& pos,float alpha)
 {
-	Vector2d newpos = getRect().position + pos;
+   Vector2d newpos = getRect().position + pos;
 
-	Rect newrect = Rect(newpos, getRect().size);
+   Rect newrect = Rect(newpos, getRect().size);
 
-	Vector2d shadePos(2, 2);
+   Vector2d shadePos(2, 2);
 
-		if (m_Delay != 0.0f) {
-			//if (m_FrameBufferPressed) m_FrameBufferPressed->Blit(newrect.position,alpha);
-			//GuiDraw::DrawPressedButton(newrect);
-			GuiData::guiData->blit(m_SourceRect, newpos, FlipNone, alpha);
+      if (m_Delay != 0.0f) {
+         //if (m_FrameBufferPressed) m_FrameBufferPressed->Blit(newrect.position,alpha);
+         //GuiDraw::DrawPressedButton(newrect);
+         GuiData::guiData->blit(m_SourceRect, newpos, FlipNone, alpha);
 
-			//m_Icon->blitCenter(m_IconSourceRect,newrect+Vector2d(2, 2),alpha);
+         //m_Icon->blitCenter(m_IconSourceRect,newrect+Vector2d(2, 2),alpha);
 
-		} else {
-			//GuiDraw::DrawStandardButton(newrect);
-			GuiData::guiData->blit(m_SourceRectPressed, newpos, FlipNone, alpha);
-			//m_Icon->blitCenter(m_IconSourceRect,newrect,alpha);
-		}
+      } else {
+         //GuiDraw::DrawStandardButton(newrect);
+         GuiData::guiData->blit(m_SourceRectPressed, newpos, FlipNone, alpha);
+         //m_Icon->blitCenter(m_IconSourceRect,newrect,alpha);
+      }
 }
 
 
@@ -126,14 +126,14 @@ void DelayButton::draw(const Vector2d& pos,float alpha)
  */
 void DelayButton::update()
 {
-	//std::cout << "DelayButton::Update" << std::endl;
-	/*
-	if (m_Delay>0.0f) {
-		m_Delay-=(float)(Timer::instance()->getDeltaTime()*m_Speed);
-	} else {
-		m_Delay=0.0f;
-	}
-	*/
+   //std::cout << "DelayButton::Update" << std::endl;
+   /*
+   if (m_Delay>0.0f) {
+      m_Delay-=(float)(Timer::instance()->getDeltaTime()*m_Speed);
+   } else {
+      m_Delay=0.0f;
+   }
+   */
 }
 
 
@@ -142,11 +142,11 @@ void DelayButton::update()
  */
 bool DelayButton::getPressed() const
 {
-	bool result = false;
+   bool result = false;
 
-	if (m_Delay != 0.0f) result = true;
+   if (m_Delay != 0.0f) result = true;
 
-	return result;
+   return result;
 }
 
 
@@ -155,10 +155,10 @@ bool DelayButton::getPressed() const
  */
 void DelayButton::setPressed()
 {
-	m_Delay = 1.0f;
+   m_Delay = 1.0f;
 
-	//SDL_PushEvent(&m_ButtonEvent);
-	m_ButtonPressEvent->pushEvent();
+   //SDL_PushEvent(&m_ButtonEvent);
+   m_ButtonPressEvent->pushEvent();
 }
 
 
@@ -167,7 +167,7 @@ void DelayButton::setPressed()
  */
 void DelayButton::setSpeed(float speed)
 {
-	m_Speed = speed;
+   m_Speed = speed;
 }
 
 
@@ -176,7 +176,7 @@ void DelayButton::setSpeed(float speed)
  */
 bool DelayButton::handleKeyboardEvent(KeyEvent &event)
 {
-	return false;
+   return false;
 }
 
 
@@ -185,15 +185,15 @@ bool DelayButton::handleKeyboardEvent(KeyEvent &event)
  */
 bool DelayButton::onLeftMouseButtonPressed(const Vector2d& pos)
 {
-	bool handled = false;
+   bool handled = false;
 
-	if (m_MouseOver) {
-		if (!getPressed()) {
-			setPressed();
-			handled = true;
-		}
-	}
-	return handled;
+   if (m_MouseOver) {
+      if (!getPressed()) {
+         setPressed();
+         handled = true;
+      }
+   }
+   return handled;
 }
 
 
@@ -202,7 +202,7 @@ bool DelayButton::onLeftMouseButtonPressed(const Vector2d& pos)
  */
 bool DelayButton::onLeftMouseButtonReleased(const Vector2d& pos)
 {
-	return false;
+   return false;
 }
 
 

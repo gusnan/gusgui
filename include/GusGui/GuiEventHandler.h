@@ -34,36 +34,36 @@ namespace GusGui
 class GuiEventHandler : public EventHandler
 {
 public:
-	GUSGAME_DLL GuiEventHandler();
+   GUSGAME_DLL GuiEventHandler();
 
-	//GUSGAME_DLL GuiEventHandler(std::vector<GuiObjectPtr> *guiList);
-	GUSGAME_DLL GuiEventHandler(const GuiEventHandler &source);
-	virtual GUSGAME_DLL ~GuiEventHandler();
+   //GUSGAME_DLL GuiEventHandler(std::vector<GuiObjectPtr> *guiList);
+   GUSGAME_DLL GuiEventHandler(const GuiEventHandler &source);
+   virtual GUSGAME_DLL ~GuiEventHandler();
 
-	bool GUSGAME_DLL onLeftMouseButtonPressed(const Vector2d& pos);
-	bool GUSGAME_DLL onLeftMouseButtonReleased(const Vector2d& pos);
+   bool GUSGAME_DLL onLeftMouseButtonPressed(const Vector2d& pos);
+   bool GUSGAME_DLL onLeftMouseButtonReleased(const Vector2d& pos);
 
-	bool GUSGAME_DLL onRightMouseButtonPressed(const Vector2d& pos);
-	bool GUSGAME_DLL onRightMouseButtonReleased(const Vector2d& pos);
+   bool GUSGAME_DLL onRightMouseButtonPressed(const Vector2d& pos);
+   bool GUSGAME_DLL onRightMouseButtonReleased(const Vector2d& pos);
 
-	void GUSGAME_DLL onMouseMove(const Vector2d& pos);
+   void GUSGAME_DLL onMouseMove(const Vector2d& pos);
 
-	void GUSGAME_DLL onMouseScrollUp(const Vector2d& pos);
-	void GUSGAME_DLL onMouseScrollDown(const Vector2d& pos);
+   void GUSGAME_DLL onMouseScrollUp(const Vector2d& pos);
+   void GUSGAME_DLL onMouseScrollDown(const Vector2d& pos);
 
-	void GUSGAME_DLL handleMouseLeaveScreen();
+   void GUSGAME_DLL handleMouseLeaveScreen();
 
-	virtual void GUSGAME_DLL handleMouseMotion(MouseMotionEvent &mouseMotion);
-	virtual bool GUSGAME_DLL handleMouseButton(MouseButtonEvent &mouseButtonEvent);
+   virtual void GUSGAME_DLL handleMouseMotion(MouseMotionEvent &mouseMotion);
+   virtual bool GUSGAME_DLL handleMouseButton(MouseButtonEvent &mouseButtonEvent);
 
-	virtual bool GUSGAME_DLL handleUserEvent(UserEvent &userEvent);
+   virtual bool GUSGAME_DLL handleUserEvent(UserEvent &userEvent);
 
-	void GUSGAME_DLL handleActiveEvent(ActiveEvent &activeEvent);
+   void GUSGAME_DLL handleActiveEvent(ActiveEvent &activeEvent);
 
 
 protected:
 
-	//std::vector<GuiObjectPtr> *m_GuiList;
+   //std::vector<GuiObjectPtr> *m_GuiList;
 };
 
 // end of namespace

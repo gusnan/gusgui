@@ -60,37 +60,37 @@ GraphicsLib::Font* GuiData::guiBigFont = nullptr;
 
 /**
  *	SetGuiGraphics
- *		Called from the Data namespace and the graphics that is set should be
- *		released in the Data namespace also.
+ *	   Called from the Data namespace and the graphics that is set should be
+ *	   released in the Data namespace also.
  */
 void GuiData::setGuiGraphics(std::vector<Bitmap*> guiBitmapList)
 {
-	LOG("Set Gui Graphics...");
+   LOG("Set Gui Graphics...");
 
-	menuBorder_Top = guiBitmapList[0]->makeCopy();
-	menuBorder_Bottom = guiBitmapList[1]->makeCopy();
-	menuBorder_Left = guiBitmapList[2]->makeCopy();
-	menuBorder_Right = guiBitmapList[3]->makeCopy();
+   menuBorder_Top = guiBitmapList[0]->makeCopy();
+   menuBorder_Bottom = guiBitmapList[1]->makeCopy();
+   menuBorder_Left = guiBitmapList[2]->makeCopy();
+   menuBorder_Right = guiBitmapList[3]->makeCopy();
 
-	menuBorder_Top_NoTrans = guiBitmapList[4]->makeCopy();
-	menuBorder_Bottom_NoTrans = guiBitmapList[5]->makeCopy();
-	menuBorder_Left_NoTrans = guiBitmapList[6]->makeCopy();
-	menuBorder_Right_NoTrans = guiBitmapList[7]->makeCopy();
+   menuBorder_Top_NoTrans = guiBitmapList[4]->makeCopy();
+   menuBorder_Bottom_NoTrans = guiBitmapList[5]->makeCopy();
+   menuBorder_Left_NoTrans = guiBitmapList[6]->makeCopy();
+   menuBorder_Right_NoTrans = guiBitmapList[7]->makeCopy();
 
-	menuBackground = guiBitmapList[8]->makeCopy();
+   menuBackground = guiBitmapList[8]->makeCopy();
 
-	guiData = guiBitmapList[9]->makeCopy();
+   guiData = guiBitmapList[9]->makeCopy();
 
-	/*
-	menuBorder_Top->SEND_TO_GPU();
-	menuBorder_Bottom->SEND_TO_GPU();
-	menuBorder_Left->SEND_TO_GPU();
-	menuBorder_Right->SEND_TO_GPU();
+   /*
+   menuBorder_Top->SEND_TO_GPU();
+   menuBorder_Bottom->SEND_TO_GPU();
+   menuBorder_Left->SEND_TO_GPU();
+   menuBorder_Right->SEND_TO_GPU();
 
-	menuBackground->SEND_TO_GPU_TYPE(TextureTypePattern);
+   menuBackground->SEND_TO_GPU_TYPE(TextureTypePattern);
 
-	guiData->SEND_TO_GPU();
-	*/
+   guiData->SEND_TO_GPU();
+   */
 
 }
 
@@ -99,24 +99,24 @@ void GuiData::setGuiGraphics(std::vector<Bitmap*> guiBitmapList)
  */
 void GuiData::freeGuiGraphics()
 {
-	LOG("Done GUI graphics...");
+   LOG("Done GUI graphics...");
 #ifndef REMOVE
 #define  REMOVE(a) { if (a != nullptr) { a.reset(); a = nullptr; } }
 #endif
 
-	REMOVE(menuBorder_Top);
-	REMOVE(menuBorder_Bottom);
-	REMOVE(menuBorder_Left);
-	REMOVE(menuBorder_Right);
+   REMOVE(menuBorder_Top);
+   REMOVE(menuBorder_Bottom);
+   REMOVE(menuBorder_Left);
+   REMOVE(menuBorder_Right);
 
-	REMOVE(menuBorder_Top_NoTrans);
-	REMOVE(menuBorder_Bottom_NoTrans);
-	REMOVE(menuBorder_Left_NoTrans);
-	REMOVE(menuBorder_Right_NoTrans);
+   REMOVE(menuBorder_Top_NoTrans);
+   REMOVE(menuBorder_Bottom_NoTrans);
+   REMOVE(menuBorder_Left_NoTrans);
+   REMOVE(menuBorder_Right_NoTrans);
 
-	REMOVE(menuBackground);
+   REMOVE(menuBackground);
 
-	REMOVE(guiData);
+   REMOVE(guiData);
 }
 
 /**
@@ -124,7 +124,7 @@ void GuiData::freeGuiGraphics()
  */
 void GuiData::setGuiFont(GraphicsLib::Font *font)
 {
-	guiFont = font;
+   guiFont = font;
 }
 
 /**
@@ -132,7 +132,7 @@ void GuiData::setGuiFont(GraphicsLib::Font *font)
  */
 void GuiData::setGuiSmallFont(GraphicsLib::Font *smallFont)
 {
-	guiSmallFont = smallFont;
+   guiSmallFont = smallFont;
 }
 
 /**
@@ -140,7 +140,7 @@ void GuiData::setGuiSmallFont(GraphicsLib::Font *smallFont)
  */
 void GuiData::setGuiBigFont(GraphicsLib::Font *bigFont)
 {
-	guiBigFont = bigFont;
+   guiBigFont = bigFont;
 }
 
 // end of namespace

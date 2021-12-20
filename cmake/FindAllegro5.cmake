@@ -20,17 +20,17 @@ FIND_PATH(ALLEGRO_INCLUDE_DIR allegro.h allegro5.h
 set(VERSION_NUMBER "5")
 
 if(UNIX AND NOT CYGWIN)
-	exec_program(pkg-config ARGS "allegro-${VERSION_NUMBER} allegro_ttf-${VERSION_NUMBER} allegro_memfile-${VERSION_NUMBER} allegro_image-${VERSION_NUMBER} allegro_primitives-${VERSION_NUMBER} allegro_audio-${VERSION_NUMBER} allegro_acodec-${VERSION_NUMBER} allegro_main-${VERSION_NUMBER} --libs" OUTPUT_VARIABLE ALLEGRO_LIBRARIES)
-	IF (NOT ALLEGRO_LIBRARIES)
-	    # FALL BACK TO 5.0
-	    set(VERSION_NUMBER "5.0")
-	    exec_program(pkg-config ARGS "allegro-${VERSION_NUMBER} allegro_ttf-${VERSION_NUMBER} allegro_memfile-${VERSION_NUMBER} allegro_image-${VERSION_NUMBER} allegro_primitives-${VERSION_NUMBER} allegro_audio-${VERSION_NUMBER} allegro_acodec-${VERSION_NUMBER} allegro_main-${VERSION_NUMBER} --libs" OUTPUT_VARIABLE ALLEGRO_LIBRARIES)
-	ENDIF (NOT ALLEGRO_LIBRARIES)
-	# Check if any of these checks have found if so then cause failure)
-	STRING(REGEX MATCH "not found" LIB_CHECK ${ALLEGRO_LIBRARIES})
-	IF (${LIB_CHECK})
-	    set(ALLEGRO_LIBRARIES "")
-	ENDIF (${LIB_CHECK})
+   exec_program(pkg-config ARGS "allegro-${VERSION_NUMBER} allegro_ttf-${VERSION_NUMBER} allegro_memfile-${VERSION_NUMBER} allegro_image-${VERSION_NUMBER} allegro_primitives-${VERSION_NUMBER} allegro_audio-${VERSION_NUMBER} allegro_acodec-${VERSION_NUMBER} allegro_main-${VERSION_NUMBER} --libs" OUTPUT_VARIABLE ALLEGRO_LIBRARIES)
+   IF (NOT ALLEGRO_LIBRARIES)
+       # FALL BACK TO 5.0
+       set(VERSION_NUMBER "5.0")
+       exec_program(pkg-config ARGS "allegro-${VERSION_NUMBER} allegro_ttf-${VERSION_NUMBER} allegro_memfile-${VERSION_NUMBER} allegro_image-${VERSION_NUMBER} allegro_primitives-${VERSION_NUMBER} allegro_audio-${VERSION_NUMBER} allegro_acodec-${VERSION_NUMBER} allegro_main-${VERSION_NUMBER} --libs" OUTPUT_VARIABLE ALLEGRO_LIBRARIES)
+   ENDIF (NOT ALLEGRO_LIBRARIES)
+   # Check if any of these checks have found if so then cause failure)
+   STRING(REGEX MATCH "not found" LIB_CHECK ${ALLEGRO_LIBRARIES})
+   IF (${LIB_CHECK})
+       set(ALLEGRO_LIBRARIES "")
+   ENDIF (${LIB_CHECK})
 # FIXME - Figure out what to do for windows 
 #else(UNIX AND NOT CYGWIN)
 #	SET(ALLEGRO_NAMES allegro allegrolib allegrodll)

@@ -32,55 +32,55 @@ namespace GusGui
 class Panel : public GuiObject
 {
 public:
-	Panel();
+   Panel();
 
-	Panel(Rect rect, std::string name, bool transFrame = true);
-	Panel(const Panel& source);
-	virtual ~Panel();
+   Panel(Rect rect, std::string name, bool transFrame = true);
+   Panel(const Panel& source);
+   virtual ~Panel();
 
-	Panel& operator=(const Panel& source);
+   Panel& operator=(const Panel& source);
 
 
-	void addGuiObject(const GuiObjectPtr &guiObject);
+   void addGuiObject(const GuiObjectPtr &guiObject);
 
-	void draw(const Vector2d& pos, float alpha = 1.0f);
+   void draw(const Vector2d& pos, float alpha = 1.0f);
 
-	void update();
+   void update();
 
-	void setDrawFrame(bool drawFrame = true);
-	void setDrawBackground(bool drawBackground = true);
+   void setDrawFrame(bool drawFrame = true);
+   void setDrawBackground(bool drawBackground = true);
 
-	void setMouseOver(bool b);
+   void setMouseOver(bool b);
 
-	virtual bool handleUserEvent(UserEvent &event);
-	virtual bool handleKeyboardEvent(KeyEvent &event);
+   virtual bool handleUserEvent(UserEvent &event);
+   virtual bool handleKeyboardEvent(KeyEvent &event);
 
-	virtual bool onLeftMouseButtonPressed(const Vector2d& pos);
-	virtual bool onLeftMouseButtonReleased(const Vector2d& pos);
+   virtual bool onLeftMouseButtonPressed(const Vector2d& pos);
+   virtual bool onLeftMouseButtonReleased(const Vector2d& pos);
 
-	virtual bool onRightMouseButtonPressed(const Vector2d& pos);
-	virtual bool onRightMouseButtonReleased(const Vector2d& pos);
+   virtual bool onRightMouseButtonPressed(const Vector2d& pos);
+   virtual bool onRightMouseButtonReleased(const Vector2d& pos);
 
-	virtual void onMouseMove(const Vector2d& pos);
+   virtual void onMouseMove(const Vector2d& pos);
 
-	virtual void onMouseScrollUp();
-	virtual void onMouseScrollDown();
+   virtual void onMouseScrollUp();
+   virtual void onMouseScrollDown();
 
-	virtual void onDrag(const Vector2d& pos);
+   virtual void onDrag(const Vector2d& pos);
 
-	virtual void setVisible(bool visible = true);
+   virtual void setVisible(bool visible = true);
 
-	virtual void setActive(bool active = true);
-	
-	void print();
+   virtual void setActive(bool active = true);
+   
+   void print();
 
 protected:
 
-	std::vector<GuiObjectPtr> *m_GuiList;
+   std::vector<GuiObjectPtr> *m_GuiList;
 
-	bool m_DrawFrame;
-	bool m_TransparentFrame;
-	bool m_DrawBackground;
+   bool m_DrawFrame;
+   bool m_TransparentFrame;
+   bool m_DrawBackground;
 
 };
 

@@ -40,83 +40,83 @@ typedef std::shared_ptr<GuiObject> GuiObjectPtr;
 class GuiObject
 {
 public:
-	GuiObject();
-	GuiObject(Rect rect);
-	virtual ~GuiObject();
+   GuiObject();
+   GuiObject(Rect rect);
+   virtual ~GuiObject();
 
-	bool operator==(GuiObject &inObject);
+   bool operator==(GuiObject &inObject);
 
-	Vector2d getPosition() const;
-	Rect getRect() const;
-	void setRect(const Rect& rect);
+   Vector2d getPosition() const;
+   Rect getRect() const;
+   void setRect(const Rect& rect);
 
-	void setSize(const Vector2d& size);
+   void setSize(const Vector2d& size);
 
-	void setCenter(const Vector2d& pos);
+   void setCenter(const Vector2d& pos);
 
-	virtual void draw(const Vector2d& pos, float alpha = 1.0f) = 0;
+   virtual void draw(const Vector2d& pos, float alpha = 1.0f) = 0;
 
-	virtual void update() = 0;
+   virtual void update() = 0;
 
-	virtual void setActive(bool active = true);
+   virtual void setActive(bool active = true);
 
-	virtual void setMouseOver(bool over);
-	bool getMouseOver() const;
+   virtual void setMouseOver(bool over);
+   bool getMouseOver() const;
 
 
-	bool getVisible() const;
-	virtual void setVisible(bool visible = true);
-	virtual void switchVisible();
+   bool getVisible() const;
+   virtual void setVisible(bool visible = true);
+   virtual void switchVisible();
 
-	//virtual bool HandleUserEvent(SDL_UserEvent event);
-	virtual bool handleUserEvent(UserEvent &event);
+   //virtual bool HandleUserEvent(SDL_UserEvent event);
+   virtual bool handleUserEvent(UserEvent &event);
 
-	virtual bool handleKeyboardEvent(KeyEvent &event);
+   virtual bool handleKeyboardEvent(KeyEvent &event);
 
-	virtual void gainFocus();
-	virtual void releaseFocus();
+   virtual void gainFocus();
+   virtual void releaseFocus();
 
-	virtual bool onLeftMouseButtonPressed(const Vector2d& pos);
-	virtual bool onLeftMouseButtonReleased(const Vector2d& pos);
+   virtual bool onLeftMouseButtonPressed(const Vector2d& pos);
+   virtual bool onLeftMouseButtonReleased(const Vector2d& pos);
 
-	virtual bool onRightMouseButtonPressed(const Vector2d& pos);
-	virtual bool onRightMouseButtonReleased(const Vector2d& pos);
+   virtual bool onRightMouseButtonPressed(const Vector2d& pos);
+   virtual bool onRightMouseButtonReleased(const Vector2d& pos);
 
-	virtual void onMouseMove(const Vector2d& pos);
+   virtual void onMouseMove(const Vector2d& pos);
 
-	virtual void onMouseScrollUp(const Vector2d& pos);
-	virtual void onMouseScrollDown(const Vector2d& pos);
+   virtual void onMouseScrollUp(const Vector2d& pos);
+   virtual void onMouseScrollDown(const Vector2d& pos);
 
-	virtual void onDrag(const Vector2d& pos);
+   virtual void onDrag(const Vector2d& pos);
 
-	void setPanelPosition(const Vector2d& pos);
+   void setPanelPosition(const Vector2d& pos);
 
-	void setCenter(Rect sourceRect, int directions);
-	
-	void setName(std::string inName);
-	std::string getName();
-	
-	virtual void print();
+   void setCenter(Rect sourceRect, int directions);
+   
+   void setName(std::string inName);
+   std::string getName();
+   
+   virtual void print();
 
 protected:
 
-	Rect m_Rect;
+   Rect m_Rect;
 
-	bool m_MouseOver;
+   bool m_MouseOver;
 
-	bool m_Active;
+   bool m_Active;
 
-	bool m_Visible;
+   bool m_Visible;
 
-	Gus::GraphicsLib::Vector2d m_PanelPosition;
+   Gus::GraphicsLib::Vector2d m_PanelPosition;
 
-	bool m_Drag;
+   bool m_Drag;
 
-	bool m_DragOnlyWhenMouseOver;
+   bool m_DragOnlyWhenMouseOver;
 
-	Gus::GraphicsLib::Vector2d m_LastMousePosition;
+   Gus::GraphicsLib::Vector2d m_LastMousePosition;
 
-	std::string m_Name;
+   std::string m_Name;
 
 };
 

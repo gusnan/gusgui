@@ -32,21 +32,21 @@ namespace GusGui
 class LoaderMeter : public GuiObject
 {
 public:
-	LoaderMeter(Rect rect, int maxValue);
-	virtual ~LoaderMeter();
+   LoaderMeter(Rect rect, int maxValue);
+   virtual ~LoaderMeter();
 
-	virtual void draw(const Vector2d &pos, float opacity = 1.0f);
+   virtual void draw(const Vector2d &pos, float opacity = 1.0f);
 
-	virtual void update();
+   virtual void update();
 
-	void increaseValue();
+   void increaseValue();
 
 protected:
 
-	int m_MaxValue;
-	int m_Value;
+   int m_MaxValue;
+   int m_Value;
 
-	int m_FullWidth;
+   int m_FullWidth;
 };
 
 // end of namespace

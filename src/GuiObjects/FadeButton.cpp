@@ -51,7 +51,7 @@ namespace GusGui
  */
 FadeButton::FadeButton(Rect rect, std::string name) : Button(rect, name), m_Fade(0.0f), m_ShowHover(true)
 {
-	m_MouseOver = false;
+   m_MouseOver = false;
 }
 
 
@@ -68,18 +68,18 @@ FadeButton::~FadeButton()
  */
 void FadeButton::draw(const Vector2d& pos, float opacity)
 {
-	Rect newRect=getRect() + pos;
+   Rect newRect=getRect() + pos;
 
-	if (m_Fade < 0.1f) {
-		if (m_MouseOver) {
-			m_Fade = 0.1f;
-		}
-		//
-	}
+   if (m_Fade < 0.1f) {
+      if (m_MouseOver) {
+         m_Fade = 0.1f;
+      }
+      //
+   }
 
-	Color col = Color(1.0f, 1.0f, 1.0f, (float)m_Fade * opacity);
+   Color col = Color(1.0f, 1.0f, 1.0f, (float)m_Fade * opacity);
 
-	Primitives::rectFill(newRect, col);
+   Primitives::rectFill(newRect, col);
 }
 
 
@@ -88,8 +88,8 @@ void FadeButton::draw(const Vector2d& pos, float opacity)
  */
 void FadeButton::setPressed()
 {
-	m_Fade = 1.0f;
-	m_Pressed = true;
+   m_Fade = 1.0f;
+   m_Pressed = true;
 }
 
 
@@ -98,13 +98,13 @@ void FadeButton::setPressed()
  */
 void FadeButton::update()
 {
-	float m_Speed = 4.0f;
+   float m_Speed = 4.0f;
 
-	if (m_Fade > 0.0f) {
-		m_Fade -= (float)(Timer::getDeltaTime() * m_Speed);
-	} else {
-		m_Fade = 0.0f;
-	}
+   if (m_Fade > 0.0f) {
+      m_Fade -= (float)(Timer::getDeltaTime() * m_Speed);
+   } else {
+      m_Fade = 0.0f;
+   }
 }
 
 
@@ -113,7 +113,7 @@ void FadeButton::update()
  */
 void FadeButton::setShowHover(bool hover)
 {
-	m_ShowHover = hover;
+   m_ShowHover = hover;
 }
 
 
@@ -122,26 +122,26 @@ void FadeButton::setShowHover(bool hover)
  */
 bool FadeButton::onLeftMouseButtonPressed(const Vector2d& pos)
 {
-	bool handled = false;
-	if (m_Active) {
-		if (m_MouseOver) {
-			m_Down = true;
+   bool handled = false;
+   if (m_Active) {
+      if (m_MouseOver) {
+         m_Down = true;
 
-			setPressed();
+         setPressed();
 
-			handled = true;
+         handled = true;
 
-			if (m_ActivateOnDown) {
-				m_Pressed = true;
+         if (m_ActivateOnDown) {
+            m_Pressed = true;
 
-				if (m_ButtonPressEvent) {
-					m_ButtonPressEvent->pushEvent();
-				}
-			}
-		}
-	}
+            if (m_ButtonPressEvent) {
+               m_ButtonPressEvent->pushEvent();
+            }
+         }
+      }
+   }
 
-	return handled;
+   return handled;
 }
 
 
@@ -150,7 +150,7 @@ bool FadeButton::onLeftMouseButtonPressed(const Vector2d& pos)
  */
 bool FadeButton::onLeftMouseButtonReleased(const Vector2d& pos)
 {
-	return false;
+   return false;
 }
 
 
@@ -159,7 +159,7 @@ bool FadeButton::onLeftMouseButtonReleased(const Vector2d& pos)
  */
 void FadeButton::onMouseMove(const Vector2d& pos)
 {
-	Button::onMouseMove(pos);
+   Button::onMouseMove(pos);
 }
 
 // end of namespace

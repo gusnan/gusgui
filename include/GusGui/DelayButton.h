@@ -32,32 +32,32 @@ namespace GusGui
 class DelayButton : public Button
 {
 public:
-	DelayButton(Rect rect, Rect sourceRect, Rect sourceRectPressed,
-		std::string name, std::shared_ptr<Bitmap> icon, Rect iconSourceRect);
-	virtual ~DelayButton();
+   DelayButton(Rect rect, Rect sourceRect, Rect sourceRectPressed,
+      std::string name, std::shared_ptr<Bitmap> icon, Rect iconSourceRect);
+   virtual ~DelayButton();
 
-	void draw(const Vector2d& pos, float alpha);
+   void draw(const Vector2d& pos, float alpha);
 
-	virtual void update();
+   virtual void update();
 
-	bool getPressed() const;
-	void setPressed();
+   bool getPressed() const;
+   void setPressed();
 
-	void setSpeed(float speed);
+   void setSpeed(float speed);
 
-	virtual bool handleKeyboardEvent(KeyEvent &event);
+   virtual bool handleKeyboardEvent(KeyEvent &event);
 
-	virtual bool onLeftMouseButtonPressed(const Vector2d& pos);
-	virtual bool onLeftMouseButtonReleased(const Vector2d& pos);
+   virtual bool onLeftMouseButtonPressed(const Vector2d& pos);
+   virtual bool onLeftMouseButtonReleased(const Vector2d& pos);
 
 
 protected:
-	float m_Delay;
+   float m_Delay;
 
-	float m_Speed;
+   float m_Speed;
 
-	Rect m_IconSourceRect;
-	Rect m_SourceRectPressed;
+   Rect m_IconSourceRect;
+   Rect m_SourceRectPressed;
 
 };
 
