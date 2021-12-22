@@ -46,6 +46,8 @@ public:
 
    bool operator==(GuiObject &inObject);
 
+   std::shared_ptr<GuiObject> makeCopy() const;
+
    Vector2d getPosition() const;
    Rect getRect() const;
    void setRect(const Rect& rect);
@@ -54,9 +56,9 @@ public:
 
    void setCenter(const Vector2d& pos);
 
-   virtual void draw(const Vector2d& pos, float alpha = 1.0f) = 0;
+   virtual void draw(const Vector2d& pos, float alpha = 1.0f);
 
-   virtual void update() = 0;
+   virtual void update();
 
    virtual void setActive(bool active = true);
 
@@ -92,10 +94,10 @@ public:
    void setPanelPosition(const Vector2d& pos);
 
    void setCenter(Rect sourceRect, int directions);
-   
+
    void setName(std::string inName);
    std::string getName();
-   
+
    virtual void print();
 
 protected:
@@ -118,6 +120,8 @@ protected:
 
    std::string m_Name;
 
+private:
+   virtual std::shared_ptr<GuiObject> cloneImplementation() const;
 };
 
 // end of namespace

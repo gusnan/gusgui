@@ -304,9 +304,14 @@ Button::~Button()
 /**
  *
  */
-Button *Button::makeCopy()
+std::shared_ptr<Button> Button::makeCopy() const
 {
-   return new Button(*this);
+   return std::static_pointer_cast<Button>(cloneImplementation());
+}
+
+std::shared_ptr<GuiObject> Button::cloneImplementation() const
+{
+   return std::shared_ptr<Button>(new Button(*this));
 }
 
 

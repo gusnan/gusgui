@@ -41,7 +41,7 @@ public:
 
    virtual ~Button();
 
-   Button *makeCopy();
+   std::shared_ptr<Button> makeCopy() const;
 
    void draw(const Vector2d& pos, float alpha = 1.0);
 
@@ -123,6 +123,9 @@ protected:
    // std::string m_Name;
 
    //bool m_HasEvent;
+
+private:
+   std::shared_ptr<GuiObject> cloneImplementation() const override;
 
 };
 
