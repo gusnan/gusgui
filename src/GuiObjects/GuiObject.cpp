@@ -84,6 +84,34 @@ bool GuiObject::operator==(GuiObject &source)
 /**
  *
  */
+std::shared_ptr<GuiObject> GuiObject::makeCopy() const
+{
+   return cloneImplementation();
+}
+
+
+/**
+ *
+ */
+std::shared_ptr<GuiObject> GuiObject::cloneImplementation() const
+{
+   return std::shared_ptr< GuiObject >(new GuiObject(*this));
+}
+
+
+
+void GuiObject::draw(const Vector2d& pos, float alpha)
+{
+}
+
+void GuiObject::update()
+{
+}
+
+
+/**
+ *
+ */
 Vector2d GuiObject::getPosition() const
 {
    return m_Rect.position;
