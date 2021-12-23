@@ -95,17 +95,8 @@ std::shared_ptr<GuiObject> GuiObject::makeCopy() const
  */
 std::shared_ptr<GuiObject> GuiObject::cloneImplementation() const
 {
-   return std::shared_ptr< GuiObject >(new GuiObject(*this));
-}
-
-
-
-void GuiObject::draw(const Vector2d& pos, float alpha)
-{
-}
-
-void GuiObject::update()
-{
+   //return std::shared_ptr< GuiObject >(new GuiObject(*this));
+   return nullptr;
 }
 
 
