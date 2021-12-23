@@ -41,7 +41,7 @@ public:
    Panel& operator=(const Panel& source);
 
 
-   void addGuiObject(const GuiObjectPtr &guiObject);
+   void addGuiObject(const std::shared_ptr<GuiObject> &guiObject);
 
    void draw(const Vector2d& pos, float alpha = 1.0f);
 
@@ -76,7 +76,7 @@ public:
 
 protected:
 
-   std::vector<GuiObjectPtr> *m_GuiList;
+   std::vector<std::shared_ptr<GuiObject>> *m_GuiList;
 
    bool m_DrawFrame;
    bool m_TransparentFrame;
