@@ -179,7 +179,11 @@ Button::Button(const Button& source) : GuiObject(source),
 
    m_Icon = source.m_Icon;
 
-   m_TextBitmap = source.m_TextBitmap->makeCopy();
+   if (m_TextBitmap != nullptr) {
+      m_TextBitmap = source.m_TextBitmap->makeCopy();
+   } else {
+      m_TextBitmap = nullptr;
+   }
 
    m_Invisible = source.m_Invisible;
 
@@ -199,7 +203,11 @@ Button::Button(const Button& source) : GuiObject(source),
 
    m_SourceRect = source.m_SourceRect;
 
-   m_Icon = source.m_Icon->makeCopy();
+   if (m_Icon != nullptr) {
+      m_Icon = source.m_Icon->makeCopy();
+   } else {
+      m_Icon = nullptr;
+   }
 
    //m_TextBitmap=0;
 
