@@ -38,8 +38,8 @@ public:
 
    bool getShowKeyboardShortcuts() const;
 
-   GuiObjectPtr getCurrentGuiObject();
-   void setCurrentGuiObject(GuiObjectPtr guiObj);
+   std::shared_ptr<GuiObject> getCurrentGuiObject();
+   void setCurrentGuiObject(std::shared_ptr<GuiObject> guiObj);
 
    void setNoMouseOver();
 
@@ -48,20 +48,20 @@ public:
 
    //SDL_Event MakeEvent(int code);
 
-   void addGuiObject(const GuiObjectPtr &guiObject);
-   void removeGuiObject(const GuiObjectPtr &guiObject);
+   void addGuiObject(const std::shared_ptr<GuiObject> &guiObject);
+   void removeGuiObject(const std::shared_ptr<GuiObject> &guiObject);
 
-   void addToDrawList(const GuiObjectPtr &guiObject);
-   void removeFromDrawList(const GuiObjectPtr &guiObject);
+   void addToDrawList(const std::shared_ptr<GuiObject> &guiObject);
+   void removeFromDrawList(const std::shared_ptr<GuiObject> &guiObject);
 
-   void addToHandleList(const GuiObjectPtr &guiObject);
-   void removeFromHandleList(const GuiObjectPtr &guiObject);
+   void addToHandleList(const std::shared_ptr<GuiObject> &guiObject);
+   void removeFromHandleList(const std::shared_ptr<GuiObject> &guiObject);
 
    void copyDrawListToHandleList();
 
    void clearHandleList();
 
-   bool isGuiObjectInList(GuiObjectPtr guiObject);
+   bool isGuiObjectInList(std::shared_ptr<GuiObject> guiObject);
 
    friend GuiEventHandler;
 
@@ -79,7 +79,7 @@ protected:
    GuiHandler(const GuiHandler &);
    GuiHandler& operator=(const GuiHandler&);
 
-   GuiObjectPtr m_CurrentGuiObject;
+   std::shared_ptr<GuiObject> m_CurrentGuiObject;
 
    bool showKeyboardShortcuts;
 
