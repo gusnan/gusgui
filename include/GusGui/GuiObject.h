@@ -56,9 +56,9 @@ public:
 
    void setCenter(const Vector2d& pos);
 
-   virtual void draw(const Vector2d& pos, float alpha = 1.0f);
+   virtual void draw(const Vector2d& pos, float alpha = 1.0f) = 0;
 
-   virtual void update();
+   virtual void update() = 0;
 
    virtual void setActive(bool active = true);
 
