@@ -263,7 +263,7 @@ int main(int argc, char **argv)
       // which inherits from the GUI event handler, this for it
       // to handle both GUI events, and our own custom ones for
       // just this example
-      eventHandler = std::shared_ptr<EventHandler>(new ExampleEventHandler());
+      eventHandler = std::make_shared<ExampleEventHandler>();
 
       // set the used EventHandler to the one we just created.
       //	EventHelper::instance()->setEventHandler(guiEventHandler);
