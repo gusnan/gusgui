@@ -80,7 +80,7 @@ bool GUSGAME_DLL GuiEventHandler::onLeftMouseButtonPressed(const Vector2d& pos)
 {
    bool handled=false;
 
-   std::vector<std::shared_ptr<GuiObject>> *guiList = GuiHandler::instance()->m_GuiList; //getGuiList();
+   std::shared_ptr<std::vector<std::shared_ptr<GuiObject>>> guiList = GuiHandler::instance()->m_GuiList; //getGuiList();
 
    if (guiList) {
 
@@ -104,7 +104,7 @@ bool GUSGAME_DLL GuiEventHandler::onLeftMouseButtonReleased(const Vector2d& pos)
 {
    bool result = false;
 
-   std::vector<std::shared_ptr<GuiObject>> *guiList = GuiHandler::instance()->m_GuiList; //getGuiList();
+   std::shared_ptr<std::vector<std::shared_ptr<GuiObject>>> guiList = GuiHandler::instance()->m_GuiList; //getGuiList();
 
    if (guiList) {
       for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = guiList->begin(); iter != guiList->end();) {
@@ -126,7 +126,8 @@ bool GUSGAME_DLL GuiEventHandler::onRightMouseButtonPressed(const Vector2d& pos)
 {
    bool handled=false;
 
-   std::vector<std::shared_ptr<GuiObject>> *guiList = GuiHandler::instance()->m_GuiList; //getGuiList();
+   std::shared_ptr<std::vector<std::shared_ptr<GuiObject>>> guiList = GuiHandler::instance()->m_GuiList; //getGuiList();
+
    if (guiList) {
       for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = guiList->begin(); iter != guiList->end();) {
          std::shared_ptr<GuiObject> current = (*iter);
@@ -146,7 +147,7 @@ bool GUSGAME_DLL GuiEventHandler::onRightMouseButtonPressed(const Vector2d& pos)
 bool GUSGAME_DLL GuiEventHandler::onRightMouseButtonReleased(const Vector2d& pos)
 {
    bool result = false;
-   std::vector<std::shared_ptr<GuiObject>> *guiList = GuiHandler::instance()->m_GuiList; //getGuiList();
+   std::shared_ptr<std::vector<std::shared_ptr<GuiObject>>> guiList = GuiHandler::instance()->m_GuiList; //getGuiList();
 
    if (guiList) {
       for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = guiList->begin(); iter != guiList->end();) {
@@ -169,7 +170,7 @@ bool GUSGAME_DLL GuiEventHandler::onRightMouseButtonReleased(const Vector2d& pos
 void GUSGAME_DLL GuiEventHandler::onMouseMove(const Vector2d& pos)
 {
 
-   std::vector<std::shared_ptr<GuiObject>> *guiList = GuiHandler::instance()->m_GuiList; //getGuiList();
+   std::shared_ptr<std::vector<std::shared_ptr<GuiObject>>> guiList = GuiHandler::instance()->m_GuiList; //getGuiList();
 
    if (guiList) {
       for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = guiList->begin(); iter != guiList->end();) {
@@ -190,7 +191,7 @@ void GUSGAME_DLL GuiEventHandler::onMouseMove(const Vector2d& pos)
 void GUSGAME_DLL GuiEventHandler::onMouseScrollUp(const Vector2d& pos)
 {
 
-   std::vector<std::shared_ptr<GuiObject>> *guiList = GuiHandler::instance()->m_GuiList; //getGuiList();
+   std::shared_ptr<std::vector<std::shared_ptr<GuiObject>>> guiList = GuiHandler::instance()->m_GuiList; //getGuiList();
 
    if (guiList) {
       for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = guiList->begin(); iter != guiList->end();) {
@@ -211,7 +212,7 @@ void GUSGAME_DLL GuiEventHandler::onMouseScrollUp(const Vector2d& pos)
 void GUSGAME_DLL GuiEventHandler::onMouseScrollDown(const Vector2d& pos)
 {
 
-   std::vector<std::shared_ptr<GuiObject>> *guiList = GuiHandler::instance()->m_GuiList; //getGuiList();
+   std::shared_ptr<std::vector<std::shared_ptr<GuiObject>>> guiList = GuiHandler::instance()->m_GuiList; //getGuiList();
 
    if (guiList) {
       for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = guiList->begin(); iter != guiList->end();) {
@@ -253,7 +254,7 @@ void GUSGAME_DLL GuiEventHandler::handleActiveEvent(ActiveEvent &activeEvent)
  */
 void GUSGAME_DLL GuiEventHandler::handleMouseLeaveScreen()
 {
-   std::vector<std::shared_ptr<GuiObject>> *guiList = GuiHandler::instance()->m_GuiList; //getGuiList();
+   std::shared_ptr<std::vector<std::shared_ptr<GuiObject>>> guiList = GuiHandler::instance()->m_GuiList; //getGuiList();
 
    if (guiList) {
       for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = guiList->begin(); iter != guiList->end();) {
