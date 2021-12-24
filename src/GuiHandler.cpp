@@ -85,8 +85,9 @@ GuiHandler::GuiHandler() :
 
    m_CurrentGuiObject = std::shared_ptr<GuiObject>();
 
-   m_GuiList = new std::vector<std::shared_ptr<GuiObject> >;
-   m_GuiDrawList = new std::vector<std::shared_ptr<GuiObject> >;
+   m_GuiList = std::make_shared<std::vector<std::shared_ptr<GuiObject>>>();
+   m_GuiList = std::make_shared<std::vector<std::shared_ptr<GuiObject>>>();
+   m_GuiDrawList = std::make_shared<std::vector<std::shared_ptr<GuiObject>>>();
 }
 
 /**
@@ -98,10 +99,13 @@ GuiHandler::~GuiHandler()
 
    clearHandleList();
 
+   /*
    if (m_GuiList) {
       delete m_GuiList;
       m_GuiList = nullptr;
    }
+   */
+   m_GuiList.reset();
 
    if (m_GuiDrawList != nullptr) {
 
@@ -111,9 +115,12 @@ GuiHandler::~GuiHandler()
          iter = m_GuiDrawList->erase(iter);
       }
 
-
+      /*
       delete m_GuiDrawList;
       m_GuiDrawList = nullptr;
+      */
+
+      m_GuiDrawList.reset();
    }
 }
 
