@@ -163,12 +163,12 @@ public:
    {
       // We add a button to the panel. This at position 10,10 in the panel,
       // which places it at 110,110 on the screen.
-      m_ExampleButton = std::shared_ptr<ExampleButton>(new ExampleButton(Rect(10, 10, 100, 20)));
+      m_ExampleButton = std::make_shared<ExampleButton>(Rect(10, 10, 100, 20));
 
       m_ExampleButton->setCenter(Rect(0, 0, 400, 300), GUI_OBJECT_CENTER_HORISONTALLY);
       addGuiObject(m_ExampleButton);
 
-      m_QuitButton = std::shared_ptr<ExampleButton>(new ExampleButton(Rect(10, 40, 100, 20)));
+      m_QuitButton = std::make_shared<ExampleButton>(Rect(10, 40, 100, 20));
       //m_QuitButton->setEvent(EventLib::eventQuit);
 
       m_QuitButton->setPressEvent(userEvent);
@@ -251,7 +251,7 @@ int main(int argc, char **argv)
       // EventData::instance();
 
       //guiList=new std::vector<boost::shared_ptr<GuiObject> >;
-      panel = std::shared_ptr<Panel>(new ExamplePanel());
+      panel = std::make_shared<ExamplePanel>();
 
       //guiList->push_back((GuiObject*)panel);
       //guiList->push_back(panel);
