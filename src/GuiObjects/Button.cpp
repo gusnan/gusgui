@@ -499,7 +499,7 @@ void Button::setText(std::string file, int line, std::string text)
  *	SetEvent
  *		Sets the event thats is executed when the button is pressed.
  */
-void Button::setPressEvent(UserEvent *inEvent)
+void Button::setPressEvent(std::shared_ptr<UserEvent> inEvent)
 {
    m_ButtonPressEvent = inEvent;
    //m_HasEvent=true;
@@ -509,7 +509,7 @@ void Button::setPressEvent(UserEvent *inEvent)
 /**
  *
  */
-void Button::setReleaseEvent(UserEvent *inEvent)
+void Button::setReleaseEvent(std::shared_ptr<UserEvent> inEvent)
 {
    m_ButtonReleaseEvent = inEvent;
 }
@@ -518,7 +518,7 @@ void Button::setReleaseEvent(UserEvent *inEvent)
 /**
  *
  */
-UserEvent *Button::getPressEvent()
+std::shared_ptr<UserEvent> Button::getPressEvent()
 {
    return m_ButtonPressEvent;
 }
@@ -527,7 +527,7 @@ UserEvent *Button::getPressEvent()
 /**
  *
  */
-UserEvent *Button::getReleaseEvent()
+std::shared_ptr<UserEvent> Button::getReleaseEvent()
 {
    return m_ButtonReleaseEvent;
 }
@@ -536,7 +536,7 @@ UserEvent *Button::getReleaseEvent()
 /**
  *
  */
-void Button::setGainedFocusEvent(UserEvent *inEvent)
+void Button::setGainedFocusEvent(std::shared_ptr<UserEvent> inEvent)
 {
    m_ButtonGainedFocusEvent = inEvent;
 }
@@ -545,7 +545,7 @@ void Button::setGainedFocusEvent(UserEvent *inEvent)
 /**
  *
  */
-UserEvent *Button::getGainedFocusEvent()
+std::shared_ptr<UserEvent> Button::getGainedFocusEvent()
 {
    return m_ButtonGainedFocusEvent;
 }
@@ -554,7 +554,7 @@ UserEvent *Button::getGainedFocusEvent()
 /**
  *
  */
-void Button::setLostFocusEvent(UserEvent *inEvent)
+void Button::setLostFocusEvent(std::shared_ptr<UserEvent> inEvent)
 {
    m_ButtonLostFocusEvent = inEvent;
 }
@@ -563,7 +563,7 @@ void Button::setLostFocusEvent(UserEvent *inEvent)
 /**
  *
  */
-UserEvent *Button::getLostFocusEvent()
+std::shared_ptr<UserEvent> Button::getLostFocusEvent()
 {
    return m_ButtonLostFocusEvent;
 }

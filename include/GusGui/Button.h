@@ -58,17 +58,17 @@ public:
 
    void setText(std::string file, int line, std::string text);
 
-   void setPressEvent(UserEvent *event);
-   UserEvent *getPressEvent();
+   void setPressEvent(std::shared_ptr<UserEvent> event);
+   std::shared_ptr<UserEvent> getPressEvent();
 
-   void setReleaseEvent(UserEvent *event);
-   UserEvent *getReleaseEvent();
+   void setReleaseEvent(std::shared_ptr<UserEvent> event);
+   std::shared_ptr<UserEvent> getReleaseEvent();
 
-   void setGainedFocusEvent(UserEvent *event);
-   UserEvent *getGainedFocusEvent();
+   void setGainedFocusEvent(std::shared_ptr<UserEvent> event);
+   std::shared_ptr<UserEvent> getGainedFocusEvent();
 
-   void setLostFocusEvent(UserEvent *event);
-   UserEvent *getLostFocusEvent();
+   void setLostFocusEvent(std::shared_ptr<UserEvent> event);
+   std::shared_ptr<UserEvent> getLostFocusEvent();
 
    void setActivateOnDown(bool active = true);
 
@@ -104,11 +104,11 @@ protected:
 
    std::string m_Text;
 
-   UserEvent *m_ButtonPressEvent;
-   UserEvent *m_ButtonReleaseEvent;
+   std::shared_ptr<UserEvent> m_ButtonPressEvent;
+   std::shared_ptr<UserEvent> m_ButtonReleaseEvent;
 
-   UserEvent *m_ButtonLostFocusEvent;
-   UserEvent *m_ButtonGainedFocusEvent;
+   std::shared_ptr<UserEvent> m_ButtonLostFocusEvent;
+   std::shared_ptr<UserEvent> m_ButtonGainedFocusEvent;
 
    bool m_ActivateOnDown;
 

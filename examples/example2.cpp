@@ -43,7 +43,7 @@ using namespace GusGui;
 
 bool quit = false;
 
-UserEvent *userEvent = nullptr;
+std::shared_ptr<UserEvent> userEvent = nullptr;
 
 
 
@@ -245,7 +245,7 @@ int main(int argc, char **argv)
 
       GuiData::setGuiFont(font);
 
-      userEvent = new UserEvent();
+      userEvent = std::make_shared<UserEvent>();
 
       // This must be initialized before the Examplepanel
       // EventData::instance();
@@ -322,7 +322,7 @@ int main(int argc, char **argv)
 
    mouseBitmap.reset();
 
-   delete userEvent;
+   userEvent.reset();
 
    GuiHandler::destroy();
 
