@@ -7,9 +7,14 @@
 # GUSGAME_LIBRARY
 # 
 
+set(_pf_x86 "ProgramFiles\(x86\)")
+
+MESSAGE(STATUS "Found _pf_x86: $ENV{${_pf_x86}}")
+
 IF (WIN32)
    FIND_PATH( GUSGAME_INCLUDE_DIR GusGame/GusGame.h
       $ENV{PROGRAMFILES}/GusGame/include
+	  $ENV{${_pf_x86}}/gusgame/include
       $ENV{MINGDIR}/include/
       $ENV{MINGDIR}/include/GusGame
       $ENV{MINGDIR}
@@ -27,6 +32,7 @@ IF (WIN32)
       NAMES GUSGAME gusgame GusGame gusgame.a GusGame.a libgusgame.a libgusgame
       PATHS
       $ENV{PROGRAMFILES}/GusGame/lib
+	  $ENV{${_pf_x86}}/gusgame/lib
       $ENV{MINGDIR}/GusGame/lib/
       #$ENV{MINGDIR}/lib/GL
       $ENV{MINGDIR}/
