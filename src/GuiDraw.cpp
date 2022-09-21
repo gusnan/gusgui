@@ -73,14 +73,14 @@ void GuiDraw::drawGuiRect(Rect rect, bool drawTransparentFrame, float opacity)
    GuiData::guiData->blit(Rect(40 + transAdd, 0, 8, 8), pos + Vector2d(-8, -8), FlipNone, opacity);
 
    if (xs <= 128) {
-      GraphicsHandler::setClipRect(Rect(pos.x, pos.y - 8, xs, 8));
+      GraphicsHandler::instance().setClipRect(Rect(pos.x, pos.y - 8, xs, 8));
       if (!drawTransparentFrame) {
          GuiData::menuBorder_Top_NoTrans->blit(pos + Vector2d(0, -8), opacity);
       } else {
          GuiData::menuBorder_Top->blit(pos + Vector2d(0, -8), opacity);
       }
       //graphicsHandler->noClip();
-      GraphicsHandler::noClip();
+      GraphicsHandler::instance().noClip();
 
    } else {
       GuiData::menuBorder_Top->drawPattern(Rect(pos + Vector2d(0, -8), Vector2d(xs, 8)), opacity);
@@ -90,14 +90,14 @@ void GuiDraw::drawGuiRect(Rect rect, bool drawTransparentFrame, float opacity)
    GuiData::guiData->blit(Rect(48 + transAdd, 0, 8, 8),pos + Vector2d(xs, -8), FlipNone, opacity);
 
    if (ys < 120) {
-      GraphicsHandler::setClipRect(Rect(pos.x - 8, pos.y, 8, ys));
+      GraphicsHandler::instance().setClipRect(Rect(pos.x - 8, pos.y, 8, ys));
       if (!drawTransparentFrame) {
          GuiData::menuBorder_Left_NoTrans->blit(pos + Vector2d(-8, 0), opacity);
       } else {
          GuiData::menuBorder_Left->blit(pos + Vector2d(-8, 0), opacity);
       }
       //GuiData::menuBorder_Left->DrawPattern(Rect(pos.x,pos.y,5,ys));
-      GraphicsHandler::noClip();
+      GraphicsHandler::instance().noClip();
    } else {
 
       GuiData::menuBorder_Left->drawPattern(Rect(pos + Vector2d(-8, 0), Vector2d(8, ys)), opacity);
@@ -108,26 +108,26 @@ void GuiDraw::drawGuiRect(Rect rect, bool drawTransparentFrame, float opacity)
 
 
    if (xs <= 116) {
-      GraphicsHandler::setClipRect(Rect(pos.x, y + ys, xs, 8));
+      GraphicsHandler::instance().setClipRect(Rect(pos.x, y + ys, xs, 8));
       if (!drawTransparentFrame) {
          GuiData::menuBorder_Bottom_NoTrans->blit(pos + Vector2d(0, ys), opacity);
       } else {
          GuiData::menuBorder_Bottom->blit(pos + Vector2d(0, ys), opacity);
       }
-      GraphicsHandler::noClip();
+      GraphicsHandler::instance().noClip();
    } else {
 
       GuiData::menuBorder_Bottom->drawPattern(Rect(pos + Vector2d(0, ys), Vector2d(xs, 8)), opacity);
    }
 
    if (ys < 120) {
-      GraphicsHandler::setClipRect(Rect(x + xs, pos.y, 8, ys));
+      GraphicsHandler::instance().setClipRect(Rect(x + xs, pos.y, 8, ys));
       if (!drawTransparentFrame) {
          GuiData::menuBorder_Right_NoTrans->blit(pos + Vector2d(xs, 0), opacity);
       } else {
          GuiData::menuBorder_Right->blit(pos + Vector2d(xs, 0), opacity);
       }
-      GraphicsHandler::noClip();
+      GraphicsHandler::instance().noClip();
    } else {
 
       GuiData::menuBorder_Right->drawPattern(Rect(pos + Vector2d(xs, 0), Vector2d(8, ys)), opacity);

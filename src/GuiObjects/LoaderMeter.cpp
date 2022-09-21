@@ -54,7 +54,7 @@ LoaderMeter::LoaderMeter(Rect rect, int maxValue) : GuiObject(rect), m_MaxValue(
    m_MaxValue = maxValue;
    m_Value = 0;
 
-   rect.setCenter(GraphicsHandler::getScreenRect().getCenter());
+   rect.setCenter(GraphicsHandler::instance().getScreenRect().getCenter());
 
    //GuiObject(rect);
    GuiObject::setRect(rect);
