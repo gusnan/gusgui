@@ -370,7 +370,7 @@ void Panel::onMouseMove(const Vector2d& pos)
 {
 	Vector2d panelPos = getPosition();
 
-	Vector2d tempPos = Vector2d(panelPos.x * GraphicsHandler::zoomX, panelPos.y * GraphicsHandler::zoomY);
+	Vector2d tempPos = Vector2d(panelPos.x * GraphicsHandler::instance().getZoomX(), panelPos.y * GraphicsHandler::instance().getZoomY());
 
 	GuiObject::onMouseMove(pos);
 

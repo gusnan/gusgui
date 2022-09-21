@@ -225,13 +225,13 @@ int main(int argc, char **argv)
       System::initSystem();
 
       // set up a screen with resolution of 640x480, and not fullscreen
-      GraphicsHandler::initGraphicsHandler();
-      GraphicsHandler::setGraphicsMode(Vector2d(1024, 768), false, true);
+      GraphicsHandler::instance().initGraphicsHandler();
+      GraphicsHandler::instance().setGraphicsMode(Vector2d(1024, 768), false, true);
 
       Primitives::initPrimitives();
 
       // set a window title
-      GraphicsHandler::setWindowTitle("GusGame Example 2");
+      GraphicsHandler::instance().setWindowTitle("GusGame Example 2");
 
       Mouse::initMouse();
 
@@ -294,7 +294,7 @@ int main(int argc, char **argv)
       EventSystem::handleEvents();
 
       // Clear the screen every sync
-      GraphicsHandler::clearScreen();
+      GraphicsHandler::instance().clearScreen();
 
       GuiHandler::instance()->draw();
 
@@ -304,7 +304,7 @@ int main(int argc, char **argv)
       */
 
       // Update the screen
-      GraphicsHandler::updateScreen();
+      GraphicsHandler::instance().updateScreen();
    } while(!quit);
 
    LOG("All done...");
@@ -327,6 +327,8 @@ int main(int argc, char **argv)
    GuiHandler::destroy();
 
    FontHandler::doneFontHandler();
+
+   GraphicsHandler::instance().doneGraphicsHandler();
 
    Primitives::donePrimitives();
 
