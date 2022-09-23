@@ -86,7 +86,7 @@ GuiHandler::GuiHandler() :
    m_CurrentGuiObject = std::shared_ptr<GuiObject>();
 
    m_GuiList = std::make_shared<std::vector<std::shared_ptr<GuiObject>>>();
-   m_GuiList = std::make_shared<std::vector<std::shared_ptr<GuiObject>>>();
+   // m_GuiList = std::make_shared<std::vector<std::shared_ptr<GuiObject>>>();
    m_GuiDrawList = std::make_shared<std::vector<std::shared_ptr<GuiObject>>>();
 }
 
