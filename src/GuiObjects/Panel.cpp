@@ -73,7 +73,7 @@ Panel::~Panel()
 		for (iter = m_GuiList->begin(); iter != m_GuiList->end();) {
 
 			//if (iter!=m_GuiList->end())  {
-			std::shared_ptr<GuiObject> obj = (*iter);
+			// std::shared_ptr<GuiObject> obj = (*iter);
 
 			iter = m_GuiList->erase(iter);
 
