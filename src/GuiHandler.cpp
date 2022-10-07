@@ -327,12 +327,10 @@ void GuiHandler::addToDrawList(const std::shared_ptr<GuiObject> &guiObject)
  */
 void GuiHandler::removeFromDrawList(const std::shared_ptr<GuiObject> &guiObject)
 {
-   std::vector<std::shared_ptr<GuiObject>>::iterator iter;
-   std::shared_ptr<GuiObject> currentGuiObject; // = boost::shared_ptr<GuiObject>();
+   // std::vector<std::shared_ptr<GuiObject>>::iterator iter;
+   // std::shared_ptr<GuiObject> currentGuiObject; // = boost::shared_ptr<GuiObject>();
 
    // GuiObject *inGuiObject = guiObject;
-
-   bool done = false;
 
    if (m_GuiDrawList) {
 
@@ -370,7 +368,7 @@ void GuiHandler::removeFromDrawList(const std::shared_ptr<GuiObject> &guiObject)
  */
 void GuiHandler::copyDrawListToHandleList()
 {
-   std::shared_ptr<GuiObject> currentGuiObject = std::shared_ptr<GuiObject>();
+   std::shared_ptr<GuiObject> currentGuiObject; // = std::shared_ptr<GuiObject>();
 
    if (m_GuiDrawList) {
       if (m_GuiList) {
@@ -419,7 +417,7 @@ bool GuiHandler::isGuiObjectInList(std::shared_ptr<GuiObject> inGuiObject)
 {
    bool result=false;
    std::vector<std::shared_ptr<GuiObject>>::iterator iter;
-   std::shared_ptr<GuiObject> currentGuiObject = std::shared_ptr<GuiObject>();
+   std::shared_ptr<GuiObject> currentGuiObject; // = std::shared_ptr<GuiObject>();
 
    if (m_GuiList) {
 
@@ -448,7 +446,7 @@ bool GuiHandler::isGuiObjectInList(std::shared_ptr<GuiObject> inGuiObject)
 void GuiHandler::setGuiObjectListActive(bool active = true)
 {
    std::vector<std::shared_ptr<GuiObject>>::iterator iter;
-   std::shared_ptr<GuiObject> currentGuiObject = std::shared_ptr<GuiObject>();
+   std::shared_ptr<GuiObject> currentGuiObject; // = std::shared_ptr<GuiObject>();
 
    if (m_GuiList) {
 
@@ -472,7 +470,7 @@ void GuiHandler::setGuiObjectListActive(bool active = true)
 void GuiHandler::print()
 {
    std::vector<std::shared_ptr<GuiObject>>::iterator iter;
-   std::shared_ptr<GuiObject> currentGuiObject = std::shared_ptr<GuiObject>();
+   std::shared_ptr<GuiObject> currentGuiObject; // = std::shared_ptr<GuiObject>();
 
    std::cout << "----------------------------" << std::endl;
 
