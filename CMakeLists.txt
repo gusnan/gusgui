@@ -86,6 +86,11 @@ message(STATUS "CMAKE_INSTALL_PREFIX: ${CMAKE_INSTALL_PREFIX}")
 
 message(STATUS "CMAKE_SOURCE_DIR: ${CMAKE_SOURCE_DIR}")
 
+# Silence OpenGL cmake policy warnings
+# See CMP0072 for more details (cmake --help-policy CMP0072)
+if ((NOT ${CMAKE_VERSION} VERSION_LESS 3.11) AND (NOT OpenGL_GL_PREFERENCE))
+  set(OpenGL_GL_PREFERENCE "GLVND")
+endif()
 
 find_package(OpenGL REQUIRED)
 
