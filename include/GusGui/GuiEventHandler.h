@@ -60,6 +60,8 @@ public:
 
    void GUSGAME_DLL handleActiveEvent(ActiveEvent &activeEvent);
 
+   std::shared_ptr<GusGui::GuiEventHandler> makeCopy() const;
+   virtual std::shared_ptr<EventHandler> cloneImplementation() const override;
 
 protected:
 

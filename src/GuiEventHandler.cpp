@@ -363,6 +363,24 @@ bool GUSGAME_DLL GuiEventHandler::handleUserEvent(UserEvent &userEvent)
 }
 
 
+/**
+ *
+ */
+std::shared_ptr<GuiEventHandler> GuiEventHandler::makeCopy() const
+{
+   return std::static_pointer_cast<GuiEventHandler>(cloneImplementation());
+}
+
+
+/**
+ *
+ */
+std::shared_ptr<EventHandler> GuiEventHandler::cloneImplementation() const
+{
+   return std::shared_ptr<GuiEventHandler>(new GuiEventHandler(*this));
+}
+
+
 // end of namespace
 // ----------------
 };
