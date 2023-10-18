@@ -21,7 +21,8 @@
 project (GusGui)
 
 # Require CMake 2.6
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 3.10.2)
+# cmake_minimum_required(VERSION 3.10.2 FATAL_ERROR)
 
 set(GUSGUI_LIBRARY_NAME gusgui)
 
