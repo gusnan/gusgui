@@ -100,23 +100,23 @@ void GuiData::setGuiGraphics(std::vector<Bitmap*> guiBitmapList)
 void GuiData::freeGuiGraphics()
 {
    LOG("Done GUI graphics...");
-#ifndef REMOVE
-#define  REMOVE(a) { if (a != nullptr) { a.reset(); a = nullptr; } }
+#ifndef REMOVE_SHARED
+#define  REMOVE_SHARED(a) { if (a != nullptr) { a.reset(); a = nullptr; } }
 #endif
 
-   REMOVE(menuBorder_Top);
-   REMOVE(menuBorder_Bottom);
-   REMOVE(menuBorder_Left);
-   REMOVE(menuBorder_Right);
+   REMOVE_SHARED(menuBorder_Top);
+   REMOVE_SHARED(menuBorder_Bottom);
+   REMOVE_SHARED(menuBorder_Left);
+   REMOVE_SHARED(menuBorder_Right);
 
-   REMOVE(menuBorder_Top_NoTrans);
-   REMOVE(menuBorder_Bottom_NoTrans);
-   REMOVE(menuBorder_Left_NoTrans);
-   REMOVE(menuBorder_Right_NoTrans);
+   REMOVE_SHARED(menuBorder_Top_NoTrans);
+   REMOVE_SHARED(menuBorder_Bottom_NoTrans);
+   REMOVE_SHARED(menuBorder_Left_NoTrans);
+   REMOVE_SHARED(menuBorder_Right_NoTrans);
 
-   REMOVE(menuBackground);
+   REMOVE_SHARED(menuBackground);
 
-   REMOVE(guiData);
+   REMOVE_SHARED(guiData);
 }
 
 /**
