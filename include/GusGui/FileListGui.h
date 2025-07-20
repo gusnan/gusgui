@@ -36,9 +36,9 @@ public:
    FileListGui(Rect rect);
    virtual ~FileListGui();
 
-   virtual void draw(const Vector2d &pos, float opacity = 1.0f);
+   virtual void draw(const Vector2d &pos, float opacity = 1.0f) override;
 
-   virtual void update();
+   virtual void update() override;
 
 protected:
 

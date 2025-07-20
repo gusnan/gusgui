@@ -36,19 +36,19 @@ public:
       std::string name, std::shared_ptr<Bitmap> icon, Rect iconSourceRect);
    virtual ~DelayButton();
 
-   void draw(const Vector2d& pos, float alpha);
+   void draw(const Vector2d& pos, float alpha) override;
 
-   virtual void update();
+   virtual void update() override;
 
    bool getPressed() const;
    void setPressed();
 
    void setSpeed(float speed);
 
-   virtual bool handleKeyboardEvent(KeyEvent &event);
+   virtual bool handleKeyboardEvent(KeyEvent &event) override;
 
-   virtual bool onLeftMouseButtonPressed(const Vector2d& pos);
-   virtual bool onLeftMouseButtonReleased(const Vector2d& pos);
+   virtual bool onLeftMouseButtonPressed(const Vector2d& pos) override;
+   virtual bool onLeftMouseButtonReleased(const Vector2d& pos) override;
 
 
 protected:

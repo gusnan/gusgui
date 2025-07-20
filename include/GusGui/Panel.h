@@ -43,36 +43,36 @@ public:
 
    void addGuiObject(const std::shared_ptr<GuiObject> &guiObject);
 
-   void draw(const Vector2d& pos, float alpha = 1.0f);
+   void draw(const Vector2d& pos, float alpha = 1.0f) override;
 
-   void update();
+   void update() override;
 
    void setDrawFrame(bool drawFrame = true);
    void setDrawBackground(bool drawBackground = true);
 
-   void setMouseOver(bool b);
+   void setMouseOver(bool b) override;
 
-   virtual bool handleUserEvent(UserEvent &event);
-   virtual bool handleKeyboardEvent(KeyEvent &event);
+   virtual bool handleUserEvent(UserEvent &event) override;
+   virtual bool handleKeyboardEvent(KeyEvent &event) override;
 
-   virtual bool onLeftMouseButtonPressed(const Vector2d& pos);
-   virtual bool onLeftMouseButtonReleased(const Vector2d& pos);
+   virtual bool onLeftMouseButtonPressed(const Vector2d& pos) override;
+   virtual bool onLeftMouseButtonReleased(const Vector2d& pos) override;
 
-   virtual bool onRightMouseButtonPressed(const Vector2d& pos);
-   virtual bool onRightMouseButtonReleased(const Vector2d& pos);
+   virtual bool onRightMouseButtonPressed(const Vector2d& pos) override;
+   virtual bool onRightMouseButtonReleased(const Vector2d& pos) override;
 
-   virtual void onMouseMove(const Vector2d& pos);
+   virtual void onMouseMove(const Vector2d& pos) override;
 
    virtual void onMouseScrollUp();
    virtual void onMouseScrollDown();
 
-   virtual void onDrag(const Vector2d& pos);
+   virtual void onDrag(const Vector2d& pos) override;
 
-   virtual void setVisible(bool visible = true);
+   virtual void setVisible(bool visible = true) override;
 
-   virtual void setActive(bool active = true);
+   virtual void setActive(bool active = true) override;
    
-   void print();
+   void print() override;
 
 protected:
 

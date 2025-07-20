@@ -41,9 +41,9 @@ public:
 
    CheckBox& operator=(const CheckBox& source);
 
-   void draw(const Vector2d& pos, float alpha = 1.0f);
+   void draw(const Vector2d& pos, float alpha = 1.0f) override;
 
-   void update();
+   void update() override;
 
    void setText(std::string text);
 
@@ -52,10 +52,10 @@ public:
 
    void switchChecked();
 
-   virtual bool handleKeyboardEvent(KeyEvent &event);
+   virtual bool handleKeyboardEvent(KeyEvent &event) override;
 
-   bool onLeftMouseButtonPressed(const Vector2d& pos);
-   bool onLeftMouseButtonReleased(const Vector2d& pos);
+   bool onLeftMouseButtonPressed(const Vector2d& pos) override;
+   bool onLeftMouseButtonReleased(const Vector2d& pos) override;
 
 protected:
    bool m_Checked;

@@ -35,9 +35,9 @@ public:
    LoaderMeter(Rect rect, int maxValue);
    virtual ~LoaderMeter();
 
-   virtual void draw(const Vector2d &pos, float opacity = 1.0f);
+   virtual void draw(const Vector2d &pos, float opacity = 1.0f) override;
 
-   virtual void update();
+   virtual void update() override;
 
    void increaseValue();
 

@@ -43,14 +43,14 @@ public:
 
    std::shared_ptr<Button> makeCopy() const;
 
-   void draw(const Vector2d& pos, float alpha = 1.0);
+   void draw(const Vector2d& pos, float alpha = 1.0) override;
 
    bool getPressed();
    bool getDown();
 
-   virtual void update();
+   virtual void update() override;
 
-   virtual void setMouseOver(bool over);
+   virtual void setMouseOver(bool over) override;
 
    void setGraphics(Bitmap *button, Bitmap *buttonPressed, Bitmap *buttonHover);
 
@@ -78,13 +78,13 @@ public:
 
    void setMoveOnDown(bool move = true);
 
-   bool handleUserEvent(UserEvent &event);
-   virtual bool handleKeyboardEvent(KeyEvent &event);
+   bool handleUserEvent(UserEvent &event) override;
+   virtual bool handleKeyboardEvent(KeyEvent &event) override;
 
-   virtual bool onLeftMouseButtonPressed(const Vector2d& pos);
-   virtual bool onLeftMouseButtonReleased(const Vector2d& pos);
+   virtual bool onLeftMouseButtonPressed(const Vector2d& pos) override;
+   virtual bool onLeftMouseButtonReleased(const Vector2d& pos) override;
 
-   virtual void onMouseMove(const Vector2d& pos);
+   virtual void onMouseMove(const Vector2d& pos) override;
 
    virtual void pressed();
    virtual void released();

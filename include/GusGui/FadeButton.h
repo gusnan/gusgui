@@ -37,16 +37,16 @@ public:
 
    void setPressed();
 
-   virtual void draw(const Vector2d& pos, float opacity = 1.0f);
+   virtual void draw(const Vector2d& pos, float opacity = 1.0f) override;
 
-   virtual void update();
+   virtual void update() override;
 
    void setShowHover(bool hover);
 
-   bool onLeftMouseButtonPressed(const Vector2d& pos);
-   bool onLeftMouseButtonReleased(const Vector2d& pos);
+   bool onLeftMouseButtonPressed(const Vector2d& pos) override;
+   bool onLeftMouseButtonReleased(const Vector2d& pos) override;
 
-   virtual void onMouseMove(const Vector2d& pos);
+   virtual void onMouseMove(const Vector2d& pos) override;
 
 protected:
    float m_Fade;
