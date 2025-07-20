@@ -35,7 +35,7 @@ public:
 
    CheckBox();
    CheckBox(const CheckBox& source);
-   CheckBox(Rect pos, bool checked = false);
+   explicit CheckBox(Rect pos, bool checked = false);
    CheckBox(Rect pos,std::string text, bool checked = false);
    virtual ~CheckBox();
 

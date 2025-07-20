@@ -33,7 +33,7 @@ namespace GusGui
 class FileListGui : public GuiObject
 {
 public:
-   FileListGui(Rect rect);
+   explicit FileListGui(Rect rect);
    virtual ~FileListGui();
 
    virtual void draw(const Vector2d &pos, float opacity = 1.0f) override;
