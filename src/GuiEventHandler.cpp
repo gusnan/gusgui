@@ -296,7 +296,7 @@ bool GUSGAME_DLL GuiEventHandler::handleMouseButton(MouseButtonEvent &mouseButto
 
          }
          break;
-      case 3:
+      case 2:
          {
             //mouse->setButton(2);
             handled = onRightMouseButtonPressed(mousePos);
@@ -331,7 +331,7 @@ bool GUSGAME_DLL GuiEventHandler::handleMouseButton(MouseButtonEvent &mouseButto
 
          }
          break;
-      case 3:
+      case 2:
          {
             //mouse->setButton(0);
             handled = onRightMouseButtonReleased(mousePos);
