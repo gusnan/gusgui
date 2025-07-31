@@ -68,6 +68,9 @@ public:
    virtual void setVisible(bool visible = true);
    virtual void switchVisible();
 
+   virtual void setVisibleAndActive(bool active = true);
+
+
    //virtual bool HandleUserEvent(SDL_UserEvent event);
    virtual bool handleUserEvent(UserEvent &event);
 

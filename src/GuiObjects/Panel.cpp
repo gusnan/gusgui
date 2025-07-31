@@ -460,6 +460,24 @@ void Panel::setActive(bool active)
 /**
  *
  */
+void Panel::setVisibleAndActive(bool active)
+{
+   for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = m_GuiList->begin(); iter!=m_GuiList->end();) {
+		std::shared_ptr<GuiObject> obj = (*iter);
+
+		obj->setActive(active);
+      obj->setVisible(active);
+
+		++iter;
+	}
+	GuiObject::setActive(active);
+   GuiObject::setVisible(active);
+}
+
+
+/**
+ *
+ */
 void Panel::print()
 {
 	std::cout << getName() << std::endl;

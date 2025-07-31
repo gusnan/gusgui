@@ -71,6 +71,8 @@ public:
    virtual void setVisible(bool visible = true) override;
 
    virtual void setActive(bool active = true) override;
+
+   virtual void setVisibleAndActive(bool active = true) override;
    
    void print() override;
 

@@ -200,6 +200,15 @@ bool GuiObject::getVisible() const
 /**
  *
  */
+void GuiObject::setVisibleAndActive(bool in)
+{
+   m_Visible = in;
+   m_Active = in;
+}
+
+/**
+ *
+ */
 bool GuiObject::getMouseOver() const
 {
    return m_MouseOver;
