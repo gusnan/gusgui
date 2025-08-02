@@ -140,11 +140,15 @@ Button::Button(const Rect &sourceRect, std::string name, const Rect &rect, std::
 
    //m_HasEvent=false;
 
+
+   m_Rect = rect;
+   /*
    if (!m_Invisible) {
       m_Rect = rect;
 
    } else {
    }
+   */
 
    m_SourceRect = sourceRect;
 
@@ -201,6 +205,7 @@ Button::Button(const Button& source) : GuiObject(source),
       m_Rect = source.m_Rect;
 
    } else {
+      m_Rect = source.m_Rect;
    }
 
    m_SourceRect = source.m_SourceRect;
@@ -256,6 +261,7 @@ Button& Button::operator=(const Button& source)
          m_Rect = source.m_Rect;
 
       } else {
+         m_Rect = source.m_Rect;
       }
 
       m_SourceRect = source.m_SourceRect;
