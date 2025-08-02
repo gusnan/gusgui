@@ -78,12 +78,14 @@ Button::Button(const Rect &rect, std::string name, std::shared_ptr<Bitmap> icon,
    m_FrameBufferHover = nullptr;
 #endif
 
-   if (!m_Invisible) {
+   // if (!m_Invisible) {
       //m_Rect=Rect(rect.position,GuiData::buttonNormal->GetSize());
       m_Rect = rect; //Rect(rect.position,GuiData::buttonNormal->GetSize());
 
+      /*
    } else {
    }
+      */
 
    m_Icon = icon;
 
