@@ -135,7 +135,7 @@ bool FadeButton::onLeftMouseButtonPressed(const Vector2d& pos)
             m_Pressed = true;
 
             if (m_ButtonPressEvent) {
-               m_ButtonPressEvent->pushEvent();
+               EventSystem::pushEvent(m_ButtonPressEvent);
             }
          }
       }

@@ -685,11 +685,11 @@ void Button::onMouseMove(const Vector2d& pos)
    if (m_MouseOver != oldMouseOver) {
       if (m_MouseOver) {
          if (m_ButtonGainedFocusEvent != nullptr) {
-            m_ButtonGainedFocusEvent->pushEvent();
+            EventLib::EventSystem::pushEvent(m_ButtonGainedFocusEvent);
          }
       } else {
          if (m_ButtonLostFocusEvent != nullptr) {
-            m_ButtonLostFocusEvent->pushEvent();
+            EventSystem::pushEvent(m_ButtonLostFocusEvent);
          }
       }
    }
@@ -706,7 +706,7 @@ void Button::onMouseMove(const Vector2d& pos)
 void Button::pressed()
 {
    if (m_ButtonPressEvent) {
-      m_ButtonPressEvent->pushEvent();
+      EventSystem::pushEvent(m_ButtonPressEvent);
    }
 }
 
@@ -717,7 +717,7 @@ void Button::pressed()
 void Button::released()
 {
    if (m_ButtonReleaseEvent) {
-      m_ButtonReleaseEvent->pushEvent();
+      EventSystem::pushEvent(m_ButtonReleaseEvent);
    }
 }
 
