@@ -40,11 +40,11 @@ public:
    GUSGAME_DLL GuiEventHandler(const GuiEventHandler &source);
    virtual GUSGAME_DLL ~GuiEventHandler();
 
-   bool GUSGAME_DLL onLeftMouseButtonPressed(const Vector2d& pos);
-   bool GUSGAME_DLL onLeftMouseButtonReleased(const Vector2d& pos);
+   virtual bool onLeftMouseButtonPressed(const Vector2d& pos);
+   virtual bool GUSGAME_DLL onLeftMouseButtonReleased(const Vector2d& pos);
 
-   bool GUSGAME_DLL onRightMouseButtonPressed(const Vector2d& pos);
-   bool GUSGAME_DLL onRightMouseButtonReleased(const Vector2d& pos);
+   virtual bool onRightMouseButtonPressed(const Vector2d& pos);
+   virtual bool onRightMouseButtonReleased(const Vector2d& pos);
 
    void GUSGAME_DLL onMouseMove(const Vector2d& pos);
 
@@ -61,7 +61,7 @@ public:
    void GUSGAME_DLL handleActiveEvent(ActiveEvent &activeEvent);
 
    std::shared_ptr<GusGui::GuiEventHandler> makeCopy() const;
-   virtual std::shared_ptr<EventHandler> cloneImplementation() const override;
+   virtual GuiEventHandler *cloneImplementation() const override;
 
 protected:
 

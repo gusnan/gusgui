@@ -125,7 +125,7 @@ protected:
    //bool m_HasEvent;
 
 private:
-   std::shared_ptr<GuiObject> cloneImplementation() const override;
+   virtual Button *cloneImplementation() const;
 
 };
 

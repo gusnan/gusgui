@@ -31,9 +31,9 @@ using namespace Gus;
 using namespace Gus::GraphicsLib;
 using namespace Gus::EventLib;
 
-#include "GuiObject.h"
-
 #include "GuiEventHandler.h"
+
+#include "GuiObject.h"
 
 #include "GuiHandler.h"
 
@@ -372,16 +372,16 @@ bool GUSGAME_DLL GuiEventHandler::handleUserEvent(UserEvent &userEvent)
  */
 std::shared_ptr<GuiEventHandler> GuiEventHandler::makeCopy() const
 {
-   return std::static_pointer_cast<GuiEventHandler>(cloneImplementation());
+   return std::shared_ptr<GuiEventHandler>(cloneImplementation());
 }
 
 
 /**
  *
  */
-std::shared_ptr<EventHandler> GuiEventHandler::cloneImplementation() const
+GuiEventHandler *GuiEventHandler::cloneImplementation() const
 {
-   return std::shared_ptr<GuiEventHandler>(new GuiEventHandler(*this));
+   return new GuiEventHandler(*this);
 }
 
 

@@ -35,7 +35,7 @@ class GuiObject;
 /**
  *
  */
-class GuiObject
+class GuiObject : public GuiEventHandler
 {
 public:
    GuiObject();
@@ -44,7 +44,7 @@ public:
 
    bool operator==(GuiObject &inObject);
 
-   std::shared_ptr<GuiObject> makeCopy() const;
+   // std::shared_ptr<GuiObject> makeCopy() const;
 
    Vector2d getPosition() const;
    Rect getRect() const;
@@ -80,7 +80,7 @@ public:
    virtual void gainFocus();
    virtual void releaseFocus();
 
-   virtual bool onLeftMouseButtonPressed(const Vector2d& pos);
+   virtual bool onLeftMouseButtonPressed(const Vector2d& pos) override;
    virtual bool onLeftMouseButtonReleased(const Vector2d& pos);
 
    virtual bool onRightMouseButtonPressed(const Vector2d& pos);
@@ -123,7 +123,7 @@ protected:
    std::string m_Name;
 
 private:
-   virtual std::shared_ptr<GuiObject> cloneImplementation() const;
+   // virtual GuiObject *cloneImplementation() const override;
 };
 
 // end of namespace

@@ -31,6 +31,9 @@ using namespace Gus;
 using namespace Gus::GraphicsLib;
 using namespace Gus::EventLib;
 
+
+#include "GuiEventHandler.h"
+
 #include "GuiData.h"
 
 #include "GuiObject.h"

@@ -31,6 +31,9 @@ using namespace Gus;
 using namespace Gus::GraphicsLib;
 using namespace Gus::EventLib;
 
+
+#include "GuiEventHandler.h"
+
 #include "GuiObject.h"
 
 /**
@@ -84,20 +87,24 @@ bool GuiObject::operator==(GuiObject &source)
 /**
  *
  */
+/*
 std::shared_ptr<GuiObject> GuiObject::makeCopy() const
 {
-   return cloneImplementation();
+   return std::shared_ptr<GuiObject>(cloneImplementation());
 }
+*/
 
 
 /**
  *
  */
-std::shared_ptr<GuiObject> GuiObject::cloneImplementation() const
+/*
+GuiObject *GuiObject::cloneImplementation() const
 {
    //return std::shared_ptr< GuiObject >(new GuiObject(*this));
-   return nullptr;
+   return new GuiObject(*this);
 }
+*/
 
 
 /**

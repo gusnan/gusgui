@@ -23,6 +23,8 @@
 /**
  *
  */
+#include "GuiEventHandler.h"
+
 #include "GuiObject.h"
 #include "Button.h"
 #include "Panel.h"
@@ -33,7 +35,6 @@
 #include "LoaderMeter.h"
 #include "FileListGui.h"
 
-#include "GuiEventHandler.h"
 #include "GuiHandler.h"
 #include "GuiData.h"
 #include "GuiDraw.h"

@@ -32,11 +32,10 @@ using namespace Gus;
 using namespace Gus::GraphicsLib;
 using namespace Gus::EventLib;
 
+#include "GuiEventHandler.h"
 #include "GuiObject.h"
 
 #include "Button.h"
-
-#include "GuiEventHandler.h"
 #include "GuiHandler.h"
 
 #include "GuiData.h"
@@ -322,12 +321,12 @@ Button::~Button()
  */
 std::shared_ptr<Button> Button::makeCopy() const
 {
-   return std::static_pointer_cast<Button>(cloneImplementation());
+   return std::shared_ptr<Button>(cloneImplementation());
 }
 
-std::shared_ptr<GuiObject> Button::cloneImplementation() const
+Button *Button::cloneImplementation() const
 {
-   return std::shared_ptr<Button>(new Button(*this));
+   return new Button(*this);
 }
 
 
@@ -628,7 +627,6 @@ bool Button::handleKeyboardEvent(KeyEvent &event)
  */
 bool Button::onLeftMouseButtonPressed(const Vector2d& pos)
 {
-   LOG("Button::onLeftMouseButtonPressed");
    GuiObject::onLeftMouseButtonPressed(pos);
 
    bool handled = false;
