@@ -59,6 +59,7 @@ public:
    virtual void update() = 0;
 
    virtual void setActive(bool active = true);
+   virtual bool getActive();
 
    virtual void setMouseOver(bool over);
    bool getMouseOver() const;

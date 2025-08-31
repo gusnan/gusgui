@@ -628,7 +628,7 @@ bool Button::handleKeyboardEvent(KeyEvent &event)
  */
 bool Button::onLeftMouseButtonPressed(const Vector2d& pos)
 {
-
+   LOG("Button::onLeftMouseButtonPressed");
    GuiObject::onLeftMouseButtonPressed(pos);
 
    bool handled = false;

@@ -173,6 +173,15 @@ void GuiObject::setActive(bool active)
 /**
  *
  */
+bool GuiObject::getActive()
+{
+   return m_Active;
+}
+
+
+/**
+ *
+ */
 void GuiObject::setVisible(bool visible)
 {
    m_Visible = visible;

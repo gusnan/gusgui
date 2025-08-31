@@ -88,7 +88,9 @@ bool GUSGAME_DLL GuiEventHandler::onLeftMouseButtonPressed(const Vector2d& pos)
          std::shared_ptr<GuiObject> current = (*iter);
 
          if ((current != std::shared_ptr<GuiObject>()) && !handled) {
-            handled = current->onLeftMouseButtonPressed(pos);
+            if (current->getActive()) {
+               handled = current->onLeftMouseButtonPressed(pos);
+            }
          }
          ++iter;
       }
@@ -111,7 +113,9 @@ bool GUSGAME_DLL GuiEventHandler::onLeftMouseButtonReleased(const Vector2d& pos)
          std::shared_ptr<GuiObject> current = (*iter);
 
          if ((current)  && (!result)) {
-            result = current->onLeftMouseButtonReleased(pos);
+            if (current->getActive()) {
+               result = current->onLeftMouseButtonReleased(pos);
+            }
          }
          ++iter;
       }
