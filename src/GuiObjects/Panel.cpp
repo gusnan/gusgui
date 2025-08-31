@@ -189,7 +189,7 @@ void Panel::draw(const Vector2d& pos,float alpha)
  */
 void Panel::update()
 {
-   for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = m_GuiList->begin(); iter!=m_GuiList->end();) {
+   for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = m_GuiList->begin(); iter != m_GuiList->end();) {
       (*iter)->update();
       ++iter;
    }
@@ -209,7 +209,7 @@ void Panel::setDrawFrame(bool drawFrame)
  */
 void Panel::setMouseOver(bool mouseOver)
 {
-   for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = m_GuiList->begin(); iter!=m_GuiList->end();) {
+   for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = m_GuiList->begin(); iter != m_GuiList->end();) {
       (*iter)->setMouseOver(mouseOver);
       ++iter;
    }
@@ -234,7 +234,7 @@ bool Panel::handleKeyboardEvent(KeyEvent &event)
    bool result=false;
 
    if (m_GuiList) {
-      for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = m_GuiList->begin(); iter!=m_GuiList->end();) {
+      for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = m_GuiList->begin(); iter != m_GuiList->end();) {
          if (!result) {
             result=(*iter)->handleKeyboardEvent(event);
             ++iter;
@@ -269,7 +269,7 @@ bool Panel::onLeftMouseButtonPressed(const Vector2d& pos)
       GuiObject::onLeftMouseButtonPressed(pos);
 
       if (m_GuiList) {
-         for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = m_GuiList->begin(); iter!=m_GuiList->end();) {
+         for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = m_GuiList->begin(); iter != m_GuiList->end();) {
             std::shared_ptr<GuiObject> current = (*iter);
 
             if (current && !handled) {
@@ -299,7 +299,7 @@ bool Panel::onLeftMouseButtonReleased(const Vector2d& pos)
       GuiObject::onLeftMouseButtonReleased(pos);
 
       if (m_GuiList) {
-         for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = m_GuiList->begin(); iter!=m_GuiList->end();) {
+         for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = m_GuiList->begin(); iter != m_GuiList->end();) {
             std::shared_ptr<GuiObject> current = (*iter);
 
             if (current) {
@@ -329,7 +329,7 @@ bool Panel::onRightMouseButtonPressed(const Vector2d& pos)
    if (m_Active) {
 
       if (m_GuiList) {
-         for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = m_GuiList->begin(); iter!=m_GuiList->end();) {
+         for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = m_GuiList->begin(); iter != m_GuiList->end();) {
             std::shared_ptr<GuiObject> current = (*iter);
 
             if (current && !handled) {
@@ -356,7 +356,7 @@ bool Panel::onRightMouseButtonReleased(const Vector2d& pos)
    if (m_Active) {
 
       if (m_GuiList) {
-         for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = m_GuiList->begin(); iter!=m_GuiList->end();) {
+         for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = m_GuiList->begin(); iter != m_GuiList->end();) {
             std::shared_ptr<GuiObject> current = (*iter);
 
             if (current) {
@@ -383,7 +383,7 @@ void Panel::onMouseMove(const Vector2d& pos)
 
    if (m_Active) {
 
-      for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = m_GuiList->begin(); iter!=m_GuiList->end();) {
+      for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = m_GuiList->begin(); iter != m_GuiList->end();) {
          std::shared_ptr<GuiObject> current = (*iter);
 
          if (current) {
@@ -435,7 +435,7 @@ void Panel::onDrag(const Vector2d& pos)
  */
 void Panel::setVisible(bool visible)
 {
-   for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = m_GuiList->begin(); iter!=m_GuiList->end();) {
+   for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = m_GuiList->begin(); iter != m_GuiList->end();) {
       std::shared_ptr<GuiObject> obj = (*iter);
 
       obj->setVisible(visible);
@@ -453,7 +453,7 @@ void Panel::setVisible(bool visible)
 void Panel::setActive(bool active)
 {
 
-   for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = m_GuiList->begin(); iter!=m_GuiList->end();) {
+   for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = m_GuiList->begin(); iter != m_GuiList->end();) {
       std::shared_ptr<GuiObject> obj = (*iter);
 
       obj->setActive(active);
@@ -469,7 +469,7 @@ void Panel::setActive(bool active)
  */
 void Panel::setVisibleAndActive(bool active)
 {
-   for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = m_GuiList->begin(); iter!=m_GuiList->end();) {
+   for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = m_GuiList->begin(); iter != m_GuiList->end();) {
       std::shared_ptr<GuiObject> obj = (*iter);
 
       obj->setActive(active);
@@ -488,7 +488,7 @@ void Panel::setVisibleAndActive(bool active)
 void Panel::print()
 {
    std::cout << getName() << std::endl;
-   for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = m_GuiList->begin(); iter!=m_GuiList->end();) {
+   for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = m_GuiList->begin(); iter != m_GuiList->end();) {
       std::shared_ptr<GuiObject> obj = (*iter);
 
       obj->print();
