@@ -258,7 +258,8 @@ bool Panel::handleUserEvent(UserEvent &event)
  */
 bool Panel::onLeftMouseButtonPressed(const Vector2d& pos)
 {
-	bool handled=false;
+	bool handled = false;
+
 	Vector2d panelPos = getPosition();
 
 	if (m_Active) {
@@ -270,7 +271,9 @@ bool Panel::onLeftMouseButtonPressed(const Vector2d& pos)
 				std::shared_ptr<GuiObject> current = (*iter);
 
 				if (current && !handled) {
-					handled = current->onLeftMouseButtonPressed(pos/*-panelPos*/);
+					if (current->getActive()) {
+						handled = current->onLeftMouseButtonPressed(pos/*-panelPos*/);
+					}
 				}
 				++iter;
 			}
@@ -298,7 +301,9 @@ bool Panel::onLeftMouseButtonReleased(const Vector2d& pos)
 				std::shared_ptr<GuiObject> current = (*iter);
 
 				if (current) {
-					result = current->onLeftMouseButtonReleased(pos - panelPos);
+               if (current->getActive()) {
+                  result = current->onLeftMouseButtonReleased(pos - panelPos);
+               }
 				}
 				++iter;
 			}
