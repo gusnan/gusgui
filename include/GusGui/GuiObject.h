@@ -40,6 +40,9 @@ class GuiObject : public GuiEventHandler
 public:
    GuiObject();
    GuiObject(Rect rect);
+
+   GuiObject(const GuiObject &inGuiObject);
+
    virtual ~GuiObject();
 
    bool operator==(GuiObject &inObject);
@@ -80,19 +83,23 @@ public:
    virtual void gainFocus();
    virtual void releaseFocus();
 
+   virtual bool handleMouseButton(MouseButtonEvent &mouseButtonEvent);
+   virtual void handleMouseMotion(MouseMotionEvent &mouseMotion);
+
+/*
    virtual bool onLeftMouseButtonPressed(const Vector2d& pos) override;
-   virtual bool onLeftMouseButtonReleased(const Vector2d& pos);
+   virtual bool onLeftMouseButtonReleased(const Vector2d& pos) override;
 
-   virtual bool onRightMouseButtonPressed(const Vector2d& pos);
-   virtual bool onRightMouseButtonReleased(const Vector2d& pos);
-
-   virtual void onMouseMove(const Vector2d& pos);
-
+   virtual bool onRightMouseButtonPressed(const Vector2d& pos) override;
+   virtual bool onRightMouseButtonReleased(const Vector2d& pos) override;
+*/
+   virtual void onMouseMove(const Vector2d& pos) override;
+/*
    virtual void onMouseScrollUp(const Vector2d& pos);
    virtual void onMouseScrollDown(const Vector2d& pos);
 
    virtual void onDrag(const Vector2d& pos);
-
+*/
    void setPanelPosition(const Vector2d& pos);
 
    void setCenter(Rect sourceRect, int directions);

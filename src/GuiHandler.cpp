@@ -34,6 +34,7 @@ using namespace Gus::GraphicsLib;
 using namespace Gus::EventLib;
 
 #include "GuiEventHandler.h"
+#include "GlobalEventHandler.h"
 
 #include "GuiObject.h"
 #include "Button.h"
@@ -79,7 +80,8 @@ GuiHandler::GuiHandler() :
    m_CurrentGuiObject(std::shared_ptr<GuiObject>()),
    showKeyboardShortcuts(false),
    m_GuiList(nullptr),
-   m_GuiDrawList(nullptr)
+   m_GuiDrawList(nullptr),
+   m_GlobalEventHandler(nullptr)
 {
    LOG("Init Gui Handler...");
 
@@ -88,8 +90,11 @@ GuiHandler::GuiHandler() :
    m_CurrentGuiObject = std::shared_ptr<GuiObject>();
 
    m_GuiList = std::make_shared<std::vector<std::shared_ptr<GuiObject>>>();
-   // m_GuiList = std::make_shared<std::vector<std::shared_ptr<GuiObject>>>();
    m_GuiDrawList = std::make_shared<std::vector<std::shared_ptr<GuiObject>>>();
+
+   m_GlobalEventHandler = std::make_shared<GlobalEventHandler>();
+
+   EventSystem::addEventHandler(m_GlobalEventHandler);
 }
 
 /**
@@ -183,13 +188,16 @@ void GuiHandler::draw()
  */
 void GuiHandler::update()
 {
+   m_GlobalEventHandler->update();
 
+   /*
    std::vector<std::shared_ptr<GuiObject>>::iterator iter;
    for (iter = m_GuiList->begin(); iter != m_GuiList->end();) {
 
       (*iter)->update();
       ++iter;
    }
+   */
 
 }
 
@@ -198,10 +206,14 @@ void GuiHandler::update()
  */
 void GuiHandler::setNoMouseOver()
 {
+   m_GlobalEventHandler->setMouseOver(false);
+
    for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = m_GuiList->begin(); iter != m_GuiList->end();) {
       (*iter)->setMouseOver(false);
       ++iter;
    }
+
+   // m_GlobalEventHandler->setNoMouseOver();
 }
 
 
@@ -244,9 +256,13 @@ void GuiHandler::setCurrentGuiObject(std::shared_ptr<GuiObject> guiObj)
  */
 void GuiHandler::updateMouseOver()
 {
+   LOG("GuiHandler::updateNouseOver...");
    MouseMotionEvent mouseMotion;
    Vector2d position = mouseMotion.getPosition();
 
+   m_GlobalEventHandler->onMouseMove(position);
+
+   /*
    if (m_GuiList) {
       for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = m_GuiList->begin(); iter != m_GuiList->end();) {
          std::shared_ptr<GuiObject> object=(*iter);
@@ -258,6 +274,7 @@ void GuiHandler::updateMouseOver()
          ++iter;
       }
    }
+   */
 
 }
 
@@ -268,6 +285,13 @@ void GuiHandler::updateMouseOver()
  */
 void GuiHandler::addToHandleList(const std::shared_ptr<GuiObject> &guiObject)
 {
+   /*
+   if (!isGuiObjectInList(m_GlobalEventHandler)) {
+      LOG("Test");
+      m_GuiList->push_back(m_GlobalEventHandler);
+   }
+   */
+
    if (guiObject != std::shared_ptr<GuiObject>()) {
       if (m_GuiList) {
          m_GuiList->push_back(guiObject);
@@ -430,7 +454,7 @@ bool GuiHandler::isGuiObjectInList(std::shared_ptr<GuiObject> inGuiObject)
             currentGuiObject = (*iter);
 
             if (inGuiObject.get() == currentGuiObject.get()) {
-               result=true;
+               result = true;
             }
 
             ++iter;
@@ -494,6 +518,14 @@ void GuiHandler::print()
    std::cout << "----------------------------" << std::endl;
 }
 
+
+/**
+ *
+ */
+std::shared_ptr<std::vector<std::shared_ptr<GuiObject>>> GuiHandler::getGuiList()
+{
+   return m_GuiList;
+}
 
 /**
  *

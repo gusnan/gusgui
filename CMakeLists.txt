@@ -138,6 +138,7 @@ set(LIB_SOURCES
    ${SRC}/GuiDraw.cpp
    ${SRC}/GuiHandler.cpp
    ${SRC}/GuiEventHandler.cpp
+   ${SRC}/GlobalEventHandler.cpp
 
 )
 
@@ -173,6 +174,7 @@ set(INCLUDE_FILES
    ${INC}/Panel.h        
    #${INC}/TextMarker.h
    ${INC}/GuiEventHandler.h
+   ${INC}/GlobalEventHandler.h
    
 )
 

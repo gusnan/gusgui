@@ -66,7 +66,7 @@ public:
    virtual void onMouseScrollUp();
    virtual void onMouseScrollDown();
 
-   virtual void onDrag(const Vector2d& pos) override;
+   virtual void onDrag(const Vector2d& pos);
 
    virtual void setVisible(bool visible = true) override;
 

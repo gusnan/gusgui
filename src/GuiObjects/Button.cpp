@@ -34,6 +34,7 @@ using namespace Gus::EventLib;
 
 #include "GuiEventHandler.h"
 #include "GuiObject.h"
+#include "GlobalEventHandler.h"
 
 #include "Button.h"
 #include "GuiHandler.h"
@@ -627,6 +628,7 @@ bool Button::handleKeyboardEvent(KeyEvent &event)
  */
 bool Button::onLeftMouseButtonPressed(const Vector2d& pos)
 {
+   LOG("Button::onLeftMouseButtonPressed");
    GuiObject::onLeftMouseButtonPressed(pos);
 
    bool handled = false;
@@ -655,7 +657,7 @@ bool Button::onLeftMouseButtonReleased(const Vector2d& pos)
 
    if (m_Down) {
       m_Down = false;
-      if (m_Active) {
+      if (getActive()) {
          if (m_MouseOver) {
 
             if (!m_ActivateOnDown) {

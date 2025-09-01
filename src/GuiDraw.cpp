@@ -32,6 +32,7 @@ using namespace Gus::LogLib;
 using namespace Gus::EventLib;
 
 #include "GuiEventHandler.h"
+#include "GlobalEventHandler.h"
 
 #include "GuiObject.h"
 

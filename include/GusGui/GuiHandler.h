@@ -63,13 +63,15 @@ public:
 
    bool isGuiObjectInList(std::shared_ptr<GuiObject> guiObject);
 
-   friend GuiEventHandler;
+   friend GlobalEventHandler;
 
    void setGuiObjectListActive(bool active);
 
    void updateMouseOver();
-   
+
    void print();
+
+   std::shared_ptr<std::vector<std::shared_ptr<GuiObject>>> getGuiList();
 
 protected:
 
@@ -85,6 +87,8 @@ protected:
 
    std::shared_ptr<std::vector<std::shared_ptr<GuiObject>>> m_GuiList;
    std::shared_ptr<std::vector<std::shared_ptr<GuiObject>>> m_GuiDrawList;
+
+   std::shared_ptr<GlobalEventHandler> m_GlobalEventHandler;
 
 private:
    static GuiHandler *pinstance;

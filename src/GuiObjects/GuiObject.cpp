@@ -31,8 +31,8 @@ using namespace Gus;
 using namespace Gus::GraphicsLib;
 using namespace Gus::EventLib;
 
-
 #include "GuiEventHandler.h"
+#include "GlobalEventHandler.h"
 
 #include "GuiObject.h"
 
@@ -45,7 +45,7 @@ namespace GusGui
 /**
  *
  */
-GuiObject::GuiObject() : m_Rect(), m_MouseOver(false), m_Active(true), m_Visible(true),
+GuiObject::GuiObject() : GuiEventHandler(), m_Rect(), m_MouseOver(false), m_Active(true), m_Visible(true),
    m_PanelPosition(), m_Drag(false), m_DragOnlyWhenMouseOver(true), m_LastMousePosition()
 {
 
@@ -55,11 +55,21 @@ GuiObject::GuiObject() : m_Rect(), m_MouseOver(false), m_Active(true), m_Visible
 /**
  *
  */
-GuiObject::GuiObject(Rect rect) : m_Rect(rect), m_Active(true), m_Visible(true), m_MouseOver(false),
+GuiObject::GuiObject(Rect rect) : GuiEventHandler(), m_Rect(rect), m_Active(true), m_Visible(true), m_MouseOver(false),
    m_PanelPosition(), m_Drag(false), m_DragOnlyWhenMouseOver(true), m_LastMousePosition()
 {
 }
 
+
+
+/**
+ *
+ */
+GuiObject::GuiObject(const GuiObject &source) : GuiEventHandler(),
+         m_Rect(source.m_Rect), m_Active(source.m_Active), m_Visible(source.m_Visible), m_MouseOver(source.m_MouseOver),
+   m_PanelPosition(source.m_PanelPosition), m_Drag(source.m_Drag), m_DragOnlyWhenMouseOver(source.m_DragOnlyWhenMouseOver), m_LastMousePosition(source.m_LastMousePosition)
+{
+}
 
 /**
  *
@@ -168,9 +178,11 @@ void GuiObject::setActive(bool active)
 {
    m_Active = active;
 
-   //if (m_Active) {
+   /*
+   if (m_Active) {
       onMouseMove(m_LastMousePosition);
-   //}
+   }
+   */
 
    //if (!active) m_MouseOver=false;
 
@@ -218,6 +230,12 @@ bool GuiObject::getVisible() const
  */
 void GuiObject::setVisibleAndActive(bool in)
 {
+   std::stringstream st;
+
+   st << getName() << "; setactive: " << in ? "FALSE" : "TRUE";
+
+   STLOG(st);
+
    m_Visible = in;
    m_Active = in;
 }
@@ -266,42 +284,73 @@ void GuiObject::releaseFocus()
 }
 
 
+
 /**
  *
  */
+/*
 bool GuiObject::onLeftMouseButtonPressed(const Vector2d& pos)
 {
    m_Drag = true;
    return false;
 }
-
+*/
 
 /**
  *
  */
+/*
 bool GuiObject::onLeftMouseButtonReleased(const Vector2d& pos)
 {
    m_Drag = false;
    return false;
 }
-
+*/
 
 /**
  *
  */
+ /*
 bool GuiObject::onRightMouseButtonPressed(const Vector2d& pos)
 {
    return false;
 }
+*/
 
 
 /**
  *
  */
+ /*
 bool GuiObject::onRightMouseButtonReleased(const Vector2d& pos)
 {
    return false;
 }
+*/
+
+
+
+
+/**
+ *
+ */
+void GUSGAME_DLL GuiObject::handleMouseMotion(MouseMotionEvent &mouseMotion)
+{
+   onMouseMove(mouseMotion.getPosition());
+}
+
+
+
+/**
+ *
+ */
+
+bool GuiObject::handleMouseButton(MouseButtonEvent &mouseButtonEvent)
+//void GameEventHandler::HandleMouseButton(Uint8 type,SDL_MouseButtonEvent buttonEvent)
+{
+   return false;
+}
+
 
 
 /**
@@ -309,7 +358,7 @@ bool GuiObject::onRightMouseButtonReleased(const Vector2d& pos)
  */
 void GuiObject::setPanelPosition(const Vector2d& pos)
 {
-   m_PanelPosition=pos;
+   m_PanelPosition = pos;
 }
 
 
@@ -318,6 +367,8 @@ void GuiObject::setPanelPosition(const Vector2d& pos)
  */
 void GuiObject::onMouseMove(const Vector2d& pos)
 {
+   GuiEventHandler::onMouseMove(pos);
+
    m_MouseOver = false;
    if (m_Active) {
       if (m_Rect.isPointOverTranslated(pos, GraphicsHandler::instance().getZoomX(), GraphicsHandler::instance().getZoomY())) {
@@ -336,35 +387,41 @@ void GuiObject::onMouseMove(const Vector2d& pos)
    m_LastMousePosition = pos;
 }
 
+
 /**
  *
  */
+ /*
 void GuiObject::onMouseScrollUp(const Vector2d& pos)
 {
 }
+*/
 
 
 /**
  *
  */
+ /*
 void GuiObject::onMouseScrollDown(const Vector2d& pos)
 {
 }
+*/
 
 
 /**
  *
  */
+ /*
 void GuiObject::onDrag(const Vector2d& pos)
 {
    if (m_MouseOver) {
-      /*
-      std::stringstream st;
-      st << "GuiObject::Drag:" << pos.x << "," << pos.y;
-      STLOG(st);
-      */
+      //std::stringstream st;
+      //st << "GuiObject::Drag:" << pos.x << "," << pos.y;
+      //STLOG(st);
+
    }
 }
+*/
 
 
 /**
@@ -423,7 +480,7 @@ std::string GuiObject::getName()
  */
 void GuiObject::print()
 {
-   std::cout << getName() << std::endl;
+   std::cout << getName() << " : " << getActive() << std::endl;
 }
 
 

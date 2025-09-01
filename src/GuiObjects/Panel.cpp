@@ -33,6 +33,7 @@ using namespace Gus::GraphicsLib;
 using namespace Gus::EventLib;
 
 #include "GuiEventHandler.h"
+#include "GlobalEventHandler.h"
 
 #include "GuiObject.h"
 #include "Panel.h"
@@ -132,7 +133,7 @@ Panel::Panel(const Panel& source) : GuiObject(source), m_GuiList(0), m_DrawFrame
  */
 Panel& Panel::operator=(const Panel& source)
 {
-   if (this!=&source) {
+   if (this != &source) {
       m_GuiList=new std::vector<std::shared_ptr<GuiObject>>;
 
       m_GuiList->clear();
@@ -274,7 +275,9 @@ bool Panel::onLeftMouseButtonPressed(const Vector2d& pos)
 
             if (current && !handled) {
                if (current->getActive()) {
-                  handled = current->onLeftMouseButtonPressed(pos/*-panelPos*/);
+                  if (!handled) {
+                     handled = current->onLeftMouseButtonPressed(pos/*-panelPos*/);
+                  }
                }
             }
             ++iter;
@@ -304,7 +307,9 @@ bool Panel::onLeftMouseButtonReleased(const Vector2d& pos)
 
             if (current) {
                if (current->getActive()) {
-                  result = current->onLeftMouseButtonReleased(pos - panelPos);
+                  if (!result) {
+                     result = current->onLeftMouseButtonReleased(pos - panelPos);
+                  }
                }
             }
             ++iter;
@@ -360,7 +365,10 @@ bool Panel::onRightMouseButtonReleased(const Vector2d& pos)
             std::shared_ptr<GuiObject> current = (*iter);
 
             if (current) {
-               result = current->onRightMouseButtonReleased(pos - panelPos);
+
+               if (!result) {
+                  result = current->onRightMouseButtonReleased(pos - panelPos);
+               }
             }
             ++iter;
          }

@@ -253,11 +253,12 @@ int main(int argc, char **argv)
       //guiList=new std::vector<boost::shared_ptr<GuiObject> >;
       panel = std::make_shared<ExamplePanel>();
 
+      EventSystem::initEventSystem();
+
       //guiList->push_back((GuiObject*)panel);
       //guiList->push_back(panel);
       GuiHandler::instance()->addGuiObject(panel);
-
-      EventSystem::initEventSystem();
+      // GuiHandler::instance()->addGlobalEventHandler();
 
       // Create an EventHandler for our "custom" events
       // which inherits from the GUI event handler, this for it
@@ -269,6 +270,9 @@ int main(int argc, char **argv)
       //	EventHelper::instance()->setEventHandler(guiEventHandler);
       // EventHelper::instance()->setEventHandler(eventHandler);
       EventSystem::addEventHandler(eventHandler);
+      //guiList->push_back((GuiObject*)panel);
+      //guiList->push_back(panel);
+      GuiHandler::instance()->addGuiObject(panel);
 
    }
    catch (Exception &e)

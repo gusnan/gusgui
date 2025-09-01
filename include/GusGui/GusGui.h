@@ -24,6 +24,7 @@
  *
  */
 #include "GuiEventHandler.h"
+#include "GlobalEventHandler.h"
 
 #include "GuiObject.h"
 #include "Button.h"
