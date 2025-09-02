@@ -67,6 +67,14 @@ set(BUILD_SHARED_LIBS on)
 
 SET(CMAKE_SHARED_LIBRARY_CXX_FLAGS "${CMAKE_SHARED_LIBRARY_CXX_FLAGS} -DBUILDING_GUSGAME_DLL")
 
+add_custom_target(cppcheck
+   # cppcheck --inline-suppr --enable=all ../src/
+
+   #
+
+   cppcheck --suppress=missingIncludeSystem --suppress=missingInclude --inline-suppr --enable=all  ../src/
+   # cppcheck --suppress=missingIncludeSystem --suppress=unmatchedSuppression:src/script.c -i src/icons/icons_resources.c --inline-suppr --enable=all ./src/
+)
 
 # Fix MinGW/MSYS problem-- c:\mingw\bin\..\lib\gcc\mingw32\3.4.5\..\..\..\..\mingw32\bin\ld.exe: 
 # warning: auto-importing has been activated without --enable-auto-import 
