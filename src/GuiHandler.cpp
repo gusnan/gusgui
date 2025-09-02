@@ -311,11 +311,6 @@ void GuiHandler::addToHandleList(const std::shared_ptr<GuiObject> &guiObject)
  */
 void GuiHandler::removeFromHandleList(const std::shared_ptr<GuiObject> &guiObject)
 {
-   // std::vector<std::shared_ptr<GuiObject>>::iterator iter;
-   std::shared_ptr<GuiObject> currentGuiObject = std::shared_ptr<GuiObject>();
-
-   // GuiObject *inGuiObject = guiObject.get();
-
    if (m_GuiList) {
 
       if (!m_GuiList->empty()) {
