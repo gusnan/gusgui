@@ -107,8 +107,6 @@ bool GUSGAME_DLL GlobalEventHandler::onLeftMouseButtonPressed(const Vector2d& po
  */
 bool GUSGAME_DLL GlobalEventHandler::onLeftMouseButtonReleased(const Vector2d& pos)
 {
-   LOG("GlobalEventHandler::onLeftMouseButtonReleased");
-
    bool result = false;
 
    std::shared_ptr<std::vector<std::shared_ptr<GuiObject>>> guiList = GuiHandler::instance()->getGuiList(); //getGuiList();

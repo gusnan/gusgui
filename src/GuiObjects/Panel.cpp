@@ -428,12 +428,7 @@ void Panel::onDrag(const Vector2d& pos)
    GuiObject::onDrag(pos);
 
    if ((m_MouseOver) && (m_Drag)) {
-      /*
-      std::stringstream st;
-      st << "Panel::OnDrag:" << pos.x << "," << pos.y;
 
-      STLOG(st);
-      */
    }
 }
 
@@ -460,7 +455,6 @@ void Panel::setVisible(bool visible)
  */
 void Panel::setActive(bool active)
 {
-
    for (std::vector<std::shared_ptr<GuiObject>>::iterator iter = m_GuiList->begin(); iter != m_GuiList->end();) {
       std::shared_ptr<GuiObject> obj = (*iter);
 

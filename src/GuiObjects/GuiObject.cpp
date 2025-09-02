@@ -230,12 +230,6 @@ bool GuiObject::getVisible() const
  */
 void GuiObject::setVisibleAndActive(bool in)
 {
-   std::stringstream st;
-
-   st << getName() << "; setactive: " << in ? "FALSE" : "TRUE";
-
-   STLOG(st);
-
    m_Visible = in;
    m_Active = in;
 }

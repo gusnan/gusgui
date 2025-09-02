@@ -130,14 +130,6 @@ void LoaderMeter::increaseValue()
 {
    m_Value++;
 
-   /*
-   std::stringstream st;
-
-   st << m_Value;
-
-   STLOG(st);
-   */
-
    draw(Vector2d(0, 0), 1.0f);
 
 
